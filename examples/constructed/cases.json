@@ -1,0 +1,289 @@
+{
+  "schema_version": 1,
+  "snapshot_ids": {
+    "before": "7262a50984bb805b83af313334fb88c8759a11755f88b4968af1ad2e52b54904",
+    "after": "b80b764e3d4b3a408740848d1780a91bd404f5c6310a5a20980d500d1ffd2231"
+  },
+  "cases": [
+    {
+      "case_id": "timeout-change",
+      "family_id": "timeout-change",
+      "question": "What is the default timeout in Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "10 seconds",
+          "rubric": "State the expected fact without contradictory claims and cite applicable evidence.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.config",
+              "quote": "the default timeout is 10 seconds."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "20 seconds",
+          "rubric": "State the expected fact without contradictory claims and cite applicable evidence.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.config",
+              "quote": "the default timeout is 20 seconds."
+            }
+          ]
+        }
+      },
+      "category": "behavior_change",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "install-wording",
+      "family_id": "install-wording",
+      "question": "How do I install Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "pip install widget-demo==1.0",
+          "rubric": "State the expected fact without contradictory claims and cite applicable evidence.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.install",
+              "quote": "pip install widget-demo==1.0"
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "pip install widget-demo==1.0",
+          "rubric": "State the expected fact without contradictory claims and cite applicable evidence.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.install",
+              "quote": "pip install widget-demo==1.0"
+            }
+          ]
+        }
+      },
+      "category": "wording_only",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "status-unrelated",
+      "family_id": "status-unrelated",
+      "question": "How do I check status in Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "widget status",
+          "rubric": "State the expected fact without contradictory claims and cite applicable evidence.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.health",
+              "quote": "check status with widget status."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "widget status",
+          "rubric": "State the expected fact without contradictory claims and cite applicable evidence.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.health",
+              "quote": "check status with widget status."
+            }
+          ]
+        }
+      },
+      "category": "unrelated_change",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "old-version",
+      "family_id": "old-version",
+      "question": "Does Widget version 1 have a documented status command after version 2 documentation is added?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "widget status",
+          "rubric": "State the expected fact without contradictory claims and cite applicable evidence.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.health",
+              "quote": "check status with widget status."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "widget status",
+          "rubric": "State the expected fact without contradictory claims and cite applicable evidence.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.health",
+              "quote": "check status with widget status."
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "export-removal",
+      "family_id": "export-removal",
+      "question": "Which export extension does Widget version 1 use?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": ".wgt",
+          "rubric": "State the expected fact without contradictory claims and cite applicable evidence.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.legacy",
+              "quote": "export files use the .wgt extension."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "abstain",
+          "answer": null,
+          "rubric": "Acknowledge insufficient applicable evidence; do not assert a factual answer.",
+          "target_context": null,
+          "evidence": []
+        }
+      },
+      "category": "evidence_removed",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "missing-api",
+      "family_id": "missing-api",
+      "question": "Does Widget version 1 support encrypted backups?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "abstain",
+          "answer": null,
+          "rubric": "Acknowledge insufficient applicable evidence; do not assert a factual answer.",
+          "target_context": null,
+          "evidence": []
+        },
+        "after": {
+          "behavior": "abstain",
+          "answer": null,
+          "rubric": "Acknowledge insufficient applicable evidence; do not assert a factual answer.",
+          "target_context": null,
+          "evidence": []
+        }
+      },
+      "category": "missing_evidence",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "worker-conflict",
+      "family_id": "worker-conflict",
+      "question": "What is the worker limit in Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "conflict",
+          "answer": "Sources conflict: 2 versus 4",
+          "rubric": "Expose the contradictory worker limits; do not select one as authoritative.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.conflict-a",
+              "quote": "the worker limit is 2."
+            },
+            {
+              "document_id": "widget.conflict-b",
+              "quote": "the worker limit is 4."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "conflict",
+          "answer": "Sources conflict: 2 versus 4",
+          "rubric": "Expose the contradictory worker limits; do not select one as authoritative.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.conflict-a",
+              "quote": "the worker limit is 2."
+            },
+            {
+              "document_id": "widget.conflict-b",
+              "quote": "the worker limit is 4."
+            }
+          ]
+        }
+      },
+      "category": "conflicting_sources",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    }
+  ]
+}

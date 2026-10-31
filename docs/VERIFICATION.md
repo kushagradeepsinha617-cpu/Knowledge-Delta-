@@ -1,62 +1,102 @@
-# Verification record — foundation preparation
+# Milestone 1 verification record
 
-Prepared on 2026-11-01 (Asia/Calcutta). No Python execution or inference results.
+## Result and scope
 
-## Observed
+**52 genuine pytest tests passed** on isolated CPython **3.15.2**, Windows x64.
+The real comparison command exactly matched the checked-in expected JSON.
+Case validation reported **7 draft / 0 human-reviewed** cases. Default readiness
+and invalid-input CLI behavior were exercised.
 
-- Remote repository tree at commit
-  3026066735e6a6ed8379a5361ba1fbc98fc786a8 contained README.md and test.txt only.
-  No applicable repository instruction files were present.
-- python, py, python3, git and ollama were not found in the agent process PATH.
-  This is not proof that the user has not installed them elsewhere.
-- CPU/RAM/GPU queries via Win32 CIM returned access denied.
-  Free disk was not established. User reports 16 GB RAM; it is unverified.
-- Node v24.22.0 was available. It executed in-memory checks with no project-file
-  writes or dependency downloads.
+This is foundation-tool verification. No model inference, assistant benchmark,
+semantic grading, hardware inference-speed result or human case review occurred.
 
-## Independent fixture checks performed in Node
+## Authoritative artifacts
 
-- Computed canonical SHA256 snapshot identities from the drafted manifests and
-  exact Markdown strings:
-  - before: 7262a50984bb805b83af313334fb88c8759a11755f88b4968af1ad2e52b54904
-  - after: b80b764e3d4b3a408740848d1780a91bd404f5c6310a5a20980d500d1ffd2231
-- Checked seven documents per snapshot and five expected diff records.
-- Checked seven unique draft constructed cases covering seven categories.
-- Checked dataset snapshot bindings and all 13 supporting evidence references:
-  source ID, exact quote inclusion and requested-version applicability.
-- Checked null factual answer for each abstention expectation.
-- Generated expected-diff.json using that independent implementation.
-- Initial Node invocation attempts failed from shell quoting and command-length
-  limits; smaller encoded in-memory invocations then completed successfully.
-  Those failures did not execute Python or create files.
+- [checks.json](evidence/milestone1/checks.json): executed commands, exit codes,
+  stdout/stderr, dependency mode and tested project source hashes.
+- [pytest.xml](evidence/milestone1/pytest.xml): actual pytest JUnit results;
+  52 tests, zero failures/errors/skips.
+- [cli.json](evidence/milestone1/cli.json): real CLI subprocess output and checks.
+- [source-manifest.json](evidence/milestone1/source-manifest.json): SHA256 hashes
+  of tested package, helper, test, fixture and relevant configuration files.
+- [environment.json](evidence/milestone1/environment.json): actual interpreter,
+  import origins, readiness, package versions and measured local footprint.
+- [dependency-sources.json](evidence/milestone1/dependency-sources.json):
+  exact source revisions/files, build-version metadata and packaging provenance.
 
-These checks validate fixture consistency, NOT the Python implementation.
-The pytest suite independently compares Python output to the expected fixture
-when an authorized Python runtime becomes available.
+The runner requires source hashes to remain unchanged through the test run.
+The source manifest excludes generated evidence and prose documentation, avoiding
+circular hashes. Execution duration is a test-run observation, not an assistant
+latency benchmark.
 
-## Review
+## Tested dependency configuration
 
-Brain reviewed the proposed architecture and supplied source excerpts.
-Fixes addressed strict schema types, duplicate JSON keys/NaN, abstention labels,
-default-version validation and Windows path handling.
-This was a partial source review, not a full executed audit.
+| Dependency | Exercised release |
+|---|---|
+| pytest | 9.2.0 |
+| pluggy | 1.6.0 |
+| iniconfig | v2.3.0 source tag; module has no version attribute |
+| colorama | 0.4.6 |
+| packaging | 26.2, copied unchanged from existing pip 26.2.2 |
+| Pygments | 2.20.0, complete official package source |
 
-## Not verified
+Official dependency source files were read through the GitHub connector and
+verified against Git blob hashes. Licenses were preserved in the ignored local
+setup. Pytest and pluggy needed their usual generated build-version files;
+those files were explicitly generated from verified release tags and have
+separate recorded SHA256 hashes. Testing algorithms were not modified.
 
-Python imports, pytest, package build/install, dependency resolution, local CLI,
-Windows checkout, local services, models/digests, inference, hardware performance,
-embeddings, evaluation accuracy, UI or exports. No benchmark results exist.
+Full Pygments source was used after the pre-existing pip-vendored copy proved
+trimmed. The failed import attempts ran no tests and are not counted as passes.
+Unused setup copies remain inside the permitted folder, below the size ceiling.
 
-No files were created or modified on the user's computer. No workflows or
-remote runners were enabled. The user explicitly approved one foundation publication; execution remains unverified.
+**This was source execution, not verified pip installation or package building.**
+The normal installation route in README is the intended reproduction route on
+machines with PyPI access. The source-only fallback is detailed in TEST_SETUP.md.
+No compatibility claim is established for Python versions other than 3.15.2.
 
-## Published-source checks, not installed-version checks
+## Environment and authorization observations
 
-- https://pypi.org/pypi/pytest/json — current distribution metadata inspected;
-  runtime compatibility has not been exercised.
-- https://ollama.com/library/qwen3:1.7b — model candidate is listed.
-- https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2 — embedding
-  candidate/model card is published.
+The first PATH lookup missed Python and Git. Later read-only app/known-location
+inspection found working existing Python 3.15.2 and Git 2.56.0.windows.3.
+No Python runtime or model download was necessary.
 
-Exact resolved package/runtime versions and model digests remain pending.
-Neither a published listing nor model download size proves host performance.
+The user approved local setup only within one repository folder, with a 250 MB
+ceiling and no global installation. Home-directory creation was denied; the
+permitted source copy is %TEMP%/Knowledge-Delta-. The measured footprint was
+about 13 MB before the final small documentation update.
+
+The first materialization added an extra newline to each file; this was a copy
+artifact, not a snapshot algorithm failure. All 38 original files were reconciled
+against their published Git blob hashes before the successful checks.
+
+Terminal download attempts were blocked. Browser automation ended because it
+could not reliably identify the URL for its policy checks; it was not bypassed.
+Dependencies were instead explicitly staged from official GitHub source files.
+
+Observed: Intel x64 processor identifier; environment reports 12 logical
+processors; approximately 361 GB free disk at observation. RAM/GPU CIM access
+was denied, so 16 GB RAM remains user-reported and GPU capability unknown.
+The localhost Ollama inventory request was refused. No installed model digest
+or live generation is verified.
+
+## Earlier evidence
+
+Initial repository state: 3026066735e6a6ed8379a5361ba1fbc98fc786a8.
+First foundation implementation: 884e48301f10ba3cb447aa84635f318ae6c923bc.
+
+Independent Node fixture checks preceded Python execution: seven documents per
+snapshot, five changes, seven draft cases/categories and 13 exact applicable
+evidence references. Those checks established fixture consistency only.
+
+The actual Python sample reproduced snapshot IDs:
+- before: 7262a50984bb805b83af313334fb88c8759a11755f88b4968af1ad2e52b54904
+- after: b80b764e3d4b3a408740848d1780a91bd404f5c6310a5a20980d500d1ffd2231
+
+Published-source references checked:
+- https://pypi.org/project/pytest/
+- https://ollama.com/library/qwen3:1.7b
+- https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
+
+A model listing is availability evidence, not an installation, memory or speed
+measurement. Full RAG acceptance checks belong to later milestones.

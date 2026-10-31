@@ -65,7 +65,10 @@ def parse_snapshot(raw, root, read_bytes=None):
 
     read_bytes is injectable for isolated unit tests. Production uses Path.read_bytes.
     """
-    root = Path(root).resolve()
+    try:
+        root = Path(root).resolve()
+    except (OSError, RuntimeError) as exc:
+        raise ValidationError(f"cannot resolve snapshot root {root}: {exc}") from exc
     fields(raw, ("schema_version", "name", "domain", "default_version",
                  "provenance", "documents"), "snapshot")
     schema_version(raw["schema_version"], "snapshot")
@@ -93,7 +96,10 @@ def parse_snapshot(raw, root, read_bytes=None):
         if len(set(versions)) != len(versions):
             raise ValidationError(f"{identity}: duplicate software versions")
         versions = tuple(sorted(versions))
-        path = document_path(root, relative)
+        try:
+            path = document_path(root, relative)
+        except (OSError, RuntimeError) as exc:
+            raise ValidationError(f"{identity}: cannot resolve document path {relative}: {exc}") from exc
         try:
             content_bytes = read_bytes(path) if read_bytes else path.read_bytes()
             content = content_bytes.decode("utf-8")

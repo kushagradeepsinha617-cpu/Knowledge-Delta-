@@ -43,10 +43,23 @@ threshold or keyword occurrence is used to grant correctness.
 
 ## 006: Delivery and evidence boundaries
 
-No local file writes or installations by agents under current user instructions.
+The user approved a single-folder local source/test setup with a 250 MB ceiling;
+no global installations or intentional writes outside that folder.
 Each GitHub publication needs explicit approval. Read-only inventory does not
-establish complete host state. Tests remain not run until executed in Python.
+establish complete host state. Actual source-run verification is now recorded in VERIFICATION.md.
 
 Interview concept: stable document identity lets us tell a modification from a
 delete-plus-add; content-addressed snapshot identity lets us bind a test dataset
 to exactly the evidence it was designed to assess.
+
+## 007: Source-run verification under the network sandbox
+
+Existing Python/Git outside PATH were found before downloading another runtime.
+PyPI downloads were blocked. Official pytest dependencies were explicitly staged
+from recorded source revisions and licenses; generated release-version metadata
+was labeled separately. The isolated source run passed 52 tests and real CLI checks.
+Normal pip installation/build and other Python versions remain unverified.
+
+Test dependencies and the environment stay ignored under .tools/.venv.
+The source manifest binds evidence to executed code/configuration/fixtures.
+This setup is a verification workaround, not a new application dependency system.

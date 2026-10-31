@@ -12,15 +12,18 @@ Scope: English Markdown/text, one software domain, one local answering model,
 small corpora. Commercial demand and novelty are unvalidated.
 
 User context: intermediate developer, 10–15 hours/week, 1–2 months, user-reported
-16 GB RAM. Assume CPU-only. Hardware speed, GPU and free disk remain unverified.
+16 GB RAM. Assume CPU-only. Inference speed, GPU and RAM remain unverified. Free disk was measured; see
+docs/evidence/milestone1/environment.json.
 
 ## Nonnegotiable constraints
 
 - Zero spending: existing computer/internet/Codex access only. No paid APIs,
   hosting, rented hardware, subscriptions, credit purchases or card-based trials.
-- Project mutations only in this GitHub repository. No local clone, install,
-  generated files or dependency/model downloads by the agents without changed
-  user instructions.
+- The GitHub repository is the canonical project. The user later approved a
+  local repository copy and isolated test setup entirely inside one folder,
+  with a 250 MB ceiling, no global installation, and no intentional writes
+  outside that folder. The verified copy is %TEMP%/Knowledge-Delta-.
+  Models were not downloaded; later setup still follows explicit download steps.
 - Deliverer requests explicit user permission before every push/API publication,
   with concrete changes and a commit justification. GO authorizes preparation;
   it does not waive this gate.

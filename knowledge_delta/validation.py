@@ -19,6 +19,10 @@ def digest(value):
 def text(value, label):
     if not isinstance(value, str) or not value.strip():
         raise ValidationError(f"{label}: expected a nonempty string")
+    try:
+        value.encode("utf-8")
+    except UnicodeEncodeError as exc:
+        raise ValidationError(f"{label}: expected valid UTF-8 text") from exc
     return value
 
 

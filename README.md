@@ -3,50 +3,54 @@
 A local tool for testing whether documentation changes cause incorrect answers
 in an AI documentation assistant.
 
-**Status:** Milestone 1 foundation implementation prepared. Python execution and
-live inference are unverified. This is an engineering portfolio project;
-commercial demand and novelty are not established.
+**Milestone 1:** the foundation passed **52 offline pytest tests** and real CLI
+checks on **Python 3.15.2 / Windows**. This verification used explicitly staged
+upstream dependency sources inside an isolated environment. Normal pip
+installation, package builds, other Python versions, and local model inference
+remain unverified. See [the evidence record](docs/VERIFICATION.md).
 
-## What is available in the foundation
+## Foundation features
 
-- Immutable, reproducibly identified document snapshots.
-- Detection of added, removed, content-edited and metadata-edited documents.
-- Strict case validation, exact evidence references and snapshot bindings.
-- A read-only readiness command.
-- Two constructed snapshots and seven draft development cases.
-- Offline pytest tests and an independently calculated expected JSON diff.
+- Immutable snapshots with stable document IDs and reproducible snapshot hashes.
+- Added/removed documents and independent content/metadata change detection.
+- Strict case validation, exact evidence quotes, fixed requested versions,
+  snapshot bindings, review labels and family split checks.
+- Read-only readiness information and an opt-in localhost model inventory.
+- Two constructed snapshots, seven draft cases, and a sample JSON diff.
+- Reproducible CLI checks, pytest tests, source hashes and execution artifacts.
 
-There is no answering model pipeline, evaluator, Streamlit UI or HTML export yet.
-The sample diff is document comparison, not an assistant benchmark.
-No human dataset review has occurred.
+This milestone tests the foundation. The RAG answering pipeline, semantic
+evaluation, Streamlit interface and HTML reports belong to later milestones.
+The seven example cases have **zero human reviews** and provide no benchmark
+or commercial-validation claims.
 
-## Windows setup (explicit, user-run steps)
+## Windows setup
 
-These instructions describe future local setup. Agents have not cloned this
-repository, installed anything, downloaded models, or created local project files.
-
-Prerequisites: Python 3.11+ and a local copy of this repository.
-If Python is not installed, install it explicitly from https://www.python.org/downloads/windows/.
-Git is optional if you download the repository using GitHub instead.
-Open PowerShell in the repository root.
-
-Create the isolated environment and install the small foundation plus test extra.
-These setup commands use internet access and create local environment files:
+Use an existing Python 3.11+ installation; only 3.15.2 was exercised here.
+Open PowerShell in the repository root. Choose the actual Python executable
+if Python is not in your PATH:
 
 ```powershell
-py -3.11 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -e ".[test]"
-.\.venv\Scripts\python.exe -m pip list --format=json
+# Replace this with your existing interpreter path.
+$basePython = "C:\path\to\python.exe"
+New-Item -ItemType Directory -Path ".tools\tmp" -Force | Out-Null
+$env:TEMP = (Resolve-Path ".tools\tmp").Path
+$env:TMP = $env:TEMP
+$env:PYTHONDONTWRITEBYTECODE = "1"
+& $basePython -B -m venv .venv
+.\.venv\Scripts\python.exe -B -m pip install --no-cache-dir -r requirements-test.txt
 ```
 
-The proposed Python floor and test dependency range have not been resolved or
-executed in the agent environment. Record the actual package versions from the
-last command; there is no verified lockfile yet.
+This is the intended ordinary dependency-installation route. The agent's network
+sandbox prevented PyPI installation, so that installer step was **not verified**.
+The tested source-only fallback and its exact revisions are documented in
+[TEST_SETUP.md](docs/TEST_SETUP.md). Neither route installs an answering model.
+The application runs directly from the repository; editable installation and
+the optional console entry point are not required.
 
-## Run without Ollama or model downloads
+## Run the sample
 
-All commands below print JSON and run from the repository root.
-They do not generate answers or download models.
+From the repository root, these commands print JSON:
 
 ```powershell
 .\.venv\Scripts\python.exe -B -m knowledge_delta doctor
@@ -54,53 +58,61 @@ They do not generate answers or download models.
 .\.venv\Scripts\python.exe -B -m knowledge_delta validate-cases examples/constructed/before/manifest.json examples/constructed/after/manifest.json examples/constructed/cases.json
 ```
 
-Expected comparison: five document records:
-- widget.config: content and source-revision metadata changed.
-- widget.install: wording and source-revision metadata changed.
-- widget.legacy: removed.
-- widget.scope: version metadata changed, content unchanged.
-- widget.v2: added.
+The comparison produces five document-change records: configuration and
+installation content/source-revision changes, legacy evidence removal, a
+version-scope metadata correction, and a version-2 document addition.
+See [the expected diff](examples/constructed/expected-diff.json).
+Case validation reports seven drafts and zero human-reviewed cases.
+Changing fixture bytes invalidates their dataset snapshot bindings by design.
 
-Expected dataset summary: seven cases, seven draft, zero human-reviewed.
-Expected diff: [examples/constructed/expected-diff.json](examples/constructed/expected-diff.json).
-Changing fixture bytes intentionally invalidates dataset snapshot bindings.
-
-Optional explicit local Ollama inventory request, without generation/download:
+An explicit local Ollama inventory check is available without generation:
 
 ```powershell
 .\.venv\Scripts\python.exe -B -m knowledge_delta doctor --check-ollama
 ```
 
-It requests only http://127.0.0.1:11434/api/tags with a timeout.
-A present model is not a passed inference test. Installation/model pulling and
-the ten-query hardware test belong to Milestone 2, after user instruction.
+It queries only `http://127.0.0.1:11434/api/tags`; it does not download models.
+The local service refused the connection during verification.
 
-## Offline tests
+## Offline checks and evidence
 
-After the explicit setup, tests need no network, Ollama or model assets:
+After explicit dependency setup, run:
 
 ```powershell
-$env:PYTEST_DISABLE_PLUGIN_AUTOLOAD = "1"
-.\.venv\Scripts\python.exe -B -m pytest -q -p no:cacheprovider
+.\.venv\Scripts\python.exe -B scripts/run_checks.py
 ```
 
-Test inputs are read-only fixtures or in-memory edits. No test downloads models.
-The tests cover identity/isolation, metadata/default changes, removals, unsafe
-paths, invalid schemas/evidence, review/split rules, CLI output, and missing
-services. Later inference/evaluator/cache acceptance tests are not claimed here.
+On the existing machine's separately staged source-dependency setup, the
+**verified command** is:
 
-**These Python commands have not yet been run by the agents.**
-See [verification](docs/VERIFICATION.md) for checks actually performed.
+```powershell
+.\.venv\Scripts\python.exe -B scripts/run_checks.py --source-dependencies --evidence-dir docs/evidence/milestone1
+```
 
-## Design and next steps
+The source-dependency option requires the ignored `.tools/vendor` assets
+described in TEST_SETUP.md; a fresh checkout does not contain those assets.
 
-See [project scope](PROJECT_SPEC.md), [plan/status](PLAN.md),
-[decisions](docs/DECISIONS.md), [schema contracts](docs/SCHEMAS.md) and
-[dataset card](docs/DATASET_CARD.md).
+The runner disables bytecode, pytest caching and third-party plugin autoload,
+keeps its temporary directory within the project, runs actual pytest, and checks
+the real CLI in subprocesses. No test or application startup downloads anything.
+An explicit evidence path saves JUnit XML, CLI output and a source-hash manifest.
+Existing evidence files are overwritten when that option is used.
 
-Interview concept: a document keeps its identity across edits, while a snapshot
-gets a new content-derived identity when its evidence or relevant metadata changes.
+Checked-in results: [JUnit](docs/evidence/milestone1/pytest.xml),
+[checks](docs/evidence/milestone1/checks.json),
+[CLI output](docs/evidence/milestone1/cli.json),
+[tested source hashes](docs/evidence/milestone1/source-manifest.json), and
+[environment](docs/evidence/milestone1/environment.json).
 
-Milestone 2 will add local retrieval and inference only after instruction.
-The full application will eventually start with a documented local Streamlit
-command; that interface is not implemented at this milestone.
+## Design and status
+
+See [scope](PROJECT_SPEC.md), [plan](PLAN.md), [decisions](docs/DECISIONS.md),
+[schemas](docs/SCHEMAS.md), [dataset card](docs/DATASET_CARD.md), and
+[Milestone 1 acceptance](docs/MILESTONE_1_ACCEPTANCE.md).
+
+Interview concept: a document keeps its identity across edits; its content hash
+and the containing snapshot's identity change. This distinguishes an edit from
+a removal followed by an unrelated addition.
+
+Milestone 2 awaits the user's instruction. No AI model, UI, semantic evaluator
+or production incremental-ingestion behavior has been measured.

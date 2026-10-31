@@ -1,0 +1,8 @@
+# Exact dependency releases exercised on Python 3.15.2 (see docs/VERIFICATION.md).
+# This is a test dependency list, not a claim of verified wheel installation.
+pytest==9.2.0
+colorama==0.4.6
+iniconfig==2.3.0
+packaging==26.2
+pluggy==1.6.0
+Pygments==2.20.0

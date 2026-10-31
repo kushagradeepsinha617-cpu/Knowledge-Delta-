@@ -12,6 +12,8 @@ CATEGORIES = ("behavior_change", "wording_only", "unrelated_change",
 
 
 def validate_dataset(raw, before, after):
+    if before.domain != after.domain:
+        raise ValidationError("snapshots must belong to the same software domain")
     fields(raw, ("schema_version", "snapshot_ids", "cases"), "dataset")
     schema_version(raw["schema_version"], "dataset")
     fields(raw["snapshot_ids"], ("before", "after"), "dataset.snapshot_ids")

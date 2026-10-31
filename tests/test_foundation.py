@@ -226,3 +226,85 @@ def test_checked_in_expected_diff_matches_real_command_logic():
     before, after = pair()
     expected = read_json(EXAMPLE / "expected-diff.json")
     assert compare(before, after) == expected
+
+
+def test_content_only_diff_does_not_claim_metadata_change():
+    before = snapshot()
+    after = snapshot(overrides={"config.md": b"A changed fact.\n"})
+    changes = compare(before, after)["document_changes"]
+    assert len(changes) == 1
+    assert changes[0]["document_id"] == "widget.config"
+    assert changes[0]["content_changed"] is True
+    assert changes[0]["metadata_changed"] is False
+
+
+@pytest.mark.parametrize("error", [PermissionError("denied"), FileNotFoundError("missing")])
+def test_document_read_errors_become_validation_errors(error):
+    def unreadable(path):
+        raise error
+    with pytest.raises(ValidationError, match="cannot read UTF-8 document"):
+        parse_snapshot(manifest(), EXAMPLE / "before", unreadable)
+
+
+@pytest.mark.parametrize("error", [PermissionError("denied"), RuntimeError("symlink loop")])
+def test_document_resolution_errors_become_validation_errors(monkeypatch, error):
+    def unresolvable(*args):
+        raise error
+    monkeypatch.setattr("knowledge_delta.snapshots.document_path", unresolvable)
+    with pytest.raises(ValidationError, match="cannot resolve document path"):
+        snapshot()
+
+
+def test_snapshot_root_resolution_error_is_actionable(monkeypatch):
+    raw = manifest()
+    def unresolvable(*args, **kwargs):
+        raise RuntimeError("symlink loop")
+    monkeypatch.setattr(Path, "resolve", unresolvable)
+    with pytest.raises(ValidationError, match="cannot resolve snapshot root"):
+        parse_snapshot(raw, EXAMPLE)
+
+
+def test_lone_surrogate_metadata_is_rejected_actionably():
+    raw = manifest()
+    raw["documents"][0]["title"] = "\ud800"
+    with pytest.raises(ValidationError, match="valid UTF-8 text"):
+        snapshot(raw)
+
+
+def test_case_validation_rejects_cross_domain_pair():
+    before, after = pair()
+    raw = manifest("after")
+    raw["domain"] = "another-product"
+    different_domain = snapshot(raw, slot="after")
+    cases = dataset()
+    cases["snapshot_ids"]["after"] = different_domain.snapshot_id
+    with pytest.raises(ValidationError, match="same software domain"):
+        validate_dataset(cases, before, different_domain)
+
+
+@pytest.mark.parametrize("models, expected", [
+    ([], "model_missing"),
+    ([{"name": "qwen3:1.7b", "digest": "test-digest"}], "model_available"),
+])
+def test_readiness_model_inventory_is_not_inference(monkeypatch, models, expected):
+    from io import StringIO
+    class LocalInventory:
+        def open(self, url, timeout):
+            assert url == "http://127.0.0.1:11434/api/tags"
+            assert timeout == 3
+            return StringIO(json.dumps({"models": models}))
+    monkeypatch.setattr("knowledge_delta.doctor.build_opener", lambda *args: LocalInventory())
+    result = readiness(check_ollama=True)["ollama"]
+    assert result["status"] == expected
+    assert result["inference_verified"] is False
+    if models:
+        assert result["digest"] == "test-digest"
+
+
+def test_inaccessible_disk_is_unknown_without_crashing(monkeypatch):
+    def denied(path):
+        raise PermissionError("simulated inaccessible volume")
+    monkeypatch.setattr("knowledge_delta.doctor.shutil.disk_usage", denied)
+    result = readiness()
+    assert result["hardware"]["free_disk_bytes"] is None
+    assert "inaccessible volume" in result["disk_error"]

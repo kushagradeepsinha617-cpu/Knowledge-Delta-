@@ -1,5 +1,6 @@
 """Adverse inputs and verification failures; simulated outputs are test fixtures."""
 import hashlib
+from http.client import BadStatusLine, IncompleteRead
 from io import BytesIO, StringIO
 import json
 from pathlib import Path
@@ -87,6 +88,30 @@ def test_inventory_decoder_recursion_is_an_explicit_error(monkeypatch):
         raise RecursionError("simulated deeply nested inventory")
     monkeypatch.setattr(doctor.json, "loads", too_deep)
     assert "deeply nested" in doctor.readiness(True)["ollama"]["error"]
+
+
+@pytest.mark.parametrize("failure", [BadStatusLine("broken status"), IncompleteRead(b"partial", 100)])
+def test_inventory_http_protocol_errors_are_actionable(monkeypatch, failure):
+    class BrokenOpener:
+        def open(self, *args, **kwargs):
+            raise failure
+    monkeypatch.setattr(doctor, "build_opener", lambda *args: BrokenOpener())
+    result = doctor.readiness(True)["ollama"]
+    assert result["status"] == "unavailable_or_invalid_response"
+    assert result["inference_verified"] is False
+    json.dumps(result, ensure_ascii=False).encode("utf-8")
+
+
+@pytest.mark.parametrize("field", ["name", "digest"])
+def test_inventory_lone_surrogates_cannot_break_json_output(monkeypatch, field):
+    model = {"name": "qwen3:1.7b", "digest": "fixture-digest"}
+    model[field] = "\ud800"
+    fake = SimpleNamespace(open=lambda *args, **kwargs: BytesIO(json.dumps({"models": [model]}).encode("utf-8")))
+    monkeypatch.setattr(doctor, "build_opener", lambda *args: fake)
+    result = doctor.readiness(True)["ollama"]
+    assert result["status"] == "unavailable_or_invalid_response"
+    assert "UTF-8" in result["error"]
+    json.dumps(result, ensure_ascii=False).encode("utf-8")
 
 
 @pytest.fixture

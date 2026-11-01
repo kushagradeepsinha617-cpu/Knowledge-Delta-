@@ -1,0 +1,49 @@
+{
+  "kind": "read_only_local_runtime_plan_check",
+  "checked_at": "2026-11-01T07:48:58.639399+00:00",
+  "arguments": [
+    "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.venv\\Scripts\\python.exe",
+    "-B",
+    "scripts/local_ollama.py"
+  ],
+  "returncode": 2,
+  "stdout_json": {
+    "status": "missing_runtime",
+    "project_root": "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-",
+    "command": [
+      "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\runtime\\ollama\\ollama.exe",
+      "serve"
+    ],
+    "environment_overrides": {
+      "USERPROFILE": "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\ollama-profile",
+      "LOCALAPPDATA": "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\ollama-profile\\AppData\\Local",
+      "APPDATA": "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\ollama-profile\\AppData\\Roaming",
+      "TEMP": "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\tmp\\ollama",
+      "TMP": "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\tmp\\ollama",
+      "OLLAMA_MODELS": "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\models\\ollama",
+      "OLLAMA_HOST": "127.0.0.1:11434",
+      "OLLAMA_NO_CLOUD": "1",
+      "OLLAMA_NUM_PARALLEL": "1",
+      "OLLAMA_MAX_LOADED_MODELS": "1",
+      "OLLAMA_CONTEXT_LENGTH": "4096"
+    },
+    "runtime_sha256": null,
+    "configuration_id": "bde11dec5bc5cf8a3fe7d75a733fc1608b517b8f896d31b3871fd1feba0df499",
+    "downloads_performed": false,
+    "native_execution_performed": false,
+    "runtime_publisher_provenance_verified": false,
+    "note": "The executable hash identifies bytes; verify the approved upstream archive separately. Planning creates no directories."
+  },
+  "stderr": "",
+  "state_paths_before": {
+    "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\ollama-profile": false,
+    "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\models\\ollama": false,
+    "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\tmp\\ollama": false
+  },
+  "state_paths_after": {
+    "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\ollama-profile": false,
+    "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\models\\ollama": false,
+    "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\tmp\\ollama": false
+  },
+  "source_id": "6d56aeec4f6fb6e242aada783465786d01e8ea2205fbd325f4f1da18b0dde188"
+}

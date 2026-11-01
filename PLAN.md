@@ -10,7 +10,7 @@
 - Added full-dataset scripts/run_local_cases.py orchestration for both snapshots
   and retrieval configurations, repeated runs without answer caching, and retained
   error denominators. Draft cases and double outputs are not benchmark results.
-- Current independent unit: ten-question smoke harness, explicit CLI, constructed
+- Published smoke unit: ten-question smoke harness, explicit CLI, constructed
   hardware-only inputs and residency observations; offline checkpoint reviewed.
   New evidence is separate in docs/evidence/milestone2-smoke-contracts: 195 executed
   tests, zero failures/errors/skips, plus real CLI checks. Brain approved the
@@ -18,6 +18,17 @@
   Run f26de47c60b1430783205d64ef8c0e9c; source ID
   78c2e05518dfdfcefd1436bb823dfee45c03e7eaf07e8b2a5dcf5ab3720efd80.
   No live measurements are claimed; CPU observation differs from requested control.
+- Current independent unit: explicit real-NumPy integration checks and contained
+  Windows runtime planning/start controls. Final source run executed 206 ordinary
+  tests with zero failures/errors/skips, plus real foundation CLI checks. Actual
+  read-only runtime plan returned missing_runtime/exit 2 without state changes or
+  native execution. The separate NumPy attempt was unavailable (exit 1, zero verified
+  numeric checks). All three observations use the same frozen source identity.
+  Brain approved the limited readiness checkpoint: all 59 source hashes match,
+  and ordinary checks, runtime-plan and unavailable integration evidence agree.
+  Native runtime execution remains unverified; tests use explicit process doubles.
+- Current evidence run: f196d7458a5f46d894857666e69224ca; source ID:
+  6d56aeec4f6fb6e242aada783465786d01e8ea2205fbd325f4f1da18b0dde188.
 - Offline verification uses explicitly labeled tokenizer/index/transport doubles.
   Published pipeline checkpoint executed 183 tests with zero failures/errors/
   skips, plus real foundation CLI checks, on Windows/Python 3.15.2 with verified
@@ -32,8 +43,10 @@
 - User deferred the 12 GB / 4 GB resource proposal; the existing 250 MB folder
   ceiling holds. Continue independent implementation without asking again now.
   No new ML/model downloads were performed for the contract checks.
-- Next: publish the reviewed smoke-harness checkpoint and reconcile remote source
-  hashes. Expanded setup stays deferred.
+- Pipeline 74ca2f6 and smoke e9ff0c0 are published; all 49/55 corresponding remote
+  source hashes were reconciled. Their evidence is preserved historical data.
+- Next: review and publish the integration-readiness extension, retaining failed
+  integration evidence. Expanded setup stays deferred.
 - Milestone 2 is not complete. See docs/MILESTONE_2_PROGRESS.md.
 
 ## Historical records - superseded status and authorization

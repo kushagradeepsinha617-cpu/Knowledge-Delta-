@@ -1,6 +1,7 @@
 # Ten-question local hardware smoke harness
 
-Status: limited offline checkpoint independently reviewed, ready to publish. No live model
+Status: limited offline checkpoint published as [`e9ff0c0`](https://github.com/kushagradeepsinha617-cpu/Knowledge-Delta-/commit/e9ff0c023e9657aca1e4d287c05995b277886d23),
+with all 55 published source hashes reconciled against its manifest. No live model
 latency, memory, residency, or answer-quality measurements have been made.
 Milestone 2 remains incomplete and larger downloads remain deferred by the user.
 
@@ -96,8 +97,9 @@ They can verify counting, residency labels and failure handling, not real model
 speed, memory, or CPU capability. No correctness scores or human reviews are
 fabricated from these hardware-only questions.
 
-Next: publish the reviewed checkpoint and reconcile remote source hashes against
-the recorded evidence. Expanded setup and the actual ten-question
+This checkpoint and its recorded evidence are preserved historical observations;
+later readiness work is tracked in [the integration guide](MILESTONE_2_INTEGRATION_READINESS.md).
+Expanded setup and the actual ten-question
 hardware run remain deferred until separately authorized resources are available.
 
 ## Integration references

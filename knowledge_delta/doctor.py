@@ -1,11 +1,14 @@
 """Read-only readiness checks. Never download, start services, or infer."""
 import importlib.metadata
+from http.client import HTTPException
 import json
 import platform
 import shutil
 import sys
 from urllib.error import URLError
 from urllib.request import HTTPRedirectHandler, ProxyHandler, build_opener
+
+from .validation import text
 
 MODEL = "qwen3:1.7b"
 MAX_INVENTORY_BYTES = 1024 * 1024
@@ -64,14 +67,18 @@ def readiness(check_ollama=False):
                 names = [model[key] for key in ("name", "model") if key in model]
                 if not names or any(not isinstance(name, str) or not name.strip() for name in names):
                     raise ValueError("model names must be nonempty strings")
+                for name in names:
+                    text(name, "local model inventory name")
                 digest = model.get("digest")
                 if digest is not None and (not isinstance(digest, str) or not digest.strip()):
                     raise ValueError("model digest must be a nonempty string when present")
+                if digest is not None:
+                    text(digest, "local model inventory digest")
             matches = [m for m in models if m.get("name") == MODEL or m.get("model") == MODEL]
             result["ollama"] = {"status": "model_available" if matches else "model_missing",
                                 "model": MODEL, "digest": matches[0].get("digest") if matches else None,
                                 "inference_verified": False}
-        except (URLError, OSError, ValueError, KeyError, TypeError, AttributeError, RecursionError) as exc:
+        except (URLError, OSError, HTTPException, ValueError, KeyError, TypeError, AttributeError, RecursionError) as exc:
             result["ollama"] = {"status": "unavailable_or_invalid_response", "model": MODEL,
                                 "error": str(exc), "inference_verified": False,
                                 "action": "Install/start local Ollama and explicitly pull the model during setup."}

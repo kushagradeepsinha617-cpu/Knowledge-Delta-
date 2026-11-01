@@ -1,7 +1,8 @@
 # Milestone 2 progress - offline contracts, not live inference
 
 Status: limited offline pipeline checkpoint published; smoke-harness extension
-independently reviewed and ready to publish. Milestone 2 is not complete. Implemented boundaries and
+published and verified; integration-readiness extension reviewed and ready to publish.
+Milestone 2 is not complete. Implemented boundaries and
 unverified live integrations are distinct.
 
 ## Implemented locally
@@ -126,6 +127,28 @@ hashes; no blocking findings or real model measurements. See the guide
 for the exact run/source IDs, CPU-control stop behavior, digest-based alias checks,
 and the distinction between attempted/completed inference and verified CPU residency.
 
+## Explicit integration readiness
+
+The [readiness guide](MILESTONE_2_INTEGRATION_READINESS.md) separates 15 real-NumPy
+checks from ordinary offline tests and documents contained Windows Ollama planning.
+The actual numeric attempt failed setup because NumPy is unavailable: exit 1,
+zero numeric checks verified. Native execution is mocked in launcher tests; no
+real runtime has started. The read-only plan and future explicit start are distinct.
+
+Pipeline `74ca2f6` and smoke `e9ff0c0` are published, with all 49 and 55 source
+hashes respectively reconciled against their recorded manifests. Their evidence
+remains unchanged historical observations.
+
+The readiness source run executed 206 ordinary offline tests with zero failures,
+errors or skips, plus real CLI checks. A separate actual read-only runtime plan
+returned missing-runtime/exit 2 with checked state paths unchanged; a separate
+real-NumPy attempt remained unavailable/exit 1 with zero verified numeric checks.
+The three observations share source ID
+`6d56aeec4f6fb6e242aada783465786d01e8ea2205fbd325f4f1da18b0dde188`;
+ordinary run `f196d7458a5f46d894857666e69224ca`. Brain approved the limited checkpoint
+and independently verified all 59 source hashes and the three observations' source binding.
+See the readiness guide for scoped evidence and unverified integration boundaries.
+
 ## Resource and delivery boundaries
 
 Per-push approval is waived until further user instruction. Remote changes must
@@ -141,9 +164,9 @@ inside the approved folder. Ordinary tests/startup must not download models.
 
 ## Next acceptance steps
 
-1. Publish the independently reviewed offline checkpoint.
-2. Reconcile remote source hashes with the executed manifest and preserve
-   historical Milestone 1 evidence.
+1. Publish the independently reviewed readiness extension.
+2. Reconcile remote source hashes against the recorded evidence;
+   preserve historical Milestone 1, pipeline, and smoke evidence.
 3. Keep expanded ML/runtime downloads deferred unless the user later authorizes
    the resources; continue work that fits the existing allowance.
 4. Verify real dependencies/assets and run local integration and the measured

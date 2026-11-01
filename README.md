@@ -3,11 +3,29 @@
 A local tool for testing whether documentation changes cause incorrect answers
 in an AI documentation assistant.
 
-**Milestone 1:** the foundation passed **92 offline pytest tests** and real CLI
-checks on **Python 3.15.2 / Windows**. This verification used explicitly staged
-upstream dependency sources inside an isolated environment. Normal pip
-installation, package builds, other Python versions, and local model inference
-remain unverified. See [the adversarial audit](docs/MILESTONE_1_AUDIT.md) and [verification history](docs/VERIFICATION.md).
+**Milestone 1:** the defined foundation passed **92 offline pytest tests** and
+real CLI checks in the configuration below.
+
+## Verification scope
+
+**Proven setup:** Windows with **Python 3.15.2**, using explicitly staged upstream
+dependency sources inside an isolated environment.
+
+**Not yet verified:**
+
+- Fresh installation through pip.
+- Package and wheel builds.
+- Other Python versions.
+- POSIX file locking (for example, on Linux or macOS).
+- Local model inference.
+
+Milestone 1 completion refers to the foundation working in this recorded setup.
+It **does not mean compatibility has been verified in every environment or that
+the software is guaranteed bug-free**. The declared Python version range is not
+a verified compatibility matrix.
+
+See [the adversarial audit](docs/MILESTONE_1_AUDIT.md) and
+[verification history](docs/VERIFICATION.md) for the evidence and limitations.
 
 ## Foundation features
 

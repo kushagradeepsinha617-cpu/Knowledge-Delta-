@@ -3,11 +3,11 @@
 A local tool for testing whether documentation changes cause incorrect answers
 in an AI documentation assistant.
 
-**Milestone 1:** the foundation passed **52 offline pytest tests** and real CLI
+**Milestone 1:** the foundation passed **92 offline pytest tests** and real CLI
 checks on **Python 3.15.2 / Windows**. This verification used explicitly staged
 upstream dependency sources inside an isolated environment. Normal pip
 installation, package builds, other Python versions, and local model inference
-remain unverified. See [the evidence record](docs/VERIFICATION.md).
+remain unverified. See [the adversarial audit](docs/MILESTONE_1_AUDIT.md) and [verification history](docs/VERIFICATION.md).
 
 ## Foundation features
 
@@ -86,23 +86,27 @@ On the existing machine's separately staged source-dependency setup, the
 **verified command** is:
 
 ```powershell
-.\.venv\Scripts\python.exe -B scripts/run_checks.py --source-dependencies --evidence-dir docs/evidence/milestone1
+.\.venv\Scripts\python.exe -B scripts/run_checks.py --source-dependencies --evidence-dir docs/evidence/milestone1-audit
 ```
 
-The source-dependency option requires the ignored `.tools/vendor` assets
+.tools setup is never pushed. The source-dependency option requires the ignored `.tools/vendor` assets
 described in TEST_SETUP.md; a fresh checkout does not contain those assets.
 
-The runner disables bytecode, pytest caching and third-party plugin autoload,
+The runner rejects inherited pytest collection/selection/plugin overrides, verifies
+JUnit execution and counts, and locks shared evidence outputs. It disables
+bytecode, pytest caching and third-party plugin autoload,
 keeps its temporary directory within the project, runs actual pytest, and checks
 the real CLI in subprocesses. No test or application startup downloads anything.
 An explicit evidence path saves JUnit XML, CLI output and a source-hash manifest.
-Existing evidence files are overwritten when that option is used.
+An explicit evidence path updates its current-run records on success or failure.
+Use a fresh output directory to retain previous runs. A busy directory is rejected.
+An unwritable destination is reported as an error.
 
-Checked-in results: [JUnit](docs/evidence/milestone1/pytest.xml),
-[checks](docs/evidence/milestone1/checks.json),
-[CLI output](docs/evidence/milestone1/cli.json),
-[tested source hashes](docs/evidence/milestone1/source-manifest.json), and
-[environment](docs/evidence/milestone1/environment.json).
+Checked-in results: [JUnit](docs/evidence/milestone1-audit/pytest.xml),
+[checks](docs/evidence/milestone1-audit/checks.json),
+[CLI output](docs/evidence/milestone1-audit/cli.json),
+[tested source hashes](docs/evidence/milestone1-audit/source-manifest.json), and
+[environment](docs/evidence/milestone1-audit/environment.json).
 
 ## Design and status
 

@@ -89,7 +89,7 @@
     },
     {
       "case_id": "status-unrelated",
-      "family_id": "status-unrelated",
+      "family_id": "widget-status-v1",
       "question": "How do I check status in Widget version 1?",
       "target": "explicit_version",
       "requested_version": "1",
@@ -130,7 +130,7 @@
     },
     {
       "case_id": "old-version",
-      "family_id": "old-version",
+      "family_id": "widget-status-v1",
       "question": "Does Widget version 1 have a documented status command after version 2 documentation is added?",
       "target": "explicit_version",
       "requested_version": "1",

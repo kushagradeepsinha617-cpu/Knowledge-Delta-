@@ -1,3 +1,22 @@
+# Current audit status
+
+The complete Milestone 1 audit found verification/input gaps missed by the
+original suite. The user approved publication of the reviewed audit fixes.
+
+- Latest run: 92 executed tests, zero failures/errors/skips, real CLI checks.
+- Actual inherited collect-only/plugin/optimization settings were ignored.
+- All 34 tested source hashes independently checked by Brain.
+- Source ID: a489c9c88098203b30366d4fe9aebfa0a9222277a8d1c5f483329c366503afa6.
+- New evidence: docs/evidence/milestone1-audit; original 52-test evidence retained.
+- Corrected stale-success, environment overrides, concurrent writers, JUnit
+  validation, reserved/special paths, JSON errors, redirects/response limits,
+  evidence placement and dependency hash checking.
+- Scope and setup limits remain explicit in docs/MILESTONE_1_AUDIT.md.
+- Next: publish the approved update, reconcile published source hashes, and hand off the audit.
+- Milestone 2 remains unstarted.
+
+## Earlier Milestone 1 history
+
 # Plan and current state
 
 ## Milestone 1 — verified source-run configuration

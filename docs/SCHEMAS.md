@@ -2,7 +2,8 @@
 
 All objects reject unknown/missing fields. JSON duplicate keys and nonstandard
 NaN/Infinity are invalid. No type coercion. Nonempty strings cannot be whitespace.
-Schema version must be integer 1, not a boolean.
+Schema version must be integer 1, not a boolean. Decoder resource-limit errors
+are reported as validation errors; limits depend on the Python interpreter.
 
 ## Snapshot manifest
 
@@ -11,7 +12,9 @@ null), provenance (constructed/genuine), documents array.
 
 Every document requires document_id, relative path (.md/.txt), source_reference,
 source_revision (string/null), software_versions (unique strings; [] = unknown),
-and title. Source references are recorded, never fetched by the loader.
+and title. Production documents must be regular UTF-8 files; reserved Windows
+device aliases (including spaces before extensions) and symlink paths are rejected.
+Source references are recorded, never fetched by the loader.
 Document IDs and case-insensitive paths must be unique within each snapshot.
 
 Canonical JSON: sorted object keys, separators comma/colon without whitespace,

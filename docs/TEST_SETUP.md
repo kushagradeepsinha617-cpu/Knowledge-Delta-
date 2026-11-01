@@ -53,15 +53,19 @@ The existing Python installation's pip 26.2.2 supplied an unchanged packaging
 origin are also recorded. The older trimmed Pygments copy in that directory is
 not used: the complete official Pygments import root precedes it.
 
-Per-package SOURCE_PROVENANCE.json files in the ignored setup directories record
-these facts. `run_checks.py --source-dependencies` validates the official source
-and generated metadata hashes before executing genuine pytest. The assets are
-not bundled into the product repository.
+Per-package SOURCE_PROVENANCE.json files remain as local staging records.
+The current runner instead trusts the checked-in tests/dependency-sources.json
+pins, including packaging SHA256 records, and verifies all six dependency copies
+and generated metadata before executing genuine pytest. The code assets stay
+ignored; their pins are included in the project source manifest.
+
+The authoritative pin/metadata file is tests/dependency-sources.json; it includes
+the exact generated version-file contents as well as their hashes.
 
 To reconstruct this special setup, obtain the enumerated source files at the
 recorded revisions without line-ending conversion, verify their blob hashes,
-place them at the import roots above, preserve licenses, and restore their
-SOURCE_PROVENANCE.json records from the evidence data. Generated version files
+place them at the import roots above, preserve licenses, and retain their
+source revision records. Generated version files
 contain the release versions/tuples recorded in provenance; their exact contents
 must match the recorded hashes. This is a forensic reproduction recipe, rather
 than an automatically tested download/bootstrap script. For normal use, prefer
@@ -70,13 +74,17 @@ the ordinary pip route.
 ## Verified command on the prepared local copy
 
 ```powershell
-Set-Location -LiteralPath (Join-Path $env:TEMP "Knowledge-Delta-")
-.\.venv\Scripts\python.exe -B scripts/run_checks.py --source-dependencies --evidence-dir docs/evidence/milestone1
+# Run from the already-open repository root; setup may have changed TEMP.
+.\.venv\Scripts\python.exe -B scripts/run_checks.py --source-dependencies --evidence-dir docs/evidence/milestone1-audit
 ```
 
-Result: 52 tests passed, followed by successful real subprocess CLI checks.
+Latest result: 92 tests executed and passed, followed by successful real subprocess CLI checks.
 No test starts a model service or downloads dependencies/models.
-The explicit evidence option overwrites the generated evidence files.
+The explicit evidence option starts a fresh run ID and updates current evidence
+on failure as well as success; prior raw artifacts are invalidated before setup.
+Only one writer may own an output directory at a time. File-write failures are
+reported, but an unwritable destination cannot be guaranteed an updated record.
+Use a new output directory to preserve a previous run.
 The runner confines its chosen evidence directory to the project and requires
 an isolated interpreter.
 

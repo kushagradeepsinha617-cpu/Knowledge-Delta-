@@ -74,7 +74,7 @@ def read_json(path):
         with path.open("r", encoding="utf-8") as stream:
             return json.load(stream, object_pairs_hook=_unique_object,
                              parse_constant=_reject_constant)
-    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+    except (OSError, UnicodeError, ValueError, RecursionError) as exc:
         raise ValidationError(f"{path}: {exc}") from exc
 
 

@@ -2,6 +2,7 @@
 from dataclasses import dataclass
 from hashlib import sha256
 from pathlib import Path, PurePosixPath
+import stat
 
 from .validation import (ValidationError, digest, fields, nullable_text,
                          read_json, schema_version, sequence, text)
@@ -46,7 +47,7 @@ def document_path(root, value):
     reserved.update(f"{prefix}{number}" for prefix in ("COM", "LPT")
                     for number in "123456789¹²³")
     for part in value.split("/"):
-        if (part.endswith((".", " ")) or part.split(".")[0].upper() in reserved
+        if (part.endswith((".", " ")) or part.split(".")[0].rstrip(" ").upper() in reserved
                 or any(ord(char) < 32 or char in '<>"|?*' for char in part)):
             raise ValidationError(f"unsafe Windows document path: {value}")
     candidate = root
@@ -101,6 +102,8 @@ def parse_snapshot(raw, root, read_bytes=None):
         except (OSError, RuntimeError) as exc:
             raise ValidationError(f"{identity}: cannot resolve document path {relative}: {exc}") from exc
         try:
+            if read_bytes is None and not stat.S_ISREG(path.stat().st_mode):
+                raise ValidationError(f"{identity}: document must be a regular file: {relative}")
             content_bytes = read_bytes(path) if read_bytes else path.read_bytes()
             content = content_bytes.decode("utf-8")
         except (OSError, UnicodeError) as exc:

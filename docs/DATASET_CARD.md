@@ -17,7 +17,9 @@ Two version-1 sources deliberately contradict each other about worker limits.
 Removed export evidence makes the evidence-only expectation abstention, not a
 claim that export files stopped existing.
 
-Related cases remain in the development split. No prompts/thresholds or answering
+Related cases remain in the development split. The two version-1 status-command
+cases share family widget-status-v1, so a later split cannot separate them.
+No prompts/thresholds or answering
 models exist yet. No live outputs, empirical error rates or market conclusions
 can be inferred from these cases.
 

@@ -1,4 +1,10 @@
-# Milestone 1 verification record
+# Initial Milestone 1 verification (historical)
+
+This record describes the original 52-test source at commit fe2ee049.
+The [subsequent adversarial audit](MILESTONE_1_AUDIT.md) found additional gaps,
+fixed them, and recorded 92 executed tests for the current source.
+The original artifacts below are preserved as historical evidence.
+
 
 ## Result and scope
 

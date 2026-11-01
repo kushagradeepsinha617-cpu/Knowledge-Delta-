@@ -2,8 +2,8 @@
 
 ## 001: Small stdlib core first
 
-Foundation has no runtime dependencies. Python 3.11+ is the proposed floor,
-not a verified host installation. pytest is a test extra; inference/UI packages
+Foundation has no runtime dependencies. Python 3.11+ is the proposed floor;
+only Python 3.15.2 has been exercised. pytest is a test extra; inference/UI packages
 wait until their milestone. No speculative full ML lockfile is presented.
 
 ## 002: Identity differs from content
@@ -57,9 +57,25 @@ to exactly the evidence it was designed to assess.
 Existing Python/Git outside PATH were found before downloading another runtime.
 PyPI downloads were blocked. Official pytest dependencies were explicitly staged
 from recorded source revisions and licenses; generated release-version metadata
-was labeled separately. The isolated source run passed 52 tests and real CLI checks.
+was labeled separately. The initial isolated source run passed 52 tests and real CLI checks;
+the later adversarial audit is recorded separately in MILESTONE_1_AUDIT.md.
 Normal pip installation/build and other Python versions remain unverified.
 
 Test dependencies and the environment stay ignored under .tools/.venv.
 The source manifest binds evidence to executed code/configuration/fixtures.
 This setup is a verification workaround, not a new application dependency system.
+
+## 008: Verification must prove execution and preserve current failures
+
+The adversarial audit exposed stale-success and inherited pytest override gaps.
+The runner now records run IDs and setup/command/timeout errors, validates real
+JUnit execution and counts, locks concurrent evidence writers, and writes passed
+status only after matching artifacts. Dependency hashes use checked-in test pins.
+Windows locking was exercised; POSIX locking remains unverified.
+
+## 009: Keep local inventory and file ingestion bounded
+
+Inventory redirects are rejected, response size is capped at 1 MiB, and model
+fields are validated. Production documents must be regular files; Windows
+reserved aliases and parser resource errors have explicit handling. These are
+foundation safeguards, not a production security certification.

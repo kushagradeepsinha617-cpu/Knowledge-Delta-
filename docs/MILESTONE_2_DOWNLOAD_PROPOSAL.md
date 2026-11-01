@@ -1,7 +1,9 @@
 # Milestone 2 download proposal
 
-Status: metadata checked; large downloads and an expanded storage allowance are
-**not yet approved**. All figures below distinguish published bytes from estimates.
+Status: metadata checked; the user has **deferred** large downloads and an expanded
+storage allowance. The existing **250 MB ceiling remains in effect**. Do not
+download these assets or treat this proposal as approval. All figures below
+distinguish published bytes from estimates.
 
 ## Requested approval
 
@@ -10,7 +12,9 @@ Status: metadata checked; large downloads and an expanded storage allowance are
 - **4 GB maximum initial download budget**, with at most **500 MB of compressed
   embedding-package wheels**. Expected initial transfer is approximately
   **3.2–3.6 GB**, not an exact measured total.
-- The 4 GB cap is cumulative artifact payload, including retries, partial and\n  intermediate downloads; it is not a measurement of protocol overhead.\n- Keep all intentional files inside the existing local Knowledge-Delta- folder.
+- The 4 GB cap is cumulative artifact payload, including retries, partial and
+  intermediate downloads; it is not a measurement of protocol overhead.
+- Keep all intentional files inside the existing local Knowledge-Delta- folder.
   No global install, paid service, new subscription, API credit or card is needed.
 - These are hard ceilings. Stop and revise the proposal before exceeding them.
 

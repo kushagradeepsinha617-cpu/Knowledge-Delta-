@@ -1,4 +1,40 @@
-# Milestone 2 readiness — download approval pending
+# Current state - Milestone 2 implementation in progress
+
+- User authorized Milestone 2 work and waived per-push approval until further notice.
+  This does not authorize additional downloads or installations.
+- Local chunking, question/prompt/response contracts, embedding/index adapters,
+  bounded localhost Ollama client, and single-question orchestration are implemented.
+- Added explicit scripts/answer_question.py and process-local offline/cache
+  configuration; the command requires separately installed assets and dependencies.
+  Missing-assets exit code 2 is tested; successful live execution is unverified.
+- Added full-dataset scripts/run_local_cases.py orchestration for both snapshots
+  and retrieval configurations, repeated runs without answer caching, and retained
+  error denominators. Draft cases and double outputs are not benchmark results.
+- Offline verification uses explicitly labeled tokenizer/index/transport doubles.
+  Actual final recorded source run executed 183 tests with zero failures/errors/
+  skips, plus real foundation CLI checks, on Windows/Python 3.15.2 with verified
+  source-import test dependencies. Brain approved this limited offline checkpoint
+  and independently verified all 49 source hashes and the final regression fixes.
+  Real NumPy, sentence-transformers, Ollama inference, and hardware performance
+  remain unverified.
+- Evidence run: 2e4af53709f549b38fa16cae66932cc3; source ID:
+  293ce31f394b3f5205cd31b8ef190fde6ee58b0c6eb32dea0784d0463b2c7aa0.
+- Fixed repeated-offset chunk progression and forged chunk metadata; regressions
+  protect snapshot/evidence identity without claiming semantic correctness.
+- User deferred the 12 GB / 4 GB resource proposal; the existing 250 MB folder
+  ceiling holds. Continue independent implementation without asking again now.
+  No new ML/model downloads were performed for the contract checks.
+- Next: publish the reviewed offline checkpoint and reconcile remote source hashes.
+  Expanded setup stays deferred unless later authorized.
+- Milestone 2 is not complete. See docs/MILESTONE_2_PROGRESS.md.
+
+## Historical records - superseded status and authorization
+
+The entries below preserve earlier observations. Their current/next instructions,
+per-push approval statements, and "Milestone 2 unstarted" status describe past
+stages. Current authorization and work status are stated above.
+
+# Earlier Milestone 2 readiness - download approval pending
 
 - User authorized Milestone 2 work and revoked per-push approval until further notice.
 - Existing Python 3.15.2 is an installation candidate; published CPU/native

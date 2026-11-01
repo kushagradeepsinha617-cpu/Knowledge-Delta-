@@ -6,6 +6,11 @@ in an AI documentation assistant.
 **Milestone 1:** the defined foundation passed **92 offline pytest tests** and
 real CLI checks in the configuration below.
 
+**Milestone 2 is in progress.** Offline answering/retrieval contracts and local
+run commands are implemented; actual embeddings and model inference remain
+unverified. See [current progress and commands](docs/MILESTONE_2_PROGRESS.md).
+Large downloads are deferred by the user; the 250 MB local-folder limit holds.
+
 ## Verification scope
 
 **Proven setup:** Windows with **Python 3.15.2**, using explicitly staged upstream
@@ -137,5 +142,5 @@ and the containing snapshot's identity change. This distinguishes an edit from
 a removal followed by an unrelated addition.
 
 Milestone 2 readiness is in progress; see the [download proposal](docs/MILESTONE_2_DOWNLOAD_PROPOSAL.md).
-Large downloads await resource approval. No AI model, UI, semantic evaluator
+Large downloads are deferred. No AI model, UI, semantic evaluator
 or production incremental-ingestion behavior has been measured.

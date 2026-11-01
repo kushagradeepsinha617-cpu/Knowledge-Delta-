@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "kind": "milestone2_download_proposal",
-  "status": "awaiting_storage_and_download_approval",
+  "status": "deferred_by_user_existing_250mb_ceiling_remains",
   "checked_at": "2026-11-01",
   "current_setup": {
     "python": "3.15.2",

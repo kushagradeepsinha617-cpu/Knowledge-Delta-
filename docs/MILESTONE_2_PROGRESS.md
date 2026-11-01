@@ -1,9 +1,9 @@
 # Milestone 2 progress - offline contracts, not live inference
 
-Status: limited offline pipeline checkpoint published; smoke-harness extension
-published and verified; integration-readiness extension reviewed and ready to publish.
-Milestone 2 is not complete. Implemented boundaries and
-unverified live integrations are distinct.
+Status: pipeline, smoke and readiness checkpoints are published and verified.
+Independent Milestone 2 implementation/preflight/scaffolding is complete; remaining
+live acceptance is blocked by missing local assets/dependencies and deferred
+resource authorization. Milestone 2 is not complete. No Milestone 3 work begins.
 
 ## Implemented locally
 
@@ -147,7 +147,10 @@ The three observations share source ID
 `6d56aeec4f6fb6e242aada783465786d01e8ea2205fbd325f4f1da18b0dde188`;
 ordinary run `f196d7458a5f46d894857666e69224ca`. Brain approved the limited checkpoint
 and independently verified all 59 source hashes and the three observations' source binding.
-See the readiness guide for scoped evidence and unverified integration boundaries.
+Readiness commit [`ddc9862`](https://github.com/kushagradeepsinha617-cpu/Knowledge-Delta-/commit/ddc9862540157c45a51da303701b578d8ba95924)
+is published; all 59 remote source hashes match the executed manifest. The 206
+ordinary passes, missing-runtime plan, and unavailable NumPy attempt remain
+separate outcomes. See the readiness guide for unverified integration boundaries.
 
 ## Resource and delivery boundaries
 
@@ -164,14 +167,19 @@ inside the approved folder. Ordinary tests/startup must not download models.
 
 ## Next acceptance steps
 
-1. Publish the independently reviewed readiness extension.
-2. Reconcile remote source hashes against the recorded evidence;
-   preserve historical Milestone 1, pipeline, and smoke evidence.
-3. Keep expanded ML/runtime downloads deferred unless the user later authorizes
-   the resources; continue work that fits the existing allowance.
-4. Verify real dependencies/assets and run local integration and the measured
-   ten-question hardware smoke test if setup is approved.
-5. Record actual results and errors before claiming Milestone 2 completion.
+1. Keep expanded ML/runtime setup deferred unless the user later authorizes it;
+   no immediate answer or renewed approval request is pending.
+2. After authorization and explicit setup, verify real NumPy/sentence-transformers
+   imports, pinned tokenizer/assets, local inference and native write containment.
+3. Run the measured ten-question CPU smoke test and record actual timings/errors;
+   inspect live correctness separately, without inventing reviews or scores.
+4. Preserve historical evidence and reconcile any later source/experiment changes
+   before claiming Milestone 2 completion. Do not advance to Milestone 3 now.
+
+The existing approved folder uses approximately 14.6 MB, within 250 MB. No new
+model/runtime assets or spending were required for these offline checkpoints.
+The remaining acceptance work needs the missing dependencies/runtime/assets;
+additional scaffolding cannot substitute for those observations.
 
 ## Primary integration references
 

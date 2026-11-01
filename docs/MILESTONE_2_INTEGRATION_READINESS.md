@@ -1,7 +1,9 @@
 # Milestone 2 integration readiness - explicit unavailable checks
 
-Status: limited readiness extension independently reviewed, ready for publication. This is not completed
-ML integration. Larger downloads remain deferred; the 250 MB allowance holds.
+Status: reviewed readiness checkpoint published as
+[`ddc9862`](https://github.com/kushagradeepsinha617-cpu/Knowledge-Delta-/commit/ddc9862540157c45a51da303701b578d8ba95924),
+with all 59 remote source hashes reconciled. This is not completed ML integration.
+Larger downloads remain deferred; the 250 MB allowance holds.
 
 ## Real NumPy checks are separate
 
@@ -99,6 +101,13 @@ checkpoint [`e9ff0c0`](https://github.com/kushagradeepsinha617-cpu/Knowledge-Del
 recorded 195 offline tests with all 55 remote source hashes reconciled. Their
 evidence remains historical; neither claims live ML integration.
 
-Next: publish the reviewed readiness extension and reconcile remote source hashes
-with the recorded evidence. Actual installations, inference, and verification of
-real runtime containment remain deferred/unverified.
+Independent implementation, preflight and scaffolding are complete. Remaining
+Milestone 2 acceptance is blocked by missing local ML dependencies/runtime/assets
+and deferred resource authorization. No renewed approval request is pending now.
+Actual numeric/embedding imports, live inference/correctness, CPU measurements
+and native write containment remain unverified. No Milestone 3 work is started.
+
+When the user later authorizes setup, verify these real integrations and preserve
+their observed results separately from the offline checks. The existing folder
+uses approximately 14.6 MB within the 250 MB limit; spending remains zero and no
+new model/runtime assets were downloaded.

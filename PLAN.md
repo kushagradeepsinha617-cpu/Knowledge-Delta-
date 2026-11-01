@@ -1,4 +1,4 @@
-# Current state - Milestone 2 implementation in progress
+# Current state - Milestone 2 offline work complete; live acceptance blocked
 
 - User authorized Milestone 2 work and waived per-push approval until further notice.
   This does not authorize additional downloads or installations.
@@ -18,7 +18,7 @@
   Run f26de47c60b1430783205d64ef8c0e9c; source ID
   78c2e05518dfdfcefd1436bb823dfee45c03e7eaf07e8b2a5dcf5ab3720efd80.
   No live measurements are claimed; CPU observation differs from requested control.
-- Current independent unit: explicit real-NumPy integration checks and contained
+- Published readiness unit: explicit real-NumPy integration checks and contained
   Windows runtime planning/start controls. Final source run executed 206 ordinary
   tests with zero failures/errors/skips, plus real foundation CLI checks. Actual
   read-only runtime plan returned missing_runtime/exit 2 without state changes or
@@ -45,8 +45,18 @@
   No new ML/model downloads were performed for the contract checks.
 - Pipeline 74ca2f6 and smoke e9ff0c0 are published; all 49/55 corresponding remote
   source hashes were reconciled. Their evidence is preserved historical data.
-- Next: review and publish the integration-readiness extension, retaining failed
-  integration evidence. Expanded setup stays deferred.
+- Readiness checkpoint ddc9862540157c45a51da303701b578d8ba95924 is published;
+  all 59 remote source hashes match its recorded manifest. Its scoped observations
+  remain 206 passing ordinary tests, missing runtime/exit 2, and unavailable
+  NumPy/exit 1 with zero verified numeric integration checks.
+- Independent Milestone 2 implementation, preflight and scaffolding are complete.
+  Remaining real acceptance is blocked by missing ML dependencies/runtime/assets
+  and the user's deferred expanded-resource authorization. No renewed request now.
+- Next: only when resources are later authorized, verify real numeric/embedding
+  imports and live inference, measure ten CPU queries, and check native write
+  containment. No Milestone 3 work or additional placeholder features are started.
+- Existing folder footprint is approximately 14.6 MB under the 250 MB ceiling;
+  zero project spending and no new model/runtime assets.
 - Milestone 2 is not complete. See docs/MILESTONE_2_PROGRESS.md.
 
 ## Historical records - superseded status and authorization

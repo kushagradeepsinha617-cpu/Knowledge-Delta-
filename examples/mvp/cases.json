@@ -1,0 +1,810 @@
+{
+  "schema_version": 1,
+  "snapshot_ids": {
+    "before": "3d11ea16be6d4c17472734bf1b6b17496931d2b39c72b166710668cd30ebe2ed",
+    "after": "4199a93fcf9d5aed1337f4f3239b6f3017af300be1ac931bfe7265fbe437a2b7"
+  },
+  "cases": [
+    {
+      "case_id": "request-timeout-change",
+      "family_id": "request-timeout-change",
+      "question": "What is the default request timeout in Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "10 seconds",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.timeout",
+              "quote": "For Widget version 1, the default request timeout is 10 seconds."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "20 seconds",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.timeout",
+              "quote": "For Widget version 1, the default request timeout is 20 seconds."
+            }
+          ]
+        }
+      },
+      "category": "behavior_change",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "retry-count-change",
+      "family_id": "retry-count-change",
+      "question": "How many retries does Widget version 1 use by default?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "2 retries",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.retries",
+              "quote": "For Widget version 1, the default retry count is 2."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "4 retries",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.retries",
+              "quote": "For Widget version 1, the default retry count is 4."
+            }
+          ]
+        }
+      },
+      "category": "behavior_change",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "current-log-level",
+      "family_id": "current-log-level",
+      "question": "What is the default log level for the current default Widget version?",
+      "target": "snapshot_default",
+      "requested_version": null,
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "INFO",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": "Answer for the default software version declared in this snapshot manifest.",
+          "evidence": [
+            {
+              "document_id": "widget.logging-v1",
+              "quote": "For Widget version 1, the default log level is INFO."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "WARN",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": "Answer for the default software version declared in this snapshot manifest.",
+          "evidence": [
+            {
+              "document_id": "widget.logging-v2",
+              "quote": "For Widget version 2, the default log level is WARN."
+            }
+          ]
+        }
+      },
+      "category": "behavior_change",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "current-archive-compression",
+      "family_id": "current-archive-compression",
+      "question": "Which archive compression is the default for the current default Widget version?",
+      "target": "snapshot_default",
+      "requested_version": null,
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "gzip",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": "Answer for the default software version declared in this snapshot manifest.",
+          "evidence": [
+            {
+              "document_id": "widget.compression-v1",
+              "quote": "For Widget version 1, the default archive compression is gzip."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "zstd",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": "Answer for the default software version declared in this snapshot manifest.",
+          "evidence": [
+            {
+              "document_id": "widget.compression-v2",
+              "quote": "For Widget version 2, the default archive compression is zstd."
+            }
+          ]
+        }
+      },
+      "category": "behavior_change",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "installation-rewording",
+      "family_id": "installation-rewording",
+      "question": "Which command installs Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "pip install widget-fixture==1.0",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.installation",
+              "quote": "Install Widget version 1 with pip install widget-fixture==1.0."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "pip install widget-fixture==1.0",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.installation",
+              "quote": "To install Widget version 1, run pip install widget-fixture==1.0."
+            }
+          ]
+        }
+      },
+      "category": "wording_only",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "cache-directory-rewording",
+      "family_id": "cache-directory-rewording",
+      "question": "Where does Widget version 1 store its cache?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": ".widget/cache",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.cache",
+              "quote": "For Widget version 1, the cache directory is .widget/cache."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": ".widget/cache",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.cache",
+              "quote": "Widget version 1 stores cached files in .widget/cache."
+            }
+          ]
+        }
+      },
+      "category": "wording_only",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "configuration-file-rewording",
+      "family_id": "configuration-file-rewording",
+      "question": "What configuration filename does Widget version 1 read?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "widget.toml",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.configuration",
+              "quote": "For Widget version 1, configuration is read from widget.toml."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "widget.toml",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.configuration",
+              "quote": "Widget version 1 loads its configuration from widget.toml."
+            }
+          ]
+        }
+      },
+      "category": "wording_only",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "health-unrelated-change",
+      "family_id": "health-unrelated-change",
+      "question": "Which command checks the health of Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "widget health",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.health",
+              "quote": "For Widget version 1, the health-check command is widget health."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "widget health",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.health",
+              "quote": "For Widget version 1, the health-check command is widget health."
+            }
+          ]
+        }
+      },
+      "category": "unrelated_change",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "metrics-unrelated-change",
+      "family_id": "metrics-unrelated-change",
+      "question": "Which port does the metrics listener use in Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "9102",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.metrics",
+              "quote": "For Widget version 1, the metrics listener uses port 9102."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "9102",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.metrics",
+              "quote": "For Widget version 1, the metrics listener uses port 9102."
+            }
+          ]
+        }
+      },
+      "category": "unrelated_change",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "precedence-unrelated-change",
+      "family_id": "precedence-unrelated-change",
+      "question": "In Widget version 1, do command-line options or configuration-file values take precedence?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "Command-line options take precedence over configuration-file values.",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.precedence",
+              "quote": "For Widget version 1, command-line options take precedence over values in widget.toml."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "Command-line options take precedence over configuration-file values.",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.precedence",
+              "quote": "For Widget version 1, command-line options take precedence over values in widget.toml."
+            }
+          ]
+        }
+      },
+      "category": "unrelated_change",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "v1-token-despite-v2",
+      "family_id": "v1-token-despite-v2",
+      "question": "Which environment variable supplies the authentication token in Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "WIDGET_TOKEN",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.token-v1",
+              "quote": "For Widget version 1, the authentication token environment variable is WIDGET_TOKEN."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "WIDGET_TOKEN",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.token-v1",
+              "quote": "For Widget version 1, the authentication token environment variable is WIDGET_TOKEN."
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "v1-report-despite-v2",
+      "family_id": "v1-report-despite-v2",
+      "question": "What is the default report format in Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "CSV",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.report-v1",
+              "quote": "For Widget version 1, the default report format is CSV."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "CSV",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.report-v1",
+              "quote": "For Widget version 1, the default report format is CSV."
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "v1-page-limit-despite-v2",
+      "family_id": "v1-page-limit-despite-v2",
+      "question": "What is the maximum page size in Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "100 records",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.page-v1",
+              "quote": "For Widget version 1, the maximum page size is 100 records."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "100 records",
+          "rubric": "State the expected fact for the applicable version, cite supporting evidence, and include no contradictory claims. Equivalent wording is acceptable.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.page-v1",
+              "quote": "For Widget version 1, the maximum page size is 100 records."
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "export-evidence-removed",
+      "family_id": "export-evidence-removed",
+      "question": "What extension do exported bundles use in Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": ".wgt",
+          "rubric": "Before removal, answer the supported fact and cite its passage. After removal, acknowledge insufficient applicable evidence and do not assert a factual answer; this evidence-only policy does not make the former fact false.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.export",
+              "quote": "For Widget version 1, exported bundles use the .wgt extension."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "abstain",
+          "answer": null,
+          "rubric": "Before removal, answer the supported fact and cite its passage. After removal, acknowledge insufficient applicable evidence and do not assert a factual answer; this evidence-only policy does not make the former fact false.",
+          "target_context": null,
+          "evidence": []
+        }
+      },
+      "category": "evidence_removed",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "socket-evidence-removed",
+      "family_id": "socket-evidence-removed",
+      "question": "What Unix socket path does Widget version 1 use?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "/tmp/widget-v1.sock",
+          "rubric": "Before removal, answer the supported fact and cite its passage. After removal, acknowledge insufficient applicable evidence and do not assert a factual answer; this evidence-only policy does not make the former fact false.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.socket",
+              "quote": "For Widget version 1, the Unix socket path is /tmp/widget-v1.sock."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "abstain",
+          "answer": null,
+          "rubric": "Before removal, answer the supported fact and cite its passage. After removal, acknowledge insufficient applicable evidence and do not assert a factual answer; this evidence-only policy does not make the former fact false.",
+          "target_context": null,
+          "evidence": []
+        }
+      },
+      "category": "evidence_removed",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "offline-evidence-removed",
+      "family_id": "offline-evidence-removed",
+      "question": "Which flag enables offline startup in Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "--offline",
+          "rubric": "Before removal, answer the supported fact and cite its passage. After removal, acknowledge insufficient applicable evidence and do not assert a factual answer; this evidence-only policy does not make the former fact false.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.offline",
+              "quote": "For Widget version 1, the offline-startup flag is --offline."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "abstain",
+          "answer": null,
+          "rubric": "Before removal, answer the supported fact and cite its passage. After removal, acknowledge insufficient applicable evidence and do not assert a factual answer; this evidence-only policy does not make the former fact false.",
+          "target_context": null,
+          "evidence": []
+        }
+      },
+      "category": "evidence_removed",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "worker-source-conflict",
+      "family_id": "worker-source-conflict",
+      "question": "What is the maximum worker count in Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "conflict",
+          "answer": "Applicable sources conflict: 2 versus 4 workers.",
+          "rubric": "Expose the two contradictory maximum worker counts, 2 and 4, cite both applicable passages, and do not choose one as authoritative.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.workers-guide",
+              "quote": "For Widget version 1, the maximum worker count is 2."
+            },
+            {
+              "document_id": "widget.workers-reference",
+              "quote": "For Widget version 1, the maximum worker count is 4."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "conflict",
+          "answer": "Applicable sources conflict: 2 versus 4 workers.",
+          "rubric": "Expose the two contradictory maximum worker counts, 2 and 4, cite both applicable passages, and do not choose one as authoritative.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.workers-guide",
+              "quote": "For Widget version 1, the maximum worker count is 2."
+            },
+            {
+              "document_id": "widget.workers-reference",
+              "quote": "For Widget version 1, the maximum worker count is 4."
+            }
+          ]
+        }
+      },
+      "category": "conflicting_sources",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "tls-source-conflict",
+      "family_id": "tls-source-conflict",
+      "question": "Is TLS enabled by default in Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "conflict",
+          "answer": "Applicable sources disagree whether TLS is enabled or disabled by default.",
+          "rubric": "Explain that the applicable sources conflict about the TLS default; cite both and do not confidently select either state.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.tls-guide",
+              "quote": "For Widget version 1, TLS is enabled by default."
+            },
+            {
+              "document_id": "widget.tls-reference",
+              "quote": "For Widget version 1, TLS is disabled by default."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "conflict",
+          "answer": "Applicable sources disagree whether TLS is enabled or disabled by default.",
+          "rubric": "Explain that the applicable sources conflict about the TLS default; cite both and do not confidently select either state.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "widget.tls-guide",
+              "quote": "For Widget version 1, TLS is enabled by default."
+            },
+            {
+              "document_id": "widget.tls-reference",
+              "quote": "For Widget version 1, TLS is disabled by default."
+            }
+          ]
+        }
+      },
+      "category": "conflicting_sources",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "backup-cipher-missing",
+      "family_id": "backup-cipher-missing",
+      "question": "Which cipher encrypts backups in Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "abstain",
+          "answer": null,
+          "rubric": "Acknowledge that the supplied documentation does not support an answer. Do not invent a value, infer lack of product support, or substitute an unrelated documented fact.",
+          "target_context": null,
+          "evidence": []
+        },
+        "after": {
+          "behavior": "abstain",
+          "answer": null,
+          "rubric": "Acknowledge that the supplied documentation does not support an answer. Do not invent a value, infer lack of product support, or substitute an unrelated documented fact.",
+          "target_context": null,
+          "evidence": []
+        }
+      },
+      "category": "missing_evidence",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "plugin-abi-missing",
+      "family_id": "plugin-abi-missing",
+      "question": "Which plugin ABI versions are supported by Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "expectations": {
+        "before": {
+          "behavior": "abstain",
+          "answer": null,
+          "rubric": "Acknowledge that the supplied documentation does not support an answer. Do not invent a value, infer lack of product support, or substitute an unrelated documented fact.",
+          "target_context": null,
+          "evidence": []
+        },
+        "after": {
+          "behavior": "abstain",
+          "answer": null,
+          "rubric": "Acknowledge that the supplied documentation does not support an answer. Do not invent a value, infer lack of product support, or substitute an unrelated documented fact.",
+          "target_context": null,
+          "evidence": []
+        }
+      },
+      "category": "missing_evidence",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    }
+  ]
+}

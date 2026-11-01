@@ -9,7 +9,7 @@ from .chunking import chunk_snapshot
 from .pipeline import RunConfiguration, run_question
 from .questions import QuestionInput
 from .retrieval import build_index
-from .validation import ValidationError
+from .validation import ValidationError, digest
 
 
 def run_dataset(dataset, before, after, embedder, client, *, repeats=1, token_limit=128,
@@ -22,6 +22,8 @@ def run_dataset(dataset, before, after, embedder, client, *, repeats=1, token_li
     result = {"schema_version": 1, "kind": "local_snapshot_experiment", "run_id": uuid4().hex,
               "started_at": datetime.now(timezone.utc).isoformat(), "dataset": summary,
               "snapshots": {"before": before.snapshot_id, "after": after.snapshot_id},
+              "snapshot_defaults": {"before": before.default_version, "after": after.default_version},
+              "dataset_hash": digest(dataset),
               "configurations": {"basic": asdict(replace(common, version_filter=False)),
                                  "version_filtered": asdict(replace(common, version_filter=True))},
               "repeats": repeats, "answer_cache_used": False, "results": [],

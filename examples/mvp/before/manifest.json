@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "name": "mvp-constructed-before",
+  "domain": "constructed-widget-mvp",
+  "default_version": "1",
+  "provenance": "constructed",
+  "documents": [
+    {
+      "document_id": "widget.timeout",
+      "path": "timeout.md",
+      "source_reference": "constructed://widget/mvp/timeout",
+      "source_revision": "mvp-fixture-1",
+      "software_versions": [
+        "1"
+      ],
+      "title": "Request timeout"
+    },
+    {
+      "document_id": "widget.retries",
+      "path": "retries.md",
+      "source_reference": "constructed://widget/mvp/retries",
+      "source_revision": "mvp-fixture-1",
+      "software_versions": [
+        "1"
+      ],
+      "title": "Retry count"
+    },
+    {
+      "document_id": "widget.logging-v1",
+      "path": "logging-v1.md",
+      "source_reference": "constructed://widget/mvp/logging-v1",
+      "source_revision": "mvp-fixture-1",
+      "software_versions": [
+        "1"
+      ],
+      "title": "Version 1 logging"
+    },
+    {
+      "document_id": "widget.compression-v1",
+      "path": "compression-v1.md",
+      "source_reference": "constructed://widget/mvp/compression-v1",
+      "source_revision": "mvp-fixture-1",
+      "software_versions": [
+        "1"
+      ],
+      "title": "Version 1 compression"
+    },
+    {
+      "document_id": "widget.installation",
+      "path": "installation.md",
+      "source_reference": "constructed://widget/mvp/installation",
+      "source_revision": "mvp-fixture-1",
+      "software_versions": [
+        "1"
+      ],
+      "title": "Installation"
+    },
+    {
+      "document_id": "widget.cache",
+      "path": "cache.md",
+      "source_reference": "constructed://widget/mvp/cache",
+      "source_revision": "mvp-fixture-1",
+      "software_versions": [
+        "1"
+      ],
+      "title": "Cache directory"
+    },
+    {
+      "document_id": "widget.configuration",
+      "path": "configuration.md",
+      "source_reference": "constructed://widget/mvp/configuration",
+      "source_revision": "mvp-fixture-1",
+      "software_versions": [
+        "1"
+      ],
+      "title": "Configuration file"
+    },
+    {
+      "document_id": "widget.health",
+      "path": "health.md",
+      "source_reference": "constructed://widget/mvp/health",
+      "source_revision": "mvp-fixture-1",
+      "software_versions": [
+        "1"
+      ],
+      "title": "Health command"
+    },
+    {
+      "document_id": "widget.metrics",
+      "path": "metrics.md",
+      "source_reference": "constructed://widget/mvp/metrics",
+      "source_revision": "mvp-fixture-1",
+      "software_versions": [
+        "1"
+      ],
+      "title": "Metrics listener"
+    },
+    {
+      "document_id": "widget.precedence",
+      "path": "precedence.md",
+      "source_reference": "constructed://widget/mvp/precedence",
+      "source_revision": "mvp-fixture-1",
+      "software_versions": [
+        "1"
+      ],
+      "title": "Configuration precedence"
+    },
+    {
+      "document_id": "widget.token-v1",
+      "path": "token-v1.md",
+      "source_reference": "constructed://widget/mvp/token-v1",
+      "source_revision": "mvp-fixture-1",
+      "software_versions": [
+        "1"
+      ],
+      "title": "Version 1 authentication"
+    },
+    {
+      "document_id": "widget.report-v1",
+      "path": "report-v1.md",
+      "source_reference": "constructed://widget/mvp/report-v1",
+      "source_revision": "mvp-fixture-1",
+      "software_versions": [
+        "1"
+      ],
+      "title": "Version 1 report format"
+    },
+    {
+      "document_id": "widget.page-v1",
+      "path": "page-v1.md",
+      "source_reference": "constructed://widget/mvp/page-v1",
+      "source_revision": "mvp-fixture-1",
+      "software_versions": [
+        "1"
+      ],
+      "title": "Version 1 pagination"
+    },
+    {
+      "document_id": "widget.export",
+      "path": "export.md",
+      "source_reference": "constructed://widget/mvp/export",
+      "source_revision": "mvp-fixture-1",
+      "software_versions": [
+        "1"
+      ],
+      "title": "Legacy export"
+    },
+    {
+      "document_id": "widget.socket",
+      "path": "socket.md",
+      "source_reference": "constructed://widget/mvp/socket",
+      "source_revision": "mvp-fixture-1",
+      "software_versions": [
+        "1"
+      ],
+      "title": "Local socket"
+    },
+    {
+      "document_id": "widget.offline",
+      "path": "offline.md",
+      "source_reference": "constructed://widget/mvp/offline",
+      "source_revision": "mvp-fixture-1",
+      "software_versions": [
+        "1"
+      ],
+      "title": "Offline startup"
+    },
+    {
+      "document_id": "widget.workers-guide",
+      "path": "workers-guide.md",
+      "source_reference": "constructed://widget/mvp/workers-guide",
+      "source_revision": "mvp-fixture-1",
+      "software_versions": [
+        "1"
+      ],
+      "title": "Worker guide"
+    },
+    {
+      "document_id": "widget.workers-reference",
+      "path": "workers-reference.md",
+      "source_reference": "constructed://widget/mvp/workers-reference",
+      "source_revision": "mvp-fixture-1",
+      "software_versions": [
+        "1"
+      ],
+      "title": "Worker reference"
+    },
+    {
+      "document_id": "widget.tls-guide",
+      "path": "tls-guide.md",
+      "source_reference": "constructed://widget/mvp/tls-guide",
+      "source_revision": "mvp-fixture-1",
+      "software_versions": [
+        "1"
+      ],
+      "title": "TLS guide"
+    },
+    {
+      "document_id": "widget.tls-reference",
+      "path": "tls-reference.md",
+      "source_reference": "constructed://widget/mvp/tls-reference",
+      "source_revision": "mvp-fixture-1",
+      "software_versions": [
+        "1"
+      ],
+      "title": "TLS reference"
+    }
+  ]
+}

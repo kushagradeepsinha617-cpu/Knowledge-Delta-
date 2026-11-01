@@ -6,10 +6,12 @@ in an AI documentation assistant.
 **Milestone 1:** the defined foundation passed **92 offline pytest tests** and
 real CLI checks in the configuration below.
 
-**Milestone 2 is in progress.** Offline answering/retrieval contracts and local
-run commands are implemented; actual embeddings and model inference remain
-unverified. See [current progress and commands](docs/MILESTONE_2_PROGRESS.md).
-Large downloads are deferred by the user; the 250 MB local-folder limit holds.
+**Milestone 3 is in progress using labeled fixtures.** The evaluator, fixture
+replay, escaped reports and review-journal backend are implemented. The local
+Streamlit interface is the next unit. Real embeddings and model inference remain
+unverified; model downloads are forbidden and the 250 MB folder limit holds.
+See [Milestone 3 progress](docs/MILESTONE_3.md) and
+[Milestone 2 integration limits](docs/MILESTONE_2_INTEGRATION_READINESS.md).
 
 ## Verification scope
 
@@ -31,6 +33,30 @@ a verified compatibility matrix.
 
 See [the adversarial audit](docs/MILESTONE_1_AUDIT.md) and
 [verification history](docs/VERIFICATION.md) for the evidence and limitations.
+
+## Run the fixture report
+
+From the repository root, using the existing isolated Python:
+
+```powershell
+.venv/Scripts/python.exe -B scripts/fixture_demo.py --simulate-judgments --output-dir runs/my-fixture-report
+```
+
+Open `runs/my-fixture-report/report.html` in your browser. This standard-library
+workflow requires no model, service, or extra runtime package. Omit
+`--simulate-judgments` to leave semantic judgments unresolved. Existing reports
+with different content are preserved; choose a new output directory for a new run.
+
+The [self-contained HTML sample](docs/samples/mvp-fixture/report.html) and
+[machine-readable JSON sample](docs/samples/mvp-fixture/report.json) contain
+**20 draft cases, 80 scripted answer records, zero human reviews and no model
+execution**. Download the HTML file and open it locally; GitHub displays its source.
+Simulated correctness labels illustrate the workflow and are not benchmark results.
+
+The current offline suite executed **250 tests**, with no failures, errors or
+skips. Brain independently checked all **115 source hashes** against the
+[recorded verification](docs/evidence/milestone3-evaluation/checks.json).
+The fixture CLI was also executed; Streamlit and live inference remain unverified.
 
 ## Foundation features
 

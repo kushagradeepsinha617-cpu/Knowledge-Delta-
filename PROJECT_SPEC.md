@@ -33,6 +33,14 @@ docs/evidence/milestone1/environment.json.
 - Milestone 2 readiness and implementation are now authorized. The existing
   250 MB local limit remains until the download proposal is explicitly approved.
   Do not silently expand storage, install globally, or advance beyond authorized scope.
+- The user subsequently authorized Milestone 3 using explicitly labeled fixtures
+  while Milestone 2 live acceptance remains blocked. Build the evaluator, manual
+  review workflow, JSON/HTML reporting and fixture CLI within the existing 250 MB
+  limit. Do not download models or claim fixture outputs are live inference.
+- Begin Milestone 3 with standard-library components; add an optional Streamlit
+  adapter after checking package availability/compatibility before choosing an
+  exact version or proposing installation. No installation is authorized here.
+  Human case/result reviews remain genuine pending human work, not agent labels.
 - No repository visibility changes, external outreach or social posting.
 
 ## Workflow
@@ -109,7 +117,9 @@ Repeated fixed-subset variability runs bypass answer caching.
 2. Local answering: chunks/embeddings/indexes, Ollama trace integration,
    ten-question hardware smoke test, two retrieval configurations.
 3. MVP: 20 development cases, evaluation/manual review, Streamlit, JSON/HTML,
-   live end-to-end inference if available.
+   live end-to-end inference if available. Fixture-based implementation is now
+   authorized independently of blocked live setup; draft cases and replay results
+   must remain visibly distinguished from reviewed labels and actual inference.
 4. Evaluation: verified licensed versioned sources (prefer Pydantic v1/v2),
    review/splits, held-out support, controlled experiments, variability/limits.
 5. Portfolio: exact Windows instructions, architecture, dataset card, attribution,

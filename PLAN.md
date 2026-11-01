@@ -10,8 +10,16 @@
 - Added full-dataset scripts/run_local_cases.py orchestration for both snapshots
   and retrieval configurations, repeated runs without answer caching, and retained
   error denominators. Draft cases and double outputs are not benchmark results.
+- Current independent unit: ten-question smoke harness, explicit CLI, constructed
+  hardware-only inputs and residency observations; offline checkpoint reviewed.
+  New evidence is separate in docs/evidence/milestone2-smoke-contracts: 195 executed
+  tests, zero failures/errors/skips, plus real CLI checks. Brain approved the
+  limited checkpoint with all 55 tested source hashes independently matching.
+  Run f26de47c60b1430783205d64ef8c0e9c; source ID
+  78c2e05518dfdfcefd1436bb823dfee45c03e7eaf07e8b2a5dcf5ab3720efd80.
+  No live measurements are claimed; CPU observation differs from requested control.
 - Offline verification uses explicitly labeled tokenizer/index/transport doubles.
-  Actual final recorded source run executed 183 tests with zero failures/errors/
+  Published pipeline checkpoint executed 183 tests with zero failures/errors/
   skips, plus real foundation CLI checks, on Windows/Python 3.15.2 with verified
   source-import test dependencies. Brain approved this limited offline checkpoint
   and independently verified all 49 source hashes and the final regression fixes.
@@ -24,8 +32,8 @@
 - User deferred the 12 GB / 4 GB resource proposal; the existing 250 MB folder
   ceiling holds. Continue independent implementation without asking again now.
   No new ML/model downloads were performed for the contract checks.
-- Next: publish the reviewed offline checkpoint and reconcile remote source hashes.
-  Expanded setup stays deferred unless later authorized.
+- Next: publish the reviewed smoke-harness checkpoint and reconcile remote source
+  hashes. Expanded setup stays deferred.
 - Milestone 2 is not complete. See docs/MILESTONE_2_PROGRESS.md.
 
 ## Historical records - superseded status and authorization

@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "kind": "hardware_smoke_questions",
+  "snapshot_id": "bc460011155ec06a33358d8978b87092d7cfa9c3992685a6cbfe777ba5987b12",
+  "provenance": "constructed",
+  "review_status": "draft",
+  "questions": [
+    {
+      "case_id": "hardware-01",
+      "question": "Which port does Widget version 1 use by default?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "target_context": null
+    },
+    {
+      "case_id": "hardware-02",
+      "question": "How many items are on a default results page in Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "target_context": null
+    },
+    {
+      "case_id": "hardware-03",
+      "question": "How many times does Widget version 1 retry failed requests?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "target_context": null
+    },
+    {
+      "case_id": "hardware-04",
+      "question": "What is the default logging level in Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "target_context": null
+    },
+    {
+      "case_id": "hardware-05",
+      "question": "Which configuration file does Widget version 1 read?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "target_context": null
+    },
+    {
+      "case_id": "hardware-06",
+      "question": "Is the response cache enabled by default in Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "target_context": null
+    },
+    {
+      "case_id": "hardware-07",
+      "question": "Which compression format does Widget version 1 use for export archives?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "target_context": null
+    },
+    {
+      "case_id": "hardware-08",
+      "question": "What is the health endpoint in Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "target_context": null
+    },
+    {
+      "case_id": "hardware-09",
+      "question": "What is the minimum supported Python version for Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "target_context": null
+    },
+    {
+      "case_id": "hardware-10",
+      "question": "Which environment variable supplies the authentication token in Widget version 1?",
+      "target": "explicit_version",
+      "requested_version": "1",
+      "target_context": null
+    }
+  ]
+}

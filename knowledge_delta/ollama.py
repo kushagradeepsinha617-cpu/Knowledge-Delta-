@@ -79,7 +79,7 @@ class LocalHTTP:
         self._opener = build_opener(ProxyHandler({}), NoRedirects())
 
     def request(self, path, payload=None):
-        if path not in ("/api/tags", "/api/show", "/api/version", "/api/chat"):
+        if path not in ("/api/tags", "/api/show", "/api/version", "/api/chat", "/api/ps"):
             raise ValidationError("unsupported local endpoint; downloads are setup-only")
         data = None if payload is None else json.dumps(payload, allow_nan=False).encode("utf-8")
         request = Request(self.base_url + path, data=data, headers={"Content-Type": "application/json"})
@@ -125,6 +125,32 @@ class OllamaClient:
             text(value, "local model digest")
         return value
 
+    def observe_residency(self):
+        """Read-only server observation, not an OS memory measurement."""
+        try:
+            body = self.transport.request("/api/ps")
+            payload = _object(body)
+            models = payload.get("models")
+            if not isinstance(models, list) or any(not isinstance(item, dict) for item in models):
+                raise LocalServiceError("Invalid running-model inventory", body)
+            matches = [item for item in models if item.get("name") == self.model or item.get("model") == self.model]
+            if len(matches) > 1:
+                raise LocalServiceError("Ambiguous running-model inventory", body)
+            selected = matches[0] if matches else None
+            for item in models:
+                if item.get("digest") is not None:
+                    text(item["digest"], "resident model digest")
+                for field in ("context_length", "size_vram", "size"):
+                    value = item.get(field)
+                    if value is not None and (type(value) is not int or value < 0):
+                        raise ValidationError(f"Invalid resident model statistic: {field}")
+            return {"status": "observed", "resident": selected is not None, "model": selected, "models": models,
+                    "raw_body": body, "origin": "live" if self.transport.mode == "local_http" else "test_double"}
+        except (LocalServiceError, ValidationError) as exc:
+            return {"status": "unavailable", "resident": None, "model": None, "models": [], "error": str(exc),
+                    "raw_body": getattr(exc, "raw_body", None),
+                    "origin": "live" if self.transport.mode == "local_http" else "test_double"}
+
     def answer(self, prompt, chunks, max_attempts=2):
         if type(max_attempts) is not int or not 1 <= max_attempts <= 2:
             raise ValidationError("generation attempts must be 1 or 2")
@@ -132,7 +158,7 @@ class OllamaClient:
         result = {"origin": "live" if self.transport.mode == "local_http" else "test_double",
                   "model": self.model, "model_digest": None, "server_version": None,
                   "status": "run_error", "answer": None, "attempts": [], "error": None,
-                  "generation_performed": False, "thinking_control": "unverified",
+                  "generation_performed": False, "generation_attempted": False, "thinking_control": "unverified",
                   "effective_model_context_verified": False,
                   "model_provenance_verified": False, "answer_cache_used": False}
         # Serializes generations across clients in this process. The managed server
@@ -169,12 +195,13 @@ class OllamaClient:
                     result["attempts"].append(attempt)
                     attempt_started = time.perf_counter()
                     try:
-                        result["generation_performed"] = True
+                        result["generation_attempted"] = True
                         attempt["raw_body"] = self.transport.request("/api/chat", request)
                         response = _object(attempt["raw_body"])
                         attempt["response"] = response
                         if response.get("model") != self.model or response.get("done") is not True:
                             raise ValidationError("Generation model mismatch or incomplete response")
+                        result["generation_performed"] = True
                         if response.get("done_reason") != "stop":
                             raise ValidationError("Generation did not stop normally; possible output truncation")
                         message = response.get("message")

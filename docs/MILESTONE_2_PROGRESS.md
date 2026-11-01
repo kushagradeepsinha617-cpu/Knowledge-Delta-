@@ -1,7 +1,8 @@
 # Milestone 2 progress - offline contracts, not live inference
 
-Status: limited offline checkpoint reviewed and ready for publication. Milestone 2
-is not complete. Implemented boundaries and unverified live integrations are distinct.
+Status: limited offline pipeline checkpoint published; smoke-harness extension
+independently reviewed and ready to publish. Milestone 2 is not complete. Implemented boundaries and
+unverified live integrations are distinct.
 
 ## Implemented locally
 
@@ -111,6 +112,19 @@ judgments are produced.
 Offline regressions include constructed double-only repeated policy records and
 deliberately injected index failures. They test orchestration and error accounting;
 they are not live-model results, observed assistant failures, or benchmark scores.
+
+## Hardware smoke extension - independent offline work
+
+The [smoke-harness guide](MILESTONE_2_SMOKE_TEST.md) documents the new sequential
+ten-question command, CPU request/residency checks and cold/warm interpretation.
+Its ten constructed draft hardware questions are separate from correctness
+datasets. New smoke-contract evidence is isolated from the published 183-test
+pipeline checkpoint. Its latest recorded source run executed 195 tests with zero
+failures/errors/skips plus CLI checks (Windows/Python 3.15.2 source-import setup).
+Brain approved the limited checkpoint and independently matched all 55 source
+hashes; no blocking findings or real model measurements. See the guide
+for the exact run/source IDs, CPU-control stop behavior, digest-based alias checks,
+and the distinction between attempted/completed inference and verified CPU residency.
 
 ## Resource and delivery boundaries
 

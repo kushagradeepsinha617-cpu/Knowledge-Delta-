@@ -114,6 +114,8 @@ def test_transport_failure_is_not_silently_retried():
     assert result["status"] == "run_error"
     assert len(result["attempts"]) == 1
     assert result["attempts"][0]["raw_body"] == "partial fixture"
+    assert result["generation_performed"] is False
+    assert result["generation_attempted"] is True
 
 
 def test_digest_change_invalidates_answer_but_preserves_raw_generation():

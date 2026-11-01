@@ -117,11 +117,12 @@ class LocalMiniLM:
         if any(type(value) is not int or value < 1 for value in limits):
             raise ValidationError("Embedding/tokenizer limits must be explicit positive integers")
         self.token_limit = min(limits)
-        self.identity = digest({"adapter_version": "minilm-local-v1", "model": MODEL_NAME,
+        self.configuration = {"adapter_version": "minilm-local-v1", "model": MODEL_NAME,
                                 "requested_revision": MODEL_REVISION, "assets": hashes,
                                 "asset_provenance_verified": self.asset_provenance_verified,
                                 "library_versions": versions, "device": "cpu",
-                                "token_limit": self.token_limit})
+                                "token_limit": self.token_limit}
+        self.identity = digest(self.configuration)
         self.tokenizer = LocalTokenizer(self._model.tokenizer, self.identity)
         self.library_versions = versions
         self._numpy = numpy

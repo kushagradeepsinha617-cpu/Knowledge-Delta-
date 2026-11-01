@@ -1,5 +1,6 @@
 """One question against one snapshot; traces remain distinct from correctness judgments."""
 from dataclasses import asdict, dataclass
+from copy import deepcopy
 import time
 
 from .prompts import PROMPT_VERSION, SYSTEM, build_prompt
@@ -40,6 +41,7 @@ def run_question(question, snapshot, index, embedder, client, configuration=None
               "snapshot_id": snapshot.snapshot_id, "case_id": question.case_id,
               "question": asdict(question), "configuration": asdict(config),
               "index_id": index.index_id, "embedder_id": embedder.identity,
+              "embedding_configuration": deepcopy(getattr(embedder, "configuration", None)),
               "requested_version": question.requested_version, "effective_version": None,
               "configuration_id": None,
               "pipeline_configuration_id": digest({"pipeline": PIPELINE_VERSION, "prompt": PROMPT_VERSION,
@@ -49,7 +51,7 @@ def run_question(question, snapshot, index, embedder, client, configuration=None
                   "model": client.model}),
               "status": "run_error", "judgment": "needs_human_review", "answer": None,
               "retrieved_passages": [], "retrieval_exclusions": [], "generation": None,
-              "generation_performed": False, "answer_cache_used": False,
+              "generation_performed": False, "generation_attempted": False, "answer_cache_used": False,
               "error": None, "error_phase": None}
     phase = "retrieval"
     try:
@@ -75,6 +77,8 @@ def run_question(question, snapshot, index, embedder, client, configuration=None
                     "model_digest": generation["model_digest"],
                     "generation_configuration_id": generation.get("configuration_id")})
             result["generation_performed"] = generation["generation_performed"]
+            result["generation_attempted"] = generation.get("generation_attempted", bool(
+                generation.get("attempts") or generation["generation_performed"]))
             result["status"] = generation["status"]
             result["answer"] = generation["answer"]
             result["answer_origin"] = generation["origin"]

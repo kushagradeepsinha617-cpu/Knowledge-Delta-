@@ -136,5 +136,6 @@ Interview concept: a document keeps its identity across edits; its content hash
 and the containing snapshot's identity change. This distinguishes an edit from
 a removal followed by an unrelated addition.
 
-Milestone 2 awaits the user's instruction. No AI model, UI, semantic evaluator
+Milestone 2 readiness is in progress; see the [download proposal](docs/MILESTONE_2_DOWNLOAD_PROPOSAL.md).
+Large downloads await resource approval. No AI model, UI, semantic evaluator
 or production incremental-ingestion behavior has been measured.

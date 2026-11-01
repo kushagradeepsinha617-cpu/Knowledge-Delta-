@@ -24,13 +24,15 @@ docs/evidence/milestone1/environment.json.
   with a 250 MB ceiling, no global installation, and no intentional writes
   outside that folder. The verified copy is %TEMP%/Knowledge-Delta-.
   Models were not downloaded; later setup still follows explicit download steps.
-- Deliverer requests explicit user permission before every push/API publication,
-  with concrete changes and a commit justification. GO authorizes preparation;
-  it does not waive this gate.
+- The user revoked per-push approval while authorizing Milestone 2 automation.
+  Deliverer may publish authorized project work without asking until the user
+  reinstates that requirement. Preserve remote work and use guarded non-force updates.
 - Brain advises the implementation agent before technical questions are escalated.
   Human approval, human review, preferences and unavailable facts cannot be
   manufactured by an agent.
-- Stop after Milestone 1; later milestones need user instruction.
+- Milestone 2 readiness and implementation are now authorized. The existing
+  250 MB local limit remains until the download proposal is explicitly approved.
+  Do not silently expand storage, install globally, or advance beyond authorized scope.
 - No repository visibility changes, external outreach or social posting.
 
 ## Workflow

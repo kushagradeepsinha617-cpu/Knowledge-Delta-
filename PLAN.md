@@ -1,3 +1,21 @@
+# Milestone 2 readiness — download approval pending
+
+- User authorized Milestone 2 work and revoked per-push approval until further notice.
+- Existing Python 3.15.2 is an installation candidate; published CPU/native
+  wheels were checked, but the full ML resolution/imports remain unverified.
+- Prepared docs/MILESTONE_2_DOWNLOAD_PROPOSAL.md and machine-readable metadata.
+- Request: 12 GB folder ceiling and 4 GB initial-download ceiling; estimated
+  initial transfer 3.2–3.6 GB, including a 500 MB CPU-wheel allowance.
+- Only metadata was retrieved. No large downloads, global installations,
+  model inference or embedding run occurred. The current 250 MB limit holds.
+- Shell networking remains restricted. A reviewed repo-local command may need
+  to be run in the user's normal terminal if the restriction remains.
+- Next: obtain resource approval, preflight complete assets/hashes/expanded ZIP
+  totals, then implement and verify the defined Milestone 2 pipeline.
+- Keep ordinary tests/startup offline and all caches/profile/state inside the folder.
+
+## Previous audit history
+
 # Current audit status
 
 The complete Milestone 1 audit found verification/input gaps missed by the

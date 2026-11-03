@@ -39,7 +39,9 @@ docs/evidence/milestone1/environment.json.
   limit. Do not download models or claim fixture outputs are live inference.
 - Begin Milestone 3 with standard-library components; add an optional Streamlit
   adapter after checking package availability/compatibility before choosing an
-  exact version or proposing installation. No installation is authorized here.
+  exact version or installation. No model downloads. UI dependencies must remain
+  project-local and within 250 MB after compatibility/footprint verification;
+  none have been installed so far. Global installation remains prohibited.
   Human case/result reviews remain genuine pending human work, not agent labels.
 - No repository visibility changes, external outreach or social posting.
 

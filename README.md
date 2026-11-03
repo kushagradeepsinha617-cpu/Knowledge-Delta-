@@ -13,6 +13,9 @@ containment remain unverified. Real embeddings and model inference remain
 unverified; model downloads are forbidden and the 250 MB folder limit holds.
 See [Milestone 3 progress](docs/MILESTONE_3.md) and
 [Milestone 2 integration limits](docs/MILESTONE_2_INTEGRATION_READINESS.md).
+Saved raw experiment JSON can now be imported for review/reporting without
+regenerating answers. Assistant and testing-tool metrics remain separate, with
+explicit exclusions and unavailable scores when eligible labels do not exist.
 
 ## Verification scope
 
@@ -54,14 +57,30 @@ The [self-contained HTML sample](docs/samples/mvp-fixture/report.html) and
 execution**. Download the HTML file and open it locally; GitHub displays its source.
 Simulated correctness labels illustrate the workflow and are not benchmark results.
 
-The current offline suite executed **266 tests**, with no failures, errors or
-skips. Brain independently checked all **124 source hashes** against the
-[interface/controller verification](docs/evidence/milestone3-interface/checks.json).
+The current offline suite executed **294 tests**, with no failures, errors or
+skips. Brain independently checked all **127 source hashes** against the
+[saved-run/metrics verification](docs/evidence/milestone3-run-import-final/checks.json).
+The actual saved-run CLI preserved its input bytes and exported 80 fixture answers
+and 40 comparisons, with zero human reviews and null assistant accuracy.
+The [266-test interface checkpoint](docs/evidence/milestone3-interface/checks.json)
+is preserved as historical evidence.
 The earlier [250-test fixture checkpoint](docs/evidence/milestone3-evaluation/checks.json)
 and sample reports remain historical evidence. Streamlit and live inference are
 unverified; passing mocked launcher tests is not a successful UI launch.
 
 ## Review answers and check the interface
+
+Import an existing raw experiment (the path below must already exist and its
+snapshots/dataset must match the displayed defaults):
+
+```powershell
+.venv/Scripts/python.exe -B scripts/fixture_demo.py --run runs/recorded-run.json --output-dir runs/imported-report
+.venv/Scripts/python.exe -B scripts/review_fixture.py --run runs/recorded-run.json --case-id request-timeout-change --slot after --repetition 2
+```
+
+Repetition 2 must actually exist in that run; selecting it performs no generation.
+For other inputs, pass matching `--before`, `--after`, `--dataset` and `--relations`
+paths. See [saved-run prerequisites and metrics limits](docs/MILESTONE_3.md).
 
 Inspect an answer and its review binding without writing a review:
 

@@ -4,6 +4,7 @@ from pathlib import Path
 from .diff import compare
 from .evaluation import evaluate_run
 from .fixture_replay import replay
+from .metrics import summarize_metrics
 from .reports import html_report, json_report
 from .snapshots import load_snapshot
 from .validation import ValidationError, read_json
@@ -20,6 +21,7 @@ def fixture_report(before, after, dataset_path, relations_path, *, simulate_judg
     evaluation["relation_annotations"] = bundle["relations"]
     evaluation["snapshot_changes"] = compare(snapshots["before"], snapshots["after"])
     evaluation["fixture_notice"] = bundle["run"]["notice"]
+    evaluation["metrics"] = summarize_metrics(evaluation)
     return evaluation
 
 

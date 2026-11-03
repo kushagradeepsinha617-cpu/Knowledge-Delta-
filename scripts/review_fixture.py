@@ -1,4 +1,4 @@
-"""Inspect a fixture review binding or explicitly save your human review; never runs a model."""
+"""Inspect/review a saved experiment or fixture; importing never runs a model."""
 import argparse
 import json
 from pathlib import Path
@@ -16,7 +16,13 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--case-id", required=True)
     parser.add_argument("--kind", choices=("answer", "relation"), default="answer")
-    parser.add_argument("--configuration", choices=("basic", "version_filtered"), default="basic")
+    parser.add_argument("--run", type=Path, help="Existing raw run JSON inside this project; answers are never regenerated")
+    parser.add_argument("--before", type=Path, default="examples/mvp/before/manifest.json")
+    parser.add_argument("--after", type=Path, default="examples/mvp/after/manifest.json")
+    parser.add_argument("--dataset", type=Path, default="examples/mvp/cases.json")
+    parser.add_argument("--relations", type=Path, default="examples/mvp/relations.json")
+    parser.add_argument("--configuration", default="basic")
+    parser.add_argument("--repetition", type=int, default=1)
     parser.add_argument("--slot", choices=("before", "after"), default="after")
     parser.add_argument("--save", action="store_true", help="Explicit human-review action; otherwise inspect only")
     parser.add_argument("--expected-binding")
@@ -28,10 +34,10 @@ def main(argv=None):
     parser.add_argument("--rationale")
     args = parser.parse_args(argv)
     try:
-        session = ReviewSession(ROOT)
-        info = session.answer_info(args.case_id, args.configuration, args.slot) if args.kind == "answer" else session.relation_info(args.case_id)
+        session = ReviewSession(ROOT, before=args.before, after=args.after, dataset=args.dataset, relations=args.relations, run_path=args.run)
+        info = session.answer_info(args.case_id, args.configuration, args.slot, args.repetition) if args.kind == "answer" else session.relation_info(args.case_id)
         if not args.save:
-            print(json.dumps({"mode": "FIXTURE REVIEW INSPECTION", "subject": info["subject"],
+            print(json.dumps({"mode": session.input_mode, "origin": session.run["origin"], "notice": session.notice, "subject": info["subject"],
                 "binding_hash": info["binding_hash"], "revision": info["revision"],
                 "question": info["case"]["question"], "expectations": info["case"]["expectations"],
                 "trace": info.get("trace"), "stored_review": info["stored_review"], "writes_performed": False}, indent=2))
@@ -42,11 +48,11 @@ def main(argv=None):
                   "expected_binding_hash": args.expected_binding, "expected_revision": args.expected_revision}
         if args.kind == "answer":
             revision = session.save_answer(args.case_id, args.configuration, args.slot,
-                outcome=args.outcome, failure_kind=args.failure_kind, **common)
+                outcome=args.outcome, failure_kind=args.failure_kind, repetition=args.repetition, **common)
         else:
             revision = session.save_relation(args.case_id, relation=args.relation, **common)
-        print(json.dumps({"status": "saved", "revision": revision, "origin": "fixture",
-                          "notice": "You reviewed a scripted fixture; no live inference or case-label review is implied."}))
+        print(json.dumps({"status": "saved", "revision": revision, "origin": session.run["origin"],
+                          "notice": "This saves your inspection of a recorded answer. No inference or dataset case-label approval is performed."}))
         return 0
     except (ValidationError, OSError, ValueError, KeyError, TypeError, sqlite3.Error) as exc:
         print(json.dumps({"status": "error", "error": str(exc), "live_inference_performed": False}))

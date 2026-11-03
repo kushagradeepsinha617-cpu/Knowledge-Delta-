@@ -44,9 +44,9 @@ def test_real_interface_loads_complete_fixture_without_model_calls(app):
     at, project = app
     at.run()
     assert not at.exception
-    button(at, "Run fixture replay").click().run()
+    button(at, "Load records").click().run()
     assert not at.exception
-    assert any("FIXTURE REPLAY" in item.value for item in at.warning)
+    assert any("SIMULATED FIXTURE" in item.value for item in at.warning)
     assert {item.label: item.value for item in at.metric}["Answer records"] == "80"
     assert not (project / "runs/manual_reviews.sqlite3").exists()
 
@@ -54,7 +54,7 @@ def test_real_interface_loads_complete_fixture_without_model_calls(app):
 def test_real_interface_saves_explicit_test_review_in_temporary_project(app):
     at, project = app
     at.run()
-    button(at, "Run fixture replay").click().run()
+    button(at, "Load records").click().run()
     next(item for item in at.text_input if item.label == "Your reviewer name").input("TEST-ONLY-APPTEST")
     next(item for item in at.selectbox if item.label == "Answer judgment").select("pass")
     next(item for item in at.text_area if item.label.startswith("Reason, referring")).input("Injected AppTest review of the scripted before answer; no real human review.")
@@ -69,6 +69,6 @@ def test_real_interface_rejects_input_path_outside_project(app):
     at, project = app
     at.run()
     next(item for item in at.text_input if item.label == "Case dataset").input("../outside.json")
-    button(at, "Run fixture replay").click().run()
+    button(at, "Load records").click().run()
     assert not at.exception and at.error
     assert not (project / "runs/manual_reviews.sqlite3").exists()

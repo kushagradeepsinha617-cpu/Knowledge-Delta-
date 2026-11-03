@@ -10,6 +10,13 @@ is not complete; real UI acceptance remains blocked.
 The evaluator, SQLite store, fixture CLI and JSON/HTML export work locally;
 Streamlit remains uninstalled and no UI runtime or live inference is claimed.
 
+The broader audit's saved-run gap is now fixed locally and independently reviewed:
+the controller accepts existing experiment JSON with snapshot/dataset/origin
+checks, preserved raw answers/evidence and repetition selection. Gold answers do
+not regenerate imported responses. Separate assistant/tool metrics retain counts,
+errors and missing judgments; tool precision/recall needs independently attested
+reference labels. The 294-test/127-source proof below binds this checkpoint.
+
 The [interface checkpoint guide](MILESTONE_3_INTERFACE.md) records the implemented
 adapter/launcher/controller and exact review commands. Its frozen ordinary run
 executed 266 tests with zero failures/errors/skips; Brain cleared the bounded
@@ -75,6 +82,62 @@ performed, and zero human reviews. Its HTML is 789,217 bytes and JSON is 847,798
 bytes. Source-bound CLI evidence is recorded in
 `docs/evidence/milestone3-evaluation/fixture-cli.json`. This is a shareable tool
 demonstration, not a model benchmark or screenshot of actual inference.
+
+## Saved-run review and reporting - current integration unit
+
+The local controller/CLI now accepts `--run` with an existing raw experiment JSON
+inside the project. This selects imported-run mode instead of fixture replay.
+Its manifests, dataset and expected-change annotations must match the original
+run; do not point a seven-case run at the twenty-case MVP defaults. Importing
+preserves original answers/evidence and does not call a model or reconstruct an
+answer from an expectation. The full offline suite passed and Brain cleared the
+bounded checkpoint for publication.
+
+Example commands below assume `runs/recorded-run.json` already exists and was
+produced from exactly the displayed MVP manifests/dataset. The path is an input
+placeholder, not a newly generated or checked-in live run:
+
+```powershell
+.venv/Scripts/python.exe -B scripts/fixture_demo.py --run runs/recorded-run.json --before examples/mvp/before/manifest.json --after examples/mvp/after/manifest.json --dataset examples/mvp/cases.json --relations examples/mvp/relations.json --output-dir runs/imported-report
+.venv/Scripts/python.exe -B scripts/review_fixture.py --run runs/recorded-run.json --before examples/mvp/before/manifest.json --after examples/mvp/after/manifest.json --dataset examples/mvp/cases.json --relations examples/mvp/relations.json --case-id request-timeout-change --configuration basic --slot after --repetition 2
+```
+
+The second command is valid only if that configuration/case/repetition exists in
+the saved run. `--repetition` selects the exact answer to inspect/save; it does
+not generate another answer. The report includes recorded repetitions rather
+than silently merging them. `--run` cannot be combined with simulated correctness
+judgments to relabel an imported result. Review saves still require the displayed
+binding/revision and the actual person's own name/rationale.
+
+The Streamlit adapter is being wired to the same input/repetition controls, but
+actual rendering and interactions remain unverified while dependencies are absent.
+Imported origin is validated and preserved; a supplied live label is not independent
+proof that a model was actually run. Import itself performs no inference.
+
+Assistant metrics and testing-tool metrics are separate contracts. Report counts,
+eligible reviewed denominators, missing judgments and run errors explicitly;
+fixture judgments are not live assistant correctness. Failure-flag precision/recall
+requires independent, revision-bound reference labels and coverage disclosure.
+Do not compare the evaluator's own judgments against themselves as ground truth,
+exclude errors to inflate scores, or invent human labels. Final metric fields and
+checks are recorded in the current source-bound evidence. Independent reference
+labels represent a separately attested procedure, not authenticated identity,
+another person or proof of blind review. Recorded origin/reviewer claims are not
+independent proof of live execution or a reviewer's identity.
+
+Final evidence in [evidence/milestone3-run-import-final](evidence/milestone3-run-import-final/):
+294 executed tests with zero failures/errors/skips, run
+`026df346a922443abf76d9bc9181c8a4`, 127-source ID
+`55635b9d92192d36dcd4768c3e04085129237447399654898c690d717bee16c8`.
+The actual saved-run CLI check imported/exported 80 fixture answer records and
+40 comparisons while preserving the input file bytes, with zero human reviews.
+It did not regenerate answers, run a model or turn fixture labels into accuracy:
+assistant accuracy remains null. The measured folder contains 46,064,960 logical
+bytes including ignored outputs, within 250 MB. Brain independently verified all
+127 source hashes and the final CLI preservation/provenance checks;
+Streamlit rendering and Milestone 2 live integration remain unverified.
+The earlier `milestone3-run-import` evidence remains preserved as an intermediate
+source observation rather than being overwritten by this corrected final run.
 
 ## Dataset and review integrity
 
@@ -160,7 +223,13 @@ now published; its complete 124-source remote reconciliation supersedes that run
 - One read-only PyPI HEAD check was requested in the user's normal terminal to
   identify an available route. No answer has arrived; user connectivity remains
   unknown. No install, model operation or resource expansion was requested.
-- The source/preflight/controller work is finished. Do not add placeholder features
-  or advance to Milestone 4 while real Milestone 3 acceptance remains unverified.
+- Publish the independently reviewed saved-run review/report and metrics checkpoint,
+  then reconcile remote hashes. Do not advance to Milestone 4.
 - Preserve the published historical sample and evidence. Last measured folder size
-  is 28,044,199 logical bytes, within 250 MB; no packages/models were installed.
+  is 46,064,960 logical bytes, within 250 MB; no packages/models were installed.
+
+Non-model UI dependencies are permitted as routine project-local setup only after
+compatibility and full-footprint checks within 250 MB; none have been installed.
+The user forbids model downloads, excess storage and global installation, rather
+than every possible UI dependency installation. Observed network failures remain
+an execution limit, and no claim of user-terminal connectivity is made.

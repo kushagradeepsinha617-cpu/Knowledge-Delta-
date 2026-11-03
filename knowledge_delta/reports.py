@@ -45,6 +45,11 @@ def html_report(evaluation, *, snapshot_changes=None):
         "<p>Only the displayed counts are reported here. Simulated labels are excluded from benchmark evidence.</p></section>"])
     if snapshot_changes is not None:
         parts.extend(["<section><h2>Snapshot changes</h2>", _pre(snapshot_changes), "</section>"])
+    if evaluation.get("import_notice"):
+        parts.extend(["<section><h2>Record provenance</h2>", _pre(evaluation["import_notice"]), "</section>"])
+    if evaluation.get("metrics"):
+        parts.extend(["<section><h2>Assistant and testing-tool measures</h2><p>Every ratio includes its numerator and denominator. Missing judgments remain visible. Null means unavailable, not zero performance.</p>",
+                      _pre(evaluation["metrics"]), "</section>"])
     if evaluation.get("stale_reviews"):
         parts.extend(["<section><h2>Stale review records</h2><p class='notice'>These records do not grade the current answers or expected changes. Their history is preserved.</p>",
                       _pre(evaluation["stale_reviews"]), "</section>"])

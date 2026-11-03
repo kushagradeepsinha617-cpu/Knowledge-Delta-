@@ -1,4 +1,4 @@
-"""Fixture review controller shared by CLI and interface; loading never writes reviews."""
+"""Review saved experiment records or scripted fixtures; loading never runs inference."""
 from copy import deepcopy
 from datetime import datetime, timezone
 from pathlib import Path
@@ -7,15 +7,18 @@ from .diff import compare
 from .evaluation import (binding, evaluate_run, make_review, result_key, validate_relation,
                          validate_review)
 from .fixture_replay import replay
+from .metrics import summarize_metrics
 from .review_store import ReviewConflict, ReviewStore
 from .snapshots import load_snapshot
 from .validation import ValidationError, digest, read_json
+
+MAX_RUN_BYTES = 16 * 1024 * 1024
 
 
 class ReviewSession:
     def __init__(self, project_root, *, before="examples/mvp/before/manifest.json",
                  after="examples/mvp/after/manifest.json", dataset="examples/mvp/cases.json",
-                 relations="examples/mvp/relations.json", simulate_judgments=False):
+                 relations="examples/mvp/relations.json", simulate_judgments=False, run_path=None):
         self.root = Path(project_root).resolve()
         def source(value):
             path = Path(value)
@@ -26,8 +29,35 @@ class ReviewSession:
         self.snapshots = {"before": load_snapshot(source(before)), "after": load_snapshot(source(after))}
         self.dataset = read_json(source(dataset))
         self.original_relations = read_json(source(relations))
-        self.bundle = replay(self.dataset, self.snapshots, self.original_relations, simulate_judgments=simulate_judgments)
+        self.input_mode = "existing_run" if run_path is not None else "fixture_replay"
+        self.input_run_path = None
+        if run_path is not None:
+            if simulate_judgments:
+                raise ValidationError("Saved runs cannot be graded with generated fixture-oracle judgments")
+            path = source(run_path)
+            if not path.is_file() or path.stat().st_size > MAX_RUN_BYTES:
+                raise ValidationError("Select a regular saved-run JSON file within the 16 MiB import limit")
+            raw = read_json(path)
+            if (not isinstance(raw, dict) or type(raw.get("schema_version")) is not int
+                    or raw["schema_version"] != 1 or raw.get("kind") not in ("local_snapshot_experiment", "fixture_replay")):
+                raise ValidationError("Import raw experiment JSON from run_local_cases, or a raw fixture run; report JSON is a separate export")
+            if raw.get("dataset_hash") != digest(self.dataset):
+                raise ValidationError("Saved run must identify the exact selected dataset revision")
+            if raw.get("origin") not in ("live", "fixture", "test_double", "unverified", "mixed"):
+                raise ValidationError("Saved run must declare its recorded origin")
+            self.bundle = {"run": raw, "reviews": [], "relations": deepcopy(self.original_relations)}
+            self.input_run_path = str(path.relative_to(self.root))
+        else:
+            self.bundle = replay(self.dataset, self.snapshots, self.original_relations, simulate_judgments=simulate_judgments)
         self.run = self.bundle["run"]
+        raw_results = self.run.get("results")
+        self.allow_fixture = self.run.get("origin") in ("fixture", "test_double") or (
+            isinstance(raw_results, list) and any(isinstance(trace, dict) and trace.get("origin") in ("fixture", "test_double") for trace in raw_results))
+        # Validate the original import before indexing records or exposing review actions.
+        evaluate_run(self.run, self.dataset, self.bundle["relations"], self.bundle["reviews"],
+                     snapshots=self.snapshots, allow_fixture=self.allow_fixture)
+        self.notice = (self.run["notice"] if self.input_mode == "fixture_replay" else
+            "IMPORTED RUN. Recorded answers and evidence are preserved. No inference was performed during import. Origin/model/runtime provenance is self-reported by the file, not authenticated by this loader.")
         self.cases = {case["case_id"]: case for case in self.dataset["cases"]}
         self.traces = {digest(result_key(self.run, trace)): trace for trace in self.run["results"]}
         self.store = ReviewStore(self.root)
@@ -55,8 +85,8 @@ class ReviewSession:
                 "stored_review": stored, "case": self.cases[case_id]}
 
     def save_answer(self, case_id, configuration, slot, *, outcome, reviewer, rationale,
-                    expected_binding_hash, expected_revision, failure_kind=None, abstention_judgment=None):
-        info = self.answer_info(case_id, configuration, slot)
+                    expected_binding_hash, expected_revision, failure_kind=None, abstention_judgment=None, repetition=1):
+        info = self.answer_info(case_id, configuration, slot, repetition)
         if info["binding_hash"] != expected_binding_hash:
             raise ReviewConflict("The displayed case/answer/evidence changed. Reload it before reviewing.")
         review = make_review(self.run, info["trace"], self.dataset, info["case"], outcome,
@@ -115,9 +145,12 @@ class ReviewSession:
                 stale.append({"kind": "relation", "subject": case_id, "revision": event["revision"],
                               "reason": str(exc), "payload": event["payload"]})
         evaluation = evaluate_run(self.run, self.dataset, relations, list(answers.values()),
-                                   snapshots=self.snapshots, allow_fixture=True)
+                                   snapshots=self.snapshots, allow_fixture=self.allow_fixture)
         evaluation.update(raw_run=self.run, review_records=list(answers.values()), relation_annotations=relations,
                           snapshot_changes=compare(self.snapshots["before"], self.snapshots["after"]),
-                          fixture_notice=self.run["notice"], stale_reviews=stale,
+                          fixture_notice=self.notice if self.allow_fixture else None, import_notice=self.notice,
+                          input_mode=self.input_mode, input_run_path=self.input_run_path,
+                          inference_performed_during_review=False, stale_reviews=stale,
                           review_history=self.store.history(self.run["run_id"]))
+        evaluation["metrics"] = summarize_metrics(evaluation)
         return evaluation

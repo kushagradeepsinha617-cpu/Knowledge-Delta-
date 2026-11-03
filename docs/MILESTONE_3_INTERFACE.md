@@ -7,6 +7,19 @@ Streamlit adapter, contained Windows launcher, review controller, CLI and stale-
 tokens are implemented. Streamlit is unavailable here; rendering, successful UI
 launch and runtime write containment remain unverified. Milestone 3 is incomplete.
 
+Current follow-up: saved experiment JSON import/review/reporting and separate
+assistant/tool metrics are now implemented and independently reviewed. The final
+offline run executed 294 tests with no failures/errors/skips, run
+`026df346a922443abf76d9bc9181c8a4`; all 127 source hashes match identity
+`55635b9d92192d36dcd4768c3e04085129237447399654898c690d717bee16c8`.
+Evidence: [final run-import checks](evidence/milestone3-run-import-final/checks.json)
+and [saved-run CLI proof](evidence/milestone3-run-import-final/saved-run-cli.json).
+The actual import/export preserved the input bytes, retained 80 fixture records/
+40 comparisons and zero human reviews, and left assistant accuracy null. See
+[saved-run commands and prerequisites](MILESTONE_3.md) for `--run`/`--repetition`.
+The 266-test observations below are preserved historical interface evidence,
+not fresh UI integration results for this follow-up.
+
 ## Boundaries and existing evidence
 
 The user authorized fixture-based Milestone 3 within 250 MB and zero spending,
@@ -128,6 +141,6 @@ features or Milestone 4 work are planned; Milestone 3 remains incomplete.
 One read-only PyPI HEAD check was requested in the user's normal terminal to
 identify a usable manual setup/network route. The answer is pending; no conclusion
 about the user's connectivity is established. That check installs nothing and
-changes no resource/budget authorization. The existing folder last measured
-28,044,199 logical bytes, within 250 MB. No package/model downloads, installations
+changes no resource/budget authorization. After the run-import follow-up the
+existing folder measured 46,064,960 logical bytes, within 250 MB. No package/model downloads, installations
 or live model operations occurred for this checkpoint.

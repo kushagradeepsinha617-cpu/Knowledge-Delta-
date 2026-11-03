@@ -1,4 +1,4 @@
-# Current state - Milestone 3 interface and manual-review unit in progress
+# Current state - Milestone 3 source published; real UI acceptance blocked
 
 - User explicitly authorized Milestone 3 with labeled fixtures while keeping
   the 250 MB folder ceiling and no-model-download restriction. Per-push approval
@@ -6,10 +6,10 @@
 - The first fixture checkpoint is published as
   2c9e9d509046b3e8bc7accfb5995f9284e91ec2f. All 115 remote source hashes and
   sample report checksums were reconciled; historical 250-test evidence is preserved.
-- Current independent unit: optional Streamlit/manual-review interface. Check real
-  package availability, child-state containment and footprint before any install
-  attempt within 250 MB. Streamlit 1.66.1 is metadata-only candidate information;
-  no installed/imported/running UI is claimed. Network restrictions may block setup.
+- Interface checkpoint is published as
+  4c270e0cc7d5f80a0a4bb78a37146fe70015ca40; all 124 published source hashes match
+  the 266-test manifest. The adapter/controller/launcher work is complete in source.
+  Actual Streamlit imports, rendering and containment remain unverified.
 - Interface/manual-review code is now frozen: adapter, contained launcher, shared
   controller, CLI and stale-form tokens implemented. Final ordinary run executed
   266 tests with zero failures/errors/skips, run ee12938adf304f519a70eaf0e82d0dcb,
@@ -24,14 +24,14 @@
 - Actual review inspection exit 0 wrote no journal; review-aware export produced
   80 fixture records/40 comparisons, human reviews/pass count 0, mechanical failures
   7, unresolved 71, run errors 2. TEST-ONLY temporary DB actions are not human reviews.
-- Resumed state check on 2026-11-03: remote main remains the published 2c9e9d5
-  checkpoint. Preserved the newer local review_workflow.py controller and interface
+- Historical resumption check on 2026-11-03 found main at 2c9e9d5 before
+  the subsequent 4c270e0 interface publication. Preserved the newer local review_workflow.py controller and interface
   evidence; no remote changes or local source work were overwritten.
 - Last recorded local controller run executed 257 tests with zero failures/errors/
   skips, run 5eb31a98ccba42b2a50445328ae51e9e, source ID
   82790bd4f6630820d8c90d5ac37fe2535b62df8618ce787f1321c908a1f32ef0.
   This historical local run is not a fresh resumption check or a successful UI
-  launch. Reconcile current source and final review before the next publication.
+  launch. The later 266-test source review and publication supersede that local run.
 - Implemented standard-library evaluation, SQLite manual-review records, escaped
   self-contained HTML/JSON reports and a fixture/replay CLI. Compare independent
   snapshot judgments; do not turn simulated outputs into assistant benchmarks.
@@ -58,10 +58,15 @@
   transitive footprint and actual imports remain unknown. See docs/MILESTONE_3.md.
 - Milestone 2 live acceptance stays blocked by missing dependencies/runtime/assets
   and deferred larger downloads. Keep its existing evidence unchanged and separate.
-- Next: publish the independently reviewed interface/manual-review checkpoint and
-  verify remote hashes. Preserve prior source/sample evidence. Actual UI rendering
-  and runtime containment remain blocked by unavailable dependencies/network access;
-  no UI success or Milestone 3 completion is claimed.
+- Remaining acceptance is genuinely blocked by absent Streamlit dependencies and
+  the agent environment's failed network access. No more independent placeholder
+  features or Milestone 4 work are planned. Preserve prior source/sample evidence.
+- One read-only PyPI HEAD check in the user's normal terminal was requested to
+  identify a possible setup route; the answer is pending. User-terminal connectivity
+  is unknown. This request installs nothing and changes no budget/resource limit.
+- Existing folder last measured 28,044,199 logical bytes, within 250 MB. No packages
+  or models were installed/downloaded. Once a usable setup route exists, verify real
+  UI rendering and runtime containment before claiming Milestone 3 completion.
 
 ## Milestone 2 checkpoint - offline work complete; live acceptance blocked
 

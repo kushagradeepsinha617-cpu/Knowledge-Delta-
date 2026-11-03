@@ -3,7 +3,10 @@
 Status: first working fixture checkpoint published as
 [`2c9e9d5`](https://github.com/kushagradeepsinha617-cpu/Knowledge-Delta-/commit/2c9e9d509046b3e8bc7accfb5995f9284e91ec2f),
 with all 115 remote source hashes and both sample checksums reconciled.
-The next interface/manual-review unit is in progress. Milestone 3 is not complete.
+The interface source checkpoint is published as
+[`4c270e0`](https://github.com/kushagradeepsinha617-cpu/Knowledge-Delta-/commit/4c270e0cc7d5f80a0a4bb78a37146fe70015ca40),
+with all 124 remote source hashes matched to its 266-test manifest. Milestone 3
+is not complete; real UI acceptance remains blocked.
 The evaluator, SQLite store, fixture CLI and JSON/HTML export work locally;
 Streamlit remains uninstalled and no UI runtime or live inference is claimed.
 
@@ -144,15 +147,20 @@ controller run executed 257 tests with zero failures/errors/skips, run
 `5eb31a98ccba42b2a50445328ae51e9e`, source
 `82790bd4f6630820d8c90d5ac37fe2535b62df8618ce787f1321c908a1f32ef0`.
 This is historical controller evidence, not a new test run on resumption and not
-proof of a functioning Streamlit app. Final current-source checks and bounded
-review remain required before the next push.
+proof of a functioning Streamlit app. The later reviewed 266-test checkpoint is
+now published; its complete 124-source remote reconciliation supersedes that run.
 
 - Preserve the published fixture checkpoint, ignored output directories and
   previous milestone evidence while building the next independent unit.
 - Keep real review work pending; stale/revision-bound records and fixture/live
   separation are tested contracts, not evidence that a human reviewed the cases.
-- Publish the independently reviewed interface/manual-review source checkpoint.
-  Real rendering and launcher containment still require compatible dependencies
-  and network availability; record unavailable checks rather than claiming UI success.
-- Record subsequent source/evidence and interface checks separately. Milestone 3
-  completion remains pending; Streamlit is the next independent implementation unit.
+- Actual Streamlit imports/rendering and launcher containment require compatible
+  dependencies and a usable setup/network route; these remain blocked. Record
+  unavailable checks rather than claiming UI success.
+- One read-only PyPI HEAD check was requested in the user's normal terminal to
+  identify an available route. No answer has arrived; user connectivity remains
+  unknown. No install, model operation or resource expansion was requested.
+- The source/preflight/controller work is finished. Do not add placeholder features
+  or advance to Milestone 4 while real Milestone 3 acceptance remains unverified.
+- Preserve the published historical sample and evidence. Last measured folder size
+  is 28,044,199 logical bytes, within 250 MB; no packages/models were installed.

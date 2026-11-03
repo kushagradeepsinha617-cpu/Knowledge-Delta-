@@ -1,6 +1,8 @@
 # Milestone 3 interface and manual-review checkpoint
 
-Status: limited source checkpoint independently reviewed and ready to publish. The optional
+Status: reviewed source checkpoint published as
+[`4c270e0`](https://github.com/kushagradeepsinha617-cpu/Knowledge-Delta-/commit/4c270e0cc7d5f80a0a4bb78a37146fe70015ca40),
+with all 124 remote source hashes matched to its 266-test manifest. The optional
 Streamlit adapter, contained Windows launcher, review controller, CLI and stale-form
 tokens are implemented. Streamlit is unavailable here; rendering, successful UI
 launch and runtime write containment remain unverified. Milestone 3 is incomplete.
@@ -117,8 +119,15 @@ The recorded attempt was unavailable, so no rendered-flow success is reported.
 
 ## Remaining acceptance
 
-Publish the independently reviewed bounded checkpoint and verify remote hashes.
-Real Streamlit imports/rendering, browser interactions and
-launcher containment still need dependencies/network access. Do not substitute
-controller tests for those observations or claim Milestone 3 complete. No expanded
-downloads, installation or model operation was performed for this checkpoint.
+The reviewed source checkpoint is published and remotely reconciled. Actual
+Streamlit imports/rendering, browser interactions and launcher containment remain
+genuinely blocked by missing dependencies and failed agent-side network access.
+Controller tests cannot substitute for those observations. No further placeholder
+features or Milestone 4 work are planned; Milestone 3 remains incomplete.
+
+One read-only PyPI HEAD check was requested in the user's normal terminal to
+identify a usable manual setup/network route. The answer is pending; no conclusion
+about the user's connectivity is established. That check installs nothing and
+changes no resource/budget authorization. The existing folder last measured
+28,044,199 logical bytes, within 250 MB. No package/model downloads, installations
+or live model operations occurred for this checkpoint.

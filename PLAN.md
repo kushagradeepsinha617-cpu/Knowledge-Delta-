@@ -1,20 +1,49 @@
-# Current state - Milestone 3 first working fixture checkpoint
+# Current state - Milestone 3 interface and manual-review unit in progress
 
 - User explicitly authorized Milestone 3 with labeled fixtures while keeping
   the 250 MB folder ceiling and no-model-download restriction. Per-push approval
   remains waived for authorized project changes; preserve remote work.
+- The first fixture checkpoint is published as
+  2c9e9d509046b3e8bc7accfb5995f9284e91ec2f. All 115 remote source hashes and
+  sample report checksums were reconciled; historical 250-test evidence is preserved.
+- Current independent unit: optional Streamlit/manual-review interface. Check real
+  package availability, child-state containment and footprint before any install
+  attempt within 250 MB. Streamlit 1.66.1 is metadata-only candidate information;
+  no installed/imported/running UI is claimed. Network restrictions may block setup.
+- Interface/manual-review code is now frozen: adapter, contained launcher, shared
+  controller, CLI and stale-form tokens implemented. Final ordinary run executed
+  266 tests with zero failures/errors/skips, run ee12938adf304f519a70eaf0e82d0dcb,
+  source 63010193367c4fa932de8dec2b11ca40c7f4aa6a91b5362f9e1c09786f5bfc22.
+  Brain cleared the limited checkpoint and independently matched all 124 source
+  hashes and scoped evidence; see docs/MILESTONE_3_INTERFACE.md.
+- Actual readiness: missing Streamlit/exit 2, no state change. Real AppTest attempt
+  unavailable/exit 1, zero UI checks verified. Package probes failed (network
+  unreachable); no installation, artifact/model download or real UI launch occurred.
+  Existing base/user-site inventory found no usable Streamlit installation;
+  docs/evidence/milestone3-interface/existing-packages.json records that observation.
+- Actual review inspection exit 0 wrote no journal; review-aware export produced
+  80 fixture records/40 comparisons, human reviews/pass count 0, mechanical failures
+  7, unresolved 71, run errors 2. TEST-ONLY temporary DB actions are not human reviews.
+- Resumed state check on 2026-11-03: remote main remains the published 2c9e9d5
+  checkpoint. Preserved the newer local review_workflow.py controller and interface
+  evidence; no remote changes or local source work were overwritten.
+- Last recorded local controller run executed 257 tests with zero failures/errors/
+  skips, run 5eb31a98ccba42b2a50445328ae51e9e, source ID
+  82790bd4f6630820d8c90d5ac37fe2535b62df8618ce787f1321c908a1f32ef0.
+  This historical local run is not a fresh resumption check or a successful UI
+  launch. Reconcile current source and final review before the next publication.
 - Implemented standard-library evaluation, SQLite manual-review records, escaped
   self-contained HTML/JSON reports and a fixture/replay CLI. Compare independent
   snapshot judgments; do not turn simulated outputs into assistant benchmarks.
-- An optional Streamlit adapter follows package availability/compatibility checks
-  before exact pinning or installation. No dependencies are installed at this step.
-- Milestone 3 remains incomplete; Streamlit is not implemented or installed.
+- The optional Streamlit adapter is implemented in source; dependency installation
+  and actual rendering remain unverified. No dependencies are installed at this step.
+- Milestone 3 remains incomplete; the Streamlit package is not installed.
   Dataset expansion remains draft until actual human review. No fabricated labels.
 - Current local progress: 20 distinct constructed development cases and draft
   expected-change relations under examples/mvp; zero human reviews. Initial
   evaluator/revision-bound review records, fixture/report workflow and CLI work
   locally. Brain cleared the bounded checkpoint with no blocking findings.
-- Latest actual source run: 250 executed tests, zero failures/errors/skips,
+- Published fixture source run: 250 executed tests, zero failures/errors/skips,
   run 85050ab4133b40cd88df124c6c0f1287, docs/evidence/milestone3-evaluation.
   Source ID 95a2905f74bf4e6b3280a1eddad71ebb87c32a7f4a084e53d267be553f66fe9b;
   Brain independently verified all 115 source hashes plus fixture CLI/sample
@@ -29,9 +58,10 @@
   transitive footprint and actual imports remain unknown. See docs/MILESTONE_3.md.
 - Milestone 2 live acceptance stays blocked by missing dependencies/runtime/assets
   and deferred larger downloads. Keep its existing evidence unchanged and separate.
-- User requested the latest updates pushed. Next: publish this reviewed working
-  checkpoint and verify remote source hashes. Then implement Streamlit/manual UI
-  as a separate unit after dependency checks; no UI success or M3 completion yet.
+- Next: publish the independently reviewed interface/manual-review checkpoint and
+  verify remote hashes. Preserve prior source/sample evidence. Actual UI rendering
+  and runtime containment remain blocked by unavailable dependencies/network access;
+  no UI success or Milestone 3 completion is claimed.
 
 ## Milestone 2 checkpoint - offline work complete; live acceptance blocked
 

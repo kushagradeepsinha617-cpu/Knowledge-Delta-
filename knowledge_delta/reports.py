@@ -45,6 +45,11 @@ def html_report(evaluation, *, snapshot_changes=None):
         "<p>Only the displayed counts are reported here. Simulated labels are excluded from benchmark evidence.</p></section>"])
     if snapshot_changes is not None:
         parts.extend(["<section><h2>Snapshot changes</h2>", _pre(snapshot_changes), "</section>"])
+    if evaluation.get("stale_reviews"):
+        parts.extend(["<section><h2>Stale review records</h2><p class='notice'>These records do not grade the current answers or expected changes. Their history is preserved.</p>",
+                      _pre(evaluation["stale_reviews"]), "</section>"])
+    if evaluation.get("review_history"):
+        parts.extend(["<section><details><summary>Manual review history</summary>", _pre(evaluation["review_history"]), "</details></section>"])
     parts.append("<section><h2>Comparison</h2><p>Select a case to inspect both answers and the evidence.</p><table><thead><tr><th>Case</th><th>Configuration</th><th>Status</th><th>Review status</th></tr></thead><tbody>")
     for index, row in enumerate(evaluation["rows"]):
         status = LABELS[row["comparison"]["status"]]

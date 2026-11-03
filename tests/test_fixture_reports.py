@@ -76,6 +76,16 @@ def test_report_distinguishes_retrieval_from_attempted_generation_context():
     assert "Recorded request passages — effective model context unverified" in html_report(evaluation)
 
 
+def test_html_preserves_stale_review_warning_and_escaped_history():
+    evaluation = sample()
+    evaluation["stale_reviews"] = [{"reason": "Answer changed", "payload": "<script>old review</script>"}]
+    evaluation["review_history"] = [{"rationale": "<img src=x>"}]
+    rendered = html_report(evaluation)
+    assert "Stale review records" in rendered and "do not grade the current answers" in rendered
+    assert "Manual review history" in rendered
+    assert "&lt;script&gt;old review&lt;/script&gt;" in rendered and "&lt;img src=x&gt;" in rendered
+
+
 def test_export_is_portable_idempotent_and_does_not_overwrite_changed_files(tmp_path):
     evaluation = sample()
     outputs = export_report(tmp_path, "exports/demo", evaluation)

@@ -1,9 +1,19 @@
 # Milestone 3 - fixture-based testing and evidence review
 
-Status: first working fixture-based checkpoint independently reviewed and ready
-for publication. Milestone 3 is not complete. The evaluator, SQLite
-review store, fixture CLI and JSON/HTML export work locally; Streamlit is not yet
-implemented or installed. No live inference or complete interface is claimed.
+Status: first working fixture checkpoint published as
+[`2c9e9d5`](https://github.com/kushagradeepsinha617-cpu/Knowledge-Delta-/commit/2c9e9d509046b3e8bc7accfb5995f9284e91ec2f),
+with all 115 remote source hashes and both sample checksums reconciled.
+The next interface/manual-review unit is in progress. Milestone 3 is not complete.
+The evaluator, SQLite store, fixture CLI and JSON/HTML export work locally;
+Streamlit remains uninstalled and no UI runtime or live inference is claimed.
+
+The [interface checkpoint guide](MILESTONE_3_INTERFACE.md) records the implemented
+adapter/launcher/controller and exact review commands. Its frozen ordinary run
+executed 266 tests with zero failures/errors/skips; Brain cleared the bounded
+checkpoint and independently matched all 124 source hashes and scoped evidence.
+Actual Streamlit readiness and AppTest were unavailable, so
+rendering/runtime containment are not verified. No package/model installation
+occurred; the network probe was unreachable. Human reviews remain zero.
 
 ## Authorization and scope
 
@@ -119,14 +129,30 @@ The complete transitive download/installed footprint and imports are unknown.
 Do not infer that the entire environment fits 250 MB from the Streamlit wheel
 size. No Streamlit package download or installation has occurred in this step.
 
+The next unit checks actual package availability, cache/profile/temp containment
+and full footprint before any installation attempt within the existing 250 MB
+allowance. Network restrictions may block that route. Published fixture reports
+and their 250-test source evidence remain historical records; new interface
+verification must be recorded separately, including any unavailable runtime.
+
 ## Next acceptance checks
 
-- Publish the tested working fixture checkpoint requested by the user, preserving
-  ignored output directories and previous milestone evidence.
+On resumption (2026-11-03), remote `main` still points to the published `2c9e9d5`
+checkpoint. Newer local `review_workflow.py` and
+`docs/evidence/milestone3-interface` were preserved. The last recorded local
+controller run executed 257 tests with zero failures/errors/skips, run
+`5eb31a98ccba42b2a50445328ae51e9e`, source
+`82790bd4f6630820d8c90d5ac37fe2535b62df8618ce787f1321c908a1f32ef0`.
+This is historical controller evidence, not a new test run on resumption and not
+proof of a functioning Streamlit app. Final current-source checks and bounded
+review remain required before the next push.
+
+- Preserve the published fixture checkpoint, ignored output directories and
+  previous milestone evidence while building the next independent unit.
 - Keep real review work pending; stale/revision-bound records and fixture/live
   separation are tested contracts, not evidence that a human reviewed the cases.
-- Next implement the optional Streamlit/manual-review interface unit only within
-  the existing resource boundary; record
-  unavailable dependencies and any unverified UI behavior explicitly.
+- Publish the independently reviewed interface/manual-review source checkpoint.
+  Real rendering and launcher containment still require compatible dependencies
+  and network availability; record unavailable checks rather than claiming UI success.
 - Record subsequent source/evidence and interface checks separately. Milestone 3
   completion remains pending; Streamlit is the next independent implementation unit.

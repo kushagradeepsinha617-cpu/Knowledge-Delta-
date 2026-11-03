@@ -1,0 +1,17 @@
+{
+  "kind": "fixture_review_export_cli_check",
+  "checked_at": "2026-11-03T12:55:10.438825+00:00",
+  "arguments": [
+    "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.venv\\Scripts\\python.exe",
+    "-B",
+    "scripts/fixture_demo.py",
+    "--include-manual-reviews",
+    "--output-dir",
+    "runs/interface-check-20261103"
+  ],
+  "returncode": 0,
+  "stdout": "{\n  \"mode\": \"SIMULATED FIXTURE\",\n  \"files\": {\n    \"report.json\": \"C:\\\\Users\\\\Kushagra Deep\\\\AppData\\\\Local\\\\Temp\\\\Knowledge-Delta-\\\\runs\\\\interface-check-20261103\\\\report.json\",\n    \"report.html\": \"C:\\\\Users\\\\Kushagra Deep\\\\AppData\\\\Local\\\\Temp\\\\Knowledge-Delta-\\\\runs\\\\interface-check-20261103\\\\report.html\"\n  },\n  \"counts\": {\n    \"cases\": 20,\n    \"planned_answer_records\": 80,\n    \"recorded_answer_records\": 80,\n    \"missing_answer_records\": 0,\n    \"comparison_records\": 40,\n    \"human_reviewed_cases\": 0,\n    \"draft_cases\": 20,\n    \"answer_outcomes\": {\n      \"pass\": 0,\n      \"fail\": 7,\n      \"needs_human_review\": 71,\n      \"run_error\": 2\n    },\n    \"human_answer_reviews\": 0,\n    \"simulated_answer_judgments\": 0\n  },\n  \"live_inference_performed\": false\n}\n",
+  "stderr": "",
+  "source_id": "63010193367c4fa932de8dec2b11ca40c7f4aa6a91b5362f9e1c09786f5bfc22",
+  "live_inference_performed": false
+}

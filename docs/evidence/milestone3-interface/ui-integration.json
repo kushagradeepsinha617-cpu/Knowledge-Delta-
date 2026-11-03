@@ -1,0 +1,82 @@
+{
+  "kind": "explicit_real_streamlit_integration_attempt",
+  "checked_at": "2026-11-03T12:54:06.137163+00:00",
+  "arguments": [
+    "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "scripts/interface_integration_tests.py",
+    "-q",
+    "-x",
+    "-p",
+    "no:cacheprovider",
+    "--basetemp=C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\tmp\\explicit-ui-b840b551dcae44c49d56a5e4ed68676a\\pytest"
+  ],
+  "returncode": 1,
+  "stdout": "E\n=================================== ERRORS ====================================\n_ ERROR at setup of test_real_interface_loads_complete_fixture_without_model_calls _\nReal Streamlit integration unavailable: explicitly install the project-local UI dependencies first\n=========================== short test summary info ===========================\nERROR scripts/interface_integration_tests.py::test_real_interface_loads_complete_fixture_without_model_calls\n!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!\n1 error in 0.05s\n",
+  "stderr": "",
+  "source_id": "63010193367c4fa932de8dec2b11ca40c7f4aa6a91b5362f9e1c09786f5bfc22",
+  "test_dependency_mode": "verified_source_imports",
+  "source_dependencies": [
+    {
+      "name": "pytest",
+      "release_tag": "9.2.0",
+      "commit": "ae1d0ff57b8bd4252da9ade7353523ac0ac73281",
+      "verified_files": 85,
+      "generated_files": [
+        {
+          "path": "src/_pytest/_version.py",
+          "reason": "Explicit build-generated version metadata from verified release tag; not an upstream tracked blob.",
+          "sha256": "b7d91e07dd95e4ad6ebad633c4fff3e1ef7c879d575b9ca61139ffaf1962e87f",
+          "content": "# Build-generated metadata for source-only verification.\n# Official pytest tag 9.2.0 at ae1d0ff57b8bd4252da9ade7353523ac0ac73281.\nversion = __version__ = \"9.2.0\"\nversion_tuple = __version_tuple__ = (9, 2, 0)\n"
+        }
+      ]
+    },
+    {
+      "name": "pluggy",
+      "release_tag": "1.6.0",
+      "commit": "fd08ab5f811a9b2fa9124ae8cbbd393221151e2c",
+      "verified_files": 10,
+      "generated_files": [
+        {
+          "path": "src/pluggy/_version.py",
+          "reason": "Explicit build-generated version metadata from verified release tag; not an upstream tracked Git blob.",
+          "sha256": "6e4c1b2c0816c707c2a4bf67ecb19b8b96e021899c3d8b236bbcba328b23d6aa",
+          "content": "# Build-generated metadata for source-only verification.\n# Version taken from official pluggy tag 1.6.0 at fd08ab5f811a9b2fa9124ae8cbbd393221151e2c.\nversion = __version__ = \"1.6.0\"\nversion_tuple = __version_tuple__ = (1, 6, 0)\n"
+        }
+      ]
+    },
+    {
+      "name": "iniconfig",
+      "release_tag": "v2.3.0",
+      "commit": "7faed13ae50bad7c5da3f5782f254a8a7736bb84",
+      "verified_files": 6,
+      "generated_files": []
+    },
+    {
+      "name": "colorama",
+      "release_tag": "0.4.6",
+      "commit": "3de9f013df4b470069d03d250224062e8cf15c49",
+      "verified_files": 8,
+      "generated_files": []
+    },
+    {
+      "name": "Pygments",
+      "release_tag": "2.20.0",
+      "commit": "708197d82827ba2d5ca78bcbb653c7102ce86dcd",
+      "verified_files": 341,
+      "generated_files": []
+    },
+    {
+      "name": "packaging",
+      "version": "26.2",
+      "method": "Unmodified copy from existing pip 26.2.2 vendor",
+      "verified_files": 24
+    }
+  ],
+  "status": "unavailable",
+  "ui_execution_verified": false,
+  "packages_installed": false,
+  "model_downloads_performed": false
+}

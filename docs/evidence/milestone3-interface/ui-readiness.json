@@ -1,0 +1,58 @@
+{
+  "kind": "contained_ui_readiness",
+  "checked_at": "2026-11-03T12:54:04.034753+00:00",
+  "arguments": [
+    "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.venv\\Scripts\\python.exe",
+    "-B",
+    "scripts/run_interface.py"
+  ],
+  "returncode": 2,
+  "source_id": "63010193367c4fa932de8dec2b11ca40c7f4aa6a91b5362f9e1c09786f5bfc22",
+  "stderr": "",
+  "downloads_performed": false,
+  "ui_launched": false,
+  "stdout_json": {
+    "status": "missing_streamlit",
+    "streamlit_version": null,
+    "project_environment": true,
+    "command": [
+      "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.venv\\Scripts\\python.exe",
+      "-B",
+      "-m",
+      "streamlit",
+      "run",
+      "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\scripts\\streamlit_app.py",
+      "--server.address=127.0.0.1",
+      "--server.port=8501",
+      "--server.headless=true",
+      "--browser.gatherUsageStats=false",
+      "--server.fileWatcherType=none",
+      "--server.maxUploadSize=10"
+    ],
+    "environment_overrides": {
+      "USERPROFILE": "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\ui-profile",
+      "LOCALAPPDATA": "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\ui-profile\\AppData\\Local",
+      "APPDATA": "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\ui-profile\\AppData\\Roaming",
+      "XDG_CACHE_HOME": "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\cache\\ui",
+      "TEMP": "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\tmp\\ui",
+      "TMP": "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\tmp\\ui",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "url": "http://127.0.0.1:8501",
+    "configuration_id": "98e148c672d10cc9281b9948e6caacdb975338d46e9466d2196ea8adc412c079",
+    "downloads_performed": false,
+    "ui_launched": false,
+    "runtime_containment_verified": false,
+    "action": "Use an isolated project environment with explicitly installed Streamlit. No startup command installs packages or models."
+  },
+  "state_paths_before": {
+    "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\ui-profile": true,
+    "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\tmp\\ui": false,
+    "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\cache\\ui": false
+  },
+  "state_paths_after": {
+    "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\ui-profile": true,
+    "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\tmp\\ui": false,
+    "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\cache\\ui": false
+  }
+}

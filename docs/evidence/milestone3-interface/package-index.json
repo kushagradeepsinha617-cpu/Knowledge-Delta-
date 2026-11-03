@@ -1,0 +1,28 @@
+{
+  "kind": "explicit_streamlit_index_probe",
+  "checked_at": "2026-11-03T12:45:36.800542+00:00",
+  "arguments": [
+    "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "import runpy,sys;sys.path.insert(0,'C:\\\\Users\\\\Kushagra Deep\\\\AppData\\\\Local\\\\Python\\\\pythoncore-3.15-64\\\\Lib\\\\ensurepip\\\\_bundled\\\\pip-26.2.2-py3-none-any.whl');runpy.run_module('pip',run_name='__main__')",
+    "index",
+    "versions",
+    "streamlit",
+    "--index-url",
+    "https://pypi.org/simple",
+    "--retries",
+    "0",
+    "--timeout",
+    "5",
+    "--disable-pip-version-check",
+    "--no-cache-dir"
+  ],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "ERROR: No matching distribution found for streamlit\n",
+  "pip_wheel_sha256": "fd7f4dfa8190e014013b9f08f3e973f4e4c26ffd179a204895533a7254813a70",
+  "binary_downloads_performed": false,
+  "packages_installed": false,
+  "model_downloads_performed": false
+}

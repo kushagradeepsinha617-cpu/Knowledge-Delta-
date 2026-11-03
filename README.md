@@ -7,8 +7,9 @@ in an AI documentation assistant.
 real CLI checks in the configuration below.
 
 **Milestone 3 is in progress using labeled fixtures.** The evaluator, fixture
-replay, escaped reports and review-journal backend are implemented. The local
-Streamlit interface is the next unit. Real embeddings and model inference remain
+replay, escaped reports, manual-review controller and Streamlit interface code
+are implemented. Streamlit is unavailable here, so rendering and UI runtime
+containment remain unverified. Real embeddings and model inference remain
 unverified; model downloads are forbidden and the 250 MB folder limit holds.
 See [Milestone 3 progress](docs/MILESTONE_3.md) and
 [Milestone 2 integration limits](docs/MILESTONE_2_INTEGRATION_READINESS.md).
@@ -53,10 +54,44 @@ The [self-contained HTML sample](docs/samples/mvp-fixture/report.html) and
 execution**. Download the HTML file and open it locally; GitHub displays its source.
 Simulated correctness labels illustrate the workflow and are not benchmark results.
 
-The current offline suite executed **250 tests**, with no failures, errors or
-skips. Brain independently checked all **115 source hashes** against the
-[recorded verification](docs/evidence/milestone3-evaluation/checks.json).
-The fixture CLI was also executed; Streamlit and live inference remain unverified.
+The current offline suite executed **266 tests**, with no failures, errors or
+skips. Brain independently checked all **124 source hashes** against the
+[interface/controller verification](docs/evidence/milestone3-interface/checks.json).
+The earlier [250-test fixture checkpoint](docs/evidence/milestone3-evaluation/checks.json)
+and sample reports remain historical evidence. Streamlit and live inference are
+unverified; passing mocked launcher tests is not a successful UI launch.
+
+## Review answers and check the interface
+
+Inspect an answer and its review binding without writing a review:
+
+```powershell
+.venv/Scripts/python.exe -B scripts/review_fixture.py --case-id request-timeout-change --slot before
+```
+
+Saving requires your reviewer name, rationale, judgment, and the binding/revision
+shown during inspection. Reviews are stored in an append-only project-local
+SQLite journal; they do not automatically approve draft dataset labels.
+See the [review and interface guide](docs/MILESTONE_3_INTERFACE.md) for commands.
+
+Export your current inspections while keeping fixture provenance:
+
+```powershell
+.venv/Scripts/python.exe -B scripts/fixture_demo.py --include-manual-reviews --output-dir runs/reviewed-fixture
+```
+
+Check UI readiness (no install, model request, or server start):
+
+```powershell
+.venv/Scripts/python.exe -B scripts/run_interface.py
+```
+
+This currently reports `missing_streamlit` with exit code 2. The actual package
+index/network checks could not reach PyPI; no package was installed. Once a
+project-local Streamlit environment is independently set up within the storage
+limit, `scripts/run_interface.py --serve` starts the Windows localhost interface
+with child profile/cache/temp paths inside this project. No startup command
+installs dependencies or downloads models.
 
 ## Foundation features
 

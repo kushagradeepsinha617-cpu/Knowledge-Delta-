@@ -1,5 +1,9 @@
 # Milestone 3 interface and manual-review checkpoint
 
+Latest setup authorization: 750 MB total project-folder storage and at most
+150 MB of future UI artifact downloads. This supersedes the earlier 250 MB
+fixture-only allowance without authorizing models or global installation.
+
 Status: reviewed source checkpoint published as
 [`4c270e0`](https://github.com/kushagradeepsinha617-cpu/Knowledge-Delta-/commit/4c270e0cc7d5f80a0a4bb78a37146fe70015ca40),
 with all 124 remote source hashes matched to its 266-test manifest. The optional

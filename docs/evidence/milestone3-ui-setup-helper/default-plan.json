@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "kind": "ui_setup_default_plan_check",
+  "source_id": "4479c71eb7d4831fa454ad213b05cf38ec61d3dcf22817d630303d7351583248",
+  "exit_code": 0,
+  "plan": {
+    "status": "plan_ready",
+    "manifest_sha256": "a4a6d0d3ab24cd2cb5bbe4623b0a6f9e6540c79da209986aa0c2283402d2a258",
+    "lock_sha256": "c61e70a27d634acad84c6f682fa99a9dcd1bd65088b5b4a0ff369cd98d522c11",
+    "project_root": "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-",
+    "work_directory": "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\ui-setup",
+    "python_executable": "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.venv\\Scripts\\python.exe",
+    "environment_prefix": "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.venv",
+    "packages": 34,
+    "pending_packages": 34,
+    "existing_folder_bytes": 88603413,
+    "remaining_declared_expanded_bytes": 280478795,
+    "conservative_planning_bytes": 704316709,
+    "folder_ceiling_bytes": 750000000,
+    "artifact_payload_ceiling_bytes": 150000000,
+    "packages_installed_by_this_plan": false,
+    "network_requests_performed": false,
+    "note": "Planning is not an OS quota guarantee. Explicit --install is required."
+  },
+  "work_directory_existence_unchanged": true,
+  "installation_performed": false,
+  "models_downloaded": false
+}

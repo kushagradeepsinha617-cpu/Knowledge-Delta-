@@ -10,7 +10,8 @@ real CLI checks in the configuration below.
 replay, escaped reports, manual-review controller and Streamlit interface code
 are implemented. Streamlit is unavailable here, so rendering and UI runtime
 containment remain unverified. Real embeddings and model inference remain
-unverified; model downloads are forbidden and the 250 MB folder limit holds.
+unverified; model downloads are forbidden. The user approved a 750 MB total-folder
+ceiling for UI setup and a 150 MB future package-download cap.
 See [Milestone 3 progress](docs/MILESTONE_3.md) and
 [Milestone 2 integration limits](docs/MILESTONE_2_INTEGRATION_READINESS.md).
 Saved raw experiment JSON can now be imported for review/reporting without
@@ -57,8 +58,10 @@ The [self-contained HTML sample](docs/samples/mvp-fixture/report.html) and
 execution**. Download the HTML file and open it locally; GitHub displays its source.
 Simulated correctness labels illustrate the workflow and are not benchmark results.
 
-The current local offline suite executed **341 tests**, with no failures, errors
-or skips; see [UI preflight verification](docs/evidence/milestone3-ui-preflight-final/checks.json).
+The current local offline suite executed **358 tests**, with no failures, errors
+or skips; see [UI setup-helper verification](docs/evidence/milestone3-ui-setup-helper/checks.json).
+The [341-test UI preflight verification](docs/evidence/milestone3-ui-preflight-final/checks.json)
+remains preserved.
 The earlier [313-test measurement-input verification](docs/evidence/milestone3-measurement-inputs/checks.json)
 remains preserved.
 The published saved-run checkpoint executed **294 tests**. Brain independently
@@ -139,7 +142,10 @@ preflight is documented in the [UI setup proposal](docs/MILESTONE_3_UI_DOWNLOAD_
 it installs nothing. The subsequent user-run preflight resolved 34 wheels declaring
 280.5 MB of expanded files, exceeding the current 250 MB total-folder ceiling.
 The [UI-only installation proposal](docs/MILESTONE_3_UI_INSTALLATION_PROPOSAL.md)
-requests a 750 MB ceiling; it remains unapproved. No models or packages are installed.
+now has user approval for a 750 MB UI-only ceiling and a 150 MB future package-download
+cap. The explicit setup helper passed offline checks; no models or packages are
+installed yet. Run the command in the linked proposal from the working normal
+PowerShell terminal; default operation without `--install` only prints a plan.
 
 ## Foundation features
 

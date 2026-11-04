@@ -24,6 +24,10 @@ docs/evidence/milestone1/environment.json.
   with a 250 MB ceiling, no global installation, and no intentional writes
   outside that folder. The verified copy is %TEMP%/Knowledge-Delta-.
   Models were not downloaded; later setup still follows explicit download steps.
+- The user subsequently approved a 750 MB total project-folder ceiling for the
+  Streamlit/UI setup only, plus at most 150 MB of future package artifact downloads
+  including retries. The earlier 250 MB limit is superseded for this setup.
+  No model/Ollama/embedding download, global install or paid service is authorized.
 - On 2026-11-04 the user retired the Deliverer role. After briefly requiring
   approval for milestone pushes, the user explicitly granted all push permissions
   again. The primary agent handles tested repository checkpoints directly until

@@ -1,10 +1,11 @@
 # Streamlit setup proposal: metadata stage only
 
 Update: the normal-terminal preflight has now resolved 34 wheels and inspected
-their size declarations. They exceed the current 250 MB limit. See the separate
+their size declarations. They exceed the former 250 MB limit. See the separate
 [UI-only installation proposal](MILESTONE_3_UI_INSTALLATION_PROPOSAL.md), which
-requests a new ceiling but does not change the current authorization. The initial
-metadata-stage investigation below is retained as history.
+now has explicit user approval for 750 MB total storage and 150 MB future UI
+artifact downloads. No models are included. The initial metadata-stage
+investigation below is retained as history; its former limit is not current.
 
 Checked 2026-11-04. This proposal concerns the local fixture/review interface.
 It does not authorize Ollama, embedding weights, answering models, a storage

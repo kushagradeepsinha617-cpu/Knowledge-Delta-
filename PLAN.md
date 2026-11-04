@@ -1,17 +1,22 @@
-# Current state - Milestone 3 UI setup budget approval pending
+# Current state - Milestone 3 UI-only setup approved
 
 - The user's normal-terminal inspector completed successfully. The saved report's
   source hash, selected wheel tags, active dependency constraints and totals were
   independently checked offline. It resolved 34 candidate wheels: 86,786,535 bytes
   compressed and 280,478,795 bytes of declared expanded files. No installation.
-- These packages alone exceed the current 250 MB total-folder ceiling. The new
-  UI-only proposal requests 750 MB total storage and at most 150 MB future artifact
+- These packages alone exceed the former 250 MB total-folder ceiling. The user
+  approved 750 MB total storage and at most 150 MB future UI artifact
   transfer; the conservative plan using the later larger folder inventory is
   694,104,324 bytes. Actual installer peak is unverified. Neither requested limit
-  is active until the user explicitly approves it. Models remain excluded.
-- Next action: obtain the user's decision on docs/MILESTONE_3_UI_INSTALLATION_PROPOSAL.md,
-  then prepare/execute only the approved project-local setup. Do not rerun the
-  inspector or add unrelated features while this decision is pending.
+  is an open-ended allowance. Models remain excluded.
+- The bounded setup helper and its 17 focused offline tests are implemented.
+  The full suite executed 358 tests with zero failures/errors/skips, run
+  712d4f2b0aab427ba5a2453a3cd09c70. Actual default-plan execution returned ready
+  with 34 pending packages and made no network requests or installation changes.
+  Evidence: docs/evidence/milestone3-ui-setup-helper. Real setup/imports remain
+  unverified until the normal-terminal installation command runs.
+- Next action: use the user's working normal-terminal connection for explicit UI setup.
+  Preserve the approved wheel lock, resource ledger and original inspector output.
 
 - User authorized fixture-based Milestone 3. On 2026-11-04 the user retired
   Deliverer, briefly required milestone push approval, then explicitly granted
@@ -19,7 +24,7 @@
   checkpoints directly until that instruction changes.
   Keep all intentional files project-local,
   preserve remote work, spend zero, avoid global/model installs, and stay below
-  250 MB. Compatible non-model UI dependencies may be set up within that ceiling
+  the newly approved 750 MB UI-only ceiling. Non-model UI dependencies may be set up within that ceiling
   after full compatibility/footprint checks; none have been installed.
 - Published saved-run/metrics checkpoint: 0dfa9ac1b6b71f5c5b7aaabe23a5c02db0f497bb,
   with 294 passing tests and all 127 remote source hashes reconciled. Prior proof

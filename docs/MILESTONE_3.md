@@ -27,6 +27,11 @@ occurred; the network probe was unreachable. Human reviews remain zero.
 
 ## Authorization and scope
 
+Latest authorization: the user approved 750 MB total project-folder storage and
+150 MB of future artifact downloads for UI setup only. Models, Ollama, embeddings,
+global installation and paid services remain excluded. Earlier 250 MB observations
+below describe the historical fixture-only setup.
+
 The user explicitly authorized Milestone 3 using labeled fixtures while larger
 Milestone 2 downloads remain deferred. Keep the 250 MB project-folder ceiling,
 zero spending, no global installations and no model downloads. On 2026-11-04,

@@ -1,14 +1,38 @@
 # UI-only setup: explicit budget proposal
 
-Status: awaiting the user's approval. The current limit remains **250 MB**.
+Status: **approved by the user**. The UI-only total-folder ceiling is **750 MB**,
+with at most **150 MB of future package artifact downloads**, including retries.
 No package has been installed. No model download is proposed.
+
+## Explicit setup command
+
+The setup helper defaults to a read-only plan. Its explicit installation mode
+uses the approved lock, verifies each full wheel checksum, installs one package
+at a time and preserves a cumulative download ledger across retries.
+
+Run in the user's normal PowerShell terminal after the helper's offline checks:
+
+```powershell
+& "$env:TEMP\Knowledge-Delta-\.venv\Scripts\python.exe" -B "$env:TEMP\Knowledge-Delta-\scripts\setup_ui.py" --install
+```
+
+It prints progress for all 34 packages and a final summary pointing to a
+project-local report. Share that summary. If it fails, preserve the report,
+logs and download ledger; do not delete them to reset the allowance. Existing
+matching package versions are retained on a later explicit retry. A different
+existing version requires review rather than an automatic replacement.
+
+No server is started automatically. After actual installation, verify imports,
+run the real optional UI tests and explicitly start the localhost interface.
+The helper checks directory usage with a 25 MB reserve and monitors pip, but is
+not an operating-system disk quota or a demonstrated sandbox around native code.
 
 The user ran the bounded inspector in normal PowerShell. The agent read the
 saved JSON, matched its inspector source hash, and independently checked the
 selected wheel tags, active dependency constraints and size totals offline.
 This verifies the recorded preflight, not installed packages or actual peak usage.
 
-## Proposed authorization
+## Approved authorization
 
 - Raise the **total repository-folder ceiling to 750,000,000 bytes (750 MB)**
   for this UI setup, including environments, archives, caches and temporary files.

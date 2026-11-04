@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "kind": "ui_only_setup_budget_proposal",
-  "status": "awaiting_explicit_storage_and_setup_approval",
+  "status": "approved_ui_only_setup",
   "checked_at": "2026-11-04T15:51:10.273022+00:00",
-  "current_approved_project_ceiling_bytes": 250000000,
+  "current_approved_project_ceiling_bytes": 750000000,
   "requested_project_ceiling_bytes": 750000000,
   "requested_future_artifact_download_ceiling_bytes": 150000000,
   "model_downloads_authorized": false,
@@ -19,5 +19,8 @@
   "full_archive_hashes_verified": false,
   "inspection_sha256": "cc0e28506cd45a6150357030c479ae9f96b0f1f1d82a83af8f5816cdfe19ff11",
   "inspector_sha256": "3bb5854ae72c69defadc4005d979ff00dd404da477de06e7206b9a429e378e4a",
-  "source_note": "User executed the inspector in normal PowerShell. The agent read the resulting JSON and independently checked its wheel tags, dependency constraints and totals offline. Different-time footprint observations are retained; planning uses the later larger inventory."
+  "source_note": "User executed the inspector in normal PowerShell. The agent read the resulting JSON and independently checked its wheel tags, dependency constraints and totals offline. Different-time footprint observations are retained; planning uses the later larger inventory.",
+  "previous_project_ceiling_bytes": 250000000,
+  "approved_future_artifact_download_ceiling_bytes": 150000000,
+  "approval_basis": "User explicitly replied approved to the UI-only 750 MB / 150 MB proposal; model/global/paid exclusions persist."
 }

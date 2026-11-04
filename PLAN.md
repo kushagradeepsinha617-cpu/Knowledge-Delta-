@@ -1,10 +1,31 @@
-# Current state - Milestone 3 saved-run review and metrics checkpoint ready
+# Current state - Milestone 3 measurement-input verification
 
-- User authorized fixture-based Milestone 3 and requested current changes pushed.
-  Per-push approval remains waived. Keep all intentional files project-local,
+- User authorized fixture-based Milestone 3. On 2026-11-04 the user retired
+  Deliverer, briefly required milestone push approval, then explicitly granted
+  all push permissions again. The primary agent handles tested repository
+  checkpoints directly until that instruction changes.
+  Keep all intentional files project-local,
   preserve remote work, spend zero, avoid global/model installs, and stay below
   250 MB. Compatible non-model UI dependencies may be set up within that ceiling
   after full compatibility/footprint checks; none have been installed.
+- Published saved-run/metrics checkpoint: 0dfa9ac1b6b71f5c5b7aaabe23a5c02db0f497bb,
+  with 294 passing tests and all 127 remote source hashes reconciled. Prior proof
+  and sample artifacts remain historical records.
+- Current unit exposes optional independent reference-label JSON and abstention
+  judgments through the controller, CLI and UI source, preserving them in escaped
+  exports. Reference inputs are project-local lists capped at 16 MiB, require exact
+  result bindings and default to no labels. Fixture metrics remain ineligible/null.
+  The actual offline run executed 313 tests with zero failures/errors/skips,
+  run 8d929a4f44d04dbd822b7a85115f1347, source ID
+  90d3cd8df8d4ffe705faf951e8f73709eec78619ba2bbe65dc401578b5db6fc0.
+  Evidence: docs/evidence/milestone3-measurement-inputs. Brain independently
+  verified all 129 source hashes and the 313-test evidence and found no blocking
+  issue. Actual empty-reference CLI inspection/export retained 80 fixture records,
+  zero human reviews and null scores; synthetic labels exist only in tests.
+  The user approved the tested checkpoint and then granted all push permissions
+  on 2026-11-04. Publication includes its 16 files plus two metadata-only UI
+  proposal files; source verification is unchanged. No package/model installation
+  or storage expansion is authorized by that push instruction.
 - The broader workflow audit identified and fixed a substantive gap: the review
   controller now imports saved raw experiment JSON as well as replaying fixtures.
   Manifest/dataset/origin checks preserve original answers/evidence; no gold-answer
@@ -14,7 +35,7 @@
   missing judgments and provenance. Assistant accuracy needs eligible reviewed
   live results. Failure-flag precision/recall needs independently attested
   reference labels; identity/execution claims are not authenticated.
-- Current frozen source ID:
+- Historical published source ID:
   55635b9d92192d36dcd4768c3e04085129237447399654898c690d717bee16c8.
   Run 026df346a922443abf76d9bc9181c8a4 executed 294 tests with zero failures,
   errors or skips. Brain independently checked all 127 source hashes and the
@@ -38,10 +59,10 @@
 - One read-only PyPI HEAD check was requested in the user's normal terminal to
   identify a setup route; its answer is pending and user connectivity is unknown.
   That check installs nothing and changes no resource/budget authorization.
-- Last folder measurement: 46,064,960 logical bytes including ignored artifacts,
+- Last folder measurement: 58,363,940 logical bytes including ignored artifacts,
   below 250 MB. No package/model downloads or global installation occurred.
-- Next: publish this reviewed substantive checkpoint with a guarded non-force
-  update, reconcile remote source hashes, and preserve previous evidence.
+- Next: publish the user-approved measurement-input checkpoint with a guarded
+  update and reconcile remote source hashes.
   Actual UI/live acceptance still needs missing dependencies/runtime/assets.
   Milestone 3 is incomplete. Do not advance to Milestone 4 or add speculative
   placeholder features. See docs/MILESTONE_3.md and docs/MILESTONE_3_INTERFACE.md.

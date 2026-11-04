@@ -50,6 +50,9 @@ def html_report(evaluation, *, snapshot_changes=None):
     if evaluation.get("metrics"):
         parts.extend(["<section><h2>Assistant and testing-tool measures</h2><p>Every ratio includes its numerator and denominator. Missing judgments remain visible. Null means unavailable, not zero performance.</p>",
                       _pre(evaluation["metrics"]), "</section>"])
+    if evaluation.get("reference_labels"):
+        parts.extend(["<section><details><summary>Independent reference annotations</summary><p>Imported annotations describe a separately attested review procedure. Identities and independence are not authenticated by this application.</p>",
+                      _pre(evaluation["reference_labels"]), "</details></section>"])
     if evaluation.get("stale_reviews"):
         parts.extend(["<section><h2>Stale review records</h2><p class='notice'>These records do not grade the current answers or expected changes. Their history is preserved.</p>",
                       _pre(evaluation["stale_reviews"]), "</section>"])

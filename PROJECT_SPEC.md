@@ -24,9 +24,12 @@ docs/evidence/milestone1/environment.json.
   with a 250 MB ceiling, no global installation, and no intentional writes
   outside that folder. The verified copy is %TEMP%/Knowledge-Delta-.
   Models were not downloaded; later setup still follows explicit download steps.
-- The user revoked per-push approval while authorizing Milestone 2 automation.
-  Deliverer may publish authorized project work without asking until the user
-  reinstates that requirement. Preserve remote work and use guarded non-force updates.
+- On 2026-11-04 the user retired the Deliverer role. After briefly requiring
+  approval for milestone pushes, the user explicitly granted all push permissions
+  again. The primary agent handles tested repository checkpoints directly until
+  the user changes that instruction. This does not authorize model downloads,
+  a larger storage allowance, or unrelated external publishing.
+  Preserve remote work and use guarded non-force updates.
 - Brain advises the implementation agent before technical questions are escalated.
   Human approval, human review, preferences and unavailable facts cannot be
   manufactured by an agent.

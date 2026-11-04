@@ -29,9 +29,11 @@ occurred; the network probe was unreachable. Human reviews remain zero.
 
 The user explicitly authorized Milestone 3 using labeled fixtures while larger
 Milestone 2 downloads remain deferred. Keep the 250 MB project-folder ceiling,
-zero spending, no global installations and no model downloads. Per-push approval
-is waived for authorized work, but publish only concrete verified checkpoints
-with guarded non-force updates and preserve existing work.
+zero spending, no global installations and no model downloads. On 2026-11-04,
+the user retired Deliverer, briefly required milestone push approval, and then
+explicitly granted all push permissions again. The primary agent handles tested
+checkpoints directly with guarded non-force updates until that instruction changes.
+This does not authorize model downloads or a larger footprint. Preserve existing work.
 
 Milestone 2 live acceptance remains incomplete: actual numeric/embedding imports,
 Ollama inference, CPU timings, model selection and native containment still need
@@ -138,6 +140,66 @@ bytes including ignored outputs, within 250 MB. Brain independently verified all
 Streamlit rendering and Milestone 2 live integration remain unverified.
 The earlier `milestone3-run-import` evidence remains preserved as an intermediate
 source observation rather than being overwritten by this corrected final run.
+
+## Optional measurement inputs
+
+The current local unit exposes existing measurement annotations through CLI and
+UI source. The offline suite executed 313 tests with zero failures, errors or skips,
+run `8d929a4f44d04dbd822b7a85115f1347`. Brain independently checked all 129 source
+hashes against `90d3cd8df8d4ffe705faf951e8f73709eec78619ba2bbe65dc401578b5db6fc0`
+and cleared the bounded implementation. Evidence is in
+[measurement-input verification](evidence/milestone3-measurement-inputs/checks.json).
+Actual CLI inspection/export with an empty reference list retained 80 fixture
+records, zero human reviews and null scores; nonempty synthetic labels and saved
+review actions are exercised only in temporary test projects. This local checkpoint
+has user approval for publication. It creates no real human labels. Actual Streamlit rendering
+remains unverified.
+
+`--reference-labels runs/reference-labels.json` accepts an existing project-local
+JSON list up to 16 MiB. Omit it to supply no independent labels. Unknown, duplicate
+or stale result bindings are rejected. The file is a separate reference procedure,
+not a copy of the tool's own flags or a substitute for answer-review records.
+
+Each list item requires exactly these fields:
+
+| Field | Required meaning |
+| --- | --- |
+| `schema_version` | Integer `1` |
+| `binding` | Exact complete judgment binding from the evaluated result |
+| `reference_outcome` | `failure` or `not_failure` |
+| `basis` | `independent_human_reference` |
+| `reviewer` | Actual reviewer's nonempty name/identifier |
+| `reviewed_at` | Actual ISO8601 review timestamp with timezone |
+| `rationale` | Actual assessment and its supporting reasoning |
+| `independence_attested` | Boolean `true`, explicitly attesting a separate assessment procedure |
+
+The complete binding includes `result_key`, dataset/case/expectation hashes,
+snapshot ID and trace hash. Copy it from the exact evaluated record; the short
+inspection binding hash is not the complete binding object. Changing the run,
+trace, case, expectations or snapshot invalidates an old label.
+
+Independence refers to the assessment procedure. The same person may conduct
+both reviews; this is not authentication of reviewer identity, proof of blinding,
+or evidence that an independent reviewer participated. Never manufacture names,
+times, rationale or attestations to obtain a score. Fixtures stay ineligible for
+live assistant/tool metrics even when synthetic tests exercise the annotation path.
+
+Example export, assuming both matching input files already exist:
+
+```powershell
+.venv/Scripts/python.exe -B scripts/fixture_demo.py --run runs/recorded-run.json --reference-labels runs/reference-labels.json --output-dir runs/reference-report
+```
+
+For an actual abstention, the answer-review CLI additionally accepts
+`--abstention-judgment appropriate` only with `--outcome pass`, or
+`--abstention-judgment unnecessary` only with `--outcome fail`. The usual explicit
+save, reviewer, rationale and inspected binding/revision are required. Omit the
+option to leave abstention unassessed; do not infer it from keywords.
+
+JSON and escaped HTML preserve supplied reference labels for inspection. CLI
+and UI inputs do not authenticate those claims or turn fixture reviews into live
+benchmarks. Current temporary test records are labeled TEST-ONLY; no real human
+reference labels or answer reviews were created for delivery.
 
 ## Dataset and review integrity
 

@@ -20,15 +20,17 @@ def main(argv=None):
     parser.add_argument("--relations", type=Path, default=ROOT / "examples/mvp/relations.json")
     parser.add_argument("--output-dir", type=Path, default=ROOT / "runs/fixture-demo")
     parser.add_argument("--run", type=Path, help="Import raw existing-run JSON instead of generating fixture answers")
+    parser.add_argument("--reference-labels", type=Path, help="Optional independent reference-label JSON list; labels remain separate from answer reviews")
     parser.add_argument("--simulate-judgments", action="store_true",
                         help="Include clearly labeled simulated correctness judgments; never human reviews")
     parser.add_argument("--include-manual-reviews", action="store_true",
                         help="Load current human inspections from the local review journal; retain fixture provenance")
     args = parser.parse_args(argv)
     try:
-        if args.include_manual_reviews or args.run is not None:
+        if args.include_manual_reviews or args.run is not None or args.reference_labels is not None:
             evaluation = ReviewSession(ROOT, before=args.before, after=args.after, dataset=args.dataset,
-                relations=args.relations, simulate_judgments=args.simulate_judgments, run_path=args.run).evaluate()
+                relations=args.relations, simulate_judgments=args.simulate_judgments, run_path=args.run,
+                reference_labels=args.reference_labels).evaluate()
         else:
             evaluation = fixture_report(args.before, args.after, args.dataset, args.relations,
                                          simulate_judgments=args.simulate_judgments)

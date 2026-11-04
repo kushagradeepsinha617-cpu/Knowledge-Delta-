@@ -29,6 +29,8 @@ def answer_form(st, session, row, slot):
         reviewer = st.text_input("Your reviewer name")
         outcome = st.selectbox("Answer judgment", ("needs_human_review", "pass", "fail"))
         failure = st.selectbox("Failure classification (for failed answers)", ("Unclassified", *FAILURE_KINDS))
+        abstention = (st.selectbox("Abstention assessment", ("Unassessed", "appropriate", "unnecessary"))
+                      if (info["trace"].get("answer") or {}).get("abstained") is True else "Unassessed")
         rationale = st.text_area("Reason, referring to the expectation and supplied evidence")
         submitted = st.form_submit_button("Save answer review", disabled=changed)
     if submitted:
@@ -36,6 +38,7 @@ def answer_form(st, session, row, slot):
             session.save_answer(row["case_id"], row["configuration_name"], slot,
                 outcome=outcome, reviewer=reviewer, rationale=rationale,
                 failure_kind=None if failure == "Unclassified" else failure,
+                abstention_judgment=None if abstention == "Unassessed" else abstention,
                 expected_binding_hash=tokens["binding_hash"], expected_revision=tokens["revision"], repetition=row["repetition"])
             displayed_tokens(st.session_state, key, session.answer_info(row["case_id"], row["configuration_name"], slot, row["repetition"]), refresh=True)
             st.rerun()
@@ -86,13 +89,16 @@ def main(project_root=ROOT):
             after = st.text_input("After snapshot manifest", "examples/mvp/after/manifest.json")
             dataset = st.text_input("Case dataset", "examples/mvp/cases.json")
             relations = st.text_input("Expected-change annotations", "examples/mvp/relations.json")
+            reference_labels = st.text_input("Independent reference labels JSON (optional)",
+                help="A separately assessed, explicitly attested reference-label list. Importing labels never makes fixture outputs live or approves draft cases.")
             run_path = st.text_input("Raw run JSON inside this project") if input_mode == "Existing run JSON" else None
             simulated = st.checkbox("Show simulated correctness judgments", value=False,
                 help="Demonstration labels, not human review or benchmark ground truth.") if run_path is None else False
             load = st.form_submit_button("Load records")
         if load:
             st.session_state["loaded-inputs"] = {"before": before, "after": after, "dataset": dataset,
-                "relations": relations, "simulate_judgments": simulated, "run_path": run_path}
+                "relations": relations, "simulate_judgments": simulated, "run_path": run_path,
+                "reference_labels": reference_labels.strip() or None}
         with st.expander("Setup status"):
             state = readiness(check_ollama=False)
             st.write({"Python": state["python"], "Streamlit": state["packages"]["streamlit"],

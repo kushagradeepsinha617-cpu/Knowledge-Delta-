@@ -17,6 +17,7 @@ def main(argv=None):
     parser.add_argument("--case-id", required=True)
     parser.add_argument("--kind", choices=("answer", "relation"), default="answer")
     parser.add_argument("--run", type=Path, help="Existing raw run JSON inside this project; answers are never regenerated")
+    parser.add_argument("--reference-labels", type=Path, help="Optional independently assessed reference-label JSON list inside this project")
     parser.add_argument("--before", type=Path, default="examples/mvp/before/manifest.json")
     parser.add_argument("--after", type=Path, default="examples/mvp/after/manifest.json")
     parser.add_argument("--dataset", type=Path, default="examples/mvp/cases.json")
@@ -29,12 +30,15 @@ def main(argv=None):
     parser.add_argument("--expected-revision", type=int)
     parser.add_argument("--outcome", choices=("pass", "fail", "needs_human_review"))
     parser.add_argument("--failure-kind")
+    parser.add_argument("--abstention-judgment", choices=("appropriate", "unnecessary"),
+                        help="Only for an actual abstention; requires a consistent pass/fail judgment")
     parser.add_argument("--relation", choices=("should_change", "should_remain", "undetermined"))
     parser.add_argument("--reviewer")
     parser.add_argument("--rationale")
     args = parser.parse_args(argv)
     try:
-        session = ReviewSession(ROOT, before=args.before, after=args.after, dataset=args.dataset, relations=args.relations, run_path=args.run)
+        session = ReviewSession(ROOT, before=args.before, after=args.after, dataset=args.dataset, relations=args.relations, run_path=args.run,
+                                reference_labels=args.reference_labels)
         info = session.answer_info(args.case_id, args.configuration, args.slot, args.repetition) if args.kind == "answer" else session.relation_info(args.case_id)
         if not args.save:
             print(json.dumps({"mode": session.input_mode, "origin": session.run["origin"], "notice": session.notice, "subject": info["subject"],
@@ -48,7 +52,8 @@ def main(argv=None):
                   "expected_binding_hash": args.expected_binding, "expected_revision": args.expected_revision}
         if args.kind == "answer":
             revision = session.save_answer(args.case_id, args.configuration, args.slot,
-                outcome=args.outcome, failure_kind=args.failure_kind, repetition=args.repetition, **common)
+                outcome=args.outcome, failure_kind=args.failure_kind, abstention_judgment=args.abstention_judgment,
+                repetition=args.repetition, **common)
         else:
             revision = session.save_relation(args.case_id, relation=args.relation, **common)
         print(json.dumps({"status": "saved", "revision": revision, "origin": session.run["origin"],

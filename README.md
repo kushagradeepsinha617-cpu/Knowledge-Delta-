@@ -57,8 +57,10 @@ The [self-contained HTML sample](docs/samples/mvp-fixture/report.html) and
 execution**. Download the HTML file and open it locally; GitHub displays its source.
 Simulated correctness labels illustrate the workflow and are not benchmark results.
 
-The current offline suite executed **294 tests**, with no failures, errors or
-skips. Brain independently checked all **127 source hashes** against the
+The current local offline suite executed **313 tests**, with no failures, errors
+or skips; see [measurement-input verification](docs/evidence/milestone3-measurement-inputs/checks.json).
+The published saved-run checkpoint executed **294 tests**. Brain independently
+checked all **127 source hashes** against the
 [saved-run/metrics verification](docs/evidence/milestone3-run-import-final/checks.json).
 The actual saved-run CLI preserved its input bytes and exported 80 fixture answers
 and 40 comparisons, with zero human reviews and null assistant accuracy.
@@ -81,6 +83,21 @@ snapshots/dataset must match the displayed defaults):
 Repetition 2 must actually exist in that run; selecting it performs no generation.
 For other inputs, pass matching `--before`, `--after`, `--dataset` and `--relations`
 paths. See [saved-run prerequisites and metrics limits](docs/MILESTONE_3.md).
+
+Optional measurement inputs are now wired into the local CLI/controller:
+
+```powershell
+.venv/Scripts/python.exe -B scripts/fixture_demo.py --run runs/recorded-run.json --reference-labels runs/reference-labels.json --output-dir runs/reference-report
+```
+
+The reference file must already contain independently assessed labels with exact
+result bindings; no labels are created automatically. For an answer that actually
+abstained, an explicit review save may include `--abstention-judgment appropriate`
+with a pass or `--abstention-judgment unnecessary` with a fail. Reviewer identity,
+rationale, binding and revision are still required. See the
+[measurement-input schema](docs/MILESTONE_3.md#optional-measurement-inputs) before
+using these options. Ordinary source tests cover these inputs; real UI rendering
+remains unverified. Brain cleared this checkpoint, and the user approved its push.
 
 Inspect an answer and its review binding without writing a review:
 

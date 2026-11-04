@@ -18,7 +18,8 @@ MAX_RUN_BYTES = 16 * 1024 * 1024
 class ReviewSession:
     def __init__(self, project_root, *, before="examples/mvp/before/manifest.json",
                  after="examples/mvp/after/manifest.json", dataset="examples/mvp/cases.json",
-                 relations="examples/mvp/relations.json", simulate_judgments=False, run_path=None):
+                 relations="examples/mvp/relations.json", simulate_judgments=False, run_path=None,
+                 reference_labels=None):
         self.root = Path(project_root).resolve()
         def source(value):
             path = Path(value)
@@ -29,6 +30,17 @@ class ReviewSession:
         self.snapshots = {"before": load_snapshot(source(before)), "after": load_snapshot(source(after))}
         self.dataset = read_json(source(dataset))
         self.original_relations = read_json(source(relations))
+        self.reference_labels = []
+        self.reference_labels_path = None
+        if reference_labels is not None:
+            path = source(reference_labels)
+            if not path.is_file() or path.stat().st_size > MAX_RUN_BYTES:
+                raise ValidationError("Select a regular independent-reference JSON file within the 16 MiB import limit")
+            labels = read_json(path)
+            if not isinstance(labels, list):
+                raise ValidationError("Independent-reference JSON must be a list of separately attested reference records")
+            self.reference_labels = labels
+            self.reference_labels_path = str(path.relative_to(self.root))
         self.input_mode = "existing_run" if run_path is not None else "fixture_replay"
         self.input_run_path = None
         if run_path is not None:
@@ -54,8 +66,11 @@ class ReviewSession:
         self.allow_fixture = self.run.get("origin") in ("fixture", "test_double") or (
             isinstance(raw_results, list) and any(isinstance(trace, dict) and trace.get("origin") in ("fixture", "test_double") for trace in raw_results))
         # Validate the original import before indexing records or exposing review actions.
-        evaluate_run(self.run, self.dataset, self.bundle["relations"], self.bundle["reviews"],
-                     snapshots=self.snapshots, allow_fixture=self.allow_fixture)
+        initial_evaluation = evaluate_run(self.run, self.dataset, self.bundle["relations"], self.bundle["reviews"],
+                                         snapshots=self.snapshots, allow_fixture=self.allow_fixture)
+        # Reject stale/duplicate/orphaned reference labels before exposing review
+        # actions. Loading never creates labels, journal events or metric truth.
+        summarize_metrics(initial_evaluation, self.reference_labels)
         self.notice = (self.run["notice"] if self.input_mode == "fixture_replay" else
             "IMPORTED RUN. Recorded answers and evidence are preserved. No inference was performed during import. Origin/model/runtime provenance is self-reported by the file, not authenticated by this loader.")
         self.cases = {case["case_id"]: case for case in self.dataset["cases"]}
@@ -152,5 +167,7 @@ class ReviewSession:
                           input_mode=self.input_mode, input_run_path=self.input_run_path,
                           inference_performed_during_review=False, stale_reviews=stale,
                           review_history=self.store.history(self.run["run_id"]))
-        evaluation["metrics"] = summarize_metrics(evaluation)
+        evaluation["reference_labels"] = deepcopy(self.reference_labels)
+        evaluation["reference_labels_path"] = self.reference_labels_path
+        evaluation["metrics"] = summarize_metrics(evaluation, self.reference_labels)
         return evaluation

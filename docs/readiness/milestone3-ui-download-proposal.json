@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "kind": "milestone3_ui_download_proposal",
+  "checked_date": "2026-11-04",
+  "status": "metadata_stage_only_installation_not_ready",
+  "approved_ceiling_bytes": 250000000,
+  "request_storage_increase": false,
+  "binary_downloads_performed": false,
+  "models_proposed": false,
+  "complete_dependency_closure": false,
+  "installed_size_bytes": null,
+  "peak_storage_bytes": null,
+  "partial_four_wheel_compressed_mb_approx": 63.8,
+  "source": "Public primary release metadata; candidates are not a lockfile or runtime verification.",
+  "candidates": [
+    {
+      "name": "streamlit",
+      "version": "1.66.1",
+      "filename": "streamlit-1.66.1-py3-none-any.whl",
+      "compressed_bytes": 10364948,
+      "sha256": "29607190a589fe1fa9bd7e154635d335d47dc09b4010c6cc273daa6e4430ee31",
+      "source_url": "https://pypi.org/pypi/streamlit/1.66.1/json"
+    },
+    {
+      "name": "pyarrow",
+      "version": "26.0.1",
+      "filename": "pyarrow-26.0.1-cp315-cp315-win_amd64.whl",
+      "compressed_mb_rounded": 29.8,
+      "sha256": "6cdad5f67a30bbcea54c3c2a27ea45bd5a170377bf45f80f4d7e3a726e8e3283",
+      "source_url": "https://pypi.org/project/pyarrow/26.0.1/"
+    },
+    {
+      "name": "pandas",
+      "version": "3.1.0",
+      "filename": "pandas-3.1.0-cp315-cp315-win_amd64.whl",
+      "compressed_mb_rounded": 10.9,
+      "sha256": "eee72bba8a72f0bf9522132e5c87cd10fce9d77440b50f65326b093ec9fb8d43",
+      "source_url": "https://pypi.org/project/pandas/3.1.0/"
+    },
+    {
+      "name": "numpy",
+      "version": "2.5.4",
+      "filename": "numpy-2.5.4-cp315-cp315-win_amd64.whl",
+      "compressed_mb_rounded": 12.7,
+      "sha256": "332f3378fe077dd850e677ec01bdcc4f22368fb5d50ef10b2c79230b1bf5a592",
+      "source_url": "https://pypi.org/project/numpy/2.5.4/"
+    }
+  ],
+  "actual_project_python_probe": {
+    "schema_version": 1,
+    "kind": "ui_metadata_connectivity_probe",
+    "checked_at": "2026-11-04T15:11:32.163112+00:00",
+    "python": "3.15.2",
+    "url": "https://pypi.org/pypi/streamlit/1.66.1/json",
+    "binary_downloads_performed": false,
+    "status": "unavailable",
+    "error_type": "URLError",
+    "error": "<urlopen error [WinError 10051] A socket operation was attempted to an unreachable network>",
+    "project_logical_bytes_before_record": 58364804
+  }
+}

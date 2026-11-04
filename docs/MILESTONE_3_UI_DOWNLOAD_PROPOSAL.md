@@ -61,9 +61,39 @@ needed for this interface. Do not resolve `streamlit[all]`.
 The actual bounded metadata request to PyPI on 2026-11-04 failed with
 `URLError` / `WinError 10051` (unreachable network). It downloaded no wheel or
 model. The ordinary user terminal's connectivity remains unknown; the earlier
-read-only connectivity question is still unanswered. Public web metadata was
-read successfully, but that does not establish an installation route from the
-project's Python environment.
+read-only connectivity check was subsequently reported as HTTP 200 by the user
+in their normal PowerShell terminal. This is a user-reported observation, not
+an agent-side package installation or a verified complete dependency download.
+The agent environment still cannot make the request. The normal terminal can
+now be used for the explicit read-only inspector below.
+
+## Next explicit inspection command
+
+From any normal PowerShell terminal, use the existing isolated interpreter:
+
+```powershell
+& "$env:TEMP\Knowledge-Delta-\.venv\Scripts\python.exe" -B "$env:TEMP\Knowledge-Delta-\scripts\inspect_ui_setup.py"
+```
+
+This resolves the base Streamlit dependency candidates against the actual
+interpreter and checks hashed wheel-specific metadata. It reads bounded byte
+ranges from wheel archives to sum their declared expanded file sizes. It does
+not save/extract archives, install packages, or download models. For very small
+wheels, an archive-metadata range may span the whole small archive; the output
+does not claim to have verified full artifact bodies or their hashes.
+
+The script writes only `runs/ui-setup-inspection.json` inside this repository.
+Existing files are preserved. For a later inspection, use a new filename such as
+`--output runs/ui-setup-inspection-2.json`. Share the printed summary after running it.
+Unsupported constraints, unverified
+metadata, bad ranges, ZIP64 and conflicting records produce an explicit failure,
+not a guessed compatible package or installation. This bounded preflight is not
+a general-purpose pip resolver or an installer.
+
+Its storage report includes existing files, compressed wheel sizes, declared
+expanded sizes and a stated 25 MB temporary-space reserve. The reserve is a
+planning allowance, not measured installer overhead. No package installation or
+storage increase is authorized by a successful preflight alone.
 
 The next useful observation is a usable metadata/setup route, followed by full
 resolution and expanded-size accounting. Until then the dependency-free fixture
@@ -73,6 +103,7 @@ incomplete. No larger footprint or installation success is claimed.
 ## Primary sources
 
 - [Streamlit release metadata](https://pypi.org/pypi/streamlit/1.66.1/json)
+- [PyPA Simple API and hashed wheel metadata](https://packaging.python.org/en/latest/specifications/simple-repository-api/)
 - [Published Streamlit dependency declaration](https://github.com/streamlit/streamlit/blob/ca6718b7d3d788c31c97d1bc9144fd8388168f57/lib/pyproject.toml)
 - [PyArrow 26.0.1 files](https://pypi.org/project/pyarrow/26.0.1/)
 - [pandas 3.1.0 files](https://pypi.org/project/pandas/3.1.0/)

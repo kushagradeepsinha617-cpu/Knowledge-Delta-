@@ -57,5 +57,10 @@
     "error_type": "URLError",
     "error": "<urlopen error [WinError 10051] A socket operation was attempted to an unreachable network>",
     "project_logical_bytes_before_record": 58364804
-  }
+  },
+  "normal_terminal_connectivity": {
+    "status_code": 200,
+    "basis": "User reported the requested read-only PyPI HEAD check returned 200. Not independently executed by the agent in that terminal."
+  },
+  "next_action": "Explicitly run scripts/inspect_ui_setup.py with the existing project interpreter in the normal PowerShell terminal; no installation or models."
 }

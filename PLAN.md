@@ -58,10 +58,17 @@
   UI checks verified, package/HEAD probes failed network access, and base/user-site
   inventory found no usable installation. Controller tests do not verify rendering,
   browser interaction, actual launcher containment or live model integration.
-- One read-only PyPI HEAD check was requested in the user's normal terminal to
-  identify a setup route; its answer is pending and user connectivity is unknown.
-  That check installs nothing and changes no resource/budget authorization.
-- Last folder measurement: 58,363,940 logical bytes including ignored artifacts,
+- The user reported HTTP 200 from the requested normal-terminal PyPI HEAD check.
+  Agent-side PyPI requests still fail with WinError 10051. This identifies a manual
+  inspection route, not a successful installation or a budget change. The bounded
+  setup inspector now passed 341 offline tests with zero failures/errors/skips,
+  run f65c4026fd3b47d188990fc008e0823e. Evidence is in
+  docs/evidence/milestone3-ui-preflight-final. The earlier 340-test observation
+  is retained as intermediate evidence before the output-preservation fix.
+  The script is ready for an explicit normal-terminal run. It reads metadata and
+  bounded archive ranges, installs nothing, and refuses to overwrite existing
+  files. Actual dependency/expanded-size resolution remains unverified until run.
+- Last folder measurement: 78,348,353 logical bytes including ignored artifacts,
   below 250 MB. No package/model downloads or global installation occurred.
 - Next: establish a usable metadata/setup route and resolve the complete UI
   dependency and peak-storage requirements. The separate metadata-only proposal

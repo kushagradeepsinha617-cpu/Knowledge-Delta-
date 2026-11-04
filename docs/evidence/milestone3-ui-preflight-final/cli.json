@@ -1,0 +1,52 @@
+{
+  "kind": "foundation_cli_verification",
+  "result": "passed",
+  "python": "3.15.2 (tags/v3.15.2:5e58eaa, Oct 25 2026, 17:27:03) [MSC v.1951 64 bit (AMD64)]",
+  "commands": [
+    {
+      "arguments": [
+        "compare",
+        "examples/constructed/before/manifest.json",
+        "examples/constructed/after/manifest.json"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"schema_version\": 1,\n  \"before_snapshot_id\": \"7262a50984bb805b83af313334fb88c8759a11755f88b4968af1ad2e52b54904\",\n  \"after_snapshot_id\": \"b80b764e3d4b3a408740848d1780a91bd404f5c6310a5a20980d500d1ffd2231\",\n  \"domain\": \"constructed-widget\",\n  \"snapshot_metadata_changes\": {},\n  \"document_changes\": [\n    {\n      \"document_id\": \"widget.config\",\n      \"kind\": \"modified\",\n      \"content_changed\": true,\n      \"metadata_changed\": true,\n      \"before\": {\n        \"content_hash\": \"c65b6a8bb5549cb1dca5c80fe45c67015d290813826fc9d05ed08c6548759e22\",\n        \"metadata_hash\": \"1083f38242a2e26c282b54cab037a69180673ddda9a6d33cb993116a0367d242\"\n      },\n      \"after\": {\n        \"content_hash\": \"d8dd50172c58b8980924e3baf7cecc665a4c0b790a010e8f3e1f03b19b80b5cb\",\n        \"metadata_hash\": \"437178cadc3d502d29940e91f3d971cb85a5808833c2aafb9cd74911ed3766ae\"\n      }\n    },\n    {\n      \"document_id\": \"widget.install\",\n      \"kind\": \"modified\",\n      \"content_changed\": true,\n      \"metadata_changed\": true,\n      \"before\": {\n        \"content_hash\": \"01988e0d3f3969cf27778dfdfc995e86368277d7bbe0e219bd1d163a68a2d3a4\",\n        \"metadata_hash\": \"9a335bf358a0b4d8da4a5ba33de978e0aff57c129734b79af4c54f2de0b85872\"\n      },\n      \"after\": {\n        \"content_hash\": \"b9ce167f27fcbbc68c6e7277738976851ae38adedec824db8df8de5a80948fa2\",\n        \"metadata_hash\": \"747e0c1e83dbdbc796467d98254b2b811d76572044143b7588c645af53d31222\"\n      }\n    },\n    {\n      \"document_id\": \"widget.legacy\",\n      \"kind\": \"removed\",\n      \"content_changed\": false,\n      \"metadata_changed\": false,\n      \"before\": {\n        \"content_hash\": \"52744f7ff8c318fa0a53c55a44d5c2ee710b1196164529eeb436f1e0617201d0\",\n        \"metadata_hash\": \"13a8dfc6a17db35e16e471e227455830040e96bae67e1e428750d9e7a056f828\"\n      },\n      \"after\": null\n    },\n    {\n      \"document_id\": \"widget.scope\",\n      \"kind\": \"modified\",\n      \"content_changed\": false,\n      \"metadata_changed\": true,\n      \"before\": {\n        \"content_hash\": \"d60f62a0f37980127e560912973f18089308615065af97310b7f95106850f327\",\n        \"metadata_hash\": \"d29b1ceec8489beea4227ac3c42e1e786295489b14fe19dd2f111ae4b2fc7820\"\n      },\n      \"after\": {\n        \"content_hash\": \"d60f62a0f37980127e560912973f18089308615065af97310b7f95106850f327\",\n        \"metadata_hash\": \"657ab7169ed7c2859b8fcaf7610f19ace36d56fb7a30bda0602a4d4d798beba7\"\n      }\n    },\n    {\n      \"document_id\": \"widget.v2\",\n      \"kind\": \"added\",\n      \"content_changed\": false,\n      \"metadata_changed\": false,\n      \"before\": null,\n      \"after\": {\n        \"content_hash\": \"0bd8db3509fadbbf8d402ef864d1842c7a13c0bae43a28e67b47d2859496e10e\",\n        \"metadata_hash\": \"810e05aa55a1a0522de46d7cb487a0060dc1b24f91a1f583b1843e3a0a55ba4b\"\n      }\n    }\n  ]\n}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "validate-cases",
+        "examples/constructed/before/manifest.json",
+        "examples/constructed/after/manifest.json",
+        "examples/constructed/cases.json"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"case_count\": 7,\n  \"human_reviewed\": 0,\n  \"draft\": 7,\n  \"snapshot_ids\": {\n    \"before\": \"7262a50984bb805b83af313334fb88c8759a11755f88b4968af1ad2e52b54904\",\n    \"after\": \"b80b764e3d4b3a408740848d1780a91bd404f5c6310a5a20980d500d1ffd2231\"\n  },\n  \"note\": \"Schema validation only; no answer correctness has been evaluated.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "doctor"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"python\": \"3.15.2 (tags/v3.15.2:5e58eaa, Oct 25 2026, 17:27:03) [MSC v.1951 64 bit (AMD64)]\",\n  \"platform\": \"Windows-11-10.0.26300-SP0\",\n  \"executables\": {\n    \"git\": null,\n    \"ollama\": null\n  },\n  \"packages\": {\n    \"knowledge-delta\": null,\n    \"pytest\": null,\n    \"numpy\": null,\n    \"sentence-transformers\": null,\n    \"streamlit\": null\n  },\n  \"hardware\": {\n    \"cpu\": \"Intel64 Family 6 Model 154 Stepping 3, GenuineIntel\",\n    \"gpu\": null,\n    \"ram_bytes\": null,\n    \"free_disk_bytes\": 362829176832\n  },\n  \"disk_note\": \"Free space on the working directory volume; not a model memory estimate.\",\n  \"disk_error\": null,\n  \"hardware_note\": \"Null means unknown; no GPU or performance capability inferred.\",\n  \"ollama\": {\n    \"status\": \"not_checked\",\n    \"model\": \"qwen3:1.7b\"\n  },\n  \"downloads_performed\": false,\n  \"path_note\": \"Null executable means not found in this process PATH.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "compare",
+        "does-not-exist.json",
+        "also-missing.json"
+      ],
+      "returncode": 2,
+      "stdout": "",
+      "stderr": "{\"error\": \"does-not-exist.json: [Errno 2] No such file or directory: 'does-not-exist.json'\"}\n"
+    }
+  ],
+  "checks": [
+    "exact expected diff",
+    "seven draft cases; zero human reviews",
+    "default doctor without downloads or service calls",
+    "invalid input returns JSON error and exit code 2"
+  ]
+}

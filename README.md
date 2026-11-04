@@ -57,8 +57,10 @@ The [self-contained HTML sample](docs/samples/mvp-fixture/report.html) and
 execution**. Download the HTML file and open it locally; GitHub displays its source.
 Simulated correctness labels illustrate the workflow and are not benchmark results.
 
-The current local offline suite executed **313 tests**, with no failures, errors
-or skips; see [measurement-input verification](docs/evidence/milestone3-measurement-inputs/checks.json).
+The current local offline suite executed **341 tests**, with no failures, errors
+or skips; see [UI preflight verification](docs/evidence/milestone3-ui-preflight-final/checks.json).
+The earlier [313-test measurement-input verification](docs/evidence/milestone3-measurement-inputs/checks.json)
+remains preserved.
 The published saved-run checkpoint executed **294 tests**. Brain independently
 checked all **127 source hashes** against the
 [saved-run/metrics verification](docs/evidence/milestone3-run-import-final/checks.json).
@@ -130,6 +132,11 @@ project-local Streamlit environment is independently set up within the storage
 limit, `scripts/run_interface.py --serve` starts the Windows localhost interface
 with child profile/cache/temp paths inside this project. No startup command
 installs dependencies or downloads models.
+
+The user reported a successful normal-terminal PyPI connectivity check. The
+agent's Python still cannot reach PyPI. An explicit metadata/archive-directory
+preflight is documented in the [UI setup proposal](docs/MILESTONE_3_UI_DOWNLOAD_PROPOSAL.md);
+it installs nothing and leaves storage requirements unresolved until actually run.
 
 ## Foundation features
 

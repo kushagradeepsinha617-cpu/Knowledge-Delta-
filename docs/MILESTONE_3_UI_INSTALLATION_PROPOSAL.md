@@ -2,7 +2,10 @@
 
 Status: **approved by the user**. The UI-only total-folder ceiling is **750 MB**,
 with at most **150 MB of future package artifact downloads**, including retries.
-No package has been installed. No model download is proposed.
+The user has now installed the 34 locked packages. The final pandas import was
+blocked by Windows policy; see the [actual status](MILESTONE_3_UI_INSTALLATION_STATUS.md).
+No model download is proposed. The setup plan below is retained as the approved
+scope, not evidence of successful UI rendering.
 
 ## Explicit setup command
 

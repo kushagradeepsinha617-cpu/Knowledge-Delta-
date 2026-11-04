@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "source_id": "4479c71eb7d4831fa454ad213b05cf38ec61d3dcf22817d630303d7351583248",
+  "kind": "real_numpy_integration_attempt",
+  "exit_code": 0,
+  "stdout": "...............                                                          [100%]\n15 passed in 0.43s\n",
+  "stderr": "",
+  "uses_real_numpy": true,
+  "tokenizer_and_embedding_outputs": "explicit test doubles",
+  "ollama_or_sentence_transformers_verified": false,
+  "models_downloaded": false
+}

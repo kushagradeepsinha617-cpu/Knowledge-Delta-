@@ -8,8 +8,8 @@ real CLI checks in the configuration below.
 
 **Milestone 3 is in progress using labeled fixtures.** The evaluator, fixture
 replay, escaped reports, manual-review controller and Streamlit interface code
-are implemented. Streamlit is unavailable here, so rendering and UI runtime
-containment remain unverified. Real embeddings and model inference remain
+are implemented. UI packages are installed, but Windows blocks a pandas native
+module; rendering and UI runtime containment remain unverified. Real embeddings and model inference remain
 unverified; model downloads are forbidden. The user approved a 750 MB total-folder
 ceiling for UI setup and a 150 MB future package-download cap.
 See [Milestone 3 progress](docs/MILESTONE_3.md) and
@@ -60,6 +60,8 @@ Simulated correctness labels illustrate the workflow and are not benchmark resul
 
 The current local offline suite executed **358 tests**, with no failures, errors
 or skips; see [UI setup-helper verification](docs/evidence/milestone3-ui-setup-helper/checks.json).
+That ordinary run preceded UI installation. The subsequent 15 real NumPy checks
+are reported separately in the installation status; they do not verify pandas or the UI.
 The [341-test UI preflight verification](docs/evidence/milestone3-ui-preflight-final/checks.json)
 remains preserved.
 The earlier [313-test measurement-input verification](docs/evidence/milestone3-measurement-inputs/checks.json)
@@ -129,10 +131,10 @@ Check UI readiness (no install, model request, or server start):
 .venv/Scripts/python.exe -B scripts/run_interface.py
 ```
 
-This currently reports `missing_streamlit` with exit code 2. The actual package
-index/network checks could not reach PyPI; no package was installed. Once a
-project-local Streamlit environment is independently set up within the storage
-limit, `scripts/run_interface.py --serve` starts the Windows localhost interface
+This initially reported `missing_streamlit` with exit code 2. Packages are now
+installed; detecting them does not prove native imports or UI rendering succeed.
+The pandas policy block described below remains unresolved. After that runtime
+gate is legitimately resolved, `scripts/run_interface.py --serve` starts the Windows localhost interface
 with child profile/cache/temp paths inside this project. No startup command
 installs dependencies or downloads models.
 
@@ -143,9 +145,11 @@ it installs nothing. The subsequent user-run preflight resolved 34 wheels declar
 280.5 MB of expanded files, exceeding the current 250 MB total-folder ceiling.
 The [UI-only installation proposal](docs/MILESTONE_3_UI_INSTALLATION_PROPOSAL.md)
 now has user approval for a 750 MB UI-only ceiling and a 150 MB future package-download
-cap. The explicit setup helper passed offline checks; no models or packages are
-installed yet. Run the command in the linked proposal from the working normal
-PowerShell terminal; default operation without `--install` only prints a plan.
+cap. The explicit setup helper passed offline checks and the user installed all
+34 packages. Its final import check hit a Windows policy block on pandas. NumPy
+and PyArrow import successfully; 15 separate real NumPy tests passed. No models
+are installed. See the [actual setup status](docs/MILESTONE_3_UI_INSTALLATION_STATUS.md)
+before taking further setup actions; do not redownload packages to repeat the failure.
 
 ## Foundation features
 

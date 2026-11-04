@@ -1,4 +1,17 @@
-# Current state - Milestone 3 UI-only setup approved
+# Current state - UI packages installed; pandas blocked by Windows policy
+
+- The user's approved setup installed all 34 locked packages. The final import
+  check failed on an unsigned pandas native module, with Code Integrity event
+  3077 naming VerifiedAndReputableDesktop. No security settings were changed.
+- Independent NumPy/PyArrow imports succeeded. The actual NumPy integration suite
+  executed 15 tests, all passing, with labeled tokenizer/vector doubles. This is
+  not live model integration. Evidence: docs/evidence/milestone3-ui-installation.
+- Download reservations are 86,786,569 bytes of 150 MB; later folder inventory is
+  371,959,665 logical bytes of the 750 MB allowance. No installation peak is claimed.
+- Next: confirm the Windows Security protection state and identify a legitimate
+  policy/publisher resolution. Do not redownload or rerun the blocked native import
+  merely to repeat the same failure. Streamlit rendering and live inference remain
+  unverified. See docs/MILESTONE_3_UI_INSTALLATION_STATUS.md.
 
 - The user's normal-terminal inspector completed successfully. The saved report's
   source hash, selected wheel tags, active dependency constraints and totals were

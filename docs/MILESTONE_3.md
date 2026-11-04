@@ -1,5 +1,11 @@
 # Milestone 3 - fixture-based testing and evidence review
 
+Current setup observation: the 34 UI packages are installed, but Windows blocks
+the pandas native import. NumPy/PyArrow imports and 15 separate real numeric
+tests succeeded. UI rendering remains unverified. See
+[the installation status](MILESTONE_3_UI_INSTALLATION_STATUS.md); earlier
+missing-package observations below remain historical evidence.
+
 Status: first working fixture checkpoint published as
 [`2c9e9d5`](https://github.com/kushagradeepsinha617-cpu/Knowledge-Delta-/commit/2c9e9d509046b3e8bc7accfb5995f9284e91ec2f),
 with all 115 remote source hashes and both sample checksums reconciled.

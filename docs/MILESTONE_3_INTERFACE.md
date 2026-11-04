@@ -1,5 +1,9 @@
 # Milestone 3 interface and manual-review checkpoint
 
+Current runtime gate: packages are now installed, but a Windows policy blocks
+pandas. See [actual installation status](MILESTONE_3_UI_INSTALLATION_STATUS.md).
+The missing-package observations below describe the earlier source checkpoint.
+
 Latest setup authorization: 750 MB total project-folder storage and at most
 150 MB of future UI artifact downloads. This supersedes the earlier 250 MB
 fixture-only allowance without authorizing models or global installation.

@@ -136,7 +136,10 @@ installs dependencies or downloads models.
 The user reported a successful normal-terminal PyPI connectivity check. The
 agent's Python still cannot reach PyPI. An explicit metadata/archive-directory
 preflight is documented in the [UI setup proposal](docs/MILESTONE_3_UI_DOWNLOAD_PROPOSAL.md);
-it installs nothing and leaves storage requirements unresolved until actually run.
+it installs nothing. The subsequent user-run preflight resolved 34 wheels declaring
+280.5 MB of expanded files, exceeding the current 250 MB total-folder ceiling.
+The [UI-only installation proposal](docs/MILESTONE_3_UI_INSTALLATION_PROPOSAL.md)
+requests a 750 MB ceiling; it remains unapproved. No models or packages are installed.
 
 ## Foundation features
 

@@ -1,4 +1,17 @@
-# Current state - Milestone 3 measurement inputs published
+# Current state - Milestone 3 UI setup budget approval pending
+
+- The user's normal-terminal inspector completed successfully. The saved report's
+  source hash, selected wheel tags, active dependency constraints and totals were
+  independently checked offline. It resolved 34 candidate wheels: 86,786,535 bytes
+  compressed and 280,478,795 bytes of declared expanded files. No installation.
+- These packages alone exceed the current 250 MB total-folder ceiling. The new
+  UI-only proposal requests 750 MB total storage and at most 150 MB future artifact
+  transfer; the conservative plan using the later larger folder inventory is
+  694,104,324 bytes. Actual installer peak is unverified. Neither requested limit
+  is active until the user explicitly approves it. Models remain excluded.
+- Next action: obtain the user's decision on docs/MILESTONE_3_UI_INSTALLATION_PROPOSAL.md,
+  then prepare/execute only the approved project-local setup. Do not rerun the
+  inspector or add unrelated features while this decision is pending.
 
 - User authorized fixture-based Milestone 3. On 2026-11-04 the user retired
   Deliverer, briefly required milestone push approval, then explicitly granted
@@ -70,9 +83,9 @@
   files. Actual dependency/expanded-size resolution remains unverified until run.
 - Last folder measurement: 78,348,353 logical bytes including ignored artifacts,
   below 250 MB. No package/model downloads or global installation occurred.
-- Next: establish a usable metadata/setup route and resolve the complete UI
-  dependency and peak-storage requirements. The separate metadata-only proposal
-  is docs/MILESTONE_3_UI_DOWNLOAD_PROPOSAL.md; no budget increase is requested.
+- Earlier metadata-only preparation is preserved in
+  docs/MILESTONE_3_UI_DOWNLOAD_PROPOSAL.md. The successful user-run inspection and
+  new explicit budget proposal above supersede its unresolved-closure status.
   Actual UI/live acceptance still needs missing dependencies/runtime/assets.
   Milestone 3 is incomplete. Do not advance to Milestone 4 or add speculative
   placeholder features. See docs/MILESTONE_3.md and docs/MILESTONE_3_INTERFACE.md.

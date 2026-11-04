@@ -1,0 +1,905 @@
+{
+  "schema_version": 1,
+  "kind": "ui_setup_inspection",
+  "packages_installed": false,
+  "models_downloaded": false,
+  "archive_bodies_verified": false,
+  "python": "3.15.2 (tags/v3.15.2:5e58eaa, Oct 25 2026, 17:27:03) [MSC v.1951 64 bit (AMD64)]",
+  "platform": "win32",
+  "inspector_sha256": "3bb5854ae72c69defadc4005d979ff00dd404da477de06e7206b9a429e378e4a",
+  "network_note": "Reads PyPI metadata and bounded wheel byte ranges; no archives are saved or extracted.",
+  "packages": [
+    {
+      "name": "altair",
+      "version": "6.3.0",
+      "filename": "altair-6.3.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/ca/b9/10a8bb13a0462e0bc4e02c0b7b8237dc24ab590f5bb4be94bec5e8f1d532/altair-6.3.0-py3-none-any.whl",
+      "compressed_bytes": 797192,
+      "sha256": "7defb6ca730676dfc99a299768e2769f51585fcb3dc960ea71aacc368929d65e",
+      "metadata_sha256": "e2c96038445540d765950ee1286995e6bf2b74eb70133aebf7ab0f2634be0b1e",
+      "requires_python": ">=3.11",
+      "requires_dist": [
+        "jinja2",
+        "jsonschema>=3.0",
+        "narwhals>=2.4.0",
+        "packaging",
+        "typing-extensions>=4.12.0; python_version < '3.15'",
+        "altair-tiles>=0.3.0; extra == 'all'",
+        "anywidget>=0.9.0; extra == 'all'",
+        "numpy; extra == 'all'",
+        "pandas>=1.5.3; extra == 'all'",
+        "pyarrow>=11; extra == 'all'",
+        "vegafusion>=2.0.3; extra == 'all'",
+        "vl-convert-python>=1.9.0; extra == 'all'",
+        "duckdb>=1.0; extra == 'dev'",
+        "geopandas>=0.14.3; extra == 'dev'",
+        "hatch>=1.13.0; extra == 'dev'",
+        "ipykernel; extra == 'dev'",
+        "ipython; extra == 'dev'",
+        "mistune; extra == 'dev'",
+        "mypy; extra == 'dev'",
+        "pandas-stubs>=3.0.3.260530; extra == 'dev'",
+        "pandas>=1.5.3; extra == 'dev'",
+        "polars>=0.20.3; extra == 'dev'",
+        "pyarrow-stubs; extra == 'dev'",
+        "pytest; extra == 'dev'",
+        "pytest-cov; extra == 'dev'",
+        "pytest-xdist[psutil]~=3.5; extra == 'dev'",
+        "ruff>=0.9.5; extra == 'dev'",
+        "taskipy>=1.14.1; extra == 'dev'",
+        "ty; extra == 'dev'",
+        "types-jsonschema; extra == 'dev'",
+        "types-setuptools; extra == 'dev'",
+        "docutils; extra == 'doc'",
+        "jinja2; extra == 'doc'",
+        "myst-parser; extra == 'doc'",
+        "numpydoc; extra == 'doc'",
+        "pillow; extra == 'doc'",
+        "pydata-sphinx-theme>=0.14.1; extra == 'doc'",
+        "scipy; extra == 'doc'",
+        "scipy-stubs; extra == 'doc'",
+        "sphinx; extra == 'doc'",
+        "sphinx-autobuild; extra == 'doc'",
+        "sphinx-copybutton; extra == 'doc'",
+        "sphinx-design; extra == 'doc'",
+        "sphinxext-altair; extra == 'doc'",
+        "vl-convert-python>=1.9.0; extra == 'save'"
+      ],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 5908545,
+        "archive_entries": 67,
+        "range_payload_bytes": 70477,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "anyio",
+      "version": "4.16.0",
+      "filename": "anyio-4.16.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/a9/16/7757fb84c819accc7d7e9af5291b261e4abb8627ee040f99e7d35ef2457a/anyio-4.16.0-py3-none-any.whl",
+      "compressed_bytes": 134521,
+      "sha256": "c66ae634e0b8228396b801741beb3294326d4b6102f7bba4041c0dfb58c29026",
+      "metadata_sha256": "b184ac9cd097e2bb7f90d42799346cc91c276095d000d95d7f7ddd407d0c887e",
+      "requires_python": ">=3.10",
+      "requires_dist": [
+        "exceptiongroup>=1.0.2; python_version < \"3.11\"",
+        "idna>=2.8",
+        "typing_extensions>=4.16.0; python_version < \"3.15\"",
+        "trio>=0.32.0; extra == \"trio\""
+      ],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 553035,
+        "archive_entries": 53,
+        "range_payload_bytes": 69283,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0",
+      "filename": "attrs-26.1.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/64/b4/17d4b0b2a2dc85a6df63d1157e028ed19f90d4cd97c36717afef2bc2f395/attrs-26.1.0-py3-none-any.whl",
+      "compressed_bytes": 67548,
+      "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
+      "metadata_sha256": "4cd40e690f23bf37cbcad34efd6758e062df1df07c86833f7e3ce95bf1fa38cc",
+      "requires_python": ">=3.9",
+      "requires_dist": [],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 233691,
+        "archive_entries": 35,
+        "range_payload_bytes": 67816,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "certifi",
+      "version": "2026.10.23",
+      "filename": "certifi-2026.10.23-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/32/d1/a3652fe2c19134d0d15922177821d863cbd7e842d53a21bbe7e8e3a1b5ac/certifi-2026.10.23-py3-none-any.whl",
+      "compressed_bytes": 135082,
+      "sha256": "e9b54de76e530bb6cf0ccd036787103acb58fd42ba930ea8bf948ddbaa2f61d1",
+      "metadata_sha256": "e463e38f7fe7da36a11e6d3fecc5dfa5b97be8c8022620400750d79ae7d842bc",
+      "requires_python": ">=3.7",
+      "requires_dist": [],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 244625,
+        "archive_entries": 12,
+        "range_payload_bytes": 66443,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "filename": "charset_normalizer-3.5.2-cp315-cp315-win_amd64.whl",
+      "url": "https://files.pythonhosted.org/packages/98/e8/55d5fd3935b4bce6da4fe0df61898e8c82653e317e677bd58aceb9c60f13/charset_normalizer-3.5.2-cp315-cp315-win_amd64.whl",
+      "compressed_bytes": 210858,
+      "sha256": "89b53f3cda69831909888e0494f4fa0bcd3537e3e138dabeb620bd6ad946bae8",
+      "metadata_sha256": "49e955a09e1a159e0846872798006e8db7d518d8d70c637066fefdb08d3d9f7b",
+      "requires_python": ">=3.7",
+      "requires_dist": [],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 579022,
+        "archive_entries": 21,
+        "range_payload_bytes": 67249,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "click",
+      "version": "8.5.0",
+      "filename": "click-8.5.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/58/50/6c0d534c5f134586a8e1ba4e330569e32f057e33372ae556463212fb4cd3/click-8.5.0-py3-none-any.whl",
+      "compressed_bytes": 125251,
+      "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360",
+      "metadata_sha256": "e87bce0bd194de70dfb8e708e0a6b0483009f25611804eaf87bfeb63e6c20501",
+      "requires_python": ">=3.10",
+      "requires_dist": [],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 447719,
+        "archive_entries": 22,
+        "range_payload_bytes": 67002,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "filename": "h11-0.16.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl",
+      "compressed_bytes": 37515,
+      "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86",
+      "metadata_sha256": "28f326098ac09fcba79b8f180f96087c841fe2456215cb7b872a9c7d5cd19d64",
+      "requires_python": ">=3.8",
+      "requires_dist": [],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 103935,
+        "archive_entries": 17,
+        "range_payload_bytes": 38631,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "filename": "idna-3.20-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl",
+      "compressed_bytes": 69583,
+      "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+      "metadata_sha256": "dbd8c14c1e4ca1e0c9824a6dbc7cbbf78884f38eb52d91148cd3025f671e4b85",
+      "requires_python": ">=3.9",
+      "requires_dist": [
+        "ruff >= 0.16.0 ; extra == \"all\"",
+        "mypy >= 1.11.2 ; extra == \"all\"",
+        "ty >= 0.0.37 ; extra == \"all\"",
+        "pytest >= 8.3.2 ; extra == \"all\"",
+        "hypothesis >= 6.141.1 ; extra == \"all\"",
+        "coverage >= 7.10.0 ; extra == \"all\""
+      ],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 342091,
+        "archive_entries": 16,
+        "range_payload_bytes": 66612,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "itsdangerous",
+      "version": "2.2.0",
+      "filename": "itsdangerous-2.2.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/04/96/92447566d16df59b2a776c0fb82dbc4d9e07cd95062562af01e408583fc4/itsdangerous-2.2.0-py3-none-any.whl",
+      "compressed_bytes": 16234,
+      "sha256": "c6242fc49e35958c8b15141343aa660db5fc54d4f13a1db01a3f5891b98700ef",
+      "metadata_sha256": "d2b934fb56708a1b94e439f0255c0f5a8108e3258ec827b18a1dc9c991db9611",
+      "requires_python": ">=3.8",
+      "requires_dist": [],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 46856,
+        "archive_entries": 13,
+        "range_payload_bytes": 17180,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "jinja2",
+      "version": "3.1.6",
+      "filename": "jinja2-3.1.6-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/62/a1/3d680cbfd5f4b8f15abc1d571870c5fc3e594bb582bc3b64ea099db13e56/jinja2-3.1.6-py3-none-any.whl",
+      "compressed_bytes": 134899,
+      "sha256": "85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67",
+      "metadata_sha256": "68c5548fb67c4132a13898d9b31ec50c6bea2abdd915d921f214355c3a6499c8",
+      "requires_python": ">=3.7",
+      "requires_dist": [
+        "MarkupSafe>=2.0",
+        "Babel>=2.7 ; extra == \"i18n\""
+      ],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 496892,
+        "archive_entries": 31,
+        "range_payload_bytes": 67604,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "jsonschema",
+      "version": "4.26.0",
+      "filename": "jsonschema-4.26.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/69/90/f63fb5873511e014207a475e2bb4e8b2e570d655b00ac19a9a0ca0a385ee/jsonschema-4.26.0-py3-none-any.whl",
+      "compressed_bytes": 90630,
+      "sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce",
+      "metadata_sha256": "05b189866ca98a96da3934bf6b83687ced3ff85325273b77e16b705f6d8b26d2",
+      "requires_python": ">=3.10",
+      "requires_dist": [
+        "attrs>=22.2.0",
+        "jsonschema-specifications>=2023.03.6",
+        "referencing>=0.28.4",
+        "rpds-py>=0.25.0",
+        "fqdn; extra == 'format'",
+        "idna; extra == 'format'",
+        "isoduration; extra == 'format'",
+        "jsonpointer>1.13; extra == 'format'",
+        "rfc3339-validator; extra == 'format'",
+        "rfc3987; extra == 'format'",
+        "uri-template; extra == 'format'",
+        "webcolors>=1.11; extra == 'format'",
+        "fqdn; extra == 'format-nongpl'",
+        "idna; extra == 'format-nongpl'",
+        "isoduration; extra == 'format-nongpl'",
+        "jsonpointer>1.13; extra == 'format-nongpl'",
+        "rfc3339-validator; extra == 'format-nongpl'",
+        "rfc3986-validator>0.1.0; extra == 'format-nongpl'",
+        "rfc3987-syntax>=1.1.0; extra == 'format-nongpl'",
+        "uri-template; extra == 'format-nongpl'",
+        "webcolors>=24.6.0; extra == 'format-nongpl'"
+      ],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 476081,
+        "archive_entries": 43,
+        "range_payload_bytes": 68975,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1",
+      "filename": "jsonschema_specifications-2025.9.1-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/41/45/1a4ed80516f02155c51f51e8cedb3c1902296743db0bbc66608a0db2814f/jsonschema_specifications-2025.9.1-py3-none-any.whl",
+      "compressed_bytes": 18437,
+      "sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe",
+      "metadata_sha256": "35abd41757f32b4ea24756920ded47b70173d77cbc052a5a6d3ab583b2e8d89d",
+      "requires_python": ">=3.9",
+      "requires_dist": [
+        "referencing>=0.31.0"
+      ],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 47261,
+        "archive_entries": 28,
+        "range_payload_bytes": 21421,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "markupsafe",
+      "version": "3.0.4",
+      "filename": "markupsafe-3.0.4-cp315-cp315-win_amd64.whl",
+      "url": "https://files.pythonhosted.org/packages/5b/ec/6000fd82e8791e58fcd0456ec20f098957e2b03d5ed02eb73241a577c0ba/markupsafe-3.0.4-cp315-cp315-win_amd64.whl",
+      "compressed_bytes": 14496,
+      "sha256": "d882a373d8093c2941e01291b7ced96e9cbe4781da9a7751ca7e6c70385e5214",
+      "metadata_sha256": "08fa79954ab288d778b0fee4f0e6c7dbc869e545a415747d1324622465d3b08d",
+      "requires_python": ">=3.9",
+      "requires_dist": [],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 35603,
+        "archive_entries": 11,
+        "range_payload_bytes": 15337,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "narwhals",
+      "version": "2.28.0",
+      "filename": "narwhals-2.28.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/cf/82/8ef9c7e0f50493307a49c09cfa7f00c5a778b6d1921f7b2dabe1d3a5809e/narwhals-2.28.0-py3-none-any.whl",
+      "compressed_bytes": 490591,
+      "sha256": "1f69d6385ec30e2fa6e1fdeb37c562ecabd0f713f6f3e3b58a668c5c9df9567f",
+      "metadata_sha256": "d0da2a7f975c93dc3845bf5d56a4ec09b83709bc31330f5a9cc2031b2a729aed",
+      "requires_python": ">=3.10",
+      "requires_dist": [
+        "cudf-cu12>=24.10.0 ; sys_platform == 'linux' and extra == 'cudf'",
+        "dask[dataframe]>=2024.8 ; extra == 'dask'",
+        "duckdb>=1.1 ; extra == 'duckdb'",
+        "ibis-framework>=6.0.0 ; extra == 'ibis'",
+        "packaging>=21.3 ; extra == 'ibis'",
+        "pyarrow-hotfix>=0.7 ; extra == 'ibis'",
+        "modin>=0.22.0 ; extra == 'modin'",
+        "pandas>=1.3.4 ; extra == 'pandas'",
+        "polars>=0.20.4 ; extra == 'polars'",
+        "pyarrow>=13.0.0 ; extra == 'pyarrow'",
+        "pyspark>=3.5.0 ; extra == 'pyspark'",
+        "pyspark[connect]>=3.5.0 ; extra == 'pyspark-connect'",
+        "narwhals[duckdb] ; extra == 'sql'",
+        "sqlparse>=0.5.5 ; extra == 'sql'",
+        "sqlframe>=3.22.0,!=3.39.3 ; extra == 'sqlframe'"
+      ],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 2079651,
+        "archive_entries": 186,
+        "range_payload_bytes": 78996,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "numpy",
+      "version": "2.5.4",
+      "filename": "numpy-2.5.4-cp315-cp315-win_amd64.whl",
+      "url": "https://files.pythonhosted.org/packages/50/bc/d2651b155ecc608a77e6f4d15495c11f14f19bb98f8bf0c5b0d38f86dda1/numpy-2.5.4-cp315-cp315-win_amd64.whl",
+      "compressed_bytes": 12703085,
+      "sha256": "332f3378fe077dd850e677ec01bdcc4f22368fb5d50ef10b2c79230b1bf5a592",
+      "metadata_sha256": "e2b909d6a37d76c2bc130f528d7fed0c517322bce16dc7846b6a6df30e200403",
+      "requires_python": ">=3.12",
+      "requires_dist": [],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 41982010,
+        "archive_entries": 1062,
+        "range_payload_bytes": 151685,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "filename": "packaging-26.3-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+      "compressed_bytes": 129956,
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "metadata_sha256": "70fdb89fc4d4a9a043bf7372b8972bcc883fddff34ab55e9cf80d73875384763",
+      "requires_python": ">=3.9",
+      "requires_dist": [],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 499179,
+        "archive_entries": 29,
+        "range_payload_bytes": 67623,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "pandas",
+      "version": "3.1.1",
+      "filename": "pandas-3.1.1-cp315-cp315-win_amd64.whl",
+      "url": "https://files.pythonhosted.org/packages/1d/fc/13d84a0b63f6e1c1374d3b455e5f54fae8a4ba69b873829d72c84de96ec4/pandas-3.1.1-cp315-cp315-win_amd64.whl",
+      "compressed_bytes": 10880612,
+      "sha256": "07998b563a4e1ff2d6062ead5a7b145bb7f70096bbd428b7dc556672970ff0ed",
+      "metadata_sha256": "cad8d83d2ccb92a42ae58c0164170ec0e21517bec2ffaad4d84f5fea4a2ad096",
+      "requires_python": ">=3.11",
+      "requires_dist": [
+        "numpy>=2.0.2; python_version < \"3.14\"",
+        "numpy>=2.3.3; python_version >= \"3.14\"",
+        "python-dateutil>=2.9.0",
+        "tzdata; sys_platform == \"win32\"",
+        "tzdata; sys_platform == \"emscripten\"",
+        "pytest>=8.3.4; extra == \"test\"",
+        "pytest-xdist>=3.6.1; extra == \"test\"",
+        "pyarrow>=16.0.0; extra == \"pyarrow\"",
+        "bottleneck>=1.5.0; extra == \"performance\"",
+        "numba>=0.61.2; extra == \"performance\"",
+        "numexpr!=2.14.1,>=2.11.0; extra == \"performance\"",
+        "scipy>=1.16.1; extra == \"computation\"",
+        "xarray>=2025.7.1; extra == \"computation\"",
+        "fsspec>=2025.7.0; extra == \"fss\"",
+        "s3fs>=2025.7.0; extra == \"aws\"",
+        "gcsfs>=2025.7.0; extra == \"gcp\"",
+        "odfpy>=1.4.1; extra == \"excel\"",
+        "openpyxl>=3.1.5; extra == \"excel\"",
+        "python-calamine>=0.4.0; extra == \"excel\"",
+        "pyxlsb>=1.0.10; extra == \"excel\"",
+        "xlrd>=2.0.2; extra == \"excel\"",
+        "xlsxwriter>=3.2.5; extra == \"excel\"",
+        "pandas[pyarrow]; extra == \"parquet\"",
+        "pandas[pyarrow]; extra == \"feather\"",
+        "pyiceberg>=0.9.1; extra == \"iceberg\"",
+        "tables>=3.10.2; extra == \"hdf5\"",
+        "pyreadstat>=1.3.0; extra == \"spss\"",
+        "SQLAlchemy>=2.0.42; extra == \"postgresql\"",
+        "psycopg2>=2.9.10; extra == \"postgresql\"",
+        "adbc-driver-postgresql>=1.7.0; extra == \"postgresql\"",
+        "SQLAlchemy>=2.0.42; extra == \"mysql\"",
+        "pymysql>=1.1.1; extra == \"mysql\"",
+        "SQLAlchemy>=2.0.42; extra == \"sql-other\"",
+        "adbc-driver-postgresql>=1.7.0; extra == \"sql-other\"",
+        "adbc-driver-sqlite>=1.7.0; extra == \"sql-other\"",
+        "beautifulsoup4>=4.13.4; extra == \"html\"",
+        "html5lib>=1.1; extra == \"html\"",
+        "lxml>=6.0.0; extra == \"html\"",
+        "lxml>=6.0.0; extra == \"xml\"",
+        "matplotlib>=3.10.5; extra == \"plot\"",
+        "jinja2>=3.1.6; extra == \"output-formatting\"",
+        "tabulate>=0.9.0; extra == \"output-formatting\"",
+        "PyQt5>=5.15.11; extra == \"clipboard\"",
+        "qtpy>=2.4.3; extra == \"clipboard\"",
+        "zstandard>=0.23.0; extra == \"compression\"",
+        "pytz>=2020.1; extra == \"timezone\"",
+        "pandas[aws,clipboard,compression,computation,excel,feather,fss,gcp,hdf5,html,iceberg,mysql,output-formatting,parquet,performance,plot,postgresql,pyarrow,spss,sql-other,test,timezone,xml]; extra == \"all\"",
+        "fastparquet>=2024.11.0; extra == \"all\""
+      ],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 39479988,
+        "archive_entries": 1767,
+        "range_payload_bytes": 213990,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "pillow",
+      "version": "13.0.0",
+      "filename": "pillow-13.0.0-cp315-cp315-win_amd64.whl",
+      "url": "https://files.pythonhosted.org/packages/44/05/fdb6a79aee10861165526b41b7b440e36ee1ff58613b2fbefe3acbf06d4f/pillow-13.0.0-cp315-cp315-win_amd64.whl",
+      "compressed_bytes": 7281107,
+      "sha256": "d4737f50d23ddd11d6685faacbb9252887dde0bc7997127757247983d74399d6",
+      "metadata_sha256": "140f39cb31ec9b46109828a6286f034a4848621263d6aab38d2f142083dd06c5",
+      "requires_python": ">=3.11",
+      "requires_dist": [
+        "furo; extra == \"docs\"",
+        "olefile; extra == \"docs\"",
+        "sphinx>=8.2; extra == \"docs\"",
+        "sphinx-autobuild; extra == \"docs\"",
+        "sphinx-copybutton; extra == \"docs\"",
+        "sphinx-inline-tabs; extra == \"docs\"",
+        "sphinxext-opengraph; extra == \"docs\"",
+        "olefile; extra == \"fpx\"",
+        "olefile; extra == \"mic\"",
+        "arro3-compute; extra == \"test-arrow\"",
+        "arro3-core; extra == \"test-arrow\"",
+        "nanoarrow; extra == \"test-arrow\"",
+        "pyarrow; extra == \"test-arrow\"",
+        "coverage>=7.4.2; extra == \"tests\"",
+        "defusedxml; extra == \"tests\"",
+        "markdown2; extra == \"tests\"",
+        "olefile; extra == \"tests\"",
+        "packaging; extra == \"tests\"",
+        "psutil; (sys_platform == \"linux\" or sys_platform == \"darwin\") and extra == \"tests\"",
+        "pytest; extra == \"tests\"",
+        "pytest-cov; extra == \"tests\"",
+        "pytest-timeout; extra == \"tests\"",
+        "pytest-xdist; extra == \"tests\"",
+        "setuptools; extra == \"tests\"",
+        "trove-classifiers>=2024.10.12; extra == \"tests\"",
+        "defusedxml; extra == \"xmp\""
+      ],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 14867369,
+        "archive_entries": 120,
+        "range_payload_bytes": 73559,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "protobuf",
+      "version": "7.36.2",
+      "filename": "protobuf-7.36.2-cp310-abi3-win_amd64.whl",
+      "url": "https://files.pythonhosted.org/packages/8a/55/b77bda4e5e5f5971fb51b07663694690e9afdb9402136c16a522bd621cad/protobuf-7.36.2-cp310-abi3-win_amd64.whl",
+      "compressed_bytes": 456514,
+      "sha256": "a300819d441e078a5608c0d3c709796bb548136058fda017ae51d425b44fd353",
+      "metadata_sha256": "445916389cc3a87d5f815d763192372a17a221339d474cb661523157bf07d61c",
+      "requires_python": ">=3.10",
+      "requires_dist": [],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 1711365,
+        "archive_entries": 63,
+        "range_payload_bytes": 70620,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "pyarrow",
+      "version": "26.0.1",
+      "filename": "pyarrow-26.0.1-cp315-cp315-win_amd64.whl",
+      "url": "https://files.pythonhosted.org/packages/3b/c7/6094fa2c0b5602d81b1177ac7f5b2de8a386862d08e57a75931da774f3e0/pyarrow-26.0.1-cp315-cp315-win_amd64.whl",
+      "compressed_bytes": 29755706,
+      "sha256": "6cdad5f67a30bbcea54c3c2a27ea45bd5a170377bf45f80f4d7e3a726e8e3283",
+      "metadata_sha256": "266e9de74290f2dae9851af87d34a1fbb727e238615af836aebd82a1b0bb2d1a",
+      "requires_python": ">=3.11",
+      "requires_dist": [],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 89505681,
+        "archive_entries": 816,
+        "range_payload_bytes": 132677,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "pydeck",
+      "version": "0.9.3",
+      "filename": "pydeck-0.9.3-py2.py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/6f/34/3998411437aff304a9ed4fa37a6fe1ef3132bcd2b5eac59851b80c86123c/pydeck-0.9.3-py2.py3-none-any.whl",
+      "compressed_bytes": 11428091,
+      "sha256": "d8a47c11c81fb12d51b1feb42427ff4f0e13cb599e48931021b2cba98b6849a6",
+      "metadata_sha256": "c906606245b896f48f560a2175dc6ade991447f8e545dec8539678e1134eb71d",
+      "requires_python": ">=3.8",
+      "requires_dist": [
+        "jinja2>=2.10.1",
+        "numpy>=1.16.4",
+        "pydeck-carto; extra == \"carto\"",
+        "ipywidgets<8,>=7; extra == \"jupyter\"",
+        "traitlets>=4.3.2; extra == \"jupyter\"",
+        "ipykernel>=5.1.2; extra == \"jupyter\""
+      ],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 47425693,
+        "archive_entries": 48,
+        "range_payload_bytes": 69281,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "python-dateutil",
+      "version": "4.0.0",
+      "filename": "python_dateutil-4.0.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/2f/a9/52b89563d154433d79b51ed1eb4842bf7334cb2696891a7fe135618853d7/python_dateutil-4.0.0-py3-none-any.whl",
+      "compressed_bytes": 92853,
+      "sha256": "a5e246f79eb80475e691bf93862cead98decd8a498cf53ba0516fcdc0f50dc1c",
+      "metadata_sha256": "39adffb0c736bb6b6839f89fd158bb9b9ad54a3a795e0ea2ea53e79e1f821907",
+      "requires_python": ">=3.11",
+      "requires_dist": [
+        "tzdata"
+      ],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 324297,
+        "archive_entries": 26,
+        "range_payload_bytes": 67431,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "python-multipart",
+      "version": "0.0.33",
+      "filename": "python_multipart-0.0.33-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/dd/1b/6b1b4164ec734cac911460ab599bfbe46afedd42c5c9627fe4235942c314/python_multipart-0.0.33-py3-none-any.whl",
+      "compressed_bytes": 32253,
+      "sha256": "8f16c07b36add9da6b2ee87d3efcaf0a45a6de9c3d0a5dd94e9ccf7675a7bc45",
+      "metadata_sha256": "6b72c8aa930ab581069b93fdc2f7fb9dbede0051a73a699fbba5532b07fe133e",
+      "requires_python": ">=3.11",
+      "requires_dist": [],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 111145,
+        "archive_entries": 13,
+        "range_payload_bytes": 33253,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "referencing",
+      "version": "0.37.0",
+      "filename": "referencing-0.37.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/2c/58/ca301544e1fa93ed4f80d724bf5b194f6e4b945841c5bfd555878eea9fcb/referencing-0.37.0-py3-none-any.whl",
+      "compressed_bytes": 26766,
+      "sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231",
+      "metadata_sha256": "c93b00e6ab1524fd60848376604c189a114374776475c25a31d57be47b29de6a",
+      "requires_python": ">=3.10",
+      "requires_dist": [
+        "attrs>=22.2.0",
+        "rpds-py>=0.7.0",
+        "typing-extensions>=4.4.0; python_version < '3.13'"
+      ],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 115368,
+        "archive_entries": 19,
+        "range_payload_bytes": 28201,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "filename": "requests-2.34.2-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/a0/f4/c67b0b3f1b9245e8d266f0f112c500d50e5b4e83cb6f3b71b6528104182a/requests-2.34.2-py3-none-any.whl",
+      "compressed_bytes": 73075,
+      "sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0",
+      "metadata_sha256": "8c384ba3e979480faae2859d3c5e6c1276dd2c3616e322e124d52c8cfc556f27",
+      "requires_python": ">=3.10",
+      "requires_dist": [
+        "charset_normalizer<4,>=2",
+        "idna<4,>=2.5",
+        "urllib3<3,>=1.26",
+        "certifi>=2023.5.7",
+        "PySocks!=1.5.7,>=1.5.6; extra == \"socks\"",
+        "chardet<8,>=3.0.2; extra == \"use-chardet-on-py3\""
+      ],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 234397,
+        "archive_entries": 26,
+        "range_payload_bytes": 67358,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "rpds-py",
+      "version": "2026.9.1",
+      "filename": "rpds_py-2026.9.1-cp315-cp315-win_amd64.whl",
+      "url": "https://files.pythonhosted.org/packages/6d/a5/71b5cd00e0521e3b6b81828baea368c62b6b700ebdd9554cd7d41ddf12fa/rpds_py-2026.9.1-cp315-cp315-win_amd64.whl",
+      "compressed_bytes": 223121,
+      "sha256": "75c38c50ab9aca840225d9a9a3810bf11d04bd5c1f186cabbb8aee56db3e9b15",
+      "metadata_sha256": "778fb36890d26c5657d256db3e61a05a637468aa4cf607f8d1059c5079fcefd8",
+      "requires_python": ">=3.11",
+      "requires_dist": [],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 591630,
+        "archive_entries": 9,
+        "range_payload_bytes": 66244,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "starlette",
+      "version": "1.10.0",
+      "filename": "starlette-1.10.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/88/2e/947cfe02def9371c07cd5bf5b6b61c829e9aecb9904db02a66cfafbc1eec/starlette-1.10.0-py3-none-any.whl",
+      "compressed_bytes": 80571,
+      "sha256": "478c0ab3b4ced6e82719849c118fa406f0278a3499c1a898cd15cd31bdc38ce4",
+      "metadata_sha256": "82f72dde2c5c3c55d45d9461adce5e30973481f7f3e10b59e497bbc5b8abf598",
+      "requires_python": ">=3.11",
+      "requires_dist": [
+        "anyio<5,>=4.0.0",
+        "typing-extensions>=4.10.0; python_version < '3.13'",
+        "httpx2>=2.0.0; extra == 'full'",
+        "httpx<0.29.0,>=0.27.0; extra == 'full'",
+        "itsdangerous; extra == 'full'",
+        "jinja2; extra == 'full'",
+        "opentelemetry-api; extra == 'full'",
+        "python-multipart>=0.0.18; extra == 'full'",
+        "pyyaml; extra == 'full'"
+      ],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 275681,
+        "archive_entries": 41,
+        "range_payload_bytes": 68549,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "streamlit",
+      "version": "1.66.1",
+      "filename": "streamlit-1.66.1-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/4a/eb/f12286b0b5c30e3fd8e45ca47f05a6cd14cb6e583d04ef4409974a17d371/streamlit-1.66.1-py3-none-any.whl",
+      "compressed_bytes": 10364948,
+      "sha256": "29607190a589fe1fa9bd7e154635d335d47dc09b4010c6cc273daa6e4430ee31",
+      "metadata_sha256": "49be367dc39518f8e3b0a2706c1d0c5f5e1a4c562b018df896bc18a3e2d337b4",
+      "requires_python": ">=3.11",
+      "requires_dist": [
+        "altair!=5.4.0,!=5.4.1,<7,>=5.0.0",
+        "click<9,>=7.0",
+        "numpy<3,>=1.25.0",
+        "packaging>=20",
+        "pandas<4,>=1.5.3",
+        "pillow<14,>=9.2.0",
+        "pydeck<1,>=0.8.0b4",
+        "protobuf<8,>=5.26.1",
+        "pyarrow!=25.0.0,<27,>=10.0.1",
+        "requests<3,>=2.27",
+        "typing-extensions<5,>=4.10.0",
+        "starlette<2,>=0.46.0",
+        "uvicorn<1,>=0.30.0",
+        "anyio<5,>=4.0.0",
+        "python-multipart<1,>=0.0.10",
+        "websockets<18,>=12.0.0",
+        "itsdangerous<3,>=2.1.2",
+        "watchdog<7,>=2.1.5; platform_system != \"Darwin\"",
+        "snowflake-snowpark-python[modin]>=1.17.0; extra == \"snowflake\"",
+        "snowflake-connector-python>=3.3.0; extra == \"snowflake\"",
+        "streamlit-pdf>=2.1.0; extra == \"pdf\"",
+        "Authlib>=1.3.2; extra == \"auth\"",
+        "httpx>=0.24.1; extra == \"auth\"",
+        "matplotlib>=3.0.0; extra == \"charts\"",
+        "graphviz>=0.19.0; extra == \"charts\"",
+        "plotly>=4.0.0; extra == \"charts\"",
+        "orjson>=3.5.0; extra == \"charts\"",
+        "SQLAlchemy>=2.0.0; extra == \"sql\"",
+        "httptools>=0.6.3; extra == \"performance\"",
+        "orjson>=3.5.0; extra == \"performance\"",
+        "uvloop>=0.15.2; (sys_platform != \"win32\" and sys_platform != \"cygwin\" and platform_python_implementation != \"PyPy\") and extra == \"performance\"",
+        "streamlit[auth,charts,pdf,performance,snowflake,sql]; extra == \"all\"",
+        "rich>=11.0.0; extra == \"all\""
+      ],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 29150064,
+        "archive_entries": 876,
+        "range_payload_bytes": 145885,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.16.0",
+      "filename": "typing_extensions-4.16.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl",
+      "compressed_bytes": 45571,
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "metadata_sha256": "b05084ca1d50879865178d9fff9fabeab61bdfb1f361bfbde95421ffc8f9be46",
+      "requires_python": ">=3.9",
+      "requires_dist": [],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 182767,
+        "archive_entries": 5,
+        "range_payload_bytes": 45996,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.6",
+      "filename": "tzdata-2026.6-py2.py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/0a/66/9a06c2227fedfd4919f0eaaa8b94377d9730882a7e4f95823c9a331ab5e1/tzdata-2026.6-py2.py3-none-any.whl",
+      "compressed_bytes": 348210,
+      "sha256": "0a10eec6e13ef16b627fabed9a5f2ba61a62b1c67f327305f4e7e412a70b4aec",
+      "metadata_sha256": "8173da8700dd125e60c9caf7663d02ee3318851ee60d387b2b080f23a74a86a8",
+      "requires_python": ">=2",
+      "requires_dist": [],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 582438,
+        "archive_entries": 633,
+        "range_payload_bytes": 113911,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0",
+      "filename": "urllib3-2.8.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/92/9d/c4e665119135114480843e7ab388fa94d8480650450e6f8e26b70d323a4c/urllib3-2.8.0-py3-none-any.whl",
+      "compressed_bytes": 135717,
+      "sha256": "0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3",
+      "metadata_sha256": "10898c620e8007c030e07fa5622b68358a43010025dfbd78a1cb797699de2bb4",
+      "requires_python": ">=3.10",
+      "requires_dist": [
+        "brotli>=1.2.0; (platform_python_implementation == 'CPython') and extra == 'brotli'",
+        "brotlicffi>=1.2.0.0; (platform_python_implementation != 'CPython') and extra == 'brotli'",
+        "h2<5,>=4; extra == 'h2'",
+        "pysocks!=1.5.7,<2.0,>=1.5.6; extra == 'socks'",
+        "backports-zstd>=1.0.0; (python_version < '3.14') and extra == 'zstd'"
+      ],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 450461,
+        "archive_entries": 42,
+        "range_payload_bytes": 68596,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.54.0",
+      "filename": "uvicorn-0.54.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/38/0c/b54a4fdd7f90a3af8b02ebc9ce6712c2c208b7926a2f7bad95c33ebbe943/uvicorn-0.54.0-py3-none-any.whl",
+      "compressed_bytes": 87427,
+      "sha256": "505bdb0f318731d45f1f712071fc781a8981f6847a31c902c9f5e652d4f67faf",
+      "metadata_sha256": "9399e5ddda3d26e842d6fb5420c38b0857aac568d53badbdc224b3a21339efa8",
+      "requires_python": ">=3.10",
+      "requires_dist": [
+        "click>=7.0",
+        "h11>=0.8",
+        "typing-extensions>=4.0; python_version < '3.11'",
+        "httptools>=0.8.0; extra == 'standard'",
+        "python-dotenv>=0.13; extra == 'standard'",
+        "pyyaml>=5.1; extra == 'standard'",
+        "uvloop>=0.15.1; (sys_platform != 'win32' and (sys_platform != 'cygwin' and platform_python_implementation != 'PyPy')) and extra == 'standard'",
+        "watchfiles>=0.20; extra == 'standard'",
+        "websockets>=13.0; extra == 'standard'"
+      ],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 294179,
+        "archive_entries": 51,
+        "range_payload_bytes": 69393,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "watchdog",
+      "version": "6.0.0",
+      "filename": "watchdog-6.0.0-py3-none-win_amd64.whl",
+      "url": "https://files.pythonhosted.org/packages/db/d9/c495884c6e548fce18a8f40568ff120bc3a4b7b99813081c8ac0c936fa64/watchdog-6.0.0-py3-none-win_amd64.whl",
+      "compressed_bytes": 79070,
+      "sha256": "cbafb470cf848d93b5d013e2ecb245d4aa1c8fd0504e863ccefa32445359d680",
+      "metadata_sha256": "ecfde023047e7761dce06d4488abcede89e398399961a052f2fccb39b001e279",
+      "requires_python": ">=3.9",
+      "requires_dist": [
+        "PyYAML>=3.10; extra == \"watchmedo\""
+      ],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 269265,
+        "archive_entries": 34,
+        "range_payload_bytes": 68103,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    },
+    {
+      "name": "websockets",
+      "version": "17.4",
+      "filename": "websockets-17.4-cp315-cp315-win_amd64.whl",
+      "url": "https://files.pythonhosted.org/packages/25/a6/818647a9a9b3ee8bf131e9ab4fa1f2db9c6539f08e7084dd57549e0bd49d/websockets-17.4-cp315-cp315-win_amd64.whl",
+      "compressed_bytes": 219045,
+      "sha256": "8b45d40f07081b377f0b837ddbfba4a9ab4a89a7b569d3c095436564e767a27b",
+      "metadata_sha256": "0f4dbbb04b659eb336bddd7ca16901e19f9252011c1f9fe03d3002b39cf8d653",
+      "requires_python": ">=3.11",
+      "requires_dist": [],
+      "metadata_verified": true,
+      "archive": {
+        "declared_expanded_bytes": 830811,
+        "archive_entries": 62,
+        "range_payload_bytes": 70043,
+        "note": "Directory declarations only; artifact body/hash, extraction and runtime remain unverified."
+      }
+    }
+  ],
+  "status": "preflight_inspected_not_installed",
+  "dependency_closure_verified": true,
+  "footprint": {
+    "existing_project_bytes": 25240219,
+    "compressed_wheel_bytes": 86786535,
+    "declared_expanded_bytes": 280478795,
+    "temporary_reserve_bytes": 25000000,
+    "retained_wheels_planning_bytes": 417505549,
+    "sequential_wheel_planning_bytes": 360474720,
+    "sequential_with_additional_unpack_copy_bytes": 640953515,
+    "approved_ceiling_bytes": 250000000,
+    "sequential_plan_fits_with_reserve": false,
+    "additional_unpack_copy_plan_fits_with_reserve": false,
+    "installation_authorized_by_this_report": false,
+    "installer_peak_verified": false,
+    "note": "Planning totals, not measured installed/peak storage. Native behavior and installer overhead require separate checks."
+  },
+  "http_usage": {
+    "requests": 145,
+    "payload_bytes": 30935200
+  }
+}

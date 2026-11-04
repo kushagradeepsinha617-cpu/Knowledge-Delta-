@@ -1,4 +1,4 @@
-# Current state - Milestone 3 measurement-input verification
+# Current state - Milestone 3 measurement inputs published
 
 - User authorized fixture-based Milestone 3. On 2026-11-04 the user retired
   Deliverer, briefly required milestone push approval, then explicitly granted
@@ -23,9 +23,11 @@
   issue. Actual empty-reference CLI inspection/export retained 80 fixture records,
   zero human reviews and null scores; synthetic labels exist only in tests.
   The user approved the tested checkpoint and then granted all push permissions
-  on 2026-11-04. Publication includes its 16 files plus two metadata-only UI
-  proposal files; source verification is unchanged. No package/model installation
-  or storage expansion is authorized by that push instruction.
+  on 2026-11-04. Published commit bf3a8a1187d175477595fd64659418d3b849437d
+  contains its 16 files plus two metadata-only UI proposal files. All 129 tested
+  source files match the published Git objects; all 53 prior evidence/sample
+  files are unchanged. No package/model installation or storage expansion was
+  authorized by the push instruction.
 - The broader workflow audit identified and fixed a substantive gap: the review
   controller now imports saved raw experiment JSON as well as replaying fixtures.
   Manifest/dataset/origin checks preserve original answers/evidence; no gold-answer
@@ -61,8 +63,9 @@
   That check installs nothing and changes no resource/budget authorization.
 - Last folder measurement: 58,363,940 logical bytes including ignored artifacts,
   below 250 MB. No package/model downloads or global installation occurred.
-- Next: publish the user-approved measurement-input checkpoint with a guarded
-  update and reconcile remote source hashes.
+- Next: establish a usable metadata/setup route and resolve the complete UI
+  dependency and peak-storage requirements. The separate metadata-only proposal
+  is docs/MILESTONE_3_UI_DOWNLOAD_PROPOSAL.md; no budget increase is requested.
   Actual UI/live acceptance still needs missing dependencies/runtime/assets.
   Milestone 3 is incomplete. Do not advance to Milestone 4 or add speculative
   placeholder features. See docs/MILESTONE_3.md and docs/MILESTONE_3_INTERFACE.md.

@@ -152,7 +152,9 @@ and cleared the bounded implementation. Evidence is in
 Actual CLI inspection/export with an empty reference list retained 80 fixture
 records, zero human reviews and null scores; nonempty synthetic labels and saved
 review actions are exercised only in temporary test projects. This local checkpoint
-has user approval for publication. It creates no real human labels. Actual Streamlit rendering
+is published as [`bf3a8a1`](https://github.com/kushagradeepsinha617-cpu/Knowledge-Delta-/commit/bf3a8a1187d175477595fd64659418d3b849437d),
+with all 129 tested source files reconciled and all 53 prior evidence/sample files
+preserved. It creates no real human labels. Actual Streamlit rendering
 remains unverified.
 
 `--reference-labels runs/reference-labels.json` accepts an existing project-local

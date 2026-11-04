@@ -97,7 +97,9 @@ with a pass or `--abstention-judgment unnecessary` with a fail. Reviewer identit
 rationale, binding and revision are still required. See the
 [measurement-input schema](docs/MILESTONE_3.md#optional-measurement-inputs) before
 using these options. Ordinary source tests cover these inputs; real UI rendering
-remains unverified. Brain cleared this checkpoint, and the user approved its push.
+remains unverified. Brain cleared this checkpoint; it is published as
+[`bf3a8a1`](https://github.com/kushagradeepsinha617-cpu/Knowledge-Delta-/commit/bf3a8a1187d175477595fd64659418d3b849437d),
+with all 129 tested source files reconciled and prior evidence preserved.
 
 Inspect an answer and its review binding without writing a review:
 

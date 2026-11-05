@@ -87,3 +87,19 @@ def test_oversized_metadata_cannot_be_accepted_as_manifest():
     result = preflight.inspect(lambda url: b"x" * (preflight.MAX_RESPONSE + 1))
     assert result["status"] == "metadata_partial_or_unavailable"
     assert all(item["status"] == "error" for item in result["requests"])
+
+
+def test_cpu_candidate_accepts_official_index_cdn_and_matches_interpreter_tags():
+    link = "https://download-r2.pytorch.org/whl/cpu/torch-2.15.0%2Bcpu-cp315-cp315-win_amd64.whl#sha256=" + "a" * 64
+    result = preflight.cpu_candidate(("<a href=\"" + link + "\">wheel</a>").encode())
+    assert result["version"] == "2.15.0+cpu"
+    assert result["sha256"] == "a" * 64
+    assert result["url"] == link
+    assert result["dependency_closure_verified"] is False
+
+
+def test_cpu_candidate_rejects_untrusted_host_or_free_threaded_only_wheel():
+    for host, abi in (("example.com", "cp315"), ("download-r2.pytorch.org", "cp315t")):
+        link = f"https://{host}/whl/cpu/torch-2.15.0%2Bcpu-cp315-{abi}-win_amd64.whl#sha256=" + "a" * 64
+        with pytest.raises(ValidationError, match="No compatible"):
+            preflight.cpu_candidate(("<a href=\"" + link + "\">wheel</a>").encode())

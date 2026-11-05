@@ -24,7 +24,14 @@
 - The agent shell's five bounded metadata requests failed with WinError 10013.
   No assets were downloaded. The normal-terminal metadata command is the next
   external execution step; its report must be inspected before installation.
-- Next: inspect actual runtime metadata, freeze genuinely
+- The normal-terminal model metadata report arrived: all five sources responded.
+  Exact Qwen layers total 1,359,293,444 bytes; pinned MiniLM assets total
+  91,578,415 bytes. CPU candidate selection rejected the official
+  download-r2.pytorch.org CDN; the inspector host check was corrected and a
+  positive CDN/interpreter-tag regression plus negative host/ABI checks added.
+  Existing user-terminal report is preserved; no assets were installed.
+- Next: rerun the corrected bounded metadata check, resolve the full CPU
+  dependency closure/space plan, freeze genuinely
   human-reviewed cases, install only validated assets and execute controlled runs.
 
 ## Historical Milestone 3 checkpoint (preserved)

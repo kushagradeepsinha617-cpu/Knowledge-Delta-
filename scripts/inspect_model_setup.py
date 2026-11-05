@@ -109,7 +109,7 @@ def cpu_candidate(data):
     choices = []
     for url in parser.links:
         parsed = urlsplit(url)
-        if parsed.scheme != "https" or parsed.hostname != "download.pytorch.org":
+        if parsed.scheme != "https" or parsed.hostname not in ("download.pytorch.org", "download-r2.pytorch.org"):
             continue
         filename = unquote(parsed.path.rsplit("/", 1)[-1])
         if not filename.endswith(".whl"):

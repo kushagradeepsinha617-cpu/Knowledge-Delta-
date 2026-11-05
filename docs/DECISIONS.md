@@ -79,3 +79,18 @@ Inventory redirects are rejected, response size is capped at 1 MiB, and model
 fields are validated. Production documents must be regular files; Windows
 reserved aliases and parser resource errors have explicit handling. These are
 foundation safeguards, not a production security certification.
+
+
+## 2026-11-05: Milestone 4 sources and approved local runtime limits
+
+Use pinned MIT Pydantic docs with separate source-material and snapshot-assembly
+provenance. The first ten-case batch adds old-version documentation as a controlled
+distractor; it does not demonstrate a naturally observed upstream regression.
+One case has actual user review; agent review does not promote the others.
+
+The user approved 12 GB total project storage and 5 GB additional artifact payload
+including retries (at most 1 GB CPU embedding dependencies), superseding earlier
+UI-only limits for explicit model setup. Require exact compatibility/hash/space
+checks before downloads. Keep Smart App Control On. Agent-shell metadata access
+failed with WinError 10013; use the normal-terminal preflight and inspect its
+report. Do not mistake resource approval for runtime compatibility.

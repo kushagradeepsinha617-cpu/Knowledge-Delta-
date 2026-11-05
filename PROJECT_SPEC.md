@@ -53,6 +53,12 @@ docs/evidence/milestone1/environment.json.
   The approved 750 MB folder ceiling and 150 MB artifact allowance remain upper
   bounds, not permission for new models or global installations.
   Human case/result reviews remain genuine pending human work, not agent labels.
+- On 2026-11-05 the user authorized Milestone 4 and separately approved a
+  12 GB total project-folder ceiling plus 5 GB additional artifact payload
+  including retries, with at most 1 GB for CPU embedding dependencies. Exact
+  compatibility, hashes and storage planning remain required before downloads.
+  These later limits supersede the earlier UI-only limits for model setup. Keep
+  Smart App Control On, all intentional files project-local, and zero spending.
 - No repository visibility changes, external outreach or social posting.
 
 ## Workflow

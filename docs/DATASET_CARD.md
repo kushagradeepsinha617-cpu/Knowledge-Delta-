@@ -1,3 +1,17 @@
+# Dataset inventory (current)
+
+- examples/constructed: original seven-case Widget foundation fixture.
+- examples/mvp: twenty draft constructed Widget development cases.
+- examples/pydantic: ten draft development cases using genuine pinned MIT
+  Pydantic excerpts in a constructed corpus-addition experiment. See its README,
+  sources.json and source licenses. One explicit human case review is recorded; nine cases are draft, with no
+  held-out cases or human answer reviews. No live Pydantic benchmark results exist yet.
+
+The original foundation card below is historical; its seven-case counts and
+implementation-status statements do not describe the later application.
+
+## Historical foundation card (preserved)
+
 # Constructed dataset card
 
 Domain: imaginary Widget software. All documentation and cases are constructed

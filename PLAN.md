@@ -1,4 +1,35 @@
-# Current state - standard-library local UI implemented; visual check pending
+# Current state — Milestone 4 authorized and in progress
+
+- On 2026-11-05 the user authorized real local model/embedding runs, genuine
+  documentation, human-reviewed cases, controlled experiments and measured results.
+- The user separately approved 12,000,000,000 bytes total project storage and
+  5,000,000,000 bytes additional artifact payload including retries, with at most
+  1,000,000,000 bytes for CPU embedding dependencies. These supersede the UI-only
+  resource limits for this explicit setup; no global installs or security changes.
+- First source batch: ten development cases using pinned MIT Pydantic
+  documentation. A=v2 excerpts; B=same excerpts plus v1 models. Snapshot assembly
+  is constructed, source material genuine. One explicit human case review, nine drafts; zero human answer reviews or live results.
+- Implemented offline source/excerpt/case verification and explicit bounded model
+  metadata preflight. Full dependency closure/space planning and native execution
+  remain pending. See docs/MILESTONE_4.md, docs/EVALUATION.md and
+  docs/MILESTONE_4_RESOURCE_PROPOSAL.md.
+- User reported loading and inspecting scripted replay in the new local web UI.
+  This is a manual workflow observation, not an automated visual/layout audit or
+  dataset correctness review.
+- Verified checkpoint: 389 offline tests passed, zero failures/errors/skips, run
+  edaa1763bbb84c20b6f79524a448245f. Actual CLI verified the source bundle and
+  exported 40 clearly simulated Pydantic records: all await semantic review,
+  no live generation. The larger-source fixture prompt overflow was reproduced
+  and fixed with traceable fixture-only quote windows; live retrieval is unchanged.
+- The agent shell's five bounded metadata requests failed with WinError 10013.
+  No assets were downloaded. The normal-terminal metadata command is the next
+  external execution step; its report must be inspected before installation.
+- Next: inspect actual runtime metadata, freeze genuinely
+  human-reviewed cases, install only validated assets and execute controlled runs.
+
+## Historical Milestone 3 checkpoint (preserved)
+
+# Standard-library UI checkpoint
 
 - The user explicitly approved option 1 on 2026-11-05: replace Streamlit as the
   default UI with Python standard-library HTTP plus HTML/CSS/JavaScript. Keep
@@ -19,7 +50,8 @@
   screenshot or successful visual interaction is claimed. User visual review is
   the next acceptance step; see docs/LOCAL_WEB_UI.md.
 - The 750 MB folder ceiling and 150 MB artifact allowance remain in force. The
-  new UI requires no additional package or model download. Do not advance to M4.
+  new UI requires no additional package or model download. This historical checkpoint
+  preceded the user's subsequent Milestone 4 authorization.
 
 ## Earlier UI setup observations (preserved)
 

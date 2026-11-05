@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "name": "pydantic-distractors-before",
+  "domain": "pydantic",
+  "default_version": "2.10.6",
+  "provenance": "constructed",
+  "documents": [
+    {
+      "document_id": "pydantic.v2.serialization",
+      "path": "serialization.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/migration.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "serialization methods"
+    },
+    {
+      "document_id": "pydantic.v2.orm",
+      "path": "orm.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/migration.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "ORM attributes"
+    },
+    {
+      "document_id": "pydantic.v2.equality",
+      "path": "equality.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/migration.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "model equality"
+    },
+    {
+      "document_id": "pydantic.v2.optional",
+      "path": "optional.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/migration.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "required nullable fields"
+    },
+    {
+      "document_id": "pydantic.v2.union",
+      "path": "union.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/migration.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "union input preservation"
+    },
+    {
+      "document_id": "pydantic.v2.dict-pairs",
+      "path": "dict-pairs.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/migration.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "iterable pairs"
+    },
+    {
+      "document_id": "pydantic.v2.validator-error",
+      "path": "validator-error.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/migration.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "validator TypeError"
+    },
+    {
+      "document_id": "pydantic.v2.number-string",
+      "path": "number-string.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/migration.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "numeric string coercion"
+    },
+    {
+      "document_id": "pydantic.v2.regex",
+      "path": "regex.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/migration.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "regex engine"
+    },
+    {
+      "document_id": "pydantic.v2.settings",
+      "path": "settings.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/migration.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "BaseSettings package"
+    }
+  ]
+}

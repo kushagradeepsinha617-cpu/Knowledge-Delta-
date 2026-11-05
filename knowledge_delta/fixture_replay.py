@@ -9,7 +9,7 @@ from .prompts import build_prompt
 from .questions import QuestionInput
 from .validation import digest
 
-FIXTURE_VERSION = "mvp-scripted-v1"
+FIXTURE_VERSION = "mvp-scripted-v2"
 
 
 def replay(dataset, snapshots, relation_bundle, *, simulate_judgments=False):
@@ -61,11 +61,25 @@ def replay(dataset, snapshots, relation_bundle, *, simulate_judgments=False):
                 passages = []
                 for doc_id in doc_ids:
                     document = snapshot.document(doc_id)
-                    identity = "fixture-chunk-" + digest({"snapshot": snapshot.snapshot_id, "document": doc_id})[:24]
+                    # Explicit fixture-only selection from the gold supporting quote.
+                    # Large genuine documents must not overflow a simulated prompt.
+                    # This is never presented as retrieval or live inference.
+                    start, end = 0, len(document.content)
+                    if len(document.content.encode("utf-8")) > 1000:
+                        quotes = [ref["quote"] for ref in expectation["evidence"]
+                                  if ref["document_id"] == doc_id]
+                        if quotes:
+                            anchor = document.content.index(quotes[0])
+                            start = max(0, anchor - 100)
+                            end = min(len(document.content), anchor + len(quotes[0]) + 100)
+                    identity = "fixture-chunk-" + digest({"snapshot": snapshot.snapshot_id,
+                        "document": doc_id, "start": start, "end": end,
+                        "text": document.content[start:end]})[:24]
                     passages.append({"chunk_id": identity, "snapshot_id": snapshot.snapshot_id,
                         "document_id": doc_id, "software_versions": list(document.software_versions),
                         "source_reference": document.source_reference, "source_revision": document.source_revision,
-                        "text": document.content, "start_char": 0, "end_char": len(document.content),
+                        "text": document.content[start:end], "start_char": start, "end_char": end,
+                        "context_selection": "fixture_gold_quote_window" if (start, end) != (0, len(document.content)) else "fixture_full_document",
                         "provenance": "constructed", "context_origin": "fixture_scripted"})
                 citations = [passage["chunk_id"] for passage in passages]
                 if case["case_id"] == "installation-rewording" and slot == "after":

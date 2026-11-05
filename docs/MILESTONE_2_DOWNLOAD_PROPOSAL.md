@@ -1,3 +1,8 @@
+> Historical proposal: the limits/status below describe the earlier deferred
+> Milestone 2 decision. The user subsequently approved the bounded Milestone 4
+> limits in MILESTONE_4_RESOURCE_PROPOSAL.md. Do not use these older candidate
+> versions or footprint observations as a current installer lock.
+
 # Milestone 2 download proposal
 
 Status: metadata checked; the user has **deferred** large downloads and an expanded

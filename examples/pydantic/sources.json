@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-11-05",
+  "source_material": "genuine pinned upstream documentation",
+  "snapshot_assembly": "constructed selection; not an observed upstream revision event",
+  "sources": [
+    {
+      "file": "v1-models.md",
+      "tag": "v1.10.21",
+      "revision": "0cbba0f9774c470e8d8a2a62abb921b8cea4027d",
+      "path": "docs/usage/models.md",
+      "url": "https://github.com/pydantic/pydantic/blob/0cbba0f9774c470e8d8a2a62abb921b8cea4027d/docs/usage/models.md",
+      "bytes": 23645,
+      "sha256": "93a04c0e93631d0e7be8910014a3176b07502b4852e5ba606ffa693d7c2a6c21",
+      "git_blob_sha1": "99fa4ea1390ebbc29c6850063f4675f3fd5f24cf",
+      "license": "MIT"
+    },
+    {
+      "file": "LICENSE-v1.txt",
+      "tag": "v1.10.21",
+      "revision": "0cbba0f9774c470e8d8a2a62abb921b8cea4027d",
+      "path": "LICENSE",
+      "url": "https://github.com/pydantic/pydantic/blob/0cbba0f9774c470e8d8a2a62abb921b8cea4027d/LICENSE",
+      "bytes": 1127,
+      "sha256": "9e3946690ac88b6b73e8f001a0586af13568be8852fd514e4393f39761764387",
+      "git_blob_sha1": "411ce48277d7826c833c7241f31e287eb0ed500f",
+      "license": "MIT"
+    },
+    {
+      "file": "v2-migration.md",
+      "tag": "v2.10.6",
+      "revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "path": "docs/migration.md",
+      "url": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/migration.md",
+      "bytes": 49362,
+      "sha256": "9e51980256231ceb88bf3d4a87a6e7b1513e636b165744f7a566c88734e9c9a0",
+      "git_blob_sha1": "1f4404e822730375e3edb1bbcab4cde0a2abce0c",
+      "license": "MIT"
+    },
+    {
+      "file": "LICENSE-v2.txt",
+      "tag": "v2.10.6",
+      "revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "path": "LICENSE",
+      "url": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/LICENSE",
+      "bytes": 1129,
+      "sha256": "a9e186f3ca16b5eef84318e7a701721351a00cb7b8ae3a4394b67b49e3529ef3",
+      "git_blob_sha1": "488c6260c10f2e88fa1fae58a63fccec8d600cd1",
+      "license": "MIT"
+    }
+  ]
+}

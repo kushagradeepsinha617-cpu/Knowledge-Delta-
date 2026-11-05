@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "dataset_hash": "0fcfc57d59d4259d462d9887e27a24b622df643aaedf45e7f2c0874e64320e37",
+  "relations": [
+    {
+      "schema_version": 1,
+      "case_id": "pydantic-serialization",
+      "case_hash": "e99f35cf2179b0bd8067a131ba4b914778c419bde8785af562abca639d0089b5",
+      "relation": "should_remain",
+      "basis": "draft",
+      "reviewer": null,
+      "reviewed_at": null,
+      "rationale": "Draft expectation: adding v1 documentation does not change the explicit v2 target."
+    },
+    {
+      "schema_version": 1,
+      "case_id": "pydantic-orm",
+      "case_hash": "40004628ce99159b619291d2c0a108afc7d0fc511342bb7151430b1338319657",
+      "relation": "should_remain",
+      "basis": "draft",
+      "reviewer": null,
+      "reviewed_at": null,
+      "rationale": "Draft expectation: adding v1 documentation does not change the explicit v2 target."
+    },
+    {
+      "schema_version": 1,
+      "case_id": "pydantic-equality",
+      "case_hash": "830249c1fbdaefe6cc37fb74207983bc4fc3c398f2cf26dbdcdaca0c30fbd19b",
+      "relation": "should_remain",
+      "basis": "draft",
+      "reviewer": null,
+      "reviewed_at": null,
+      "rationale": "Draft expectation: adding v1 documentation does not change the explicit v2 target."
+    },
+    {
+      "schema_version": 1,
+      "case_id": "pydantic-optional",
+      "case_hash": "a6ff8f0680cbbee42fc1f0601e90a51fa8ccec6e8c9ef539c3b81d80108011a5",
+      "relation": "should_remain",
+      "basis": "draft",
+      "reviewer": null,
+      "reviewed_at": null,
+      "rationale": "Draft expectation: adding v1 documentation does not change the explicit v2 target."
+    },
+    {
+      "schema_version": 1,
+      "case_id": "pydantic-union",
+      "case_hash": "2b9ed7b69d423cbdecc0f2a6dadcc42e475cbb4a9b57e236e97d611c86c80fe0",
+      "relation": "should_remain",
+      "basis": "draft",
+      "reviewer": null,
+      "reviewed_at": null,
+      "rationale": "Draft expectation: adding v1 documentation does not change the explicit v2 target."
+    },
+    {
+      "schema_version": 1,
+      "case_id": "pydantic-dict-pairs",
+      "case_hash": "7441e23efbcda8f6d567c6e4c8c3b2e54dcb9407fe33932946beb2f4a9d7d4da",
+      "relation": "should_remain",
+      "basis": "draft",
+      "reviewer": null,
+      "reviewed_at": null,
+      "rationale": "Draft expectation: adding v1 documentation does not change the explicit v2 target."
+    },
+    {
+      "schema_version": 1,
+      "case_id": "pydantic-validator-error",
+      "case_hash": "3e3082603695d3b15e0ce0a0bed09a53e688ad3baf0af63e0c375f1a5f2678ac",
+      "relation": "should_remain",
+      "basis": "draft",
+      "reviewer": null,
+      "reviewed_at": null,
+      "rationale": "Draft expectation: adding v1 documentation does not change the explicit v2 target."
+    },
+    {
+      "schema_version": 1,
+      "case_id": "pydantic-number-string",
+      "case_hash": "bec26f8972c1a69870a71c2eec9239039dcd7622daad5f81423618631bb38002",
+      "relation": "should_remain",
+      "basis": "draft",
+      "reviewer": null,
+      "reviewed_at": null,
+      "rationale": "Draft expectation: adding v1 documentation does not change the explicit v2 target."
+    },
+    {
+      "schema_version": 1,
+      "case_id": "pydantic-regex",
+      "case_hash": "cffb0f673a00eecdaebf8cce2c374ce5ecc3670fd7ee7da22403292e4009a502",
+      "relation": "should_remain",
+      "basis": "draft",
+      "reviewer": null,
+      "reviewed_at": null,
+      "rationale": "Draft expectation: adding v1 documentation does not change the explicit v2 target."
+    },
+    {
+      "schema_version": 1,
+      "case_id": "pydantic-settings",
+      "case_hash": "8b52c3176c4fa61842777f840d52398fff02bac764cdaf47d19b035dbf419a54",
+      "relation": "should_remain",
+      "basis": "draft",
+      "reviewer": null,
+      "reviewed_at": null,
+      "rationale": "Draft expectation: adding v1 documentation does not change the explicit v2 target."
+    }
+  ]
+}

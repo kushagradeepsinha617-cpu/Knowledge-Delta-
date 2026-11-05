@@ -1,0 +1,36 @@
+{
+  "kind": "actual_fixture_export_observation",
+  "origin": "fixture",
+  "counts": {
+    "cases": 10,
+    "planned_answer_records": 40,
+    "recorded_answer_records": 40,
+    "missing_answer_records": 0,
+    "comparison_records": 20,
+    "human_reviewed_cases": 1,
+    "draft_cases": 9,
+    "answer_outcomes": {
+      "pass": 0,
+      "fail": 0,
+      "needs_human_review": 40,
+      "run_error": 0
+    },
+    "human_answer_reviews": 0,
+    "simulated_answer_judgments": 0
+  },
+  "live_inference_performed": false,
+  "answer_cache_used": false,
+  "files": [
+    {
+      "path": "runs/pydantic-fixture-v2-final/report.json",
+      "bytes": 496261,
+      "sha256": "a8d2dc795f58424f4534c4e9a57abc1126574645f009f7201391de5f4ab27629"
+    },
+    {
+      "path": "runs/pydantic-fixture-v2-final/report.html",
+      "bytes": 446133,
+      "sha256": "559966fb9c5ba5a7b7afecee3767ba05b048fa1d50bd0da3d2ef885cadc84b29"
+    }
+  ],
+  "note": "Actual CLI exported these files; no assistant correctness or configuration improvement measured."
+}

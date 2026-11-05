@@ -1,3 +1,24 @@
+
+
+## Approved separate ONNX compatibility test (2026-11-05)
+
+The user approved testing ONNX Runtime CPU for the same upstream MiniLM model.
+This is a separate backend candidate, with no blocked PyTorch DLL reuse or
+security change. NumPy 2.5.4 and tokenizers 0.23.3 actually imported under
+.venv-ml with torch absent from sys.modules. ONNX imports/providers and model
+execution remain unverified. scripts/setup_onnx_runtime.py defaults to an offline
+plan; explicit --test performs bounded dependency inspection, missing-package
+installation and import/CPU-provider checks. It downloads no model weights and
+shares the existing resource ledger. See docs/ONNX_COMPATIBILITY_TEST.md.
+Preparation verification: 426 tests passed, zero failures/errors/skips, run
+ce78b874f27144528c57a79c8c524f0b. An initial synthetic reader fixture error
+was corrected; the earlier failed evidence is retained. Actual ONNX Runtime
+installation/imports and model execution remain pending.
+
+A direct ONNX embedding adapter and actual model validation would follow only
+after a successful compatibility result; no silent model/backend substitution
+or retrospective PyTorch improvement claim is permitted.
+
 # Current state — Milestone 4 authorized and in progress
 
 - On 2026-11-05 the user authorized real local model/embedding runs, genuine

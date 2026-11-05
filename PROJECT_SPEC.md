@@ -161,3 +161,19 @@ ZIP and release-manifest hash. Keep the existing 3.15.2 UI/test environment.
 Use no global installer or PATH/security changes; all earlier budget constraints
 still apply. Compatibility and native execution are separate gates, and actual
 ML operation remains unverified. See docs/DECISIONS.md and PLAN.md.
+
+
+## Approved separate ONNX compatibility test (2026-11-05)
+
+The user approved testing ONNX Runtime CPU for the same upstream MiniLM model.
+This is a separate backend candidate, with no blocked PyTorch DLL reuse or
+security change. NumPy 2.5.4 and tokenizers 0.23.3 actually imported under
+.venv-ml with torch absent from sys.modules. ONNX imports/providers and model
+execution remain unverified. scripts/setup_onnx_runtime.py defaults to an offline
+plan; explicit --test performs bounded dependency inspection, missing-package
+installation and import/CPU-provider checks. It downloads no model weights and
+shares the existing resource ledger. See docs/ONNX_COMPATIBILITY_TEST.md.
+
+A direct ONNX embedding adapter and actual model validation would follow only
+after a successful compatibility result; no silent model/backend substitution
+or retrospective PyTorch improvement claim is permitted.

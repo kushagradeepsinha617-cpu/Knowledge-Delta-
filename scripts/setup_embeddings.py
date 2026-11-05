@@ -62,7 +62,7 @@ class DependencyBudget:
             raise SetupError(str(exc)) from exc
 
 
-def validate_packages(report):
+def validate_packages(report, *, required_roots=("torch", "numpy", "sentence-transformers")):
     if (report.get("kind") != "cpu_embedding_dependency_inspection"
             or report.get("status") != "dependency_metadata_inspected"
             or report.get("dependency_closure_metadata_verified") is not True):
@@ -98,7 +98,7 @@ def validate_packages(report):
             raise SetupError("Dependency excludes this Python")
         selected[name] = p
         converted.append(p)
-    if not {"torch", "numpy", "sentence-transformers"}.issubset(selected):
+    if not set(required_roots).issubset(selected):
         raise SetupError("CPU dependency roots missing")
     for p in converted:
         for raw in p["requires_dist"]:
@@ -240,7 +240,9 @@ def process(command, root, work, env, label):
     return log
 
 
-def install(root, packages, record):
+def install(root, packages, record, *, import_modules=None):
+    import_modules = tuple(import_modules) if import_modules is not None else (
+        "torch", "numpy", "sentence_transformers", "transformers", "tokenizers")
     work = inside(root, root / ".tools/model-setup")
     with evidence_lock(root, work):
         ledger = Ledger(work / "download-ledger.json")
@@ -278,9 +280,9 @@ def install(root, packages, record):
             wheel.unlink()
             record["transfer_reserved_bytes"] = ledger.total
         names = [p["name"] for p in packages]
-        code = ("import importlib,importlib.metadata,json;versions={n:importlib.metadata.version(n) for n in " + repr(names) +
-                "};modules={n:str(importlib.import_module(n).__file__) for n in ['torch','numpy','sentence_transformers','transformers','tokenizers']};"
-                "print('KNOWLEDGEDELTA_CPU_READY='+json.dumps({'versions':versions,'imports':modules}))")
+        code = ("import importlib,importlib.metadata,json,sys;versions={n:importlib.metadata.version(n) for n in " + repr(names) +
+                "};modules={n:str(importlib.import_module(n).__file__) for n in " + repr(list(import_modules)) + "};"
+                "print('KNOWLEDGEDELTA_CPU_READY='+json.dumps({'versions':versions,'imports':modules,'torch_imported':'torch' in sys.modules,'onnx_providers':sys.modules['onnxruntime'].get_available_providers() if 'onnxruntime' in sys.modules else None}))")
         log = process([sys.executable, "-I", "-B", "-c", code], root, work, env, "cpu-readiness")
         lines = [line.split("=", 1)[1] for line in log.read_text(encoding="utf-8", errors="replace").splitlines()
                  if line.startswith("KNOWLEDGEDELTA_CPU_READY=")]

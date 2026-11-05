@@ -1,5 +1,10 @@
 # Milestone 2 integration readiness - explicit unavailable checks
 
+**Historical checkpoint below.** Later bounded setup superseded the 250 MB
+limit and verified actual NumPy, MiniLM ONNX and ten Qwen CPU requests. See
+[current local inference results](LOCAL_INFERENCE_RESULTS.md) for those distinct
+observations; the earlier unavailable attempt remains preserved here.
+
 Status: reviewed readiness checkpoint published as
 [`ddc9862`](https://github.com/kushagradeepsinha617-cpu/Knowledge-Delta-/commit/ddc9862540157c45a51da303701b578d8ba95924),
 with all 59 remote source hashes reconciled. This is not completed ML integration.

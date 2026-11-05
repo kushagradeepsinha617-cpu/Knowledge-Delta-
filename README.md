@@ -8,8 +8,9 @@ real CLI checks in the configuration below.
 
 **Milestone 4 is in progress.** Ten Pydantic development cases now use pinned,
 MIT-licensed upstream documentation in a clearly labeled constructed snapshot
-experiment. Seven cases are explicitly human-reviewed; three remain draft. Remaining case reviews, local answering inference
-and controlled measurements are pending. See [Milestone 4](docs/MILESTONE_4.md)
+experiment. Seven cases are explicitly human-reviewed; three remain draft. Local
+inference now runs; remaining case/answer reviews and controlled correctness
+measurements are pending. See [Milestone 4](docs/MILESTONE_4.md)
 and the [Pydantic source/review batch](examples/pydantic/README.md).
 
 **Milestone 3 fixture workflow:** The evaluator, fixture
@@ -17,9 +18,10 @@ replay, reports, manual reviews and local web interface are implemented. The use
 approved replacing Streamlit with a Python standard-library interface that does
 not use pandas. Smart App Control remains On. The user has manually loaded and inspected scripted replay; an automated visual
 layout audit remains unverified. Actual ONNX embeddings and NumPy retrieval now
-pass; Qwen answering inference remains unverified.
-The portable Ollama runtime is now verified and its temporary localhost health
-check passed. The [next explicit step is downloading the pinned Qwen model](docs/QWEN_CACHE_SETUP.md).
+pass. Actual Qwen CPU inference now also passed the ten-question hardware smoke:
+ten structured responses, zero run errors, 122.453 seconds for the full command.
+This establishes execution; semantic correctness is still ungraded. See the
+[actual inference observations and limitations](docs/LOCAL_INFERENCE_RESULTS.md).
 The user approved bounded model setup: 12 GB total project storage and 5 GB
 additional artifact payload including retries, at most 1 GB for CPU embedding
 dependencies. Exact compatibility/hash/space checks still precede downloads.
@@ -40,7 +42,8 @@ dependency sources inside an isolated environment.
 - Package and wheel builds.
 - Other Python versions.
 - POSIX file locking (for example, on Linux or macOS).
-- Local model inference.
+- General inference performance and semantic correctness; the bounded Windows
+  Python 3.14.10/ONNX/Ollama smoke is recorded separately above.
 
 Milestone 1 completion refers to the foundation working in this recorded setup.
 It **does not mean compatibility has been verified in every environment or that

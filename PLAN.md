@@ -1,3 +1,24 @@
+# Current next step — frozen Pydantic live comparison running
+
+- Normal-terminal Ollama discovery matched expected digest; ten live CPU smoke
+  requests completed with ten structured answers, zero run errors, same model
+  and settings, thinking disabled, no caching. Full command122.453s, pipeline
+  median11.009s. Ollama reports zero VRAM; OS peakRAM and correctness unmeasured.
+- Brain independently audited raw smoke traces and confirmed these limited claims.
+  No fallback model or security/ACL change. Earlier access cause remains unknown.
+- Frozen existing Pydantic development protocol before inference. Main40-record
+  comparison is running: ten cases x two snapshots x basic/version-filtered.
+  Seven human-reviewed case definitions, three drafts; zero answer judgments.
+- Predeclared variability subset remains serialization/optional/union, three
+  repetitions across both snapshots/configurations (36 planned records).
+- Actual smoke/discovery/raw model metadata and initial wrong-input error are
+  preserved separately. Ordinary tested source unchanged:494offline tests.
+- Next: retain full main results/errors, run fixed variability subset serially,
+  export ungraded reports, and request actual human review. Held-out dataset,
+  genuine-revision experiment and portfolio packaging are unfinished.
+
+## Earlier checkpoints (preserved)
+
 # Current next step — normal-terminal native model discovery
 
 - User Qwen download succeeded: all config/layer hashes and raw manifest passed;

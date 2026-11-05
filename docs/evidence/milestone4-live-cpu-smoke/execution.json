@@ -1,0 +1,18 @@
+{
+  "command": [
+    "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.venv-ml\\Scripts\\python.exe",
+    "-B",
+    "scripts/smoke_local_model.py",
+    "examples/constructed/smoke/manifest.json",
+    "examples/constructed/smoke_questions.json",
+    "--embedding-directory",
+    ".tools/models/minilm-onnx",
+    "--embedding-backend",
+    "onnxruntime"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 122.4532602999825,
+  "output": "runs\\qwen-hardware-smoke-live.json",
+  "stderr": "runs\\qwen-hardware-smoke-live.stderr.log",
+  "downloads_performed": false
+}

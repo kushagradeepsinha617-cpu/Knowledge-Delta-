@@ -1,8 +1,11 @@
 # Milestone 4: credible local evaluation
 
-Status: preparation in progress. Seven explicit human case reviews are recorded in
-examples/pydantic/REVIEW_LOG.md; three cases remain draft. No model installation,
-live answer, human answer judgment or benchmark result is established.
+Status: live evaluation in progress. Real MiniLM ONNX embeddings and the Qwen
+ten-question CPU hardware smoke now work locally: ten completed structured
+answers, zero run errors. Seven explicit human case reviews are recorded in
+examples/pydantic/REVIEW_LOG.md; three cases remain draft. Human answer judgments,
+controlled correctness results and the final reviewed dataset remain pending.
+See [actual local inference observations](LOCAL_INFERENCE_RESULTS.md).
 
 ## Scope and resource gates
 

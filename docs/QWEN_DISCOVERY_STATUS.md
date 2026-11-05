@@ -1,5 +1,11 @@
 # Actual Qwen cache and discovery checkpoint
 
+**Later result:** the normal-terminal launcher below successfully exposed the
+expected model digest. The ten-question CPU smoke subsequently completed with
+ten structured answers and zero run errors. No ACL/security changes were made.
+See [actual inference results](LOCAL_INFERENCE_RESULTS.md). The failed
+agent-launch evidence and its unproven cause remain preserved below.
+
 The explicit Qwen downloader succeeded. All five config/layer blobs passed their
 pinned size and SHA256 checks. The raw manifest matched
 `8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7`.

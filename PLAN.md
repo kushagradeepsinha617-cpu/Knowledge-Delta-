@@ -1,3 +1,27 @@
+# Current next step — explicit pinned Qwen download
+
+- Ollama runtime preparation succeeded; archive and executable hashes verified.
+  Temporary localhost server reported 0.40.14 and an empty model list. Root
+  stopped its owned server and positively acquired an exclusive IPv4 bind on
+  127.0.0.1:11434 afterward. No answering inference has run.
+- Prepared explicit qwen3:1.7b cache importer: exact raw manifest SHA256, full
+  blob checks, persistent global transfer ledger, V2 named manifest last,
+  exclusive localhost port guard and no automatic server/pull. Redirect bodies
+  are closed without consumption. Brain found and reviewed that fix.
+- Full verification: 494 tests passed, zero failures/errors/skips, run
+  cdc74fdc5b0a411eb7779d413942f01a, plus real CLI checks. An earlier full run
+  exposed Windows staging filename length failures; shortened unique staging
+  names corrected them. Earlier failed evidence is retained separately.
+- Actual setup evidence and earlier HTTP 504 remain preserved. Global artifact
+  ledger reserved 2,052,402,609 bytes before Qwen; model payload 1,359,293,444
+  bytes fits remaining allowance. No download started by this implementation.
+- Next: docs/QWEN_CACHE_SETUP.md command in normal user PowerShell (shell public
+  networking remains restricted), then native discovery/digest check and ten-query
+  CPU smoke. Cache success alone is not inference success. Human answer review,
+  controlled results and remaining dataset work are pending.
+
+## Earlier checkpoints (preserved)
+
 # Current next step — local answering runtime
 
 - Actual pinned MiniLM ONNX assets downloaded and verified: 91,115,253 bytes.

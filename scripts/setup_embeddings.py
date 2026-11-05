@@ -168,7 +168,9 @@ def download(package, root, work, ledger, opener=None, verifier=None, budget=Non
     if target.exists():
         verifier(target, package)
         return target
-    part = inside(root, work / (package["filename"] + "." + uuid4().hex + ".part"))
+    # Keep unique staging names short on Windows; content-addressed filenames
+    # plus a UUID can exceed MAX_PATH in otherwise usable project directories.
+    part = inside(root, work / (uuid4().hex + ".part"))
     opener = opener or build_opener(NoRedirect)
     budget = budget or DependencyBudget(ledger)
     try:

@@ -1,0 +1,14 @@
+{
+  "kind": "pinned_ollama_runtime_preparation",
+  "run_id": "5ec3e57520d442c9a0d1a8a7c0c0f7f6",
+  "model_weights_downloaded": false,
+  "server_started": false,
+  "native_version_attempted": false,
+  "native_version_verified": false,
+  "security_settings_changed": false,
+  "os_quota_enforced": false,
+  "transfer_reserved_bytes": 450372951,
+  "status": "partial_or_unavailable",
+  "error_type": "HTTPError",
+  "error": "HTTP Error 504: Gateway Time-out"
+}

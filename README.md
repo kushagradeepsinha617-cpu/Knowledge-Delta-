@@ -18,6 +18,8 @@ approved replacing Streamlit with a Python standard-library interface that does
 not use pandas. Smart App Control remains On. The user has manually loaded and inspected scripted replay; an automated visual
 layout audit remains unverified. Actual ONNX embeddings and NumPy retrieval now
 pass; Qwen answering inference remains unverified.
+The portable Ollama runtime is now verified and its temporary localhost health
+check passed. The [next explicit step is downloading the pinned Qwen model](docs/QWEN_CACHE_SETUP.md).
 The user approved bounded model setup: 12 GB total project storage and 5 GB
 additional artifact payload including retries, at most 1 GB for CPU embedding
 dependencies. Exact compatibility/hash/space checks still precede downloads.

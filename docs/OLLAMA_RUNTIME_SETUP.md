@@ -9,6 +9,11 @@ answer-correctness or configuration-improvement score was measured.
 
 ## Next explicit step
 
+The runtime preparation below has now succeeded. A separate temporary localhost
+server returned version 0.40.14 and an empty model list, then was stopped.
+Continue with the [explicit Qwen cache download](QWEN_CACHE_SETUP.md); do not
+repeat the 1.60 GB runtime download when its verified installation is present.
+
 The approved resource proposal includes this official Windows AMD64 runtime:
 Ollama v0.40.14, ZIP 1,601,954,968 bytes, SHA256
 65d68cade6cf6375f398b518224f8c8a15e062387f38cf477abfc848de7e7e29.

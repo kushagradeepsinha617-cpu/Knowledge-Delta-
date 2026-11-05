@@ -1,0 +1,14 @@
+{
+    "kind":  "actual_torch_policy_observation",
+    "time_utc":  "2026-11-05T12:19:37.8778655Z",
+    "event_id":  3077,
+    "policy_name":  "VerifiedAndReputableDesktop",
+    "policy_guid":  "{0283ac0f-fff1-49ae-ada1-8a933130cad6}",
+    "blocked_file":  "torch/lib/torch_python.dll",
+    "sha256":  "f623069dad76898243a64ecc05b3aa53d3e1496829f2c0c8a42ff4da61127ca4",
+    "event_flat_sha256":  "F623069DAD76898243A64ECC05B3AA53D3E1496829F2C0C8A42FF4DA61127CA4",
+    "authenticode_status":  "NotSigned",
+    "signer_subject":  "",
+    "security_settings_changed":  false,
+    "model_weights_downloaded":  false
+}

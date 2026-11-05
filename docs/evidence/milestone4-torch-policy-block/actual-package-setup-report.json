@@ -1,0 +1,293 @@
+{
+  "schema_version": 1,
+  "kind": "cpu_embedding_package_setup",
+  "run_id": "999729828e894c39a58eb860c135f08d",
+  "started_at": "2026-11-05T12:08:02.408861+00:00",
+  "steps": [
+    {
+      "name": "annotated-doc",
+      "version": "0.0.5",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "anyio",
+      "version": "4.16.0",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "click",
+      "version": "8.5.0",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "cloudpickle",
+      "version": "3.1.2",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "filelock",
+      "version": "4.2.9",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.9.0",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "hf-xet",
+      "version": "1.8.0",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "httpcore2",
+      "version": "2.16.0",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "httpx2",
+      "version": "2.16.0",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "huggingface-hub",
+      "version": "2.4.0",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "jinja2",
+      "version": "3.1.6",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "joblib",
+      "version": "1.6.0",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "markdown-it-py",
+      "version": "4.2.0",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "markupsafe",
+      "version": "3.0.4",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "mdurl",
+      "version": "0.1.2",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "mpmath",
+      "version": "1.3.0",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "narwhals",
+      "version": "2.28.0",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "networkx",
+      "version": "3.7",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "numpy",
+      "version": "2.5.4",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "pygments",
+      "version": "2.21.0",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "pyyaml",
+      "version": "6.0.3",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "regex",
+      "version": "2026.9.29",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "rich",
+      "version": "15.0.0",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "safetensors",
+      "version": "0.8.0",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "scikit-learn",
+      "version": "1.9.1",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "scipy",
+      "version": "1.18.1",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "sentence-transformers",
+      "version": "6.2.0",
+      "status": "existing_version_matches",
+      "installed_files_independently_verified": false
+    },
+    {
+      "name": "setuptools",
+      "version": "84.2.1",
+      "status": "installed",
+      "artifact_sha256": "ca140b45d5325a9478f880e351484f62fef15f336462e449ca0c03c873d589c2",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "shellingham",
+      "version": "1.5.4",
+      "status": "installed",
+      "artifact_sha256": "7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "sympy",
+      "version": "1.14.0",
+      "status": "installed",
+      "artifact_sha256": "e091cc3e99d2141a0ba2847328f5479b05d94a6635cb96148ccb3f34671bd8f5",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "threadpoolctl",
+      "version": "3.8.0",
+      "status": "installed",
+      "artifact_sha256": "f1b49c82704d50f13ffae019c727b0fa4f6791a58f48f06a09c45face1be66da",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "tokenizers",
+      "version": "0.23.3",
+      "status": "installed",
+      "artifact_sha256": "1f0823bb00c5fdc98e487354d54dd55a03848d61a1a0bf29a68c77f24f3b26c3",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "torch",
+      "version": "2.15.0+cpu",
+      "status": "installed",
+      "artifact_sha256": "8c145170f1ad54edd1ef1da3c872a4a8ada202e24894893df4ed2fc75a8322af",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.1",
+      "status": "installed",
+      "artifact_sha256": "c293e525e6fef9c20e8728fd4612df02a0aa31bb5fe91ecd93e123b1b7bffa73",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "transformers",
+      "version": "5.22.1",
+      "status": "installed",
+      "artifact_sha256": "c940b4bf98de4f568723895f330ba1460a398bd83061b93b70238c3fe32e4389",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "truststore",
+      "version": "0.10.5",
+      "status": "installed",
+      "artifact_sha256": "9aaaedaefaf06d8b206278cf8b5012bc897f485a874503501e12d776df78951c",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "typer",
+      "version": "0.27.3",
+      "status": "installed",
+      "artifact_sha256": "e50022f28b82a86313e54501317a1db64bf8f8d036ff8cfe5ca7e47675454aff",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.16.0",
+      "status": "installed",
+      "artifact_sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "wheel_metadata_verified": true
+    }
+  ],
+  "model_weights_downloaded": false,
+  "server_started": false,
+  "os_quota_enforced": false,
+  "runtime_containment_verified": false,
+  "plan": {
+    "status": "plan_ready",
+    "inspection_sha256": "de2f47b963291b11f02161349caf627ca2b93ed9c39ab1dd0bb3a06c607885af",
+    "packages": 42,
+    "pending_packages": 11,
+    "remaining_payload_reservation_bytes": 152040561,
+    "conservative_planning_bytes": 2184203460,
+    "folder_ceiling_bytes": 12000000000,
+    "cpu_dependency_ceiling_bytes": 1000000000,
+    "packages_installed": false,
+    "model_weights_downloaded": false,
+    "network_requests_performed": false,
+    "native_imports_verified": false
+  },
+  "transfer_reserved_bytes": 328879784,
+  "status": "partial_or_unavailable",
+  "error_type": "SetupError",
+  "error": "CPU setup/import failed; inspect .tools\\model-setup\\cpu-readiness-eeed5e3929094b45bc876a93a027811b.log"
+}

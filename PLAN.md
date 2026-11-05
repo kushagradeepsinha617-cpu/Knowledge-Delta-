@@ -95,8 +95,24 @@
   .venv-ml: 31 packages already match, 11 pending, 152,040,561 bytes reserved
   for remaining payload; conservative planning 2,414,633,175 bytes. No native
   ML import, model weight download or inference success is claimed.
-- Next: resume setup_embeddings.py --inspection runs/embedding-setup-inspection-ml314.json --install in the normal
-  terminal, inspect actual import readiness, and freeze genuinely
+- The user resumed installation: all 42 dependency versions are now installed
+  (31 existing matches, 11 installed this attempt). The final import check failed
+  before readiness: Windows Application Control rejected torch_python.dll,
+  WinError 4551. Event 3077 names VerifiedAndReputableDesktop, policy GUID
+  0283ac0f-fff1-49ae-ada1-8a933130cad6, and the exact DLL flat SHA256.
+  Authenticode reports NotSigned. DLL bytes/size match its installed RECORD;
+  the installer recorded matching full wheel SHA256. No tampering or malware
+  conclusion is inferred from those observations.
+- Stopped the blocked PyTorch execution path. No reinstall loop, native import
+  retry, alternate DLL/loader, policy change or model download was performed.
+  Preserve logs/reports in docs/evidence/milestone4-torch-policy-block.
+- Actual project logical footprint observed: 1,469,571,044 B; global transfer
+  reservations 328,879,784 B, CPU dependency reservations 317,696,941 B, within
+  the approved limits. No model weights or live inference.
+- Live Milestone 4 acceptance is blocked pending a legitimate publisher/Microsoft
+  review or policy-compatible path. No external contact/upload is authorized or
+  performed. Stop repeating the installer; keep Windows protection enabled.
+- Continue independent source/review work where possible and freeze genuinely
   human-reviewed cases, install only validated assets and execute controlled runs.
 
 ## Historical Milestone 3 checkpoint (preserved)

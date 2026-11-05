@@ -285,8 +285,9 @@ or production incremental-ingestion behavior has been measured.
 
 
 Current ML setup observation: the project-local Python 3.14.10 interpreter and
-42-wheel dependency metadata plan have been verified. CPU package installation
-is partial (31 installed versions match; 11 remain pending after a corrected
-setuptools metadata-validator error). Native ML imports, model weights and live
-inference remain unverified. The 3.15.2 offline test configuration above is a
+42-wheel dependency metadata plan have been verified. All 42 dependency versions are installed. The final import check was blocked by
+Windows Application Control on the unsigned PyTorch torch_python.dll (WinError
+4551; corroborated by Code Integrity event 3077). Live embeddings/inference are
+blocked; no model weights have been downloaded. Windows protection was preserved.
+See [native policy findings](docs/MILESTONE_4_NATIVE_POLICY_BLOCK.md). The 3.15.2 offline test configuration above is a
 separate verification scope. See PLAN.md for the exact next command and evidence.

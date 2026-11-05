@@ -74,8 +74,9 @@ def reserve_cpu_dependency(ledger, amount, label):
 
 
 class Reader:
-    def __init__(self, cpu_url, ledger, opener=None):
+    def __init__(self, cpu_url, ledger, opener=None, reserve=None):
         self.cpu_url, self.ledger = cpu_url, ledger
+        self.reserve = reserve or reserve_cpu_dependency
         self.opener = opener or build_opener(NoRedirect)
         self.requests, self.payload_bytes, self.reserved_bytes = 0, 0, 0
 
@@ -128,7 +129,7 @@ class Reader:
             reservation = bound + 1
             if self.reserved_bytes + reservation > METADATA_LIMIT:
                 raise ValidationError("Metadata/range payload budget exhausted")
-            reserve_cpu_dependency(self.ledger, reservation, url)
+            self.reserve(self.ledger, reservation, url)
             self.reserved_bytes += reservation
             data = response.read(reservation)
             self.payload_bytes += len(data)

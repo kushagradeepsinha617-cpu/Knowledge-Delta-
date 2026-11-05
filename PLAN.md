@@ -1,3 +1,31 @@
+# Current next step — local answering runtime
+
+- Actual pinned MiniLM ONNX assets downloaded and verified: 91,115,253 bytes.
+  Live CPU smoke passed 4x384 finite unit embeddings, duplicate/batch checks,
+  Unicode offsets and 256-token boundary/overlength rejection. torch absent.
+  Model load 1.4823 s; encoding/checks 1.0130 s on this fixed constructed smoke.
+  These are observations, not a general latency benchmark or Torch comparison.
+- Independently ran real NumPy retrieval over separate Pydantic snapshot indexes:
+  26 before chunks / 86 after chunks; 40 queries passed snapshot/version contracts,
+  24.1069 s total. No answering model or correctness measurement. Exact traces
+  and asset/configuration identity are preserved in evidence.
+- Prepared pinned Ollama 0.40.14 portable runtime setup: bounded directory
+  preflight, full archive SHA256, single-copy contained extraction, shared global
+  transfer accounting, version-only native check and progress. Default offline;
+  explicit --prepare required. No server/model pull or policy change.
+- 462 offline tests passed, zero failures/errors/skips, run
+  9b72b54650124a6bbfd90c2bfc6bbbd5. Actual Ollama/native engine and Qwen answers
+  remain unverified. Next command: docs/OLLAMA_RUNTIME_SETUP.md.
+- User prefers Brain consultation only for genuine decisions/blockers/reviews.
+  Brain verified current Ollama cache stores raw manifests/blobs and warned of
+  V2 layout. Root subsequently inspected official manifest/paths.go: V2 preferred,
+  public-host canonicalization to ollama.com, legacy fallback and blob naming.
+  Future direct importer must reverify hashes and write named manifest last.
+- Dataset remains seven reviewed development cases / three drafts in Pydantic;
+  no held-out/human answer judgments or controlled answer results are invented.
+
+## Earlier checkpoints (preserved)
+
 # Current next step — real ONNX embedding model smoke
 
 - User resumed implementation and asked to consult Brain only for genuine needs.

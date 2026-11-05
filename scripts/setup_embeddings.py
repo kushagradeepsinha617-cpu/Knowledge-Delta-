@@ -161,7 +161,8 @@ def plan(root, inspection_path):
         "network_requests_performed": False, "native_imports_verified": False}
 
 
-def download(package, root, work, ledger, opener=None, verifier=None):
+def download(package, root, work, ledger, opener=None, verifier=None, budget=None,
+             space_check_interval=CHUNK, progress=None):
     verifier = verifier or verify_package
     target = inside(root, work / package["filename"])
     if target.exists():
@@ -169,7 +170,7 @@ def download(package, root, work, ledger, opener=None, verifier=None):
         return target
     part = inside(root, work / (package["filename"] + "." + uuid4().hex + ".part"))
     opener = opener or build_opener(NoRedirect)
-    budget = DependencyBudget(ledger)
+    budget = budget or DependencyBudget(ledger)
     try:
         with opener.open(Request(package["url"], headers={"Accept-Encoding": "identity"}), timeout=30) as response:
             if (response.status != 200 or response.headers.get("Content-Length") != str(package["compressed_bytes"])
@@ -177,15 +178,21 @@ def download(package, root, work, ledger, opener=None, verifier=None):
                 raise SetupError("CPU wheel response differs from inspected artifact")
             with part.open("xb") as stream:
                 remaining = package["compressed_bytes"]
+                next_space_check = 0
                 while remaining:
                     amount = min(CHUNK, remaining)
-                    check_space(root, amount)
+                    written = package["compressed_bytes"] - remaining
+                    if written >= next_space_check:
+                        check_space(root, min(space_check_interval, remaining))
+                        next_space_check = written + space_check_interval
                     budget.reserve(amount, package["filename"])
                     data = response.read(amount)
                     if not data or len(data) > amount:
                         raise SetupError("Incomplete CPU wheel transfer")
                     stream.write(data)
                     remaining -= len(data)
+                    if progress is not None:
+                        progress(package["compressed_bytes"] - remaining)
                 budget.reserve(1, package["filename"])
                 if response.read(1):
                     raise SetupError("CPU wheel exceeds expected size")

@@ -8,7 +8,7 @@ real CLI checks in the configuration below.
 
 **Milestone 4 is in progress.** Ten Pydantic development cases now use pinned,
 MIT-licensed upstream documentation in a clearly labeled constructed snapshot
-experiment. Seven cases are explicitly human-reviewed; three remain draft. Remaining case reviews, real embeddings, local inference
+experiment. Seven cases are explicitly human-reviewed; three remain draft. Remaining case reviews, local answering inference
 and controlled measurements are pending. See [Milestone 4](docs/MILESTONE_4.md)
 and the [Pydantic source/review batch](examples/pydantic/README.md).
 
@@ -16,7 +16,8 @@ and the [Pydantic source/review batch](examples/pydantic/README.md).
 replay, reports, manual reviews and local web interface are implemented. The user
 approved replacing Streamlit with a Python standard-library interface that does
 not use pandas. Smart App Control remains On. The user has manually loaded and inspected scripted replay; an automated visual
-layout audit remains unverified. Live embeddings/model inference remain unverified.
+layout audit remains unverified. Actual ONNX embeddings and NumPy retrieval now
+pass; Qwen answering inference remains unverified.
 The user approved bounded model setup: 12 GB total project storage and 5 GB
 additional artifact payload including retries, at most 1 GB for CPU embedding
 dependencies. Exact compatibility/hash/space checks still precede downloads.
@@ -279,15 +280,24 @@ Interview concept: a document keeps its identity across edits; its content hash
 and the containing snapshot's identity change. This distinguishes an edit from
 a removal followed by an unrelated addition.
 
-Milestone 2 readiness is in progress; see the [download proposal](docs/MILESTONE_2_DOWNLOAD_PROPOSAL.md).
-Large downloads are deferred. No AI model, UI, semantic evaluator
-or production incremental-ingestion behavior has been measured.
+Historical foundation scope: the Milestone 1 evidence above did not measure AI
+inference, UI rendering or production incremental-ingestion behavior. Current
+Milestone 4 observations and pending work are stated below and in PLAN.md.
 
 
 Current ML setup observation: the project-local Python 3.14.10 interpreter and
 42-wheel dependency metadata plan have been verified. All 42 dependency versions are installed. The final import check was blocked by
 Windows Application Control on the unsigned PyTorch torch_python.dll (WinError
-4551; corroborated by Code Integrity event 3077). Live embeddings/inference are
-blocked; no model weights have been downloaded. Windows protection was preserved.
+4551; corroborated by Code Integrity event 3077). That PyTorch execution path
+remains blocked. The subsequently approved direct ONNX backend now runs MiniLM
+locally; its pinned assets and embedding/retrieval evidence are preserved. Windows
+protection settings were not changed by setup.
 See [native policy findings](docs/MILESTONE_4_NATIVE_POLICY_BLOCK.md). The 3.15.2 offline test configuration above is a
 separate verification scope. See PLAN.md for the exact next command and evidence.
+
+
+Actual MiniLM ONNX embedding and separate-snapshot NumPy retrieval checks now
+pass locally. Evidence contains the raw vectors/configuration and 40 retrieval
+traces; no answering model was called. The next answering-runtime setup is
+[Ollama portable preparation](docs/OLLAMA_RUNTIME_SETUP.md). Qwen inference and
+controlled answer measurements remain pending.

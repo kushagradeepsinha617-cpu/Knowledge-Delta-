@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "kind": "cpu_embedding_package_setup",
+  "run_id": "1b1119f4a9e2411493e98d042ebc7fcc",
+  "started_at": "2026-11-05T11:35:29.390554+00:00",
+  "steps": [
+    {
+      "name": "annotated-doc",
+      "version": "0.0.5",
+      "status": "installed",
+      "artifact_sha256": "117bac03a25ede5df5440e855b32d556049ca169ead221505badf432fed4b101",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "anyio",
+      "version": "4.16.0",
+      "status": "installed",
+      "artifact_sha256": "c66ae634e0b8228396b801741beb3294326d4b6102f7bba4041c0dfb58c29026",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "click",
+      "version": "8.5.0",
+      "status": "installed",
+      "artifact_sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "cloudpickle",
+      "version": "3.1.2",
+      "status": "installed",
+      "artifact_sha256": "9acb47f6afd73f60dc1df93bb801b472f05ff42fa6c84167d25cb206be1fbf4a",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "status": "installed",
+      "artifact_sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "filelock",
+      "version": "4.2.9",
+      "status": "installed",
+      "artifact_sha256": "a379c50a729e5b68c8519a4d26489f755d9769960a236ecd838190e2a78db2e9",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.9.0",
+      "status": "installed",
+      "artifact_sha256": "8dd6e646e99ea382bd85f97a45e6b526a442d79423a7dc673f1e2756d05fcb5f",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "status": "installed",
+      "artifact_sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "hf-xet",
+      "version": "1.8.0",
+      "status": "installed",
+      "artifact_sha256": "92188598dedc1e1f5609bd718d4db8687a6c89915553912571e2f587892eecec",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "httpcore2",
+      "version": "2.16.0",
+      "status": "installed",
+      "artifact_sha256": "5c4358319f2602d984ad93182c9fee5160f22e9da7babdda870a5e7c4e2dc34f",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "httpx2",
+      "version": "2.16.0",
+      "status": "installed",
+      "artifact_sha256": "fd2c5d7909e8d86fe92d53020c310ca0e4e431b838c207c5754b9bbf0308d49a",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "huggingface-hub",
+      "version": "2.4.0",
+      "status": "installed",
+      "artifact_sha256": "42ecfd93ede47bdd333daebbf66a32d7bfe2e18752754fe4d2d4f98a0179d801",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "status": "installed",
+      "artifact_sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "jinja2",
+      "version": "3.1.6",
+      "status": "installed",
+      "artifact_sha256": "85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "joblib",
+      "version": "1.6.0",
+      "status": "installed",
+      "artifact_sha256": "3dbbf9f6e4b592a2357b854608e980fe6390d131d7a82f011a377ef2ebef7aba",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "markdown-it-py",
+      "version": "4.2.0",
+      "status": "installed",
+      "artifact_sha256": "9f7ebbcd14fe59494226453aed97c1070d83f8d24b6fc3a3bcf9a38092641c4a",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "markupsafe",
+      "version": "3.0.4",
+      "status": "installed",
+      "artifact_sha256": "c1bc67752d5f21013cfe430df4062441714eab79f65a6a05e01505957e9c35fe",
+      "wheel_metadata_verified": true
+    },
+    {
+      "name": "mdurl",
+      "version": "0.1.2",
+      "status": "pending"
+    }
+  ],
+  "model_weights_downloaded": false,
+  "server_started": false,
+  "os_quota_enforced": false,
+  "runtime_containment_verified": false,
+  "plan": {
+    "status": "plan_ready",
+    "inspection_sha256": "de2f47b963291b11f02161349caf627ca2b93ed9c39ab1dd0bb3a06c607885af",
+    "packages": 42,
+    "pending_packages": 42,
+    "remaining_payload_reservation_bytes": 223215087,
+    "conservative_planning_bytes": 2401708843,
+    "folder_ceiling_bytes": 12000000000,
+    "cpu_dependency_ceiling_bytes": 1000000000,
+    "packages_installed": false,
+    "model_weights_downloaded": false,
+    "network_requests_performed": false,
+    "native_imports_verified": false
+  },
+  "transfer_reserved_bytes": 111093389,
+  "status": "partial_or_unavailable",
+  "error_type": "URLError",
+  "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+}

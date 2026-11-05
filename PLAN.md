@@ -78,8 +78,25 @@
 - Verification: 419 tests executed and passed, zero failures/errors/skips, run
   dc3a03b979054a688979597a5bde8563. Tests use inert synthetic runtime ZIPs and
   do not establish actual Python 3.14/native operation.
-- Next: execute setup_ml_python.py --setup in the normal
-  terminal, inspect its result before installation, and freeze genuinely
+- Actual local Python 3.14.10 setup succeeded: 32,987,388-byte official archive,
+  118,369,853 declared expanded bytes, exact hash/receipt checked. The isolated
+  .venv-ml interpreter and repository-local base prefix were probed successfully.
+- Actual 3.14 dependency inspection resolved 42 wheels: 223,215,045 compressed
+  and 794,380,947 declared expanded bytes; conservative dependency plan fits
+  the approved storage/transfer limits. Package imports remain a separate gate.
+- First CPU install stopped at mdurl on DNS resolution. The user resumed and
+  reached setuptools; our validator counted nested vendored dist-info metadata
+  as duplicate top-level metadata. Fixed to select the single top-level wheel
+  METADATA, keeping full SHA/name/version/dependency checks. Regression also
+  retains rejection of multiple top-level metadata roots. Failed-transfer reports
+  now record latest persistent reservations even when download/validation fails.
+- 422 tests passed, zero failures/errors/skips, run
+  db9a1dfb948942b9beb0328d97cf1289. Real read-only resumption plan passed under
+  .venv-ml: 31 packages already match, 11 pending, 152,040,561 bytes reserved
+  for remaining payload; conservative planning 2,414,633,175 bytes. No native
+  ML import, model weight download or inference success is claimed.
+- Next: resume setup_embeddings.py --inspection runs/embedding-setup-inspection-ml314.json --install in the normal
+  terminal, inspect actual import readiness, and freeze genuinely
   human-reviewed cases, install only validated assets and execute controlled runs.
 
 ## Historical Milestone 3 checkpoint (preserved)

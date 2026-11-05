@@ -1,0 +1,33 @@
+{
+  "kind": "project_local_ml_python_setup",
+  "run_id": "0419d57e79bd43dabd68cae66ed2a976",
+  "source_manifest": "https://www.python.org/ftp/python/3.14.10/windows-3.14.10.json",
+  "runtime_version": "3.14.10",
+  "system_registration_performed": false,
+  "ml_packages_installed": false,
+  "model_weights_downloaded": false,
+  "security_settings_changed": false,
+  "archive": {
+    "filename": "python-3.14.10-amd64.zip",
+    "url": "https://www.python.org/ftp/python/3.14.10/python-3.14.10-amd64.zip",
+    "compressed_bytes": 32987388,
+    "sha256": "cc28026a650970cc1570bb127312f1f9634eb67abfe157ae6ca1acbbc627d091",
+    "declared_expanded_bytes": 118369853
+  },
+  "runtime_files_verified": true,
+  "python": {
+    "version": [
+      3,
+      14,
+      10
+    ],
+    "prefix": "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.venv-ml",
+    "base_prefix": "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\.tools\\python-3.14",
+    "machine": "AMD64"
+  },
+  "transfer_reserved_bytes": 62373574,
+  "model_report": "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\runs\\model-setup-inspection-ml314.json",
+  "dependency_report": "C:\\Users\\Kushagra Deep\\AppData\\Local\\Temp\\Knowledge-Delta-\\runs\\embedding-setup-inspection-ml314.json",
+  "dependency_status": "dependency_metadata_inspected",
+  "status": "python_ready_dependency_metadata_inspected"
+}

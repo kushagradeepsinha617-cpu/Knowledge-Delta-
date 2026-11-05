@@ -1,0 +1,12 @@
+{
+  "kind": "actual_read_only_resumption_plan_observation",
+  "status": "plan_ready",
+  "packages": 42,
+  "pending_packages": 11,
+  "remaining_payload_reservation_bytes": 152040561,
+  "conservative_planning_bytes": 2414633175,
+  "native_imports_verified": false,
+  "model_weights_downloaded": false,
+  "network_requests_performed": false,
+  "note": "Observed actual .venv-ml setup_embeddings.py read-only command; no installation by this observation."
+}

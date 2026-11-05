@@ -200,7 +200,8 @@ def download(package, root, work, ledger, opener=None, verifier=None):
 def verify_package(path, package):
     verify_wheel(path, package)
     with zipfile.ZipFile(path) as archive:
-        entries = [e for e in archive.infolist() if e.filename.endswith(".dist-info/METADATA")]
+        entries = [e for e in archive.infolist()
+                   if e.filename.count("/") == 1 and e.filename.endswith(".dist-info/METADATA")]
         if len(entries) != 1 or entries[0].file_size > 1024 * 1024:
             raise SetupError("Wheel METADATA missing or too large")
         data = archive.read(entries[0])
@@ -259,7 +260,10 @@ def install(root, packages, record):
                 step.update(status="existing_version_matches", installed_files_independently_verified=False)
                 continue
             check_space(root, p["compressed_bytes"] + 2 * p["declared_expanded_bytes"])
-            wheel = download(p, root, work, ledger)
+            try:
+                wheel = download(p, root, work, ledger)
+            finally:
+                record["transfer_reserved_bytes"] = ledger.total
             requirement = inside(root, work / "current-cpu-wheel.txt")
             requirement.write_text(f"{wheel.as_uri()} --hash=sha256:{p['sha256']}\n", encoding="utf-8")
             bootstrap = "import runpy,sys;sys.path.insert(0,sys.argv.pop(1));runpy.run_module('pip',run_name='__main__')"

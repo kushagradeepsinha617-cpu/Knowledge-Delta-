@@ -128,3 +128,54 @@ def test_download_requires_exact_response_length_before_read(tmp_path):
     with pytest.raises(setup.SetupError, match="differs"):
         setup.download(package, tmp_path, work, ledger, Opener())
     assert ledger.total == 0
+
+
+def test_vendored_distribution_metadata_does_not_look_like_a_duplicate_wheel_root(tmp_path):
+    metadata = b"Name: setuptools\nVersion: 84.2.1\nRequires-Python: >=3.11\n\n"
+    vendor = b"Name: packaging\nVersion: 26.3\n\n"
+    output = BytesIO()
+    with zipfile.ZipFile(output, "w") as archive:
+        archive.writestr("setuptools-84.2.1.dist-info/METADATA", metadata)
+        archive.writestr("setuptools/_vendor/packaging-26.3.dist-info/METADATA", vendor)
+    data = output.getvalue()
+    path = tmp_path / "setuptools-test-only.whl"
+    path.write_bytes(data)
+    package = {"name": "setuptools", "version": "84.2.1",
+               "compressed_bytes": len(data), "declared_expanded_bytes": len(metadata) + len(vendor),
+               "sha256": sha256(data).hexdigest(), "metadata_sha256": sha256(metadata).hexdigest(),
+               "requires_dist": [], "requires_python": ">=3.11"}
+    setup.verify_package(path, package)
+
+
+def test_multiple_top_level_wheel_metadata_roots_remain_invalid(tmp_path):
+    metadata = b"Name: demo\nVersion: 1.0\n\n"
+    output = BytesIO()
+    with zipfile.ZipFile(output, "w") as archive:
+        archive.writestr("demo-1.0.dist-info/METADATA", metadata)
+        archive.writestr("other-1.0.dist-info/METADATA", metadata)
+    data = output.getvalue()
+    path = tmp_path / "invalid-test-only.whl"
+    path.write_bytes(data)
+    package = {"compressed_bytes": len(data), "declared_expanded_bytes": 2 * len(metadata),
+               "sha256": sha256(data).hexdigest(), "metadata_sha256": sha256(metadata).hexdigest()}
+    with pytest.raises(setup.SetupError, match="METADATA missing"):
+        setup.verify_package(path, package)
+
+
+def test_failed_download_report_keeps_latest_persistent_reservation(monkeypatch, tmp_path):
+    work = tmp_path / ".tools/model-setup"
+    work.mkdir(parents=True)
+    monkeypatch.setattr(setup, "bootstrap_pip", lambda *a: work / "test-only-pip.whl")
+    monkeypatch.setattr(setup, "child_environment", lambda *a: {})
+    monkeypatch.setattr(setup, "existing_version", lambda *a: None)
+    monkeypatch.setattr(setup, "check_space", lambda *a: 0)
+    def interrupted(package, root, work, ledger):
+        ledger.reserve(17, "TEST ONLY failed payload")
+        raise OSError("TEST ONLY interrupted")
+    monkeypatch.setattr(setup, "download", interrupted)
+    record = {"steps": []}
+    with pytest.raises(OSError, match="interrupted"):
+        setup.install(tmp_path, [{"name": "demo", "version": "1", "compressed_bytes": 100,
+                                  "declared_expanded_bytes": 100}], record)
+    assert record["transfer_reserved_bytes"] == 17
+    assert Ledger(work / "download-ledger.json").total == 17

@@ -170,7 +170,7 @@ class Catalog:
         self.versions, self.payloads, self.calls = {}, {}, []
 
     def add(self, name, version, dependencies=(), *, tag="py3-none-any", requires_python=">=3.11", yanked=False):
-        filename = f"{name}-{version}-{tag}.whl"
+        filename = f"{name.replace(chr(45), chr(95))}-{version}-{tag}.whl"
         url = "https://files.pythonhosted.org/test-only/" + filename
         metadata = (f"Metadata-Version: 2.4\nName: {name}\nVersion: {version}\nRequires-Python: {requires_python}\n" +
                     "".join("Requires-Dist: " + value + "\n" for value in dependencies) + "\n").encode()
@@ -286,3 +286,19 @@ def test_inspection_output_cannot_overwrite_existing_reviews_or_json(tmp_path, m
         with pytest.raises(SystemExit) as error:
             inspect.main(["--output", str(target)])
         assert error.value.code == 2 and target.read_bytes() == original
+
+
+def test_explicit_embedding_roots_use_cpu_override_and_keep_transitive_constraints(api):
+    catalog = Catalog()
+    catalog.add("sentence-transformers", "6.2.0", ["torch>=2.2", "shared>=1"])
+    catalog.add("shared", "1.0")
+    cpu = {"name": "torch", "version": "2.15.0+cpu", "requires_dist": ["shared<2"]}
+    result = inspect.resolve_packages(fetch=catalog.fetch, api=api,
+        root_requirements=["sentence-transformers==6.2.0", "torch==2.15.0+cpu"],
+        external_wheels={"torch": cpu})
+    assert {p["name"]: p["version"] for p in result} == {
+        "sentence-transformers": "6.2.0", "torch": "2.15.0+cpu", "shared": "1.0"}
+    assert not any("/pypi/torch/" in url for url in catalog.calls)
+    with pytest.raises(inspect.PreflightError, match="does not satisfy"):
+        inspect.resolve_packages(fetch=catalog.fetch, api=api,
+            root_requirements=["torch<2"], external_wheels={"torch": cpu})

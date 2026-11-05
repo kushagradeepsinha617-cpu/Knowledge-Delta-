@@ -80,3 +80,29 @@ The 1 GB dependency reservation is a ceiling, not a size prediction.
 No assets were downloaded, models installed or live inference performed to prepare
 this proposal. Approval of resource ceilings would not establish compatibility,
 security-policy acceptance, model quality, measured speed or milestone completion.
+
+
+## Subsequent metadata observations
+
+The corrected normal-terminal model inspection succeeded for all five sources.
+Exact Qwen layer/config payload is 1,359,293,444 bytes, with manifest
+SHA256 8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7.
+Pinned MiniLM selected assets total 91,578,415 bytes. The CPU wheel candidate is
+torch 2.15.0+cpu for cp315 Windows AMD64 from PyTorch's official CDN, with SHA256
+5c21ee962b6f67821dac0bc882f5ee1539a4edeabe736284d2ff1d652e595ed1.
+These supersede the earlier rounded/pending observations above; they do not prove
+full dependency compatibility or native execution. Original reports are preserved.
+
+The next explicit, bounded inspection is:
+
+```powershell
+& "$env:TEMP\Knowledge-Delta-\.venv\Scripts\python.exe" -B "$env:TEMP\Knowledge-Delta-\scripts\inspect_embedding_setup.py" --inspect
+```
+
+It resolves the proposed CPU embedding dependency closure and reads ZIP directory
+ranges to plan expansion. It does not install packages or download model weights.
+Partial wheel metadata/directory payload is conservatively reserved in the
+project-local model-setup ledger against the approved 5 GB allowance, including
+the two earlier successful normal-terminal metadata transfers. Repeated or failed
+reads retain their reservations. Its default operation is an offline plan.
+The combined Ollama/runtime/model expansion gate remains separate and pending.

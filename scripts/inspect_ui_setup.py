@@ -127,7 +127,7 @@ def packaging_api():
     return Requirement, Version, canonicalize_name, parse_wheel_filename, list(sys_tags()), default_environment()
 
 
-def resolve_packages(fetch=request_bytes, api=None):
+def resolve_packages(fetch=request_bytes, api=None, *, root_requirements=None, external_wheels=None):
     """Bounded fixed-point resolver; unsupported forms/conflicts fail explicitly."""
     Requirement, Version, canonical, parse_wheel, tags, environment = api or packaging_api()
     rank = {tag: index for index, tag in enumerate(tags)}
@@ -138,6 +138,12 @@ def resolve_packages(fetch=request_bytes, api=None):
         return json.loads(fetch(url))
 
     def select(name, requirements):
+        if name in (external_wheels or {}):
+            artifact = external_wheels[name]
+            if (canonical(artifact["name"]) != name
+                    or not all(req.specifier.contains(artifact["version"]) for req in requirements)):
+                raise PreflightError("External wheel does not satisfy dependency constraints: " + name)
+            return artifact
         signature = (name, tuple(sorted(str(r.specifier) for r in requirements)))
         if signature in selection_cache:
             return selection_cache[signature]
@@ -196,8 +202,13 @@ def resolve_packages(fetch=request_bytes, api=None):
                 return selected
         raise PreflightError(f"No compatible hashed-metadata wheel found for {name}; bounded resolver does not substitute a source build")
 
-    root_requirement = Requirement("streamlit==1.66.1")
-    constraints = {"streamlit": [root_requirement]}
+    roots = [Requirement(raw) for raw in (root_requirements if root_requirements is not None else ["streamlit==1.66.1"])]
+    root_constraints = {}
+    for req in roots:
+        if req.url or req.extras or req.marker:
+            raise PreflightError("Root requirements must be explicit plain package constraints")
+        root_constraints.setdefault(canonical(req.name), []).append(req)
+    constraints = {name: list(reqs) for name, reqs in root_constraints.items()}
     seen = set()
     for iteration in range(20):
         signature = tuple((name, tuple(sorted(set(map(str, reqs))))) for name, reqs in sorted(constraints.items()))
@@ -207,7 +218,7 @@ def resolve_packages(fetch=request_bytes, api=None):
         if len(constraints) > 80:
             raise PreflightError("Dependency closure exceeds the 80-package investigation bound")
         selected = {name: select(name, reqs) for name, reqs in constraints.items()}
-        following = {"streamlit": [root_requirement]}
+        following = {name: list(reqs) for name, reqs in root_constraints.items()}
         for package in selected.values():
             for raw in package["requires_dist"]:
                 req = Requirement(raw)

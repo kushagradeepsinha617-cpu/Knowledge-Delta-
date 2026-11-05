@@ -30,8 +30,18 @@
   download-r2.pytorch.org CDN; the inspector host check was corrected and a
   positive CDN/interpreter-tag regression plus negative host/ABI checks added.
   Existing user-terminal report is preserved; no assets were installed.
-- Next: rerun the corrected bounded metadata check, resolve the full CPU
-  dependency closure/space plan, freeze genuinely
+- Corrected normal-terminal model metadata inspection succeeded for all five
+  sources. CPU candidate: torch 2.15.0+cpu, cp315 Windows AMD64. Exact wheel
+  size, complete dependency closure and expanded archive footprint remain pending.
+- Implemented explicit embedding dependency preflight: metadata/range reads only,
+  compatible CPU root, full transitive constraints, declared archive expansion and
+  persistent transfer reservations shared by future model setup. Default is offline.
+  400 tests passed, zero failures/errors/skips, run 1e2a0fe730654099bb475167d8fa55f6.
+  An initial test fixture used an invalid hyphenated wheel filename; corrected it
+  to escaped wheel syntax. Earlier failed evidence is preserved. No packages or
+  model weights were downloaded/installed to implement or test the preflight.
+- Next: execute scripts/inspect_embedding_setup.py --inspect in the normal
+  terminal, inspect its result before installation, and freeze genuinely
   human-reviewed cases, install only validated assets and execute controlled runs.
 
 ## Historical Milestone 3 checkpoint (preserved)

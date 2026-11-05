@@ -122,3 +122,27 @@ starts no service, and changes no Windows protection setting.
 The prepared code passed offline failure/contract tests; no package installation
 or live CPU imports have been performed by this installer yet. A native policy
 block will remain a recorded blocker, without substitution or policy bypass.
+
+
+## Python compatibility gate and local 3.14 setup
+
+The cp315 dependency preflight reached PyYAML and found no compatible wheel.
+Official files list cp314 Windows wheels, so a separate project-local Python
+3.14.10 ML environment is prepared. The official core AMD64 archive is pinned
+by the Python release-manifest SHA256. This is a compatibility decision; native
+policy checks remain enabled and failures stop setup. No global registration.
+
+Explicit setup command, after code verification:
+
+```powershell
+& "$env:TEMP\Knowledge-Delta-\.venv\Scripts\python.exe" -B "$env:TEMP\Knowledge-Delta-\scripts\setup_ml_python.py" --setup
+```
+
+This first checks archive size (maximum 100 MB) and declared expansion, then
+downloads/verifies/extracts the official Python runtime under .tools, creates
+.venv-ml without pip, and runs model/dependency metadata inspections using that
+interpreter. It installs no ML package and downloads no model weights. Runtime
+archive/range transfers use the shared CPU/global budget guards, candidate
+metadata has a bounded global reservation, and all intentional files stay local.
+The actual compressed/expanded runtime sizes and native execution are pending;
+no successful runtime operation is inferred from offline tests.

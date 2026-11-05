@@ -227,6 +227,7 @@ def main(argv=None):
         record.update(metadata_requests=reader.requests, metadata_payload_bytes=reader.payload_bytes,
                       transfer_reserved_bytes=ledger.total,
                       model_report_sha256=sha256(report_path.read_bytes()).hexdigest(),
+                      model_report_path=report_path.relative_to(ROOT).as_posix(),
                       inspector_sha256=sha256(Path(__file__).read_bytes()).hexdigest(),
                       inspected_at=datetime.now(timezone.utc).isoformat())
         output.parent.mkdir(parents=True, exist_ok=True)

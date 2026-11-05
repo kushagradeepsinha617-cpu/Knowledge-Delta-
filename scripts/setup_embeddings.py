@@ -10,6 +10,7 @@ from hashlib import sha256
 import importlib.metadata
 import json
 import os
+import platform
 from pathlib import Path
 import subprocess
 import sys
@@ -25,12 +26,20 @@ from scripts.inspect_embedding_setup import (Ledger, CPU_LIMIT, STORAGE_LIMIT,
     cpu_dependency_reserved, reserve_cpu_dependency)
 from scripts.inspect_ui_setup import packaging_api
 from scripts.run_checks import evidence_lock
-from scripts.setup_ui import (inside, runtime_check, file_hash, verify_wheel,
+from scripts.setup_ui import (inside, file_hash, verify_wheel,
                               bootstrap_pip, child_environment, NoRedirect, SetupError)
 from knowledge_delta.validation import read_json, ValidationError
 
 RESERVE = 250_000_000
 CHUNK = 1024 * 1024
+
+
+def runtime_check(root):
+    if (os.name != "nt" or sys.version_info[:3] not in ((3, 15, 2), (3, 14, 10))
+            or platform.machine().lower() not in ("amd64", "x86_64")
+            or sys.prefix == sys.base_prefix
+            or not Path(sys.prefix).resolve().is_relative_to(root.resolve())):
+        raise SetupError("Run with a project-local Windows AMD64 Python 3.14.10/3.15.2 virtual environment")
 
 
 def check_space(root, extra=0):
@@ -126,7 +135,9 @@ def plan(root, inspection_path):
     report = read_json(inspection_path)
     if report.get("inspector_sha256") != file_hash(root / "scripts/inspect_embedding_setup.py"):
         raise SetupError("Dependency inspector source changed since the report; preserve and regenerate the report")
-    model_report = root / "runs/model-setup-inspection-cdn-fix.json"
+    model_report = inside(root, root / report.get("model_report_path", "runs/model-setup-inspection-cdn-fix.json"))
+    if not model_report.is_relative_to(root / "runs"):
+        raise SetupError("Model inspection binding must stay inside project runs")
     if report.get("model_report_sha256") != file_hash(model_report):
         raise SetupError("Model candidate report changed since dependency inspection")
     packages = validate_packages(report)
@@ -150,10 +161,11 @@ def plan(root, inspection_path):
         "network_requests_performed": False, "native_imports_verified": False}
 
 
-def download(package, root, work, ledger, opener=None):
+def download(package, root, work, ledger, opener=None, verifier=None):
+    verifier = verifier or verify_package
     target = inside(root, work / package["filename"])
     if target.exists():
-        verify_package(target, package)
+        verifier(target, package)
         return target
     part = inside(root, work / (package["filename"] + "." + uuid4().hex + ".part"))
     opener = opener or build_opener(NoRedirect)
@@ -177,7 +189,7 @@ def download(package, root, work, ledger, opener=None):
                 budget.reserve(1, package["filename"])
                 if response.read(1):
                     raise SetupError("CPU wheel exceeds expected size")
-        verify_package(part, package)
+        verifier(part, package)
         part.replace(target)
         return target
     finally:

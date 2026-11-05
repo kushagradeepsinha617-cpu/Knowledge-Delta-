@@ -151,3 +151,13 @@ and fixture/live separation. M1 does not claim later-stage checks implemented.
 
 At every milestone explain consequential decisions, evidence, limitations and an
 interview concept. PLAN.md records checks actually run and remaining work.
+
+
+## Current ML runtime compatibility decision
+
+The cp315 dependency preflight found no compatible PyYAML wheel. Prepare a
+separate project-local Python 3.14.10 runtime/.venv-ml using the official core
+ZIP and release-manifest hash. Keep the existing 3.15.2 UI/test environment.
+Use no global installer or PATH/security changes; all earlier budget constraints
+still apply. Compatibility and native execution are separate gates, and actual
+ML operation remains unverified. See docs/DECISIONS.md and PLAN.md.

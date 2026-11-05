@@ -62,7 +62,23 @@
 - The bounded resolver now skips invalid historical release labels, retaining
   strict compatible-wheel, metadata hash and dependency checks. Its regression
   reproduces the observed legacy label alongside a valid modern candidate.
-- Next: retry with --output runs/embedding-setup-inspection-legacy-fix.json in the normal
+- The corrected normal-terminal dependency run then stopped on PyYAML: its
+  official files index has cp314 Windows wheels but no cp315 wheel. No packages
+  or weights were installed/downloaded; cumulative reservations are 29,147,369 B.
+- Prepared a separate repository-local Python 3.14.10 ML environment. The official
+  core AMD64 ZIP is pinned by the Python release manifest SHA256; metadata and
+  expansion precede download, files are checked before native execution, venv and
+  child state stay local, and native policy errors stop execution. No global
+  registration/PATH/security change. Existing 3.15 UI/test environment is retained.
+- scripts/setup_ml_python.py defaults to offline planning. Explicit --setup would
+  provision .tools/python-3.14 and .venv-ml, then inspect model/CPU dependencies
+  under that actual interpreter. It installs no ML packages and no model weights.
+  Runtime zip/ranges count against CPU/global budgets; candidate metadata has
+  a conservative global reservation. Actual 3.14/native operation remains pending.
+- Verification: 419 tests executed and passed, zero failures/errors/skips, run
+  dc3a03b979054a688979597a5bde8563. Tests use inert synthetic runtime ZIPs and
+  do not establish actual Python 3.14/native operation.
+- Next: execute setup_ml_python.py --setup in the normal
   terminal, inspect its result before installation, and freeze genuinely
   human-reviewed cases, install only validated assets and execute controlled runs.
 

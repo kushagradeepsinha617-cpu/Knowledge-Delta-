@@ -94,3 +94,25 @@ UI-only limits for explicit model setup. Require exact compatibility/hash/space
 checks before downloads. Keep Smart App Control On. Agent-shell metadata access
 failed with WinError 10013; use the normal-terminal preflight and inspect its
 report. Do not mistake resource approval for runtime compatibility.
+
+
+## 2026-11-05: Python 3.14 ML environment for published wheel compatibility
+
+The actual cp315 dependency preflight cannot select PyYAML. Its official PyPI
+files index lists cp314 Windows wheels and none for cp315, so further identical
+3.15 retries would not resolve the compatibility gate. Use the official Python
+3.14.10 core AMD64 ZIP from the release manifest, extracted inside .tools and
+paired with .venv-ml. No system installer, registration, PATH or security change.
+
+Manifest: https://www.python.org/ftp/python/3.14.10/windows-3.14.10.json
+ZIP SHA256: cc28026a650970cc1570bb127312f1f9634eb67abfe157ae6ca1acbbc627d091
+PyYAML index: https://pypi.org/simple/pyyaml/
+Python documents extracted runtimes as unregistered local installs:
+https://docs.python.org/3.14/using/windows.html#offline-installs
+
+The reason is Python/wheel compatibility. Smart App Control remains On; any
+policy rejection of the new runtime or dependencies stops that execution path.
+The existing 3.15.2 UI/test environment and its evidence remain intact. The
+prepared code is tested with inert archives; actual 3.14 execution and package
+imports are unverified until the explicit setup runs. All resources remain
+within the approved 12 GB total/5 GB additional/1 GB CPU dependency limits.

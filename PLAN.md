@@ -54,7 +54,15 @@
 - 411 tests passed, zero failures/errors/skips, run
   64b21ff0c72348c5bf77ecd6222446e0. Genuine case review count: seven; three
   pending. No live model answers, human answer judgments or scores yet.
-- Next: execute scripts/inspect_embedding_setup.py --inspect in the normal
+- The normal-terminal CPU dependency check reached 26 metadata requests, then
+  stopped on SymPy's historical invalid release label 0.5.13-hg. No packages or
+  model weights were installed/downloaded. 13,208,336 metadata bytes were received;
+  cumulative model-setup transfer reservations are 14,391,199 bytes. The original
+  error report is preserved. A repeated default command refused to overwrite it.
+- The bounded resolver now skips invalid historical release labels, retaining
+  strict compatible-wheel, metadata hash and dependency checks. Its regression
+  reproduces the observed legacy label alongside a valid modern candidate.
+- Next: retry with --output runs/embedding-setup-inspection-legacy-fix.json in the normal
   terminal, inspect its result before installation, and freeze genuinely
   human-reviewed cases, install only validated assets and execute controlled runs.
 

@@ -302,3 +302,18 @@ def test_explicit_embedding_roots_use_cpu_override_and_keep_transitive_constrain
     with pytest.raises(inspect.PreflightError, match="does not satisfy"):
         inspect.resolve_packages(fetch=catalog.fetch, api=api,
             root_requirements=["torch<2"], external_wheels={"torch": cpu})
+
+
+def test_invalid_legacy_release_label_does_not_abort_modern_wheel_resolution(api):
+    catalog = Catalog()
+    catalog.add("sympy", "1.14.0")
+    def fetch(url, **kwargs):
+        data = catalog.fetch(url, **kwargs)
+        if url == "https://pypi.org/pypi/sympy/json":
+            raw = json.loads(data)
+            raw["releases"]["0.5.13-hg"] = []
+            data = json.dumps(raw).encode()
+        return data
+    result = inspect.resolve_packages(fetch=fetch, api=api, root_requirements=["sympy==1.14.0"])
+    assert [(p["name"], p["version"]) for p in result] == [("sympy", "1.14.0")]
+    assert result[0]["metadata_verified"] is True

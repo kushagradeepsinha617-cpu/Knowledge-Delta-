@@ -152,7 +152,12 @@ def resolve_packages(fetch=request_bytes, api=None, *, root_requirements=None, e
         catalog = catalog_cache[name]
         versions = []
         for raw in catalog["releases"]:
-            version = Version(raw)
+            try:
+                version = Version(raw)
+            except ValueError:
+                # PyPI retains historical labels that predate PEP 440.
+                # They cannot identify an acceptable modern wheel candidate.
+                continue
             if not version.is_prerelease and not version.is_devrelease and all(r.specifier.contains(version, prereleases=False) for r in requirements):
                 versions.append(version)
         for version in sorted(versions, reverse=True)[:30]:

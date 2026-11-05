@@ -1,0 +1,9 @@
+{
+  "kind": "actual_current_runtime_gate_observation",
+  "environment": ".venv-ml",
+  "python": "3.14.10",
+  "status": "passed",
+  "network_requests": 0,
+  "model_weights_downloaded": false,
+  "note": "Actual isolated Python call verified current prefix, module locations, installed versions, CPU provider and absence of torch before any asset request."
+}

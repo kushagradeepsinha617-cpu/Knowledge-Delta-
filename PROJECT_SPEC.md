@@ -177,3 +177,14 @@ shares the existing resource ledger. See docs/ONNX_COMPATIBILITY_TEST.md.
 A direct ONNX embedding adapter and actual model validation would follow only
 after a successful compatibility result; no silent model/backend substitution
 or retrospective PyTorch improvement claim is permitted.
+
+
+## Direct ONNX MiniLM implementation
+
+After the approved ONNX Runtime compatibility test passed, a separately recorded
+direct CPU embedding adapter was implemented for the same pinned MiniLM revision.
+It checks the upstream ONNX graph and tokenizer/configuration artifacts, explicit
+256-token inputs, masked mean pooling and normalization, and CPU-only inference.
+No automatic backend fallback; answering/run CLIs require explicit onnxruntime
+selection. Preparation tests do not establish actual model or RAG correctness.
+See docs/ONNX_EMBEDDINGS.md for the bounded download/smoke command.

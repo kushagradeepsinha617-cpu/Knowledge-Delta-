@@ -61,3 +61,10 @@ def test_post_start_failure_does_not_claim_generation_did_not_happen(monkeypatch
     result = json.loads(capsys.readouterr().out)
     assert result["experiment_started"] is True
     assert result["generation_performed"] is None
+
+
+def test_explicit_onnx_backend_does_not_silently_call_legacy_adapter(monkeypatch, tmp_path):
+    args, _ = prepare(monkeypatch, tmp_path)
+    monkeypatch.setattr(cli, "LocalMiniLM", lambda *a: pytest.fail("Legacy adapter must not be selected"))
+    monkeypatch.setattr(cli, "LocalOnnxMiniLM", lambda *a: SimpleNamespace(token_limit=256))
+    assert cli.main([*args, "--embedding-backend", "onnxruntime"]) == 0

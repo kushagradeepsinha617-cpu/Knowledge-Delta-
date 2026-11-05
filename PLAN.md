@@ -1,3 +1,26 @@
+# Current next step — real ONNX embedding model smoke
+
+- User resumed implementation and asked to consult Brain only for genuine needs.
+- Actual ONNX Runtime 1.31.1/NumPy2.5.4/tokenizers0.23.3 compatibility passed under
+  .venv-ml; CPU provider present, torch absent. Original blocked PyTorch evidence
+  remains historical and unchanged. No model weights are present yet.
+- Implemented pinned direct ONNX MiniLM adapter, explicit ~91.1 MB downloader,
+  and a separate real-model smoke. Tokenizer never truncates, input limit256
+  includes specials, exact graph inputs/output/provider are checked, and masked
+  mean pooling/L2 normalization plus backend versions/hashes are recorded.
+- Brain identified active-runtime provenance and ORT-specific error handling gaps,
+  then a cumulative-report-key typo. All corrected with focused regressions.
+  452 tests executed/passed, zero failures/errors/skips, run
+  c78a00adec534bf29c71c9050837b327. Actual .venv-ml runtime gate passed without
+  network/download. Embedding inference is still unverified until the explicit
+  download/smoke command succeeds. See docs/ONNX_EMBEDDINGS.md.
+- Three answering/run CLIs accept explicit --embedding-backend onnxruntime;
+  no silent fallback. Ollama/Qwen setup and ten-query hardware test remain pending.
+- Pydantic review remains seven genuinely reviewed cases and three drafts. No
+  human live-answer judgments or controlled live benchmark results exist.
+
+## Earlier checkpoints (preserved)
+
 
 
 ## Approved separate ONNX compatibility test (2026-11-05)

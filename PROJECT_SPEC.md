@@ -37,18 +37,21 @@ docs/evidence/milestone1/environment.json.
 - Brain advises the implementation agent before technical questions are escalated.
   Human approval, human review, preferences and unavailable facts cannot be
   manufactured by an agent.
-- Milestone 2 readiness and implementation are now authorized. The existing
-  250 MB local limit remains until the download proposal is explicitly approved.
-  Do not silently expand storage, install globally, or advance beyond authorized scope.
+- Milestone 2 readiness and implementation are authorized. Larger model/runtime
+  downloads remain deferred. UI storage approval does not authorize those assets.
+  Do not install globally or advance beyond the authorized milestone scope.
 - The user subsequently authorized Milestone 3 using explicitly labeled fixtures
   while Milestone 2 live acceptance remains blocked. Build the evaluator, manual
-  review workflow, JSON/HTML reporting and fixture CLI within the existing 250 MB
-  limit. Do not download models or claim fixture outputs are live inference.
-- Begin Milestone 3 with standard-library components; add an optional Streamlit
-  adapter after checking package availability/compatibility before choosing an
-  exact version or installation. No model downloads. UI dependencies must remain
-  project-local and within 250 MB after compatibility/footprint verification;
-  none have been installed so far. Global installation remains prohibited.
+  review workflow, JSON/HTML reporting and fixture CLI. Do not download models
+  or claim fixture outputs are live inference.
+- On 2026-11-05 the user explicitly approved option 1: replace Streamlit as the
+  active interface with a small local web interface built from Python's standard
+  library and HTML/CSS/JavaScript. Preserve comparison, evidence, manual review,
+  metrics and export features. No additional runtime packages are required for
+  this UI. Keep Windows Smart App Control On; do not bypass its pandas block.
+  Existing UI packages and the legacy Streamlit code remain preserved as history.
+  The approved 750 MB folder ceiling and 150 MB artifact allowance remain upper
+  bounds, not permission for new models or global installations.
   Human case/result reviews remain genuine pending human work, not agent labels.
 - No repository visibility changes, external outreach or social posting.
 
@@ -99,7 +102,8 @@ where human labels exist. No invented results or market validation.
 
 Python isolated environment; Ollama; qwen3:1.7b initial candidate, qwen3:0.6b only
 after recorded resource/speed comparison; local all-MiniLM-L6-v2 embeddings;
-NumPy search; JSON/JSONL, SQLite only if justified; Streamlit; pytest.
+NumPy search; JSON/JSONL, SQLite only if justified; Python standard-library local
+web UI with HTML/CSS/JavaScript (user-approved replacement for Streamlit); pytest.
 Verify compatibility before installing/pinning; record actual versions.
 Foundation runtime uses only the standard library.
 
@@ -125,7 +129,7 @@ Repeated fixed-subset variability runs bypass answer caching.
    constructed examples; document diff command; meaningful offline tests.
 2. Local answering: chunks/embeddings/indexes, Ollama trace integration,
    ten-question hardware smoke test, two retrieval configurations.
-3. MVP: 20 development cases, evaluation/manual review, Streamlit, JSON/HTML,
+3. MVP: 20 development cases, evaluation/manual review, the local web UI, JSON/HTML,
    live end-to-end inference if available. Fixture-based implementation is now
    authorized independently of blocked live setup; draft cases and replay results
    must remain visibly distinguished from reviewed labels and actual inference.

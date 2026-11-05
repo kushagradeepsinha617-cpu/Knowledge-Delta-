@@ -1,5 +1,9 @@
 # Milestone 3 interface and manual-review checkpoint
 
+This is the historical Streamlit checkpoint. The user approved a new default
+[standard-library web UI](LOCAL_WEB_UI.md) that reuses the same controller and
+does not load the blocked pandas module. Windows protection remains unchanged.
+
 Current runtime gate: packages are now installed, but a Windows policy blocks
 pandas. See [actual installation status](MILESTONE_3_UI_INSTALLATION_STATUS.md).
 The missing-package observations below describe the earlier source checkpoint.

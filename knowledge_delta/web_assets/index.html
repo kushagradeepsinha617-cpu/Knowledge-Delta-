@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KnowledgeDelta · Documentation answer testing</title>
+  <link rel="stylesheet" href="/assets/app.css">
+  <script src="/assets/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to comparison</a>
+  <div class="shell">
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">LOCAL DOCUMENTATION ANSWER TESTING</p>
+        <h1>KnowledgeDelta</h1>
+        <p class="subtitle">See what changed, inspect the evidence, and review each answer.</p>
+      </div>
+      <span class="local-label">Local workspace</span>
+    </header>
+
+    <div id="message" class="message" role="alert" hidden></div>
+    <p id="request-status" class="request-status" role="status" aria-live="polite">Connecting to the local workspace…</p>
+
+    <details class="panel input-panel" id="inputs-panel" open>
+      <summary>Inputs and setup</summary>
+      <div class="input-layout">
+        <form id="load-form">
+          <p class="section-description">Load the provided example or review an existing run. Loading records does not call a model.</p>
+          <label for="source-mode">Record source</label>
+          <select id="source-mode" name="source-mode">
+            <option value="fixture">Scripted fixture replay</option>
+            <option value="existing">Existing run JSON</option>
+          </select>
+          <div class="field-pair">
+            <div><label for="before">Before snapshot manifest</label><input id="before" name="before" value="examples/mvp/before/manifest.json" required spellcheck="false"></div>
+            <div><label for="after">After snapshot manifest</label><input id="after" name="after" value="examples/mvp/after/manifest.json" required spellcheck="false"></div>
+          </div>
+          <label for="dataset">Case dataset</label>
+          <input id="dataset" name="dataset" value="examples/mvp/cases.json" required spellcheck="false">
+          <label for="relations">Expected-change annotations</label>
+          <input id="relations" name="relations" value="examples/mvp/relations.json" required spellcheck="false">
+          <div id="run-path-field" hidden>
+            <label for="run-path">Raw run JSON inside this project</label>
+            <input id="run-path" name="run_path" spellcheck="false" placeholder="runs/my-experiment.json">
+          </div>
+          <label for="reference-labels">Independent reference labels JSON <span class="optional">optional</span></label>
+          <input id="reference-labels" name="reference_labels" spellcheck="false" placeholder="Leave blank when no separately assessed labels exist">
+          <p class="hint">These labels use a separately attested review procedure. Importing them does not approve draft cases or turn fixtures into live results.</p>
+          <label class="checkbox-label" id="simulation-field"><input id="simulate" type="checkbox"> Show simulated correctness judgments</label>
+          <p class="hint" id="simulation-hint">Demonstration labels exercise the report. They are not human reviews or benchmark results.</p>
+          <button type="submit" class="primary">Load comparison records</button>
+        </form>
+        <aside class="readiness">
+          <h2>Setup status</h2>
+          <p>This interface uses Python’s standard library. It does not install packages, download models, or change Windows security settings.</p>
+          <div id="readiness">Loading readiness information…</div>
+          <p class="hint">All input and export paths belong inside this project.</p>
+        </aside>
+      </div>
+    </details>
+
+    <main id="content">
+      <section id="empty-state" class="panel empty-state">
+        <h2>Start with a documentation change</h2>
+        <p>Load the 20-case constructed example to explore both snapshots, scripted answers, and the review workflow.</p>
+        <p class="muted">The example’s expectations are drafts. No live model or human validation is implied.</p>
+      </section>
+
+      <div id="workspace" hidden>
+        <section class="notice" id="provenance-notice" aria-label="Result provenance"></section>
+        <div class="workspace-heading">
+          <div><h2>Comparison workspace</h2><p id="run-description" class="muted hash"></p></div>
+          <button id="reload" type="button" class="secondary">Reload data and clear review forms</button>
+        </div>
+        <p class="hint">Reload explicitly after another session changes a review. Unsaved form entries are retained while you inspect other cases.</p>
+        <section id="summary" class="stats" aria-label="Run accounting"></section>
+        <p id="review-counts" class="muted"></p>
+
+        <details class="panel" id="snapshot-panel"><summary>Snapshots and document changes</summary><div id="snapshot-summaries" class="snapshot-summaries"></div><div id="snapshot-changes"></div></details>
+        <details class="panel"><summary>Assistant and testing-tool measures</summary><p class="hint">Unavailable ratios are shown as null. Draft expectations and simulated judgments cannot establish benchmark scores.</p><div id="metrics"></div></details>
+        <section id="stale-panel" class="panel" hidden><h2>Reviews that no longer apply</h2><p>These records do not grade the current answers or expected changes. Their history is preserved.</p><div id="stale-reviews"></div></section>
+
+        <section class="panel" aria-labelledby="comparison-title">
+          <h2 id="comparison-title">Comparison</h2>
+          <div class="filters">
+            <div><label for="status-filter">Status</label><select id="status-filter"><option value="">All statuses</option></select></div>
+            <div><label for="config-filter">Configuration</label><select id="config-filter"><option value="">All configurations</option></select></div>
+            <div><label for="case-filter">Find a case</label><input id="case-filter" type="search" placeholder="Case ID or question"></div>
+          </div>
+          <p class="hint">Filters change the view. All planned records, including missing results and errors, remain in run accounting.</p>
+          <div class="table-scroll"><table><caption id="table-caption"></caption><thead><tr><th scope="col">Case</th><th scope="col">Configuration</th><th scope="col">Repeat</th><th scope="col">Status</th><th scope="col">Case labels</th></tr></thead><tbody id="comparison-body"></tbody></table></div>
+          <label for="case-select">Inspect comparison</label><select id="case-select"></select>
+        </section>
+
+        <section id="case-details" class="panel" aria-labelledby="case-title"></section>
+
+        <section class="panel" aria-labelledby="export-title">
+          <h2 id="export-title">Export and review history</h2>
+          <form id="export-form"><label for="export-directory">Export directory inside this project</label><div class="export-row"><input id="export-directory" name="directory" placeholder="runs/exports/my-report" required spellcheck="false"><button class="primary" type="submit">Export HTML and JSON</button></div></form>
+          <p class="hint">Reports are saved in the project. Existing different files are preserved; choose a new directory for a revised report.</p>
+          <div id="export-result" aria-live="polite"></div>
+          <details><summary>Append-only manual review history</summary><div id="review-history"></div></details>
+        </section>
+      </div>
+    </main>
+    <footer>KnowledgeDelta · Evidence before conclusions · Fixture replay and live measurements remain distinct.</footer>
+  </div>
+</body>
+</html>

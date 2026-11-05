@@ -1,4 +1,27 @@
-# Current state - UI packages installed; pandas blocked by Windows policy
+# Current state - standard-library local UI implemented; visual check pending
+
+- The user explicitly approved option 1 on 2026-11-05: replace Streamlit as the
+  default UI with Python standard-library HTTP plus HTML/CSS/JavaScript. Keep
+  Smart App Control On. No blocked native file or protection setting was modified.
+- New entry point: scripts/run_web.py --serve, bound to 127.0.0.1:8501. Existing
+  controller/metrics/review/export behavior is reused. Loading records makes no
+  model requests. Legacy Streamlit and its installation evidence are retained.
+- Focused real HTTP checks passed, including fixture/load/import/review/export,
+  stale-revision rejection and a subprocess with third-party imports disabled.
+  The verified full suite executed 373 tests with zero failures/errors/skips,
+  run 797bcc303da64a88bdb4534e430bf23b. Evidence:
+  docs/evidence/milestone3-local-web-verified. Earlier observations are preserved:
+  milestone3-local-web passed on the initial source; milestone3-local-web-final
+  exposed a Windows TCP reset on rejection with an unread body. Consuming bounded
+  request bodies before rejecting actions fixed that response path.
+- Browser automation host access was unavailable. Native browser verification
+  was stopped after detected user activity changed the active tab. No new-app
+  screenshot or successful visual interaction is claimed. User visual review is
+  the next acceptance step; see docs/LOCAL_WEB_UI.md.
+- The 750 MB folder ceiling and 150 MB artifact allowance remain in force. The
+  new UI requires no additional package or model download. Do not advance to M4.
+
+## Earlier UI setup observations (preserved)
 
 - The user's approved setup installed all 34 locked packages. The final import
   check failed on an unsigned pandas native module, with Code Integrity event

@@ -7,11 +7,11 @@ in an AI documentation assistant.
 real CLI checks in the configuration below.
 
 **Milestone 3 is in progress using labeled fixtures.** The evaluator, fixture
-replay, escaped reports, manual-review controller and Streamlit interface code
-are implemented. UI packages are installed, but Windows blocks a pandas native
-module; rendering and UI runtime containment remain unverified. Real embeddings and model inference remain
-unverified; model downloads are forbidden. The user approved a 750 MB total-folder
-ceiling for UI setup and a 150 MB future package-download cap.
+replay, reports, manual reviews and local web interface are implemented. The user
+approved replacing Streamlit with a Python standard-library interface that does
+not use pandas. Smart App Control remains On. Actual browser layout/interaction
+still needs a manual check; live embeddings/model inference remain unverified.
+The 750 MB folder ceiling and no-model-download rule remain in force.
 See [Milestone 3 progress](docs/MILESTONE_3.md) and
 [Milestone 2 integration limits](docs/MILESTONE_2_INTEGRATION_READINESS.md).
 Saved raw experiment JSON can now be imported for review/reporting without
@@ -41,6 +41,18 @@ See [the adversarial audit](docs/MILESTONE_1_AUDIT.md) and
 
 ## Run the fixture report
 
+For the local browser interface, run:
+
+```powershell
+.venv/Scripts/python.exe -B scripts/run_web.py --serve
+```
+
+Open **http://127.0.0.1:8501** and select **Load comparison records**. It works with
+the standard library and existing fixture files; no further setup is required.
+See [interface instructions and verification limits](docs/LOCAL_WEB_UI.md).
+
+The standalone fixture report remains available:
+
 From the repository root, using the existing isolated Python:
 
 ```powershell
@@ -58,10 +70,11 @@ The [self-contained HTML sample](docs/samples/mvp-fixture/report.html) and
 execution**. Download the HTML file and open it locally; GitHub displays its source.
 Simulated correctness labels illustrate the workflow and are not benchmark results.
 
-The current local offline suite executed **358 tests**, with no failures, errors
-or skips; see [UI setup-helper verification](docs/evidence/milestone3-ui-setup-helper/checks.json).
-That ordinary run preceded UI installation. The subsequent 15 real NumPy checks
-are reported separately in the installation status; they do not verify pandas or the UI.
+The current local offline suite executed **373 tests**, with no failures, errors
+or skips; see [local web UI verification](docs/evidence/milestone3-local-web-verified/checks.json).
+The earlier [358-test setup-helper verification](docs/evidence/milestone3-ui-setup-helper/checks.json)
+and subsequent 15 real NumPy checks are preserved separately. Those numeric checks
+do not verify pandas or browser rendering.
 The [341-test UI preflight verification](docs/evidence/milestone3-ui-preflight-final/checks.json)
 remains preserved.
 The earlier [313-test measurement-input verification](docs/evidence/milestone3-measurement-inputs/checks.json)
@@ -128,15 +141,13 @@ Export your current inspections while keeping fixture provenance:
 Check UI readiness (no install, model request, or server start):
 
 ```powershell
-.venv/Scripts/python.exe -B scripts/run_interface.py
+.venv/Scripts/python.exe -B scripts/run_web.py
 ```
 
-This initially reported `missing_streamlit` with exit code 2. Packages are now
-installed; detecting them does not prove native imports or UI rendering succeed.
-The pandas policy block described below remains unresolved. After that runtime
-gate is legitimately resolved, `scripts/run_interface.py --serve` starts the Windows localhost interface
-with child profile/cache/temp paths inside this project. No startup command
-installs dependencies or downloads models.
+This is the new standard-library interface. It does not load the blocked pandas
+module or change Windows protection. The older `scripts/run_interface.py` and
+Streamlit adapter remain historical alternatives; they are not required for this
+interface. No startup command installs dependencies or downloads models.
 
 The user reported a successful normal-terminal PyPI connectivity check. The
 agent's Python still cannot reach PyPI. An explicit metadata/archive-directory

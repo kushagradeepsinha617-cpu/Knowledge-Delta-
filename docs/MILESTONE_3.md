@@ -1,5 +1,12 @@
 # Milestone 3 - fixture-based testing and evidence review
 
+Default UI update: the user approved the standard-library local web interface.
+It reuses the existing controller and does not load pandas or Streamlit. See
+[startup and verification scope](LOCAL_WEB_UI.md). The final ordinary source run
+executed 373 tests with zero failures/errors/skips; browser visual review is pending.
+Smart App Control remains On. Earlier Streamlit setup observations below are
+historical and do not block this new interface.
+
 Current setup observation: the 34 UI packages are installed, but Windows blocks
 the pandas native import. NumPy/PyArrow imports and 15 separate real numeric
 tests succeeded. UI rendering remains unverified. See

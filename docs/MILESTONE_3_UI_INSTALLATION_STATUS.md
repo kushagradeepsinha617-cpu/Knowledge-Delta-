@@ -1,5 +1,10 @@
 # UI installation: packages present, pandas blocked by Windows policy
 
+Later update: the user confirmed Smart App Control is On and approved replacing
+Streamlit with the [standard-library local interface](LOCAL_WEB_UI.md). No security
+settings were changed. The installation findings below remain preserved evidence
+for the legacy Streamlit path; they do not describe a dependency of the new UI.
+
 The user completed the approved normal-terminal installation command. Its report
 records all 34 locked packages as installed, with full wheel SHA256 checks. The
 final import check failed, so this is not a successful UI acceptance result.

@@ -106,3 +106,19 @@ project-local model-setup ledger against the approved 5 GB allowance, including
 the two earlier successful normal-terminal metadata transfers. Repeated or failed
 reads retain their reservations. Its default operation is an offline plan.
 The combined Ollama/runtime/model expansion gate remains separate and pending.
+
+
+## Prepared CPU installer (execution pending)
+
+After a successful dependency report is inspected, scripts/setup_embeddings.py
+prints a read-only plan by default. Explicit --install is required for package
+transfer/native imports; do not run it before that plan is accepted. It preserves
+existing differing versions, validates wheel/METADATA hashes and dependency
+edges, uses offline/hash-checked pip and project-local child state, and counts
+CPU metadata/range reads, package partials and retries against the same 1 GB
+suballowance and 5 GB global ledger. It downloads no model weights or runtime,
+starts no service, and changes no Windows protection setting.
+
+The prepared code passed offline failure/contract tests; no package installation
+or live CPU imports have been performed by this installer yet. A native policy
+block will remain a recorded blocker, without substitution or policy bypass.

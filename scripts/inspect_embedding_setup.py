@@ -61,6 +61,18 @@ class Ledger:
         self.total += amount
 
 
+def cpu_dependency_reserved(ledger):
+    return sum(e["bytes"] for e in ledger.data["reservations"]
+               if e["label"] != "earlier-model-metadata"
+               and not e["label"].startswith(("runtime:", "model:", "minilm:")))
+
+
+def reserve_cpu_dependency(ledger, amount, label):
+    if cpu_dependency_reserved(ledger) + amount > CPU_LIMIT:
+        raise ValidationError("CPU dependency payload including retries exceeds the approved 1 GB allowance")
+    ledger.reserve(amount, label)
+
+
 class Reader:
     def __init__(self, cpu_url, ledger, opener=None):
         self.cpu_url, self.ledger = cpu_url, ledger
@@ -116,7 +128,7 @@ class Reader:
             reservation = bound + 1
             if self.reserved_bytes + reservation > METADATA_LIMIT:
                 raise ValidationError("Metadata/range payload budget exhausted")
-            self.ledger.reserve(reservation, url)
+            reserve_cpu_dependency(self.ledger, reservation, url)
             self.reserved_bytes += reservation
             data = response.read(reservation)
             self.payload_bytes += len(data)

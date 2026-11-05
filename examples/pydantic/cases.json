@@ -82,9 +82,9 @@
       "provenance": "constructed",
       "split": "development",
       "review": {
-        "status": "draft",
-        "reviewer": null,
-        "scope": null
+        "status": "human_reviewed",
+        "reviewer": "Kushagra Deep (project user)",
+        "scope": "Explicit chat review on 2026-11-05: fixed Pydantic 2.10.6 question, both snapshot expectations, supporting claim and rubric; user selected Reviewed and approve this case."
       }
     },
     {
@@ -123,9 +123,9 @@
       "provenance": "constructed",
       "split": "development",
       "review": {
-        "status": "draft",
-        "reviewer": null,
-        "scope": null
+        "status": "human_reviewed",
+        "reviewer": "Kushagra Deep (project user)",
+        "scope": "Explicit chat review on 2026-11-05: fixed Pydantic 2.10.6 question, both snapshot expectations, supporting claim and rubric; user selected Reviewed and approve this case."
       }
     },
     {
@@ -164,9 +164,9 @@
       "provenance": "constructed",
       "split": "development",
       "review": {
-        "status": "draft",
-        "reviewer": null,
-        "scope": null
+        "status": "human_reviewed",
+        "reviewer": "Kushagra Deep (project user)",
+        "scope": "Explicit chat review on 2026-11-05: fixed Pydantic 2.10.6 question, both snapshot expectations, supporting claim and rubric; user selected Reviewed and approve this case."
       }
     },
     {
@@ -205,9 +205,9 @@
       "provenance": "constructed",
       "split": "development",
       "review": {
-        "status": "draft",
-        "reviewer": null,
-        "scope": null
+        "status": "human_reviewed",
+        "reviewer": "Kushagra Deep (project user)",
+        "scope": "Explicit chat review on 2026-11-05: fixed Pydantic 2.10.6 question, both snapshot expectations, supporting claim and rubric; user selected Reviewed and approve this case."
       }
     },
     {
@@ -246,9 +246,9 @@
       "provenance": "constructed",
       "split": "development",
       "review": {
-        "status": "draft",
-        "reviewer": null,
-        "scope": null
+        "status": "human_reviewed",
+        "reviewer": "Kushagra Deep (project user)",
+        "scope": "Explicit chat review on 2026-11-05: fixed Pydantic 2.10.6 question, both snapshot expectations, supporting claim and rubric; user selected Reviewed and approve this case."
       }
     },
     {
@@ -328,9 +328,9 @@
       "provenance": "constructed",
       "split": "development",
       "review": {
-        "status": "draft",
-        "reviewer": null,
-        "scope": null
+        "status": "human_reviewed",
+        "reviewer": "Kushagra Deep (project user)",
+        "scope": "Explicit chat review on 2026-11-05: fixed Pydantic 2.10.6 question, both snapshot expectations, supporting claim and rubric; user selected Reviewed and approve this case."
       }
     },
     {

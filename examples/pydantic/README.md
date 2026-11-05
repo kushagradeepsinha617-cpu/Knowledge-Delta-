@@ -1,6 +1,6 @@
 # Pydantic development review batch
 
-Status: ten development cases: one explicitly human-reviewed, nine AI drafts;
+Status: ten development cases: seven explicitly human-reviewed, three AI drafts;
 no model runs. See REVIEW_LOG.md for the exact limited review scope.
 This is a constructed corpus experiment using genuine, MIT-licensed upstream
 documentation, not an observed production regression or a historical upstream

@@ -112,3 +112,14 @@ def test_all_native_metadata_paths_require_https_and_no_credentials(tmp_path):
     for url in ("http://pypi.org/pypi/a/json", "https://user:secret@pypi.org/pypi/a/json"):
         with pytest.raises(ValidationError, match="Unsafe"):
             reader.validate_url(url)
+
+
+def test_cpu_metadata_retries_cannot_exceed_dependency_suballowance(tmp_path):
+    ledger = cpu.Ledger(tmp_path / "ledger.json")
+    ledger.reserve(cpu.CPU_LIMIT, "previous-cpu-downloads")
+    response = Response(200, b"{}", {"Content-Length": "2"})
+    reader = cpu.Reader("https://download-r2.pytorch.org/whl/cpu/test.whl", ledger, Opener(response))
+    with pytest.raises(ValidationError, match="1 GB"):
+        reader.request("https://pypi.org/pypi/torch/json")
+    assert response.read_sizes == []
+    assert cpu.Ledger(ledger.path).total == cpu.CPU_LIMIT

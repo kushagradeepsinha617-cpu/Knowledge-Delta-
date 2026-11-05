@@ -1,7 +1,7 @@
 # Milestone 4: credible local evaluation
 
-Status: preparation in progress. One explicit human case review is recorded in
-examples/pydantic/REVIEW_LOG.md; nine cases remain draft. No model installation,
+Status: preparation in progress. Seven explicit human case reviews are recorded in
+examples/pydantic/REVIEW_LOG.md; three cases remain draft. No model installation,
 live answer, human answer judgment or benchmark result is established.
 
 ## Scope and resource gates

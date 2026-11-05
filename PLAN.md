@@ -8,7 +8,7 @@
   resource limits for this explicit setup; no global installs or security changes.
 - First source batch: ten development cases using pinned MIT Pydantic
   documentation. A=v2 excerpts; B=same excerpts plus v1 models. Snapshot assembly
-  is constructed, source material genuine. One explicit human case review, nine drafts; zero human answer reviews or live results.
+  is constructed, source material genuine. Seven explicit human case reviews, three drafts; zero human answer reviews or live results.
 - Implemented offline source/excerpt/case verification and explicit bounded model
   metadata preflight. Full dependency closure/space planning and native execution
   remain pending. See docs/MILESTONE_4.md, docs/EVALUATION.md and
@@ -40,6 +40,20 @@
   An initial test fixture used an invalid hyphenated wheel filename; corrected it
   to escaped wheel syntax. Earlier failed evidence is preserved. No packages or
   model weights were downloaded/installed to implement or test the preflight.
+- CPU package setup is prepared behind successful dependency inspection, with
+  a read-only default, full wheel/METADATA/edge verification, preserved existing
+  versions, shared CPU/global retry budgets, bounded local subprocesses and
+  explicit native-import failures. No installer execution is claimed.
+- Brain found cumulative CPU metadata reads could exceed the CPU suballowance;
+  a shared guard now applies before both metadata and install body reads.
+  Brain's further review stopped at a workspace credit limit; no full independent
+  installer clearance is claimed.
+- run_local_cases now saves raw UTF-8 JSON with --output, retaining error records
+  on nonzero exit and refusing existing/outside targets before inference. A
+  post-start exception no longer falsely asserts no generation occurred.
+- 411 tests passed, zero failures/errors/skips, run
+  64b21ff0c72348c5bf77ecd6222446e0. Genuine case review count: seven; three
+  pending. No live model answers, human answer judgments or scores yet.
 - Next: execute scripts/inspect_embedding_setup.py --inspect in the normal
   terminal, inspect its result before installation, and freeze genuinely
   human-reviewed cases, install only validated assets and execute controlled runs.

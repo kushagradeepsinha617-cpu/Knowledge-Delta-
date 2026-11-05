@@ -4,7 +4,7 @@
 - examples/mvp: twenty draft constructed Widget development cases.
 - examples/pydantic: ten draft development cases using genuine pinned MIT
   Pydantic excerpts in a constructed corpus-addition experiment. See its README,
-  sources.json and source licenses. One explicit human case review is recorded; nine cases are draft, with no
+  sources.json and source licenses. Seven explicit human case reviews are recorded; three cases are draft, with no
   held-out cases or human answer reviews. No live Pydantic benchmark results exist yet.
 
 The original foundation card below is historical; its seven-case counts and

@@ -8,7 +8,7 @@ real CLI checks in the configuration below.
 
 **Milestone 4 is in progress.** Ten Pydantic development cases now use pinned,
 MIT-licensed upstream documentation in a clearly labeled constructed snapshot
-experiment. One case is explicitly human-reviewed; nine remain draft. Human reviews, real embeddings, local inference
+experiment. Seven cases are explicitly human-reviewed; three remain draft. Human reviews, real embeddings, local inference
 and controlled measurements are pending. See [Milestone 4](docs/MILESTONE_4.md)
 and the [Pydantic source/review batch](examples/pydantic/README.md).
 

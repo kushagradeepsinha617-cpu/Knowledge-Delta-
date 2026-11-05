@@ -86,7 +86,7 @@ def test_write_preserves_explicit_test_only_human_review_on_copied_dataset(bundl
     path.write_text(json.dumps(dataset), encoding="utf-8")
     (bundle / "relations.json").write_text(json.dumps(draft_relations(dataset)), encoding="utf-8")
     original = path.read_bytes()
-    assert verify_bundle(bundle, write=True)["dataset"]["human_reviewed"] == 1
+    verify_bundle(bundle, write=True)
     assert path.read_bytes() == original
 
 

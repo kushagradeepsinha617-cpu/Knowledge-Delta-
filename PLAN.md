@@ -1,3 +1,22 @@
+# Current next step — normal-terminal native model discovery
+
+- User Qwen download succeeded: all config/layer hashes and raw manifest passed;
+  shared ledger now reserves 3,411,696,918 bytes of approved 5 GB.
+- Agent-started native Ollama reports 0.40.14 but empty inventory and manifest
+  Access is denied. No inference attempted. Owned server stopped; subsequent
+  exclusive IPv4 localhost port bind succeeded.
+- Root and Brain confirmed correct V2 regular-file layout, exact manifest hash,
+  Python readability and user FullControl ACL. Native path-traversal/sandbox
+  access is plausible but unproven. No security/ACL changes are authorized or
+  required for the next diagnostic.
+- Next: user starts existing verified launcher in normal PowerShell, same cache;
+  inspect tags/digest, then run ten-question CPU smoke if discovery succeeds.
+  See docs/QWEN_DISCOVERY_STATUS.md. No repeat download needed.
+- Source unchanged since 494-test checkpoint; this update preserves actual
+  setup/discovery evidence and documentation only.
+
+## Earlier checkpoints (preserved)
+
 # Current next step — explicit pinned Qwen download
 
 - Ollama runtime preparation succeeded; archive and executable hashes verified.

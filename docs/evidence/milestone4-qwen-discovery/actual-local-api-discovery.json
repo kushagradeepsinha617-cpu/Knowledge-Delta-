@@ -1,0 +1,8 @@
+{
+  "/api/version": {
+    "version": "0.40.14"
+  },
+  "/api/tags": {
+    "models": []
+  }
+}

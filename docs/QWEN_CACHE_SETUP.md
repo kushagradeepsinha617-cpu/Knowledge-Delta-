@@ -1,5 +1,9 @@
 # Explicit Qwen model download
 
+**Current checkpoint:** the download succeeded, but the agent-launched server
+could not read the manifest. Do not repeat the download. See the
+[discovery findings and normal-terminal diagnostic](QWEN_DISCOVERY_STATUS.md).
+
 The portable Ollama 0.40.14 runtime was downloaded, hash verified and executed.
 A temporary project-local server returned version 0.40.14 and an empty model
 list over localhost. It was stopped; a subsequent exclusive IPv4 bind to

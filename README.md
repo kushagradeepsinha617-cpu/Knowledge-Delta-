@@ -8,9 +8,11 @@ real CLI checks in the configuration below.
 
 **Milestone 4 is in progress.** Ten Pydantic development cases now use pinned,
 MIT-licensed upstream documentation in a clearly labeled constructed snapshot
-experiment. Seven cases are explicitly human-reviewed; three remain draft. Local
+experiment. All ten main case definitions are explicitly human-reviewed. Local
 inference now runs; remaining case/answer reviews and controlled correctness
-measurements are pending. See [Milestone 4](docs/MILESTONE_4.md)
+measurements are pending. A separate genuine upstream revision has one additional
+draft diagnostic case, with release applicability explicitly unknown.
+See [Milestone 4](docs/MILESTONE_4.md)
 and the [Pydantic source/review batch](examples/pydantic/README.md).
 
 **Milestone 3 fixture workflow:** The evaluator, fixture
@@ -25,6 +27,9 @@ This establishes execution; semantic correctness is still ungraded. See the
 The original Pydantic runs retained all 40 comparison and 36 repeat-study records,
 including 18 and 30 run errors respectively. See [results and complete report
 archives](docs/EXPERIMENT_RESULTS.md); semantic correctness is still ungraded.
+The separate256-token run completed40/40structured responses with zero run
+errors; exact recorded prompts/evidence/model controls matched the baseline.
+The current offline suite passed518tests. See [human review still required](docs/HUMAN_REVIEW.md).
 The user approved bounded model setup: 12 GB total project storage and 5 GB
 additional artifact payload including retries, at most 1 GB for CPU embedding
 dependencies. Exact compatibility/hash/space checks still precede downloads.

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "name": "pydantic-generic-warning-before",
+  "domain": "pydantic",
+  "default_version": null,
+  "provenance": "genuine",
+  "documents": [
+    {
+      "document_id": "pydantic.generic-models",
+      "path": "generic-models.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/55dd8daeb6091b9317b92836765f3f1396b3e9ba/docs/concepts/models.md",
+      "source_revision": "55dd8daeb6091b9317b92836765f3f1396b3e9ba",
+      "software_versions": [],
+      "title": "Generic models: complete selected section"
+    }
+  ]
+}

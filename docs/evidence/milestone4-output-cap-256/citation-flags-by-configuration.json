@@ -1,0 +1,28 @@
+{
+  "run_id": "d9efc242b90942cbbf68247a59b75dd3",
+  "metric": "mechanical_citation_version_mismatch_flags",
+  "semantic_correctness_measured": false,
+  "all_cases_development": true,
+  "groups": {
+    "basic": {
+      "flagged_records": 2,
+      "recorded_records": 20,
+      "run_errors": 0,
+      "human_answer_reviews": 0,
+      "case_review_status": {
+        "human_reviewed": 14,
+        "draft": 6
+      }
+    },
+    "version_filtered": {
+      "flagged_records": 0,
+      "recorded_records": 20,
+      "run_errors": 0,
+      "human_answer_reviews": 0,
+      "case_review_status": {
+        "human_reviewed": 14,
+        "draft": 6
+      }
+    }
+  }
+}

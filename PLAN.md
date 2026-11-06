@@ -1,3 +1,29 @@
+# Current state — operational experiments verified; human answer review pending
+
+- All10main Pydantic case definitions explicitly human-reviewed. Latest3approvals
+  recorded2026-11-06; old runs retain frozen7-reviewed/3-draft dataset metadata.
+- Original128-token main40records:22structured/18errors; repeat36:6structured/30errors.
+  Separate256-token main40:40structured/0errors,841.381s; cap-only controls checked
+  against all40baseline prompts, exact passages, requests and model identity.
+- Mechanical incompatible-citation flags:basic2/20, filtered0/20. No semantic
+  improvement or independent evaluator precision/recall claimed.
+- Genuine pinned parent/child warning addition:1draft case,4live records,0errors,
+ 78.120s. Unknown release applicability visible; no software behavior change claim.
+- Latest source/dataset verification:518tests passed,0failures/errors/skips,
+  run3c629f3f9b324c909205beb2ad4b247b; exact211source files captured. A prior web
+  timeout remains preserved; isolated test and subsequent full suites passed
+  without changing the test. Failure root cause is unverified.
+- Raw runs and self-contained HTML/JSON exports packaged losslessly and byte-checked;
+  models, environments, keys excluded from publication.
+- Actual-answer review card queued for dict-pairs across both snapshots/configs,
+  selected after inspection as an assisted diagnostic subset, not representative.
+  No answer/relation judgments saved before explicit human approval.
+- Remaining M4gate: actual human answer judgments and honest reviewed findings.
+  Genuine-case expectations still draft. No held-out evaluation;60reviews is an
+  unfinished target, never a fabricated dataset/review count.
+
+## Earlier checkpoints (preserved)
+
 # Current next step — separate256-token experiment running
 
 - User resumed work after pause; no restart/replacement of completed runs.

@@ -1,0 +1,57 @@
+{
+  "kind": "unreviewed_genuine_revision_diagnostic_protocol",
+  "frozen_at": "2026-11-06T09:46:59.538297+00:00",
+  "source_id": "370529422a45944b095efa1d09f0d29ae415b74b4f897003cebb689aa11e5ac9",
+  "dataset_hash": "77bcfa1181525bc49a23a1ce42d3de83d5323655716c251a02f56d5f14f1c186",
+  "model": "qwen3:1.7b",
+  "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+  "embedding_backend": "onnxruntime",
+  "output_cap": 256,
+  "planned_records": 4,
+  "case_reviewed": false,
+  "release_applicability_verified": false,
+  "version_filter_improvement_measured": false,
+  "verification": {
+    "status": "verified_source_and_schema",
+    "dataset": {
+      "case_count": 1,
+      "human_reviewed": 0,
+      "draft": 1,
+      "snapshot_ids": {
+        "before": "604f6d5a40ebbdb4f2c32938d5635053414265d1c0e33bdcbbf400c2c2a02056",
+        "after": "4a80190fc48434d3bd6fbac92dc04f83133d2ab22a760ac2e4ff508d16311575"
+      },
+      "note": "Schema validation only; no answer correctness has been evaluated."
+    },
+    "changes": {
+      "schema_version": 1,
+      "before_snapshot_id": "604f6d5a40ebbdb4f2c32938d5635053414265d1c0e33bdcbbf400c2c2a02056",
+      "after_snapshot_id": "4a80190fc48434d3bd6fbac92dc04f83133d2ab22a760ac2e4ff508d16311575",
+      "domain": "pydantic",
+      "snapshot_metadata_changes": {},
+      "document_changes": [
+        {
+          "document_id": "pydantic.generic-models",
+          "kind": "modified",
+          "content_changed": true,
+          "metadata_changed": true,
+          "before": {
+            "content_hash": "f22d6506b144065ad5b4db4f92f404c63e3208a8e1815ebbb1bf571a2ebbbf85",
+            "metadata_hash": "9f054efc4c8730519cb8fb12cb07565f3025012fcc7749f9e4546cec28eda8ac"
+          },
+          "after": {
+            "content_hash": "7d955859e5397fcdb1fe31ab5d7e0dce794d31b478d7aaecd102c35873673d83",
+            "metadata_hash": "a18ef2c25022d9a5da269d2abdbe9e9a60a9eabd208769ad5893a94debfedabf"
+          }
+        }
+      ]
+    },
+    "semantic_expectations_verified": false,
+    "software_behavior_change_claimed": false,
+    "nominal_source_version": "2.10.5",
+    "release_applicability_verified": false,
+    "downloads_performed": false,
+    "generation_performed": false
+  },
+  "semantic_correctness_measured": false
+}

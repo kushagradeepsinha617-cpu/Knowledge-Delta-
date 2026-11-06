@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "dataset_hash": "77bcfa1181525bc49a23a1ce42d3de83d5323655716c251a02f56d5f14f1c186",
+  "relations": [
+    {
+      "schema_version": 1,
+      "case_id": "pydantic-generic-upper-bound",
+      "case_hash": "7b5ac48067a9f68d6ce9719bfc91acf02414c64f4c362ce908ac0a33b5caf6f4",
+      "relation": "should_change",
+      "basis": "draft",
+      "reviewer": null,
+      "reviewed_at": null,
+      "rationale": "DRAFT evidence-only expectation: genuine warning addition supplies a previously unstated clarification in the selected corpus; no claim of software behavior change."
+    }
+  ]
+}

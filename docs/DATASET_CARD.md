@@ -2,10 +2,21 @@
 
 - examples/constructed: original seven-case Widget foundation fixture.
 - examples/mvp: twenty draft constructed Widget development cases.
-- examples/pydantic: ten draft development cases using genuine pinned MIT
+- examples/pydantic: ten development cases using genuine pinned MIT
   Pydantic excerpts in a constructed corpus-addition experiment. See its README,
-  sources.json and source licenses. Seven explicit human case reviews are recorded; three cases are draft, with no
-  held-out cases or human answer reviews. No live Pydantic benchmark results exist yet.
+  sources.json and source licenses. Ten explicit human case reviews are recorded, with no
+  held-out cases or human answer reviews. The128-token comparison, repeat subset
+  and separate256-token comparison now have actual local records and ungraded
+  reports; see EXPERIMENT_RESULTS.md. Completion counts are not correctness.
+  The older runs retain their original seven-reviewed/three-draft revision.
+- examples/pydantic-revision: one draft development case from an actual pinned
+  parent/child documentation revision, with four live diagnostic records. The
+  source warning is a clarification; released-software applicability is unknown.
+  No human case/answer review or software-behavior-change claim is recorded.
+
+The60-reviewed-case target is not achieved. No held-out evaluation has occurred.
+Keep related families together if expanding the dataset; development observations
+must not be moved into held-out data or used to imply independent validation.
 
 The original foundation card below is historical; its seven-case counts and
 implementation-status statements do not describe the later application.

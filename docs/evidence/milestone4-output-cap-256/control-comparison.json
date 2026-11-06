@@ -1,0 +1,31 @@
+{
+  "kind": "output_budget_control_comparison",
+  "control_checks_passed": true,
+  "checked_rows": 40,
+  "intended_change": "output cap128 to256",
+  "baseline": {
+    "run_id": "9ab14d053d9543e09645394946cd36a9",
+    "planned_records": 40,
+    "recorded_records": 40,
+    "structured_answers_pending_review": 22,
+    "run_errors": 18,
+    "chat_attempts": 60,
+    "attempt_stop_reasons": {
+      "length": 38,
+      "stop": 22
+    }
+  },
+  "candidate": {
+    "run_id": "d9efc242b90942cbbf68247a59b75dd3",
+    "planned_records": 40,
+    "recorded_records": 40,
+    "structured_answers_pending_review": 40,
+    "run_errors": 0,
+    "chat_attempts": 40,
+    "attempt_stop_reasons": {
+      "stop": 40
+    }
+  },
+  "semantic_correctness_measured": false,
+  "note": "Controls are compared against recorded traces, not authenticated execution. Completion is not correctness; latency is not a causal performance estimate."
+}

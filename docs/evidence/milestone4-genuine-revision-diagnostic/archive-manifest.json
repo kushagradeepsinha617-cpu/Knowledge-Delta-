@@ -1,0 +1,29 @@
+{
+  "kind": "lossless_unreviewed_genuine_revision_diagnostic",
+  "human_case_reviews": 0,
+  "human_answer_reviews": 0,
+  "release_applicability_verified": false,
+  "semantic_correctness_measured": false,
+  "files": {
+    "raw-run.json": {
+      "bytes": 196540,
+      "sha256": "b3fc2498186399c01391befb7e4185acec03805d448d3dca4f3a53958bc7e8b8"
+    },
+    "report.json": {
+      "bytes": 370262,
+      "sha256": "71ff4af707fc9648e642309f0df131011a81de5b48f3506274ed2beb1c227289"
+    },
+    "report.html": {
+      "bytes": 240693,
+      "sha256": "2c5f9c401b1b6b6b1b1d5a9613d93c2eaeeb7789227bc76144f3a25b0cc070dc"
+    },
+    "protocol.json": {
+      "bytes": 2353,
+      "sha256": "3132de6982a13f9d215a66cde394ddc20884fd445ceca0d61b3fde6e70ceb2ee"
+    }
+  },
+  "archive": {
+    "bytes": 150948,
+    "sha256": "1848338f3b45cc3801f918446fad98b7364940a3d4fd814f17751d7826f89d8a"
+  }
+}

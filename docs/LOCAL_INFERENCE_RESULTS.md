@@ -55,8 +55,9 @@ counted as a completed hardware experiment.
 
 The original 40-record run and 36-record repeat study have now completed. Full
 counts, retained output-limit failures and report archives are documented in
-[recorded experiment results](EXPERIMENT_RESULTS.md). A separate 256-token
-development experiment is in progress; its results are not yet established.
+[recorded experiment results](EXPERIMENT_RESULTS.md). The separate256-token
+development experiment now has40structured responses, zero run errors, and
+verified prompt/evidence/model controls. Semantic correctness remains ungraded.
 
 The existing Pydantic protocol was frozen before its first answer run. It plans
 40 records: ten cases, two snapshots, and basic/version-filtered retrieval with

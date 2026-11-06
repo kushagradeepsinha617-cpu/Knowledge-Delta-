@@ -287,9 +287,9 @@
       "provenance": "constructed",
       "split": "development",
       "review": {
-        "status": "draft",
-        "reviewer": null,
-        "scope": null
+        "status": "human_reviewed",
+        "reviewer": "Kushagra Deep (project user)",
+        "scope": "Explicit chat review on2026-11-06: user separately selected Reviewed and approve this case after fixed2.10.6 question, both expectations, rubric and pinned source link were presented. Case definition only; no assistant answer or relation was graded."
       }
     },
     {
@@ -369,9 +369,9 @@
       "provenance": "constructed",
       "split": "development",
       "review": {
-        "status": "draft",
-        "reviewer": null,
-        "scope": null
+        "status": "human_reviewed",
+        "reviewer": "Kushagra Deep (project user)",
+        "scope": "Explicit chat review on2026-11-06: user separately selected Reviewed and approve this case after fixed2.10.6 question, both expectations, rubric and pinned source link were presented. Case definition only; no assistant answer or relation was graded."
       }
     },
     {
@@ -410,9 +410,9 @@
       "provenance": "constructed",
       "split": "development",
       "review": {
-        "status": "draft",
-        "reviewer": null,
-        "scope": null
+        "status": "human_reviewed",
+        "reviewer": "Kushagra Deep (project user)",
+        "scope": "Explicit chat review on2026-11-06: user separately selected Reviewed and approve this case after fixed2.10.6 question, both expectations, rubric and pinned source link were presented. Case definition only; no assistant answer or relation was graded."
       }
     }
   ]

@@ -46,9 +46,48 @@ default. This was chosen after observing development failures, and is recorded
 as a new experiment rather than replacing the original results. The model,
 questions, prompt messages, context4096, retrieval/chunking settings and retry
 limit remain fixed. Both retrieval configurations receive the same output cap.
-The new protocol was frozen before inference. Completion and prompt/evidence
-identity must be checked against the baseline after it finishes; no improvement
-is claimed in advance. Four new offline CLI tests passed in the 498-test suite.
+The new protocol was frozen before inference. The run completed all 40 planned
+records with 40 structured responses, zero run errors and 40 chat attempts;
+all responses reported a normal stop. Total run time was 841.381 seconds.
+The comparison command verified all 40 matched rows: same exact retrieved
+passages/scores, prompt messages/schema, indexes, embeddings and model/runtime
+identity; the generation requests differ only in the output cap. This is a
+recorded completion improvement from 22/40 to 40/40, not better correctness.
+Runtime order/system-load effects prevent a causal speedup claim.
+
+The new report has two citation-version failure flags and 38 unresolved results,
+with zero human answer reviews. More complete responses can expose additional
+issues; valid JSON is not a semantic pass. Four new offline CLI tests passed in
+the 498-test checkpoint; the subsequent comparison utility has 15 synthetic
+control tests, including deliberately changed evidence, prompts and model IDs.
+
+Reproduce the read-only control check without inference:
+
+```powershell
+& .\.venv\Scripts\python.exe -B scripts/compare_output_budget.py runs/pydantic-live-main.json runs/pydantic-live-main-256.json --output runs/output-cap-check-new.json
+```
+
+The original runs remain unchanged. The separate output-cap study used only
+development data. It does not tune a held-out set or measure semantic accuracy.
+
+Within this 256-token run, basic retrieval had **2 incompatible-citation flags
+out of 20 records**; version filtering had **0 out of 20**, with zero run errors
+in each group. Each includes 14 records from reviewed cases and 6 from drafts;
+neither has human answer judgments. This measures metadata compatibility of
+citations only, not wrong-version answer semantics or evidence support.
+
+## Separate genuine revision diagnostic
+
+The [pinned generic-model warning example](../examples/pydantic-revision/README.md)
+has four actual local records, zero run errors, and four unresolved results.
+The model answered Yes before the real warning addition and No afterward in
+both configurations. These are observed texts, not reviewed correctness labels
+or proof that software behavior changed. Release applicability remains unknown;
+no target version is invented, and filtering has no effective version target
+in this diagnostic. Its case and expected relation remain drafts.
+
+The complete diagnostic and HTML/JSON report are archived under
+`docs/evidence/milestone4-genuine-revision-diagnostic/genuine-revision-diagnostic.zip`.
 
 ## Inspect the complete reports
 
@@ -72,3 +111,8 @@ new human case/relation/answer review was fabricated.
 
 The real CPU smoke, runtime/backend versions and measurement limitations are
 documented in [local inference results](LOCAL_INFERENCE_RESULTS.md).
+
+The separate 256-token archive is
+`docs/evidence/milestone4-output-cap-256/live-output-cap-256-report.zip`.
+It includes the full raw run plus self-contained HTML/JSON reports. Extract it
+to a new project-local runs folder using the same procedure as the main archive.

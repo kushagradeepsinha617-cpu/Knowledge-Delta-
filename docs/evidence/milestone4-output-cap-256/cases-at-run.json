@@ -1,0 +1,419 @@
+{
+  "schema_version": 1,
+  "snapshot_ids": {
+    "before": "b034b1abe0325f77a39edeefd57ba6b01b3e88a9e6055b057069d5ff955a9ea6",
+    "after": "ca7c145907906944b5926bbe0c8202fbc16a471249d0fb9c2bb77a17b2e12f15"
+  },
+  "cases": [
+    {
+      "case_id": "pydantic-serialization",
+      "family_id": "pydantic-serialization",
+      "question": "In Pydantic 2.10.6, which BaseModel method should I use to produce a dictionary, and is dict() removed?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "Use model_dump(); dict() is deprecated compatibility functionality, not simply removed.",
+          "rubric": "Must distinguish recommended model_dump from deprecated dict; reject claims dict universally no longer works.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.v2.serialization",
+              "quote": "| `dict()` | `model_dump()` |"
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "Use model_dump(); dict() is deprecated compatibility functionality, not simply removed.",
+          "rubric": "Must distinguish recommended model_dump from deprecated dict; reject claims dict universally no longer works.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.v2.serialization",
+              "quote": "| `dict()` | `model_dump()` |"
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "human_reviewed",
+        "reviewer": "Kushagra Deep (project user)",
+        "scope": "Explicit chat review on 2026-11-05: question, requested 2.10.6 version, both snapshot expectations and rubric distinguishing deprecated dict() from removed functionality."
+      }
+    },
+    {
+      "case_id": "pydantic-orm",
+      "family_id": "pydantic-orm",
+      "question": "In Pydantic 2.10.6, how should I validate an ORM object's attributes into a model?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "Use model_validate with from_attributes=True; from_orm is deprecated.",
+          "rubric": "Require both model_validate and from_attributes=True. Do not claim the deprecated from_orm method was removed.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.v2.orm",
+              "quote": "* The `from_orm` method has been deprecated; you can now just use `model_validate` (equivalent to `parse_obj` from\n  Pydantic V1) to achieve something similar, as long as you've set `from_attributes=True` in the model config."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "Use model_validate with from_attributes=True; from_orm is deprecated.",
+          "rubric": "Require both model_validate and from_attributes=True. Do not claim the deprecated from_orm method was removed.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.v2.orm",
+              "quote": "* The `from_orm` method has been deprecated; you can now just use `model_validate` (equivalent to `parse_obj` from\n  Pydantic V1) to achieve something similar, as long as you've set `from_attributes=True` in the model config."
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "human_reviewed",
+        "reviewer": "Kushagra Deep (project user)",
+        "scope": "Explicit chat review on 2026-11-05: fixed Pydantic 2.10.6 question, both snapshot expectations, supporting claim and rubric; user selected Reviewed and approve this case."
+      }
+    },
+    {
+      "case_id": "pydantic-equality",
+      "family_id": "pydantic-equality",
+      "question": "In Pydantic 2.10.6, does a BaseModel compare equal to a dictionary containing the same data?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "No. Models are no longer equal to dictionaries containing their data.",
+          "rubric": "Require a clear negative for model-versus-dict equality. Do not confuse serialization to a dict with equality.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.v2.equality",
+              "quote": "Models are no longer equal to the dicts containing their data."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "No. Models are no longer equal to dictionaries containing their data.",
+          "rubric": "Require a clear negative for model-versus-dict equality. Do not confuse serialization to a dict with equality.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.v2.equality",
+              "quote": "Models are no longer equal to the dicts containing their data."
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "human_reviewed",
+        "reviewer": "Kushagra Deep (project user)",
+        "scope": "Explicit chat review on 2026-11-05: fixed Pydantic 2.10.6 question, both snapshot expectations, supporting claim and rubric; user selected Reviewed and approve this case."
+      }
+    },
+    {
+      "case_id": "pydantic-optional",
+      "family_id": "pydantic-optional",
+      "question": "In Pydantic 2.10.6, is a field annotated Optional[str] without a default optional to omit?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "No. It is required, but permits None; assign a default such as None to make omission allowed.",
+          "rubric": "Require distinction between requiredness and nullability; Optional alone does not give a None default.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.v2.optional",
+              "quote": "A field annotated as `typing.Optional[T]` will be required, and will allow for a value of `None`."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "No. It is required, but permits None; assign a default such as None to make omission allowed.",
+          "rubric": "Require distinction between requiredness and nullability; Optional alone does not give a None default.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.v2.optional",
+              "quote": "A field annotated as `typing.Optional[T]` will be required, and will allow for a value of `None`."
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "human_reviewed",
+        "reviewer": "Kushagra Deep (project user)",
+        "scope": "Explicit chat review on 2026-11-05: fixed Pydantic 2.10.6 question, both snapshot expectations, supporting claim and rubric; user selected Reviewed and approve this case."
+      }
+    },
+    {
+      "case_id": "pydantic-union",
+      "family_id": "pydantic-union",
+      "question": "In Pydantic 2.10.6, for x: Union[int, str], what happens to the input string '1' with the default union behavior?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "It remains a string '1'; an already matching input type can be preserved.",
+          "rubric": "Distinguish a string from integer 1. Do not generalize the example into a claim that every union always chooses str.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.v2.union",
+              "quote": "#> x='1'"
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "It remains a string '1'; an already matching input type can be preserved.",
+          "rubric": "Distinguish a string from integer 1. Do not generalize the example into a claim that every union always chooses str.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.v2.union",
+              "quote": "#> x='1'"
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "human_reviewed",
+        "reviewer": "Kushagra Deep (project user)",
+        "scope": "Explicit chat review on 2026-11-05: fixed Pydantic 2.10.6 question, both snapshot expectations, supporting claim and rubric; user selected Reviewed and approve this case."
+      }
+    },
+    {
+      "case_id": "pydantic-dict-pairs",
+      "family_id": "pydantic-dict-pairs",
+      "question": "In Pydantic 2.10.6, will a list of key/value pairs pass validation for a dict field?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "No. Iterables of pairs no longer pass validation for dict fields.",
+          "rubric": "Reject automatic dict conversion from iterable pairs under the described default behavior.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.v2.dict-pairs",
+              "quote": "Iterables of pairs (which include empty iterables) no longer pass validation for fields of type `dict`."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "No. Iterables of pairs no longer pass validation for dict fields.",
+          "rubric": "Reject automatic dict conversion from iterable pairs under the described default behavior.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.v2.dict-pairs",
+              "quote": "Iterables of pairs (which include empty iterables) no longer pass validation for fields of type `dict`."
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "human_reviewed",
+        "reviewer": "Kushagra Deep (project user)",
+        "scope": "Explicit chat review on 2026-11-05: fixed Pydantic 2.10.6 question, both snapshot expectations, supporting claim and rubric; user selected Reviewed and approve this case."
+      }
+    },
+    {
+      "case_id": "pydantic-validator-error",
+      "family_id": "pydantic-validator-error",
+      "question": "In Pydantic 2.10.6, is TypeError raised inside a validator wrapped as ValidationError?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "No. TypeError is no longer converted to ValidationError in validators.",
+          "rubric": "Require a clear negative; the conclusion applies to validation decorators. Avoid claiming validators cannot raise ValidationError for other failures.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.v2.validator-error",
+              "quote": "However, in Pydantic V2, when a `TypeError` is raised in a validator, it is no longer converted into a\n`ValidationError`:"
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "No. TypeError is no longer converted to ValidationError in validators.",
+          "rubric": "Require a clear negative; the conclusion applies to validation decorators. Avoid claiming validators cannot raise ValidationError for other failures.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.v2.validator-error",
+              "quote": "However, in Pydantic V2, when a `TypeError` is raised in a validator, it is no longer converted into a\n`ValidationError`:"
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "pydantic-number-string",
+      "family_id": "pydantic-number-string",
+      "question": "In Pydantic 2.10.6 with default configuration, does validation coerce a numeric input to a string for a field annotated str?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "No. Coercing int, float, and Decimal to strings is optional and disabled by default.",
+          "rubric": "Distinguish disabled by default from impossible; explicit opt-in is possible.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.v2.number-string",
+              "quote": "coercing `int`, `float`, and `Decimal` values to strings is now optional and disabled by default"
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "No. Coercing int, float, and Decimal to strings is optional and disabled by default.",
+          "rubric": "Distinguish disabled by default from impossible; explicit opt-in is possible.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.v2.number-string",
+              "quote": "coercing `int`, `float`, and `Decimal` values to strings is now optional and disabled by default"
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "human_reviewed",
+        "reviewer": "Kushagra Deep (project user)",
+        "scope": "Explicit chat review on 2026-11-05: fixed Pydantic 2.10.6 question, both snapshot expectations, supporting claim and rubric; user selected Reviewed and approve this case."
+      }
+    },
+    {
+      "case_id": "pydantic-regex",
+      "family_id": "pydantic-regex",
+      "question": "In Pydantic 2.10.6, does the default Rust regex engine support lookarounds and backreferences?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "No. The default Rust engine drops those features; Python's regex library can be selected with regex_engine.",
+          "rubric": "Do not say all regex validation is impossible; distinguish default engine restrictions from optional Python engine.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.v2.regex",
+              "quote": "dropping a couple of features (namely look arounds and backreferences)."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "No. The default Rust engine drops those features; Python's regex library can be selected with regex_engine.",
+          "rubric": "Do not say all regex validation is impossible; distinguish default engine restrictions from optional Python engine.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.v2.regex",
+              "quote": "dropping a couple of features (namely look arounds and backreferences)."
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "pydantic-settings",
+      "family_id": "pydantic-settings",
+      "question": "In Pydantic 2.10.6's native v2 API (excluding the pydantic.v1 compatibility namespace), which package provides BaseSettings?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "BaseSettings moved to the separate pydantic-settings package.",
+          "rubric": "Require pydantic-settings rather than importing BaseSettings from the top-level pydantic package.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.v2.settings",
+              "quote": "[`BaseSettings`](api/pydantic_settings.md#pydantic_settings.BaseSettings), the base object for Pydantic\n[settings management](concepts/pydantic_settings.md), has been moved to a separate package,\n[`pydantic-settings`](https://github.com/pydantic/pydantic-settings)."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "BaseSettings moved to the separate pydantic-settings package.",
+          "rubric": "Require pydantic-settings rather than importing BaseSettings from the top-level pydantic package.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.v2.settings",
+              "quote": "[`BaseSettings`](api/pydantic_settings.md#pydantic_settings.BaseSettings), the base object for Pydantic\n[settings management](concepts/pydantic_settings.md), has been moved to a separate package,\n[`pydantic-settings`](https://github.com/pydantic/pydantic-settings)."
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "development",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    }
+  ]
+}

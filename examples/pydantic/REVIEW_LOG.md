@@ -19,3 +19,12 @@ retain their original dataset hashes and review counts.
 and pydantic-dict-pairs after each question, both expectations, source claim,
 rubric and pinned source link were presented. Total: seven reviewed cases,
 three drafts. No actual assistant answer or relation annotation was graded.
+
+2026-11-06: user separately approved pydantic-validator-error, pydantic-regex
+and pydantic-settings after each question, both expectations, rubric and pinned
+source were presented. Total: ten human-reviewed case definitions, zero drafts.
+No actual answer or relation annotation was reviewed by these approvals.
+Earlier live runs retain their original7-reviewed/3-draft dataset identity.
+Frozen cases and relations are preserved in the output-cap evidence directory;
+old raw runs are not rewritten. Current draft relation hashes were rebound only
+for the newly reviewed dataset revision.

@@ -1,11 +1,21 @@
 # Milestone 4: credible local evaluation
 
-Status: live evaluation in progress. Real MiniLM ONNX embeddings and the Qwen
-ten-question CPU hardware smoke now work locally: ten completed structured
-answers, zero run errors. Seven explicit human case reviews are recorded in
-examples/pydantic/REVIEW_LOG.md; three cases remain draft. Human answer judgments,
-controlled correctness results and the final reviewed dataset remain pending.
-See [actual local inference observations](LOCAL_INFERENCE_RESULTS.md).
+Status: implementation and live operational experiments are complete for this
+checkpoint; correctness evaluation awaits actual human review. The controlled
+output-cap experiment completed40/40structured responses at256tokens, versus
+22/40at128; this is not a correctness score. Basic retrieval had2/20mechanical
+citation-version flags versus0/20with filtering in the256-token run.
+
+Ten explicit human case reviews are recorded in examples/pydantic/REVIEW_LOG.md.
+The earlier runs retain their prior seven-reviewed/three-draft dataset revision.
+A separate genuine upstream documentation revision
+adds one draft case with four live diagnostic records. There are zero human
+answer judgments and no held-out evaluation. The60-reviewed-case target remains
+unfinished; split/review tooling supports it without inventing reviews.
+
+See [recorded results and report archives](EXPERIMENT_RESULTS.md),
+[actual local inference observations](LOCAL_INFERENCE_RESULTS.md), and the
+[review handoff](HUMAN_REVIEW.md). Milestone4 is not declared fully complete.
 
 ## Scope and resource gates
 

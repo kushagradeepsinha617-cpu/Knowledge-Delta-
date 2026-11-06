@@ -1,7 +1,11 @@
 # Pydantic development review batch
 
-Status: ten development cases: seven explicitly human-reviewed, three AI drafts;
-no model runs. See REVIEW_LOG.md for the exact limited review scope.
+Status: ten development case definitions, all explicitly human-reviewed.
+Actual 128-token, repeated-subset and separate 256-token local runs are now saved;
+there are still zero human answer judgments. See REVIEW_LOG.md for the exact
+limited case-review scope and [recorded results](../../docs/EXPERIMENT_RESULTS.md).
+The earlier recorded runs used the prior seven-reviewed/three-draft revision;
+its frozen cases and relations remain in the output-cap evidence directory.
 This is a constructed corpus experiment using genuine, MIT-licensed upstream
 documentation, not an observed production regression or a historical upstream
 document-update event. No benchmark correctness is established.

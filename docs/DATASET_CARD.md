@@ -5,16 +5,19 @@
 - examples/pydantic: ten development cases using genuine pinned MIT
   Pydantic excerpts in a constructed corpus-addition experiment. See its README,
   sources.json and source licenses. Ten explicit human case reviews are recorded, with no
-  held-out cases or human answer reviews. The128-token comparison, repeat subset
-  and separate256-token comparison now have actual local records and ungraded
+  held-out cases. Four actual answer judgments are now recorded separately for
+  one assisted diagnostic family. The 128-token comparison, repeat subset
+  and separate 256-token comparison now have actual local records and ungraded
   reports; see EXPERIMENT_RESULTS.md. Completion counts are not correctness.
   The older runs retain their original seven-reviewed/three-draft revision.
-- examples/pydantic-revision: one draft development case from an actual pinned
-  parent/child documentation revision, with four live diagnostic records. The
+- examples/pydantic-revision: one approved development case from an actual pinned
+  parent/child documentation revision, with an earlier draft diagnostic and a
+  separate four-record run made after case approval. The
   source warning is a clarification; released-software applicability is unknown.
-  No human case/answer review or software-behavior-change claim is recorded.
+  Its case and relation were explicitly reviewed; new-run answer review is pending.
+  No software-behavior-change claim is made.
 
-The60-reviewed-case target is not achieved. No held-out evaluation has occurred.
+The 60-reviewed-case target is not achieved. No held-out evaluation has occurred.
 Keep related families together if expanding the dataset; development observations
 must not be moved into held-out data or used to imply independent validation.
 

@@ -1,21 +1,21 @@
 # Milestone 4: credible local evaluation
 
-Status: implementation and live operational experiments are complete for this
-checkpoint; correctness evaluation awaits actual human review. The controlled
-output-cap experiment completed40/40structured responses at256tokens, versus
-22/40at128; this is not a correctness score. Basic retrieval had2/20mechanical
-citation-version flags versus0/20with filtering in the256-token run.
+Status: Milestone 4 deliverables verified for the documented exploratory study.
+The final publication is checked against the local evidence before goal closure.
+There are 11 human-reviewed case definitions and four actual human answer
+judgments across both snapshots and configurations. Other answers remain ungraded;
+this is not a representative or held-out accuracy benchmark.
 
 Ten explicit human case reviews are recorded in examples/pydantic/REVIEW_LOG.md.
 The earlier runs retain their prior seven-reviewed/three-draft dataset revision.
-A separate genuine upstream documentation revision
-adds one draft case with four live diagnostic records. There are zero human
-answer judgments and no held-out evaluation. The60-reviewed-case target remains
+A separate genuine upstream documentation revision adds one approved case and
+relation. Its earlier four-record draft diagnostic is preserved; a new four-record
+run uses the approved dataset. There is no held-out evaluation. The 60-reviewed-case target remains
 unfinished; split/review tooling supports it without inventing reviews.
 
 See [recorded results and report archives](EXPERIMENT_RESULTS.md),
 [actual local inference observations](LOCAL_INFERENCE_RESULTS.md), and the
-[review handoff](HUMAN_REVIEW.md). Milestone4 is not declared fully complete.
+[review handoff](HUMAN_REVIEW.md). See MILESTONE_4_ACCEPTANCE.md for requirement-by-requirement evidence.
 
 ## Scope and resource gates
 

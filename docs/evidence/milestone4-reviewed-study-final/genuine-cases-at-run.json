@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "snapshot_ids": {
+    "before": "604f6d5a40ebbdb4f2c32938d5635053414265d1c0e33bdcbbf400c2c2a02056",
+    "after": "4a80190fc48434d3bd6fbac92dc04f83133d2ab22a760ac2e4ff508d16311575"
+  },
+  "cases": [
+    {
+      "case_id": "pydantic-generic-upper-bound",
+      "family_id": "pydantic-generic-upper-bound",
+      "question": "According to the supplied Pydantic documentation revisions, when parametrizing a generic model with a concrete type, does Pydantic check that this type satisfies the type variable's upper bound?",
+      "target": "unspecified",
+      "requested_version": null,
+      "expectations": {
+        "before": {
+          "behavior": "abstain",
+          "answer": null,
+          "rubric": "DRAFT: under the evidence-only policy, state insufficient explicit support in this selected corpus for whether concrete type arguments are checked against upper bounds. Do not infer the answer from input-data validation or unparametrized-generic behavior. Human review of the full selected section is required.",
+          "target_context": null,
+          "evidence": []
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "No. Parametrizing the model with a concrete type does not validate that type against the type variable upper bound.",
+          "rubric": "Distinguish checking concrete type arguments at parametrization from validating instance data and from behavior of unparametrized generics. This documentation addition does not show software behavior changed.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.generic-models",
+              "quote": "When parametrizing a model with a concrete type, Pydantic **does not** validate that the provided type\n    is [assignable to the type variable][spec-typevars-bound] if it has an upper bound."
+            }
+          ]
+        }
+      },
+      "category": "missing_evidence",
+      "provenance": "genuine",
+      "split": "development",
+      "review": {
+        "status": "human_reviewed",
+        "reviewer": "Kushagra Deep (project user)",
+        "scope": "Explicit chat approval on 2026-11-06 of the question, both snapshot expectations, rubric, selected source sections and should_change relation. Release applicability remains unknown. This approves the case definition, not actual assistant answers."
+      }
+    }
+  ]
+}

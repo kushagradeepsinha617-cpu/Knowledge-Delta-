@@ -1,10 +1,40 @@
+# Milestone 4 closure checkpoint
+
+- Required implementation and exploratory evaluation artifacts are verified;
+  goal closure follows remote publication/hash reconciliation.
+- Eleven actual case-definition approvals:ten main plus one genuine revision.
+  Four main-run answer judgments and expected relation are recorded exactly as
+  approved; one observed basic regression and filtered recovery, with causality
+  and post-hoc selection limits disclosed.
+- Main256-token run40/40structured,0errors; baseline128had22/40structured.
+  Cap controls matched exact prompts/evidence/model across all40rows.
+  Citation-version flags2/20basic versus0/20filtered; no semantic generalization.
+- Genuine source clarification:approved case/relation, new4-record live run with
+ 0errors; actual answer judgments remain explicitly ungraded unless the optional
+  review card is answered. Old draft diagnostic and frozen labels are preserved.
+- Fixed-subset repeats36records:6structured/30runerrors at128tokens. Additional
+  identical-request observation shows No/Yes variability; document addition is
+  not established as sole cause of the observed regression. No answer caching.
+- Latest519offline tests passed with0failures/errors/skips;212tested source
+  files unchanged. Test-only60case capacity validates20/40split plumbing and
+ 240records/HTMLJSON without claiming a reviewed60-case benchmark.
+- Public human-label files reproduce counts/metrics without private SQLite/model.
+  Independent-reference labels absent:testerprecision/recall stay unavailable.
+- All reports/raw records archived losslessly; models/environments/keys excluded.
+  Resource scan about5.42GB within12GB; setupledger3.41GB within5GB,CPUdependency
+ 348MBwithin1GB. No new model downloads or security changes during evaluation.
+- Broader60-reviewed-case target and held-out evaluation remain unfinished and
+  disclosed. Milestone 5portfolio packaging awaits user instruction.
+
+## Earlier checkpoints (preserved)
+
 # Current state — operational experiments verified; human answer review pending
 
-- All10main Pydantic case definitions explicitly human-reviewed. Latest3approvals
+- All 10main Pydantic case definitions explicitly human-reviewed. Latest3approvals
   recorded2026-11-06; old runs retain frozen7-reviewed/3-draft dataset metadata.
 - Original128-token main40records:22structured/18errors; repeat36:6structured/30errors.
   Separate256-token main40:40structured/0errors,841.381s; cap-only controls checked
-  against all40baseline prompts, exact passages, requests and model identity.
+  against all 40baseline prompts, exact passages, requests and model identity.
 - Mechanical incompatible-citation flags:basic2/20, filtered0/20. No semantic
   improvement or independent evaluator precision/recall claimed.
 - Genuine pinned parent/child warning addition:1draft case,4live records,0errors,
@@ -24,7 +54,7 @@
 
 ## Earlier checkpoints (preserved)
 
-# Current next step — separate256-token experiment running
+# Current next step — separate 256-token experiment running
 
 - User resumed work after pause; no restart/replacement of completed runs.
 - Original main run retained40/40records,22structured answers,18run errors,

@@ -1,0 +1,38 @@
+{
+  "kind": "post_hoc_identical_request_observation",
+  "run_id": "d9efc242b90942cbbf68247a59b75dd3",
+  "case_id": "pydantic-dict-pairs",
+  "snapshot": "before",
+  "selection": "Post-hoc diagnostic, not a predeclared variability subset",
+  "generation_request_id": "8a9dfbba2fb24491c3412eb142a3bc89d6c833dce90b7f3486550dc65954c0d2",
+  "requests_identical": true,
+  "temperature": 0,
+  "thinking": false,
+  "answer_cache_used": false,
+  "observed_answers": [
+    {
+      "configuration": "basic",
+      "answer": {
+        "answer": "No, a list of key/value pairs will not pass validation for a dict field in Pydantic 2.10.6. The documentation indicates that iterables of pairs are no longer coerced to a dict.",
+        "citations": [
+          "chunk-a35d961d149a0ca50dd69d8e32c3492b2983ff99479b8680fac09356023cb467"
+        ],
+        "abstained": false
+      },
+      "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7"
+    },
+    {
+      "configuration": "version_filtered",
+      "answer": {
+        "answer": "Yes, a list of key/value pairs will pass validation for a dict field in Pydantic 2.10.6.",
+        "citations": [
+          "chunk-a35d961d149a0ca50dd69d8e32c3492b2983ff99479b8680fac09356023cb467"
+        ],
+        "abstained": false
+      },
+      "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7"
+    }
+  ],
+  "causal_explanation_verified": false,
+  "note": "Observed different answer texts for identical recorded generation requests. Model/runtime/cache state was not fully controlled; do not attribute the snapshot regression solely to document additions."
+}

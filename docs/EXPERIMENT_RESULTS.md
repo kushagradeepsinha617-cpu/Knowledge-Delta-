@@ -2,9 +2,11 @@
 
 These are real local Qwen runs, using the genuine pinned Pydantic excerpts in
 the explicitly constructed v1-addition experiment. They are development data,
-not held-out results or an estimate of industry-wide failure rates. Seven of
-the ten case definitions are human-reviewed; three are drafts. There are no
-human answer judgments or independent evaluator-reference labels yet.
+not held-out results or an estimate of industry-wide failure rates. The recorded
+main runs froze seven reviewed case definitions and three drafts. All ten current
+definitions have since been approved; the frozen runs are not rewritten. Four
+actual answer judgments are recorded for one selected family, as detailed below.
+No independent evaluator-reference labels are available.
 
 ## Original 128-token configuration
 
@@ -116,3 +118,31 @@ The separate 256-token archive is
 `docs/evidence/milestone4-output-cap-256/live-output-cap-256-report.zip`.
 It includes the full raw run plus self-contained HTML/JSON reports. Extract it
 to a new project-local runs folder using the same procedure as the main archive.
+
+## Actual human review of the selected main-case family
+
+The user reviewed all four dict-pairs answers and approved the unchanged-answer
+relation. Two answers passed and two failed. This was an assisted, unblinded,
+post-hoc diagnostic selection of one family, not a representative sample. The
+other 36 answers lack human semantic judgments; two of those have mechanical
+citation-version flags. Do not describe 2/4 as overall benchmark accuracy.
+
+The basic comparison is previously_correct_now_incorrect; the filtered comparison
+recovered from a prior failure. These are human-confirmed outcomes for those
+recorded answers, not a general claim that version filtering improves correctness.
+An exploratory check found identical recorded before-snapshot generation requests
+that produced No and Yes. Model/runtime state was not fully controlled. The
+document addition therefore is not established as the sole cause of the observed
+regression. Original fixed-subset variability results remain reported separately.
+
+Four exact review bindings and the approved relation are saved in
+`docs/evidence/milestone4-human-answer-review/human-review-records.json`; the
+complete reviewed export is in `human-reviewed-subset-report.zip` there. The
+counts and metrics were independently reproduced with evaluate_run and
+summarize_metrics from public raw/label files, without the private SQLite journal
+or inference. Independent evaluator-reference labels are still absent, so
+failure-flag precision/recall remain unavailable.
+
+The genuine case definition and should_change relation were subsequently approved.
+Its old draft diagnostic is preserved, and a fresh reviewed-case four-record run
+completed without errors. Actual-answer review of those new traces is pending.

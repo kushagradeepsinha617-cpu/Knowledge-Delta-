@@ -1,0 +1,28 @@
+{
+  "kind": "reviewed_genuine_case_with_ungraded_actual_answers",
+  "human_case_reviews": 1,
+  "human_answer_reviews": 0,
+  "semantic_correctness_measured": false,
+  "files": {
+    "raw-run.json": {
+      "bytes": 196556,
+      "sha256": "cecc776b6d8bcb53104c483bd9dd3480e3d5230c81cb1797416b7ca3669c0229"
+    },
+    "protocol.json": {
+      "bytes": 887,
+      "sha256": "4428ac8e957219412f3a41c1caab5dad32998bc3ac18c0c11ca507cc2555dda4"
+    },
+    "report.json": {
+      "bytes": 371166,
+      "sha256": "6b0603a28b9857a313d4c31c443763b1fa73ec8f1318075531073da4ac6b4ddb"
+    },
+    "report.html": {
+      "bytes": 240751,
+      "sha256": "14cf7e413f9afa153425522b1e3655a30dc97c97ebdff5bae4cb03becf2227e4"
+    }
+  },
+  "archive": {
+    "bytes": 150768,
+    "sha256": "876421e1d2555224fba486cb02eb0b8b46764414699a4875d2775394c6b6be61"
+  }
+}

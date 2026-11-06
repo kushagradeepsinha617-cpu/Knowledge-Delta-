@@ -11,10 +11,10 @@ from knowledge_delta.validation import ValidationError
 SOURCE = Path(__file__).resolve().parents[1] / "examples/pydantic-revision"
 
 
-def test_genuine_revision_has_stable_document_identity_and_only_draft_labels():
+def test_genuine_revision_has_stable_identity_and_recorded_human_case_review():
     result = verify(SOURCE)
-    assert result["dataset"]["draft"] == 1
-    assert result["dataset"]["human_reviewed"] == 0
+    assert result["dataset"]["draft"] == 0
+    assert result["dataset"]["human_reviewed"] == 1
     assert result["semantic_expectations_verified"] is False
     assert result["software_behavior_change_claimed"] is False
     assert result["nominal_source_version"] == "2.10.5"

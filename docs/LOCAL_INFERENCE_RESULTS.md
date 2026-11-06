@@ -55,14 +55,16 @@ counted as a completed hardware experiment.
 
 The original 40-record run and 36-record repeat study have now completed. Full
 counts, retained output-limit failures and report archives are documented in
-[recorded experiment results](EXPERIMENT_RESULTS.md). The separate256-token
-development experiment now has40structured responses, zero run errors, and
-verified prompt/evidence/model controls. Semantic correctness remains ungraded.
+[recorded experiment results](EXPERIMENT_RESULTS.md). The separate 256-token
+development experiment now has 40 structured responses, zero run errors, and
+verified prompt/evidence/model controls. Four actual main-case answer judgments
+are now recorded; the remaining semantic judgments are unresolved.
 
 The existing Pydantic protocol was frozen before its first answer run. It plans
 40 records: ten cases, two snapshots, and basic/version-filtered retrieval with
-otherwise identical settings. Seven case definitions are human-reviewed; three
-remain draft. All answer judgments remain unresolved until actually reviewed.
+otherwise identical settings. Its frozen dataset had seven reviewed definitions
+and three drafts; all ten current definitions have since been approved. Older
+records retain their original dataset hash and review metadata.
 
 The source excerpts are genuine pinned Pydantic material, but this first
 snapshot pair is constructed corpus assembly: adding v1 documentation to an
@@ -72,4 +74,6 @@ three-repetition experiment plans 36 variability records without answer caching.
 
 Neither malformed-output detection nor citation existence proves semantic
 correctness. Report errors, missing judgments and draft cases explicitly.
-The 60-reviewed-case target and genuine-revision experiment remain unfinished.
+The genuine-revision case and expected relation are approved and its new four-row
+run is complete; actual answer review is pending. The 60-reviewed-case target and
+held-out evaluation remain unfinished.

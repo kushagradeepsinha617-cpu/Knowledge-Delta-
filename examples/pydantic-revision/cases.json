@@ -36,9 +36,9 @@
       "provenance": "genuine",
       "split": "development",
       "review": {
-        "status": "draft",
-        "reviewer": null,
-        "scope": null
+        "status": "human_reviewed",
+        "reviewer": "Kushagra Deep (project user)",
+        "scope": "Explicit chat approval on 2026-11-06 of the question, both snapshot expectations, rubric, selected source sections and should_change relation. Release applicability remains unknown. This approves the case definition, not actual assistant answers."
       }
     }
   ]

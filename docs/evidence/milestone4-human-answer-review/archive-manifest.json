@@ -1,0 +1,28 @@
+{
+  "kind": "lossless_actual_human_review_report",
+  "human_answer_reviews": 4,
+  "independent_reference_labels": 0,
+  "selection": "Post-hoc assisted unblinded one-family diagnostic",
+  "files": {
+    "raw-run.json": {
+      "bytes": 2035674,
+      "sha256": "03dcb4fb538a31f288d0566f4037a30d654b79867eadd505bef05c3172fa9fcd"
+    },
+    "report.json": {
+      "bytes": 3761572,
+      "sha256": "b81f5b6bdb7b544d8c7801712138877792bf0b7a066ff6242fab8836741d2751"
+    },
+    "report.html": {
+      "bytes": 2432831,
+      "sha256": "df7af002fe06e64088819fb26b4ca92d0e3d919c3daaea9a859b4b88d8ccd383"
+    },
+    "human-review-records.json": {
+      "bytes": 15167,
+      "sha256": "0be1e79cdd6409864ae0ca0c612de751a18fb2627b33f4031165d6339558d54e"
+    }
+  },
+  "archive": {
+    "bytes": 1587681,
+    "sha256": "99dbb11b05f660d2394828b41f76bb73a932e131b499edeb8b7d3045ac762827"
+  }
+}

@@ -6,12 +6,12 @@ in an AI documentation assistant.
 **Milestone 1:** the defined foundation passed **92 offline pytest tests** and
 real CLI checks in the configuration below.
 
-**Milestone 4 is in progress.** Ten Pydantic development cases now use pinned,
+**Milestone 4 evaluation workflow and exploratory study are verified.** Ten Pydantic development cases now use pinned,
 MIT-licensed upstream documentation in a clearly labeled constructed snapshot
 experiment. All ten main case definitions are explicitly human-reviewed. Local
-inference now runs; remaining case/answer reviews and controlled correctness
-measurements are pending. A separate genuine upstream revision has one additional
-draft diagnostic case, with release applicability explicitly unknown.
+inference now runs, and four actual answers have received human judgments.
+Other answers remain ungraded. A separate genuine upstream revision has one
+additional approved case, with release applicability explicitly unknown.
 See [Milestone 4](docs/MILESTONE_4.md)
 and the [Pydantic source/review batch](examples/pydantic/README.md).
 
@@ -27,9 +27,9 @@ This establishes execution; semantic correctness is still ungraded. See the
 The original Pydantic runs retained all 40 comparison and 36 repeat-study records,
 including 18 and 30 run errors respectively. See [results and complete report
 archives](docs/EXPERIMENT_RESULTS.md); semantic correctness is still ungraded.
-The separate256-token run completed40/40structured responses with zero run
+The separate 256-token run completed 40/40 structured responses with zero run
 errors; exact recorded prompts/evidence/model controls matched the baseline.
-The current offline suite passed518tests. See [human review still required](docs/HUMAN_REVIEW.md).
+The current offline suite passed 519 tests. Four actual answer judgments are recorded; see [review coverage and reproduction](docs/HUMAN_REVIEW.md).
 The user approved bounded model setup: 12 GB total project storage and 5 GB
 additional artifact payload including retries, at most 1 GB for CPU embedding
 dependencies. Exact compatibility/hash/space checks still precede downloads.

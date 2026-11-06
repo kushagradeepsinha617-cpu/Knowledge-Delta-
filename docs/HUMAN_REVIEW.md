@@ -1,30 +1,34 @@
-# Human review required for Milestone4
+# Human review coverage and reproduction
 
 The implementation runs locally and the operational experiments are recorded.
-No agent can provide the missing human judgments. This page identifies the
-remaining decisions without marking any case or answer reviewed automatically.
+Four main-study answer judgments are recorded. This page distinguishes those
+actual judgments from remaining optional reviews; no unreviewed answer is marked
+correct automatically. Broader review would enlarge the evidence, not establish
+a representative result retroactively.
 
 ## Case definitions
 
-All ten Pydantic2.10.6 development case definitions have now been explicitly
-reviewed in chat, including validator-error, regex and settings on2026-11-06.
+All ten Pydantic 2.10.6 development case definitions have now been explicitly
+reviewed in chat, including validator-error, regex and settings on 2026-11-06.
 The questions, both expectations, source passages and rubrics are recorded in
-`examples/pydantic/cases.json`. Both snapshots retain the requested2.10.6
+`examples/pydantic/cases.json`. Both snapshots retain the requested 2.10.6
 version; adding v1 material does not change the question's meaning.
 
-The separate case in `examples/pydantic-revision/cases.json` is entirely draft.
-Read its README and complete selected GenericModels sections before deciding
-whether the proposed earlier evidence-only abstention is justified. The actual
-warning addition is verified; released-software applicability is unknown.
+The separate case in `examples/pydantic-revision/cases.json` and its expected relation were explicitly approved on 2026-11-06.
+That review covered both selected Generic models sections and the proposed
+earlier evidence-only abstention. The actual warning addition is verified;
+released-software applicability remains unknown.
 Do not convert nominal mainline version metadata into a verified release claim.
 
 ## Actual answer review
 
-The main256-token report contains40actual answers:28records from the seven
-reviewed cases and12from the three drafts. All40lack resolved human judgments.
+The main 256-token run contains 40 actual answers: 28 records from the seven
+reviewed cases and 12 from the three drafts. Four dict-pairs answers have now received actual human judgments; the other 36
+lack resolved human judgments.
 Two have automatic citation-version failure flags; these are not independently
-reviewed correctness labels. The genuine-revision diagnostic has four more
-unreviewed records and a draft case.
+reviewed correctness labels. The older genuine diagnostic remains bound to its
+draft dataset. Four newly generated records use the approved genuine case;
+their actual answer review is pending.
 
 For each reviewed answer, inspect the requested context, exact supplied evidence,
 answer, citations, expected behavior and rubric. Record pass, fail or unresolved
@@ -44,9 +48,41 @@ made. New case approvals change dataset identity; do not rewrite old runs or
 silently grade them against a different dataset revision. Keep the recorded
 review binding and revision when explicitly saving an actual human decision.
 
+## Reproduce the four recorded judgments offline
+
+From the repository root, this verifies the published raw-run hash and recreates
+the counts and metrics from the actual human labels. It reads the lossless ZIP
+directly and requires neither the private SQLite journal nor a running model:
+
+```powershell
+@'
+import json
+from pathlib import Path
+from hashlib import sha256
+from zipfile import ZipFile
+from knowledge_delta.validation import read_json
+from knowledge_delta.snapshots import load_snapshot
+from knowledge_delta.evaluation import evaluate_run
+from knowledge_delta.metrics import summarize_metrics
+root = Path.cwd()
+record = read_json(root / 'docs/evidence/milestone4-human-answer-review/human-review-records.json')
+with ZipFile(root / 'docs/evidence/milestone4-human-answer-review/human-reviewed-subset-report.zip') as archive:
+    raw = archive.read('raw-run.json')
+assert sha256(raw).hexdigest() == record['source_run_sha256']
+snapshots = {s: load_snapshot(root / 'examples/pydantic' / s / 'manifest.json') for s in ('before', 'after')}
+evaluation = evaluate_run(json.loads(raw), read_json(root / 'docs/evidence/milestone4-output-cap-256/cases-at-run.json'), record['relation_annotations'], record['review_records'], snapshots=snapshots, allow_fixture=False)
+assert evaluation['counts'] == record['counts']
+assert summarize_metrics(evaluation) == record['metrics']
+print(evaluation['counts'])
+'@ | & .\.venv\Scripts\python.exe -B -
+```
+
+These are four assisted, unblinded judgments from one family chosen after seeing
+outputs. They establish those outcomes, not representative benchmark accuracy.
+
 ## Report reviewed findings
 
-Reviewing all40main answers is preferable. If reviewing a subset, declare the
+Reviewing all 40main answers is preferable. If reviewing a subset, declare the
 selection rule, selection timing, scope and denominator; do not present that
 subset as representative or held-out. No held-out families were invented or
 silently moved out of development.
@@ -57,4 +93,4 @@ exposure to existing flags disclosed. Otherwise leave those metrics unavailable.
 
 After actual judgments exist, regenerate reports and document measured
 correctness, abstention, errors, unresolved cases and limitations. The current
-60-reviewed-case goal remains a target, not a claim that60reviews happened.
+60-reviewed-case goal remains a target, not a claim that 60 reviews happened.

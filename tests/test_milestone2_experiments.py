@@ -48,6 +48,42 @@ def doubles():
     return embedder, client
 
 
+def test_sixty_case_workflow_capacity_is_not_a_reviewed_benchmark():
+    """In-memory plumbing fixture only; never add these placeholders to a study."""
+    from knowledge_delta.evaluation import evaluate_run
+    from knowledge_delta.reports import html_report, json_report
+    from knowledge_delta.validation import digest
+    import json
+    _, before, after = inputs()
+    cases = []
+    for number in range(60):
+        expectation = {"behavior": "abstain", "answer": None, "rubric": "TEST ONLY capacity placeholder; no source evidence.",
+                       "target_context": None, "evidence": []}
+        cases.append({"case_id": f"capacity-{number}", "family_id": f"capacity-family-{number}",
+                      "question": f"TEST ONLY missing synthetic fact {number}?", "target": "explicit_version",
+                      "requested_version": "1", "expectations": {"before": expectation, "after": deepcopy(expectation)},
+                      "category": "missing_evidence", "provenance": "constructed",
+                      "split": "development" if number < 20 else "held_out",
+                      "review": {"status": "draft", "reviewer": None, "scope": None}})
+    dataset = {"schema_version": 1, "snapshot_ids": {"before": before.snapshot_id, "after": after.snapshot_id}, "cases": cases}
+    embedder, client = doubles()
+    run = run_dataset(dataset, before, after, embedder, client, index_factory=EmptyIndexDouble)
+    assert run["counts"]["planned"] == run["counts"]["recorded"] == 240
+    assert run["origin"] == "test_double" and run["correctness_measured"] is False
+    assert all(not row["generation_performed"] for row in run["results"])
+    relations = {"schema_version": 1, "dataset_hash": digest(dataset), "relations": [
+        {"schema_version": 1, "case_id": c["case_id"], "case_hash": digest(c), "relation": "should_remain",
+         "basis": "draft", "reviewer": None, "reviewed_at": None, "rationale": "TEST ONLY capacity fixture"}
+        for c in cases]}
+    evaluation = evaluate_run(run, dataset, relations, [], snapshots={"before": before, "after": after}, allow_fixture=True)
+    assert evaluation["counts"]["human_reviewed_cases"] == 0
+    assert evaluation["counts"]["human_answer_reviews"] == 0
+    assert evaluation["counts"]["planned_answer_records"] == 240
+    assert len(evaluation["rows"]) == 120
+    assert json.loads(json_report(evaluation))["counts"]["cases"] == 60
+    assert "capacity-59" in html_report(evaluation)
+
+
 def test_full_experiment_preserves_versions_drafts_controls_and_repetitions():
     dataset, before, after = inputs()
     embedder, client = doubles()

@@ -1,8 +1,10 @@
 # Genuine documentation revision: generic type bounds
 
-This separate, **draft development example** follows an actual upstream parent
+This separate, **development example** follows an actual upstream parent
 and child revision. It is not the constructed added-v1 corpus experiment.
-There are zero human case or answer reviews in this example.
+The user explicitly reviewed the case and expected relation on2026-11-06;
+see REVIEW_LOG.md. The original four-record diagnostic used draft labels and
+remains ungraded. New actual-answer judgments require a newly bound run.
 
 - Before: `55dd8daeb6091b9317b92836765f3f1396b3e9ba`.
 - After: [commit 6f7691b](https://github.com/pydantic/pydantic/commit/6f7691b5c1e1838aedf88414a41cd6a9a0caf1d6), January 23, 2025.
@@ -22,12 +24,12 @@ runtime behavior or establish a released documentation snapshot.
 
 The before expectation proposes evidence-only abstention because the selected
 corpus does not explicitly state the added clarification. It remains an AI
-draft: a human must review the complete selected section, including discussions
+proposal that the user explicitly reviewed against the selected section, including discussions
 of instance validation, unparametrized generics, upper bounds and serialization.
 Those topics must not be conflated with checking a concrete type argument at
 parametrization. Absent evidence does not make the underlying fact false.
 
-The after expectation proposes answering the explicit warning. The draft
+The after expectation proposes answering the explicit warning. The reviewed
 `should_change` relation concerns evidence-backed answering, not changed
 software behavior. No semantic pass follows from schema/source verification.
 This is one selected document, not the entire Pydantic documentation corpus.
@@ -48,5 +50,5 @@ Run offline, without downloads or model calls:
 
 The command verifies source pins, exact section extraction, the genuine warning
 addition, stable document identity/version scope, dataset/quote validation and
-draft relation bindings. Only before/manifest.json and after/manifest.json are
+relation bindings. Only before/manifest.json and after/manifest.json are
 retrieval inputs. Cases, rubrics, this README and source inventories are excluded.

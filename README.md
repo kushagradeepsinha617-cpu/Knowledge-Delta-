@@ -22,6 +22,9 @@ pass. Actual Qwen CPU inference now also passed the ten-question hardware smoke:
 ten structured responses, zero run errors, 122.453 seconds for the full command.
 This establishes execution; semantic correctness is still ungraded. See the
 [actual inference observations and limitations](docs/LOCAL_INFERENCE_RESULTS.md).
+The original Pydantic runs retained all 40 comparison and 36 repeat-study records,
+including 18 and 30 run errors respectively. See [results and complete report
+archives](docs/EXPERIMENT_RESULTS.md); semantic correctness is still ungraded.
 The user approved bounded model setup: 12 GB total project storage and 5 GB
 additional artifact payload including retries, at most 1 GB for CPU embedding
 dependencies. Exact compatibility/hash/space checks still precede downloads.

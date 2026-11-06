@@ -1,3 +1,23 @@
+# Current next step — separate256-token experiment running
+
+- User resumed work after pause; no restart/replacement of completed runs.
+- Original main run retained40/40records,22structured answers,18run errors,
+  60chatattempts,1117.842s. All38rejected attempts hit128tokens with length stop.
+- Fixed3-case/3-repeat study retained36/36records,6structured answers,30errors,
+  753.579s. All60rejected attempts hit128tokens. No answer caching.
+- Main report flags1citation-version incompatibility,21unresolved results and
+  18errors. Zerohuman answerjudgments; nosemantic accuracy/regressionclaim.
+- Exported real HTML/JSON reports, packaged complete raw evidence losslessly;
+  archives byte-verified against originals. Models/environments/keys excluded.
+- Added explicit --max-output-tokens128/256, default128 unchanged.498offline
+  tests passed, zero failures/errors/skips, run8cbe3a4939074220b3d89668fc5e2c4e.
+- New256-token protocol frozen before its full40-record run. Only outputcap
+  intentionally changes; must verify prompt/evidence identity against baseline.
+- Next: retain new results, export and compare completion with full denominators;
+  human answers/case reviews, genuine-revision study and held-out dataset remain.
+
+## Earlier checkpoints (preserved)
+
 # Current next step — frozen Pydantic live comparison running
 
 - Normal-terminal Ollama discovery matched expected digest; ten live CPU smoke

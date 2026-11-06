@@ -1,0 +1,149 @@
+{
+  "run_id": "9ab14d053d9543e09645394946cd36a9",
+  "dataset_hash": "c32047ad5cc7cdf19b3a2244abd5d3d84c7f633e307d9beb6a1e152316d7f6c2",
+  "origin": "live",
+  "counts": {
+    "cases": 10,
+    "planned_answer_records": 40,
+    "recorded_answer_records": 40,
+    "missing_answer_records": 0,
+    "comparison_records": 20,
+    "human_reviewed_cases": 7,
+    "draft_cases": 3,
+    "answer_outcomes": {
+      "pass": 0,
+      "fail": 1,
+      "needs_human_review": 21,
+      "run_error": 18
+    },
+    "human_answer_reviews": 0,
+    "simulated_answer_judgments": 0
+  },
+  "metrics": {
+    "schema_version": 1,
+    "kind": "knowledge_delta_metrics",
+    "run_id": "9ab14d053d9543e09645394946cd36a9",
+    "dataset_hash": "c32047ad5cc7cdf19b3a2244abd5d3d84c7f633e307d9beb6a1e152316d7f6c2",
+    "provenance_note": "Live origin and reviewer identities are recorded claims, not authenticated execution or identities. Independent reference means a separately attested procedure, not necessarily another person or a blind review.",
+    "accounting": {
+      "planned_answer_records": 40,
+      "recorded_answer_records": 40,
+      "missing_answer_records": 0,
+      "run_errors": 18,
+      "needs_human_review": 21,
+      "without_resolved_human_answer_review": 40,
+      "simulated_judgments": 0,
+      "automatic_failure_flags": 1
+    },
+    "partitions": {
+      "origin": {
+        "live": 40
+      },
+      "case_review_status": {
+        "human_reviewed": 28,
+        "draft": 12
+      },
+      "source_provenance": {
+        "constructed": 40
+      },
+      "split": {
+        "development": 40
+      },
+      "configuration": {
+        "basic": 20,
+        "version_filtered": 20
+      }
+    },
+    "assistant": {
+      "availability": "unavailable_no_eligible_human_judgments",
+      "planned_reviewed_case_answer_records": 28,
+      "resolved_eligible_human_judgments": 0,
+      "accuracy_resolved_human_judgments_only": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "confirmed_correct_per_planned_reviewed_case_answer": {
+        "numerator": 0,
+        "denominator": 28,
+        "value": 0.0
+      },
+      "review_coverage": {
+        "numerator": 0,
+        "denominator": 28,
+        "value": 0.0
+      },
+      "reviewed_case_run_errors": 18,
+      "reviewed_case_missing_records": 0,
+      "exclusion_reasons_nonexclusive": {
+        "run_error": 18,
+        "no_resolved_human_answer_review": 40,
+        "draft_case": 12
+      },
+      "primary_wrong_version_failure_labels": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "primary_unsupported_answer_failure_labels": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "diagnostic_note": "Failure-label fractions count explicit primary human classifications; they do not exhaustively assess overlapping failure causes.",
+      "abstention": {
+        "records_in_reviewed_cases": 1,
+        "unassessed_records": 1,
+        "appropriate_among_assessed": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        },
+        "unnecessary_among_assessed": {
+          "numerator": 0,
+          "denominator": 0,
+          "value": null
+        }
+      },
+      "answer_pipeline_latency_seconds": {
+        "observed_records": 40,
+        "missing_records": 0,
+        "mean": 27.39006197003182,
+        "median": 22.93569214991294,
+        "minimum": 10.071675800019875,
+        "maximum": 124.19938619993627,
+        "note": "Live-marked trace elapsed time includes retrieval and generation/error handling; it is not peak memory or isolated model inference time."
+      }
+    },
+    "testing_tool": {
+      "flag_policy": "At least one failed original mechanical check; post-review correctness does not define the flag.",
+      "reference_labels_submitted": 0,
+      "eligible_reference_labels": 0,
+      "ineligible_reference_labels": 0,
+      "eligible_records_without_reference": 10,
+      "run_errors_excluded_from_semantic_reference_scoring": 18,
+      "confusion": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0,
+        "true_negative": 0
+      },
+      "precision": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "recall": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "reference_coverage": {
+        "numerator": 0,
+        "denominator": 10,
+        "value": 0.0
+      },
+      "needs_human_review": 21
+    }
+  }
+}

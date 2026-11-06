@@ -1,0 +1,157 @@
+{
+  "run_id": "77397d73599a4207860511bcd8b257f3",
+  "counts": {
+    "planned": 36,
+    "recorded": 36,
+    "run_errors": 30,
+    "awaiting_semantic_review": 6
+  },
+  "answer_cache_used": false,
+  "semantic_correctness_measured": false,
+  "groups": [
+    {
+      "case_id": "pydantic-serialization",
+      "configuration": "basic",
+      "snapshot": "before",
+      "planned_repetitions": 3,
+      "recorded": 3,
+      "statuses": {
+        "run_error": 3
+      },
+      "distinct_valid_answer_objects": 0,
+      "distinct_generation_request_ids": 1
+    },
+    {
+      "case_id": "pydantic-serialization",
+      "configuration": "basic",
+      "snapshot": "after",
+      "planned_repetitions": 3,
+      "recorded": 3,
+      "statuses": {
+        "run_error": 3
+      },
+      "distinct_valid_answer_objects": 0,
+      "distinct_generation_request_ids": 1
+    },
+    {
+      "case_id": "pydantic-optional",
+      "configuration": "basic",
+      "snapshot": "before",
+      "planned_repetitions": 3,
+      "recorded": 3,
+      "statuses": {
+        "run_error": 3
+      },
+      "distinct_valid_answer_objects": 0,
+      "distinct_generation_request_ids": 1
+    },
+    {
+      "case_id": "pydantic-optional",
+      "configuration": "basic",
+      "snapshot": "after",
+      "planned_repetitions": 3,
+      "recorded": 3,
+      "statuses": {
+        "run_error": 3
+      },
+      "distinct_valid_answer_objects": 0,
+      "distinct_generation_request_ids": 1
+    },
+    {
+      "case_id": "pydantic-union",
+      "configuration": "basic",
+      "snapshot": "before",
+      "planned_repetitions": 3,
+      "recorded": 3,
+      "statuses": {
+        "run_error": 3
+      },
+      "distinct_valid_answer_objects": 0,
+      "distinct_generation_request_ids": 1
+    },
+    {
+      "case_id": "pydantic-union",
+      "configuration": "basic",
+      "snapshot": "after",
+      "planned_repetitions": 3,
+      "recorded": 3,
+      "statuses": {
+        "answered_pending_review": 3
+      },
+      "distinct_valid_answer_objects": 1,
+      "distinct_generation_request_ids": 1
+    },
+    {
+      "case_id": "pydantic-serialization",
+      "configuration": "version_filtered",
+      "snapshot": "before",
+      "planned_repetitions": 3,
+      "recorded": 3,
+      "statuses": {
+        "run_error": 3
+      },
+      "distinct_valid_answer_objects": 0,
+      "distinct_generation_request_ids": 1
+    },
+    {
+      "case_id": "pydantic-serialization",
+      "configuration": "version_filtered",
+      "snapshot": "after",
+      "planned_repetitions": 3,
+      "recorded": 3,
+      "statuses": {
+        "run_error": 3
+      },
+      "distinct_valid_answer_objects": 0,
+      "distinct_generation_request_ids": 1
+    },
+    {
+      "case_id": "pydantic-optional",
+      "configuration": "version_filtered",
+      "snapshot": "before",
+      "planned_repetitions": 3,
+      "recorded": 3,
+      "statuses": {
+        "run_error": 3
+      },
+      "distinct_valid_answer_objects": 0,
+      "distinct_generation_request_ids": 1
+    },
+    {
+      "case_id": "pydantic-optional",
+      "configuration": "version_filtered",
+      "snapshot": "after",
+      "planned_repetitions": 3,
+      "recorded": 3,
+      "statuses": {
+        "run_error": 3
+      },
+      "distinct_valid_answer_objects": 0,
+      "distinct_generation_request_ids": 1
+    },
+    {
+      "case_id": "pydantic-union",
+      "configuration": "version_filtered",
+      "snapshot": "before",
+      "planned_repetitions": 3,
+      "recorded": 3,
+      "statuses": {
+        "run_error": 3
+      },
+      "distinct_valid_answer_objects": 0,
+      "distinct_generation_request_ids": 1
+    },
+    {
+      "case_id": "pydantic-union",
+      "configuration": "version_filtered",
+      "snapshot": "after",
+      "planned_repetitions": 3,
+      "recorded": 3,
+      "statuses": {
+        "answered_pending_review": 3
+      },
+      "distinct_valid_answer_objects": 1,
+      "distinct_generation_request_ids": 1
+    }
+  ]
+}

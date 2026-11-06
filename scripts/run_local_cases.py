@@ -12,6 +12,7 @@ from knowledge_delta.onnx_embeddings import LocalOnnxMiniLM
 from knowledge_delta.experiments import run_dataset
 from knowledge_delta.local_environment import configure_offline_environment
 from knowledge_delta.ollama import ALLOWED_MODELS, OllamaClient
+from knowledge_delta.pipeline import RunConfiguration
 from knowledge_delta.snapshots import load_snapshot
 from knowledge_delta.validation import ValidationError, read_json
 
@@ -26,6 +27,8 @@ def main(argv=None):
                         default="sentence-transformers", help="Explicit backend; never falls back automatically")
     parser.add_argument("--model", choices=ALLOWED_MODELS, default="qwen3:1.7b")
     parser.add_argument("--repeats", type=int, choices=range(1, 6), default=1)
+    parser.add_argument("--max-output-tokens", type=int, choices=(128, 256), default=128,
+                        help="Explicit output cap; changing it creates a separate experiment")
     parser.add_argument("--output", type=Path, help="Save raw UTF-8 JSON to a new project-local runs/*.json file")
     args = parser.parse_args(argv)
     run_started = False
@@ -47,7 +50,8 @@ def main(argv=None):
         embedder = embedding_class(directory, ROOT)
         run_started = True
         result = run_dataset(dataset, before, after, embedder, OllamaClient(args.model),
-                             repeats=args.repeats, token_limit=min(128, embedder.token_limit))
+                             repeats=args.repeats, token_limit=min(128, embedder.token_limit),
+                             configuration=RunConfiguration(max_output_tokens=args.max_output_tokens))
         if output is not None:
             output.parent.mkdir(parents=True, exist_ok=True)
             with output.open("x", encoding="utf-8") as stream:

@@ -68,3 +68,33 @@ def test_explicit_onnx_backend_does_not_silently_call_legacy_adapter(monkeypatch
     monkeypatch.setattr(cli, "LocalMiniLM", lambda *a: pytest.fail("Legacy adapter must not be selected"))
     monkeypatch.setattr(cli, "LocalOnnxMiniLM", lambda *a: SimpleNamespace(token_limit=256))
     assert cli.main([*args, "--embedding-backend", "onnxruntime"]) == 0
+
+
+@pytest.mark.parametrize("cap", [128, 256])
+def test_explicit_output_cap_reaches_experiment_without_changing_other_settings(monkeypatch, tmp_path, cap):
+    from knowledge_delta.pipeline import RunConfiguration
+    args, result = prepare(monkeypatch, tmp_path)
+    def capture(*a, **kwargs):
+        assert kwargs["configuration"] == RunConfiguration(max_output_tokens=cap)
+        assert kwargs["repeats"] == 1
+        assert kwargs["token_limit"] == 128
+        return result
+    monkeypatch.setattr(cli, "run_dataset", capture)
+    assert cli.main([*args, "--max-output-tokens", str(cap)]) == 0
+
+
+def test_default_output_cap_preserves_original_experiment(monkeypatch, tmp_path):
+    args, result = prepare(monkeypatch, tmp_path)
+    def capture(*a, **kwargs):
+        assert kwargs["configuration"].max_output_tokens == 128
+        return result
+    monkeypatch.setattr(cli, "run_dataset", capture)
+    assert cli.main(args) == 0
+
+
+def test_unsupported_output_cap_rejected_before_model_loading(monkeypatch, tmp_path):
+    args, _ = prepare(monkeypatch, tmp_path)
+    monkeypatch.setattr(cli, "LocalMiniLM", lambda *a: pytest.fail("Invalid CLI cap must stop before loading"))
+    with pytest.raises(SystemExit) as exc:
+        cli.main([*args, "--max-output-tokens", "512"])
+    assert exc.value.code == 2

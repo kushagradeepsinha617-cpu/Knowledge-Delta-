@@ -1,0 +1,31 @@
+{
+  "kind": "lossless_variability_run_and_report_archive",
+  "human_answer_reviews": 0,
+  "semantic_correctness_measured": false,
+  "files": {
+    "raw-run.json": {
+      "bytes": 1881182,
+      "sha256": "820d5adb4364aa513eb089b50046f218232df5699ea5850fbd2cbfb09edf1b21"
+    },
+    "report.json": {
+      "bytes": 3449278,
+      "sha256": "cbc2b51cebec3dc82379fd21e916d9e9423775fac7ea6f54db391bd41a79712e"
+    },
+    "report.html": {
+      "bytes": 2220208,
+      "sha256": "8ada092121d42f92689d73bada5ab32c534dca3caac06b2214caebdb90066038"
+    },
+    "cases.json": {
+      "bytes": 5711,
+      "sha256": "3bac426663fc27d6bccb5c1a4ffa2a69e33e24f1c99c580cbe43407f61222ed3"
+    },
+    "relations.json": {
+      "bytes": 1306,
+      "sha256": "d22b7f27d74dba55e7ea6ea2f6cdbc5b23177ba9ccb5761aced052235a045b0f"
+    }
+  },
+  "archive": {
+    "bytes": 1459162,
+    "sha256": "b2286ae24b751062408e4a534a01570dc6cc6e372acb68c978a51b494eec3c0a"
+  }
+}

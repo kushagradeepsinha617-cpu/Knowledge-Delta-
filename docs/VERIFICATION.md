@@ -1,3 +1,30 @@
+# Milestone 5 current verification checkpoint
+
+The study runner and bound owner-approval gate passed **583 offline tests**,
+zero failures/errors/skips, run `25f2ca58950a4edcb05e740f1443b209`.
+All 324 tested source/configuration/fixture files matched at the study freeze.
+See `evidence/milestone5-owner-approval-and-controls/` for JUnit, raw output,
+real CLI checks and exact source hashes. Failed earlier path-length fixture
+verification remains preserved separately; it was not counted as a pass.
+
+The core wheel built using existing setuptools 84.2.1 and installed through the
+previously hash-verified pip wheel into a new isolated Python 3.14.10 environment.
+Installed CLI help, doctor, real document comparison, packaged web assets and
+the installed local HTTP fixture load passed. Receipt:
+`evidence/milestone5-packaging/fe44d2c91ac643b894994586e9c44999.json`.
+No network, model request, global installation or security change was used for
+that probe. Fresh online/full-ML resolution and a cross-platform matrix remain
+unverified; this checkpoint is broader than the earlier source-only test setup.
+
+Actual Chrome desktop fixture screenshots are in `screenshots/` and described
+in SHOWCASE.md. They show observed UI state, not live benchmark results. A full
+viewport/browser visual audit is not established by those three captures.
+
+The expanded study was started under a frozen protocol; successful complete
+execution and semantic findings are not claimed by these code/setup checks.
+
+## Earlier verification history (preserved)
+
 # Initial Milestone 1 verification (historical)
 
 This record describes the original 52-test source at commit fe2ee049.

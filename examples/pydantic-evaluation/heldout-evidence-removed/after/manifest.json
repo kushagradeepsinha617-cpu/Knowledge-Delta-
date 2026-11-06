@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "name": "heldout-evidence-removed-after",
+  "domain": "pydantic",
+  "default_version": "2.10.6",
+  "provenance": "constructed",
+  "documents": []
+}

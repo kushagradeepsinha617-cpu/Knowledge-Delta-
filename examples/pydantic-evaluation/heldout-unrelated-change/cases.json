@@ -1,0 +1,296 @@
+{
+  "schema_version": 1,
+  "snapshot_ids": {
+    "before": "a0033af97392b43ce9067969257a4f2f8ba763d8df4a28292bee35be35a6aead",
+    "after": "ec1b05f68f753f728274ec4810e6838a02eead23f96b20bca193614731da3715"
+  },
+  "cases": [
+    {
+      "case_id": "study-default-validation-opt-in",
+      "family_id": "field-default-validation",
+      "question": "In Pydantic 2.10.6, are field defaults validated by default, and how can validation of defaults be enabled?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "No. Enable validate_default on the field or in model configuration.",
+          "rubric": "Require disabled-by-default plus validate_default; do not confuse a supplied input value with a default.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.ef484435575a2ca3",
+              "quote": "By default, Pydantic will *not* validate default values. The `validate_default` field parameter"
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "No. Enable validate_default on the field or in model configuration.",
+          "rubric": "Require disabled-by-default plus validate_default; do not confuse a supplied input value with a default.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.ef484435575a2ca3",
+              "quote": "By default, Pydantic will *not* validate default values. The `validate_default` field parameter"
+            }
+          ]
+        }
+      },
+      "category": "unrelated_change",
+      "provenance": "constructed",
+      "split": "held_out",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "study-annotated-static-init",
+      "family_id": "annotated-init-signature",
+      "question": "In Pydantic 2.10.6, for static type checkers to synthesize __init__ using default, default_factory, or alias, should these Field arguments be placed only inside Annotated?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "No. Use the normal assignment form for these arguments; static type checkers do not understand the annotated pattern for that synthesis.",
+          "rubric": "Limit the claim to static constructor synthesis; do not claim Pydantic ignores Annotated metadata at runtime.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.263e38661945da53",
+              "quote": "The annotated pattern is *not* understood by them, so you should use the normal\nassignment form instead."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "No. Use the normal assignment form for these arguments; static type checkers do not understand the annotated pattern for that synthesis.",
+          "rubric": "Limit the claim to static constructor synthesis; do not claim Pydantic ignores Annotated metadata at runtime.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.263e38661945da53",
+              "quote": "The annotated pattern is *not* understood by them, so you should use the normal\nassignment form instead."
+            }
+          ]
+        }
+      },
+      "category": "unrelated_change",
+      "provenance": "constructed",
+      "split": "held_out",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "study-strict-python-integer",
+      "family_id": "strict-input-representations",
+      "question": "In Pydantic 2.10.6, when validating Python data in strict mode for an int field, are the float 1.0 and string '1' accepted through coercion?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "No. Those float and string inputs raise validation errors rather than being coerced to int.",
+          "rubric": "Limit the answer to strict Python validation of an int field; do not claim lax mode has the same behavior or infer unrelated subclass edge cases.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.2b9190838d31d054",
+              "quote": "For example, when validating an `int` field, only instances of `int` are accepted; passing instances of `float` or `str`\nwill result in raising a `ValidationError`."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "No. Those float and string inputs raise validation errors rather than being coerced to int.",
+          "rubric": "Limit the answer to strict Python validation of an int field; do not claim lax mode has the same behavior or infer unrelated subclass edge cases.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.2b9190838d31d054",
+              "quote": "For example, when validating an `int` field, only instances of `int` are accepted; passing instances of `float` or `str`\nwill result in raising a `ValidationError`."
+            }
+          ]
+        }
+      },
+      "category": "unrelated_change",
+      "provenance": "constructed",
+      "split": "held_out",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "study-strict-json-uuid",
+      "family_id": "strict-input-representations",
+      "question": "In Pydantic 2.10.6, under strict validation of a UUID field, is a UUID string accepted identically from a Python dictionary and from JSON?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "No. A UUID string can be accepted from JSON in strict mode, while the same string in Python data is rejected.",
+          "rubric": "Require the Python-versus-JSON distinction; reject a blanket claim that strict mode rejects all string representations in JSON.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.2b9190838d31d054",
+              "quote": "instances of `str` will be accepted when validating from JSON, but not from python:"
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "No. A UUID string can be accepted from JSON in strict mode, while the same string in Python data is rejected.",
+          "rubric": "Require the Python-versus-JSON distinction; reject a blanket claim that strict mode rejects all string representations in JSON.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.2b9190838d31d054",
+              "quote": "instances of `str` will be accepted when validating from JSON, but not from python:"
+            }
+          ]
+        }
+      },
+      "category": "unrelated_change",
+      "provenance": "constructed",
+      "split": "held_out",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "study-json-cache-keys",
+      "family_id": "json-string-cache",
+      "question": "In Pydantic 2.10.6, what does cache_strings='keys' cache, and is that mode documented as applying indiscriminately to every validation path?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "It caches dictionary keys only, with the documented scope of pydantic_core.from_json or JSON parsing through Json.",
+          "rubric": "Require key-only caching and the stated scope; do not confuse this parser cache with an application answer cache or promise lower memory in every workload.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.7b09585d2a887241",
+              "quote": "* `'keys'`: cache only dictionary keys, this **only** applies when used with [`pydantic_core.from_json`][pydantic_core.from_json] or when parsing JSON using [`Json`][pydantic.types.Json]"
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "It caches dictionary keys only, with the documented scope of pydantic_core.from_json or JSON parsing through Json.",
+          "rubric": "Require key-only caching and the stated scope; do not confuse this parser cache with an application answer cache or promise lower memory in every workload.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.7b09585d2a887241",
+              "quote": "* `'keys'`: cache only dictionary keys, this **only** applies when used with [`pydantic_core.from_json`][pydantic_core.from_json] or when parsing JSON using [`Json`][pydantic.types.Json]"
+            }
+          ]
+        }
+      },
+      "category": "unrelated_change",
+      "provenance": "constructed",
+      "split": "held_out",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "study-schema-extra-callable",
+      "family_id": "schema-extra-composition",
+      "question": "In Pydantic 2.10.6, is json_schema_extra restricted to a static dictionary, or can it also accept a callable?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "It can accept either a dictionary or a callable.",
+          "rubric": "Require both accepted forms; do not claim arbitrary mixed dict/callable composition is supported.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.cc27cdbda89588e2",
+              "quote": "You can pass a `dict` or a `Callable` to `json_schema_extra`."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "It can accept either a dictionary or a callable.",
+          "rubric": "Require both accepted forms; do not claim arbitrary mixed dict/callable composition is supported.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.cc27cdbda89588e2",
+              "quote": "You can pass a `dict` or a `Callable` to `json_schema_extra`."
+            }
+          ]
+        }
+      },
+      "category": "unrelated_change",
+      "provenance": "constructed",
+      "split": "held_out",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "study-schema-extra-dictionary-merge",
+      "family_id": "schema-extra-composition",
+      "question": "In Pydantic 2.10.6, when a reused Annotated type and a further annotation provide json_schema_extra dictionaries with different keys, does the later dictionary necessarily replace the earlier dictionary entirely?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "No. The documented v2.9+ behavior merges the dictionaries additively, preserving their different keys.",
+          "rubric": "Require additive dictionary merging for the stated distinct-key case; do not invent same-key conflict rules or support for composing dictionaries with callables.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.898ac3bcdbfe2daa",
+              "quote": "Starting in v2.9, Pydantic merges `json_schema_extra` dictionaries from annotated types."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "No. The documented v2.9+ behavior merges the dictionaries additively, preserving their different keys.",
+          "rubric": "Require additive dictionary merging for the stated distinct-key case; do not invent same-key conflict rules or support for composing dictionaries with callables.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.898ac3bcdbfe2daa",
+              "quote": "Starting in v2.9, Pydantic merges `json_schema_extra` dictionaries from annotated types."
+            }
+          ]
+        }
+      },
+      "category": "unrelated_change",
+      "provenance": "constructed",
+      "split": "held_out",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    }
+  ]
+}

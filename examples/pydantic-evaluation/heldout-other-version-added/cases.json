@@ -1,0 +1,460 @@
+{
+  "schema_version": 1,
+  "snapshot_ids": {
+    "before": "555955cbeb99c36335fc4a68a2080be047daa76c4e575825e80632bddfeb474a",
+    "after": "624d55bcc03b7a810f2d52d7c3becfd7d780c84e7677eadb9d5302d6e311d4a6"
+  },
+  "cases": [
+    {
+      "case_id": "study-schema-sort-properties",
+      "family_id": "schema-key-ordering",
+      "question": "In Pydantic 2.10.6, does the default recursive JSON-schema key sorting also alphabetize a model's properties instead of preserving field declaration order?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "No. Properties are the documented exception: their field order is preserved.",
+          "rubric": "Require the properties exception while retaining the general sorting rule; do not claim all schema keys retain insertion order.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.eb8c0df1d37cf2b3",
+              "quote": "By default, Pydantic recursively sorts JSON schemas by alphabetically sorting keys. Notably, Pydantic skips sorting the values of the `properties` key,\nto preserve the order of the fields as they were defined in the model."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "No. Properties are the documented exception: their field order is preserved.",
+          "rubric": "Require the properties exception while retaining the general sorting rule; do not claim all schema keys retain insertion order.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.eb8c0df1d37cf2b3",
+              "quote": "By default, Pydantic recursively sorts JSON schemas by alphabetically sorting keys. Notably, Pydantic skips sorting the values of the `properties` key,\nto preserve the order of the fields as they were defined in the model."
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "held_out",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "study-deprecated-field-effects",
+      "family_id": "field-deprecation",
+      "question": "In Pydantic 2.10.6, what observable effects does marking a field deprecated have on field access and generated JSON schema?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "Access emits a deprecation warning, and the generated schema contains deprecated: true.",
+          "rubric": "Require both effects; do not claim deprecation automatically deletes the field, forbids validation, or raises a validation error.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.a9eae1a7d46829d5",
+              "quote": "* a runtime deprecation warning emitted when accessing the field.\n* `\"deprecated\": true` being set in the generated JSON schema."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "Access emits a deprecation warning, and the generated schema contains deprecated: true.",
+          "rubric": "Require both effects; do not claim deprecation automatically deletes the field, forbids validation, or raises a validation error.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.a9eae1a7d46829d5",
+              "quote": "* a runtime deprecation warning emitted when accessing the field.\n* `\"deprecated\": true` being set in the generated JSON schema."
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "held_out",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "study-adapter-field-annotation",
+      "family_id": "adapter-annotation-boundary",
+      "question": "In Pydantic 2.10.6, should a TypeAdapter instance itself be used as the type annotation of a BaseModel field?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "No. TypeAdapter is a validation/schema utility, not the field type annotation to use there.",
+          "rubric": "Require the annotation restriction; do not claim the underlying Pydantic-compatible type cannot be used in a field.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.adf616eb78ba365f",
+              "quote": "[`TypeAdapter`][pydantic.type_adapter.TypeAdapter] should not be used as a type annotation for\n    specifying fields of a `BaseModel`, etc."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "No. TypeAdapter is a validation/schema utility, not the field type annotation to use there.",
+          "rubric": "Require the annotation restriction; do not claim the underlying Pydantic-compatible type cannot be used in a field.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.adf616eb78ba365f",
+              "quote": "[`TypeAdapter`][pydantic.type_adapter.TypeAdapter] should not be used as a type annotation for\n    specifying fields of a `BaseModel`, etc."
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "held_out",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "study-model-after-return-instance",
+      "family_id": "model-validator-dispatch",
+      "question": "In Pydantic 2.10.6, what should a model_validator(mode='after') return after checking an already validated model?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "The validated model instance, normally self.",
+          "rubric": "Require returning the instance, not a field value or an arbitrary dictionary; distinguish this from a field validator's return contract.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.a2ff9698896a9cd5",
+              "quote": "Important note: the validated instance\n  should be returned."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "The validated model instance, normally self.",
+          "rubric": "Require returning the instance, not a field value or an arbitrary dictionary; distinguish this from a field validator's return contract.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.a2ff9698896a9cd5",
+              "quote": "Important note: the validated instance\n  should be returned."
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "held_out",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "study-model-before-input-shape",
+      "family_id": "model-validator-dispatch",
+      "question": "In Pydantic 2.10.6, may a model_validator(mode='before') safely assume its raw input is always a dictionary?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "No. The raw input can be an arbitrary object; check its shape before using dictionary-specific operations.",
+          "rubric": "Require that the input is not guaranteed to be a dict; do not claim dictionaries are never received or introduce an unrequested ORM configuration recipe.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.b1efb24685e235bb",
+              "quote": "but they also have to deal with the raw input, which in theory could be any arbitrary object."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "No. The raw input can be an arbitrary object; check its shape before using dictionary-specific operations.",
+          "rubric": "Require that the input is not guaranteed to be a dict; do not claim dictionaries are never received or introduce an unrequested ORM configuration recipe.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.b1efb24685e235bb",
+              "quote": "but they also have to deal with the raw input, which in theory could be any arbitrary object."
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "held_out",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "study-model-validator-override",
+      "family_id": "model-validator-dispatch",
+      "question": "In Pydantic 2.10.6, if a subclass overrides an inherited model validator, are both the original and overriding versions automatically called?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "No. Only the subclass's overriding version of that validator is called.",
+          "rubric": "Limit the answer to an actual override; do not claim every other distinct inherited validator is disabled or confuse it with model_config merging.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.ffcaa58b7ccaa099",
+              "quote": "Overriding a model validator in a subclass will override the base class' validator, and thus only the subclass' version of said validator will be called."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "No. Only the subclass's overriding version of that validator is called.",
+          "rubric": "Limit the answer to an actual override; do not claim every other distinct inherited validator is disabled or confuse it with model_config merging.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.ffcaa58b7ccaa099",
+              "quote": "Overriding a model validator in a subclass will override the base class' validator, and thus only the subclass' version of said validator will be called."
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "held_out",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "study-validator-context",
+      "family_id": "validation-context-access",
+      "question": "In Pydantic 2.10.6, how can a validator access a user-provided context object supplied to a validation method?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "Pass context to the validation method and read it through ValidationInfo.context inside the validator.",
+          "rubric": "Require the method context argument and ValidationInfo.context access; do not invent global state or imply ordinary constructor calls automatically accept the same context argument.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.bf156081553f4645",
+              "quote": "You can pass a context object to the [validation methods](./models.md#validating-data), which can be accessed\ninside the validator functions using the [`context`][pydantic.ValidationInfo.context] property:"
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "Pass context to the validation method and read it through ValidationInfo.context inside the validator.",
+          "rubric": "Require the method context argument and ValidationInfo.context access; do not invent global state or imply ordinary constructor calls automatically accept the same context argument.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.bf156081553f4645",
+              "quote": "You can pass a context object to the [validation methods](./models.md#validating-data), which can be accessed\ninside the validator functions using the [`context`][pydantic.ValidationInfo.context] property:"
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "held_out",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "study-validate-call-unannotated",
+      "family_id": "call-validation-contracts",
+      "question": "In Pydantic 2.10.6, what type is assumed for a validate_call-decorated function parameter without a type annotation?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "Any.",
+          "rubric": "Require Any; do not infer the type solely from its name or claim the parameter is rejected for lacking an annotation.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.7e6baad323b68c74",
+              "quote": "Parameter types are inferred from type annotations on the function, or as [`Any`][typing.Any] if not annotated."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "Any.",
+          "rubric": "Require Any; do not infer the type solely from its name or claim the parameter is rejected for lacking an annotation.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.7e6baad323b68c74",
+              "quote": "Parameter types are inferred from type annotations on the function, or as [`Any`][typing.Any] if not annotated."
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "held_out",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "study-validate-call-return-opt-in",
+      "family_id": "call-validation-contracts",
+      "question": "In Pydantic 2.10.6, does validate_call validate a function's return value by default, and how is return validation enabled?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "No. Set validate_return=True on the decorator to enable it.",
+          "rubric": "Require default-off plus the exact opt-in; do not confuse argument validation, which occurs before the call, with return validation.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.7e6baad323b68c74",
+              "quote": "By default, the return value of the function is **not** validated. To do so, the `validate_return` argument\n    of the decorator can be set to `True`."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "No. Set validate_return=True on the decorator to enable it.",
+          "rubric": "Require default-off plus the exact opt-in; do not confuse argument validation, which occurs before the call, with return validation.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.7e6baad323b68c74",
+              "quote": "By default, the return value of the function is **not** validated. To do so, the `validate_return` argument\n    of the decorator can be set to `True`."
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "held_out",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "study-validate-call-async",
+      "family_id": "call-validation-contracts",
+      "question": "In Pydantic 2.10.6, can validate_call decorate an async function, or is it restricted to synchronous functions?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "It also supports async functions.",
+          "rubric": "Require async support; do not claim this turns an async function into a synchronous function or removes the need to await its coroutine.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.64605617fdf3b907",
+              "quote": "[`validate_call()`][pydantic.validate_call] can also be used on async functions:"
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "It also supports async functions.",
+          "rubric": "Require async support; do not claim this turns an async function into a synchronous function or removes the need to await its coroutine.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.64605617fdf3b907",
+              "quote": "[`validate_call()`][pydantic.validate_call] can also be used on async functions:"
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "held_out",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    },
+    {
+      "case_id": "study-validate-call-signatures",
+      "family_id": "call-validation-contracts",
+      "question": "In Pydantic 2.10.6, is validate_call limited to ordinary positional-or-keyword arguments, or does it also support positional-only, keyword-only, *args and **kwargs parameters?",
+      "target": "explicit_version",
+      "requested_version": "2.10.6",
+      "expectations": {
+        "before": {
+          "behavior": "answer",
+          "answer": "It supports those parameter configurations and their combinations, including positional-only, keyword-only, *args, and **kwargs.",
+          "rubric": "Require support for the listed shapes without changing Python's own calling rules; do not claim arbitrary positional passing becomes valid for keyword-only parameters.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.82e748f6d40391f2",
+              "quote": "* Positional-only parameters: parameters before `, /`.\n* Variable positional parameters defined via `*` (often `*args`).\n* Variable keyword parameters defined via `**` (often `**kwargs`)."
+            }
+          ]
+        },
+        "after": {
+          "behavior": "answer",
+          "answer": "It supports those parameter configurations and their combinations, including positional-only, keyword-only, *args, and **kwargs.",
+          "rubric": "Require support for the listed shapes without changing Python's own calling rules; do not claim arbitrary positional passing becomes valid for keyword-only parameters.",
+          "target_context": null,
+          "evidence": [
+            {
+              "document_id": "pydantic.study.82e748f6d40391f2",
+              "quote": "* Positional-only parameters: parameters before `, /`.\n* Variable positional parameters defined via `*` (often `*args`).\n* Variable keyword parameters defined via `**` (often `**kwargs`)."
+            }
+          ]
+        }
+      },
+      "category": "other_version_added",
+      "provenance": "constructed",
+      "split": "held_out",
+      "review": {
+        "status": "draft",
+        "reviewer": null,
+        "scope": null
+      }
+    }
+  ]
+}

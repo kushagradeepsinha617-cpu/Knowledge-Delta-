@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "kind": "evaluation_study_plan",
+  "status": "draft_requires_human_review",
+  "target": {
+    "development": 20,
+    "held_out": 40
+  },
+  "family_assignment": {
+    "adapter-annotation-boundary": "other_version_added",
+    "adapter-lifecycle": "evidence_removed",
+    "alias-generation-policy": "wording_only",
+    "annotated-init-signature": "unrelated_change",
+    "call-validation-contracts": "other_version_added",
+    "custom-field-schema": "evidence_removed",
+    "field-default-generation": "wording_only",
+    "field-default-validation": "unrelated_change",
+    "field-deprecation": "other_version_added",
+    "field-validator-execution": "evidence_removed",
+    "input-alias-routing": "wording_only",
+    "json-string-cache": "unrelated_change",
+    "model-validator-dispatch": "other_version_added",
+    "mutable-field-defaults": "evidence_removed",
+    "partial-json-parser": "wording_only",
+    "schema-extra-composition": "unrelated_change",
+    "schema-key-ordering": "other_version_added",
+    "schema-structural-conventions": "evidence_removed",
+    "strict-field-controls": "wording_only",
+    "strict-input-representations": "unrelated_change",
+    "validation-context-access": "other_version_added",
+    "validator-metadata-order": "evidence_removed"
+  },
+  "existing_development": [
+    "examples/pydantic",
+    "examples/pydantic-revision"
+  ],
+  "new_bundles": [
+    {
+      "path": "examples/pydantic-evaluation/development-extension",
+      "split": "development",
+      "condition": "other_version_added",
+      "case_count": 9
+    },
+    {
+      "path": "examples/pydantic-evaluation/heldout-other-version-added",
+      "split": "held_out",
+      "condition": "other_version_added",
+      "case_count": 11
+    },
+    {
+      "path": "examples/pydantic-evaluation/heldout-evidence-removed",
+      "split": "held_out",
+      "condition": "evidence_removed",
+      "case_count": 12
+    },
+    {
+      "path": "examples/pydantic-evaluation/heldout-wording-only",
+      "split": "held_out",
+      "condition": "wording_only",
+      "case_count": 10
+    },
+    {
+      "path": "examples/pydantic-evaluation/heldout-unrelated-change",
+      "split": "held_out",
+      "condition": "unrelated_change",
+      "case_count": 7
+    }
+  ]
+}

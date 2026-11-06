@@ -1,5 +1,10 @@
 # Milestone 4: credible local evaluation
 
+Scope update (2026-11-07): the user consolidated unfinished evaluation work,
+reproducibility verification and portfolio packaging into
+[Milestone 5](MILESTONE_5.md). The exploratory study below does not constitute
+completion of the broader 60-reviewed-case/held-out target.
+
 Status: Milestone 4 deliverables verified for the documented exploratory study.
 The final publication is checked against the local evidence before goal closure.
 There are 11 human-reviewed case definitions and four actual human answer

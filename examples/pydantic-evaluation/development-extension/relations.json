@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "dataset_hash": "c3e88a524abb5ebd8e684b82924a6b7d222a0f680c74b0ecaca436851c259cfd",
+  "relations": [
+    {
+      "schema_version": 1,
+      "case_id": "study-dataclass-tuple-input",
+      "case_hash": "0bc528946c0f6ef9eeb7f004c4b9ebaf09bc2bcd15062897320ae566e814ab3b",
+      "relation": "should_remain",
+      "basis": "draft",
+      "reviewer": null,
+      "reviewed_at": null,
+      "rationale": "Draft evidence-only expectation for explicitly constructed other_version_added condition."
+    },
+    {
+      "schema_version": 1,
+      "case_id": "study-dataclass-post-init",
+      "case_hash": "797413caa548fc2e307179816ab3c2862f4b4597af654489af87217403317d8b",
+      "relation": "should_remain",
+      "basis": "draft",
+      "reviewer": null,
+      "reviewed_at": null,
+      "rationale": "Draft evidence-only expectation for explicitly constructed other_version_added condition."
+    },
+    {
+      "schema_version": 1,
+      "case_id": "study-dataclass-extra-attributes",
+      "case_hash": "2605d9cbfa80ee184965984d4997b0f767c5af17a0008adb87bc0866ea298c92",
+      "relation": "should_remain",
+      "basis": "draft",
+      "reviewer": null,
+      "reviewed_at": null,
+      "rationale": "Draft evidence-only expectation for explicitly constructed other_version_added condition."
+    },
+    {
+      "schema_version": 1,
+      "case_id": "study-dataclass-parent-config",
+      "case_hash": "62bf02501140a39407993eedeebc5941bd1908644c8b39c4a3777916501ea7c2",
+      "relation": "should_remain",
+      "basis": "draft",
+      "reviewer": null,
+      "reviewed_at": null,
+      "rationale": "Draft evidence-only expectation for explicitly constructed other_version_added condition."
+    },
+    {
+      "schema_version": 1,
+      "case_id": "study-model-config-dictionary",
+      "case_hash": "6db51233a01e271e67cea7408ed9b543ca891537a054d48625ad6c4f20f3c836",
+      "relation": "should_remain",
+      "basis": "draft",
+      "reviewer": null,
+      "reviewed_at": null,
+      "rationale": "Draft evidence-only expectation for explicitly constructed other_version_added condition."
+    },
+    {
+      "schema_version": 1,
+      "case_id": "study-model-config-multiple-inheritance",
+      "case_hash": "f1f30a11204196e00ed74f2bf8f22e40fa1f6993044a5ba25d932b8eaae6bc7d",
+      "relation": "should_remain",
+      "basis": "draft",
+      "reviewer": null,
+      "reviewed_at": null,
+      "rationale": "Draft evidence-only expectation for explicitly constructed other_version_added condition."
+    },
+    {
+      "schema_version": 1,
+      "case_id": "study-generic-model-base-classes",
+      "case_hash": "f491304dd7a4b00ad14c82250214edf859c0199fc9d7b7f7aea2f6a976868578",
+      "relation": "should_remain",
+      "basis": "draft",
+      "reviewer": null,
+      "reviewed_at": null,
+      "rationale": "Draft evidence-only expectation for explicitly constructed other_version_added condition."
+    },
+    {
+      "schema_version": 1,
+      "case_id": "study-mapping-input-type",
+      "case_hash": "01853bdf00136c7cab8005013b8119ea43517a3e833c4da7b43ec2bc178f0646",
+      "relation": "should_remain",
+      "basis": "draft",
+      "reviewer": null,
+      "reviewed_at": null,
+      "rationale": "Draft evidence-only expectation for explicitly constructed other_version_added condition."
+    },
+    {
+      "schema_version": 1,
+      "case_id": "study-url-string-conversion",
+      "case_hash": "07caf88c84cc205a9c7195e9c98100ba4e7b2714b33d45910bc251e76bdfde7c",
+      "relation": "should_remain",
+      "basis": "draft",
+      "reviewer": null,
+      "reviewed_at": null,
+      "rationale": "Draft evidence-only expectation for explicitly constructed other_version_added condition."
+    }
+  ]
+}

@@ -141,8 +141,21 @@ Repeated fixed-subset variability runs bypass answer caching.
    must remain visibly distinguished from reviewed labels and actual inference.
 4. Evaluation: verified licensed versioned sources (prefer Pydantic v1/v2),
    review/splits, held-out support, controlled experiments, variability/limits.
-5. Portfolio: exact Windows instructions, architecture, dataset card, attribution,
-   real benchmark evidence, demo script and case study with pending claims.
+5. Final evaluation and portfolio packaging (scope consolidated by the user on
+   2026-11-07): finish and verify study-runner controls; complete the 60-reviewed
+   case target (20 development/40 held-out); freeze and execute the controlled
+   local/variability experiments; review actual answers and report supported
+   metrics with complete accounting; verify fresh supported-environment setup
+   and package builds; finish exact Windows instructions, architecture, dataset
+   card, attribution, measured results, screenshots, demo and case study.
+   This carries forward unfinished evaluation work from Milestone 4 without
+   claiming that work was already completed. See docs/MILESTONE_5.md.
+
+   Subsequent owner instruction authorizes all case definitions and expected
+   relations as a blanket approval, with no further case-approval prompts.
+   Preserve item-level human-review records separately from that authorization.
+   The execution ledger binds the exact 60 cases/relations, datasets and snapshots;
+   this does not authorize inventing human answer judgments or independent review.
 
 Full acceptance tests eventually cover identity/isolation, metadata/removals,
 version filtering, expected changes/regressions, evidence removal, bad citations,

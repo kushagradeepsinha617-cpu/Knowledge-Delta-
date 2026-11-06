@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "name": "heldout-unrelated-change-after",
+  "domain": "pydantic",
+  "default_version": "2.10.6",
+  "provenance": "constructed",
+  "documents": [
+    {
+      "document_id": "pydantic.study.ef484435575a2ca3",
+      "path": "pydantic.study.ef484435575a2ca3.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/fields.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "Validate default values"
+    },
+    {
+      "document_id": "pydantic.study.263e38661945da53",
+      "path": "pydantic.study.263e38661945da53.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/fields.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "The annotated pattern"
+    },
+    {
+      "document_id": "pydantic.study.2b9190838d31d054",
+      "path": "pydantic.study.2b9190838d31d054.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/strict_mode.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "Type coercions in strict mode"
+    },
+    {
+      "document_id": "pydantic.study.7b09585d2a887241",
+      "path": "pydantic.study.7b09585d2a887241.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/json.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "Caching Strings"
+    },
+    {
+      "document_id": "pydantic.study.cc27cdbda89588e2",
+      "path": "pydantic.study.cc27cdbda89588e2.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/json_schema.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "Using `json_schema_extra`\n"
+    },
+    {
+      "document_id": "pydantic.study.898ac3bcdbfe2daa",
+      "path": "pydantic.study.898ac3bcdbfe2daa.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/json_schema.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "Merging `json_schema_extra`"
+    },
+    {
+      "document_id": "pydantic.study.control-note",
+      "path": "control-note.md",
+      "source_reference": "constructed:study-control",
+      "source_revision": "fixture-v1",
+      "software_versions": [],
+      "title": "Constructed unrelated control note"
+    }
+  ]
+}

@@ -1,322 +1,89 @@
 # KnowledgeDelta
 
-A local tool for testing whether documentation changes cause incorrect answers
-in an AI documentation assistant.
+Test whether documentation changes cause incorrect answers in an AI documentation assistant.
 
-**Milestone 1:** the defined foundation passed **92 offline pytest tests** and
-real CLI checks in the configuration below.
+KnowledgeDelta compares two document snapshots, asks the same version-specific questions, and preserves the answers and exact evidence for review. A changed answer can be expected; an old document can still be correct for an old software version.
 
-**Milestone 4 evaluation workflow and exploratory study are verified.** Ten Pydantic development cases now use pinned,
-MIT-licensed upstream documentation in a clearly labeled constructed snapshot
-experiment. All ten main case definitions are explicitly human-reviewed. Local
-inference now runs, and four actual answers have received human judgments.
-Other answers remain ungraded. A separate genuine upstream revision has one
-additional approved case, with release applicability explicitly unknown.
-See [Milestone 4](docs/MILESTONE_4.md)
-and the [Pydantic source/review batch](examples/pydantic/README.md).
+**Status:** working local application and exploratory evaluation. The expanded 60-case study is currently running under a frozen protocol. User approval of all definitions is recorded separately from item-level human review. [Review provenance](docs/REVIEW_PROVENANCE.md) explains that distinction.
 
-**Milestone 3 fixture workflow:** The evaluator, fixture
-replay, reports, manual reviews and local web interface are implemented. The user
-approved replacing Streamlit with a Python standard-library interface that does
-not use pandas. Smart App Control remains On. The user has manually loaded and inspected scripted replay; an automated visual
-layout audit remains unverified. Actual ONNX embeddings and NumPy retrieval now
-pass. Actual Qwen CPU inference now also passed the ten-question hardware smoke:
-ten structured responses, zero run errors, 122.453 seconds for the full command.
-This establishes execution; semantic correctness is still ungraded. See the
-[actual inference observations and limitations](docs/LOCAL_INFERENCE_RESULTS.md).
-The original Pydantic runs retained all 40 comparison and 36 repeat-study records,
-including 18 and 30 run errors respectively. See [results and complete report
-archives](docs/EXPERIMENT_RESULTS.md); semantic correctness is still ungraded.
-The separate 256-token run completed 40/40 structured responses with zero run
-errors; exact recorded prompts/evidence/model controls matched the baseline.
-The current offline suite passed 568 tests. Four actual answer judgments are recorded; see [review coverage and reproduction](docs/HUMAN_REVIEW.md).
-The user approved bounded model setup: 12 GB total project storage and 5 GB
-additional artifact payload including retries, at most 1 GB for CPU embedding
-dependencies. Exact compatibility/hash/space checks still precede downloads.
-See [Milestone 3 progress](docs/MILESTONE_3.md) and
-[Milestone 2 integration limits](docs/MILESTONE_2_INTEGRATION_READINESS.md).
-Saved raw experiment JSON can now be imported for review/reporting without
-regenerating answers. Assistant and testing-tool metrics remain separate, with
-explicit exclusions and unavailable scores when eligible labels do not exist.
+## What you can inspect
 
-## Verification scope
+- Stable document identities, content/metadata hashes, and snapshot additions, edits and removals.
+- Separate snapshot indexes; basic semantic retrieval versus explicit software-version filtering.
+- Local CPU inference with Ollama/Qwen and MiniLM ONNX embeddings, with no hosted fallback.
+- Answer text, exact supplied passages, citations, model/configuration identities, malformed attempts and errors.
+- Per-snapshot judgments, expected-change comparisons, manual review history and HTML/JSON exports.
+- Clearly labeled fixture replay that works without models or downloads.
 
-The [pre-portfolio code audit](docs/CODE_AUDIT.md) fixed six issues in imported-run
-integrity, report export containment, download accounting and cached-runtime
-verification. All 568 offline tests passed; preserved experiment outcomes and
-published human-review metrics reproduced unchanged. This audit does not
-establish that every code path or environment is bug-free.
+## Run the interface
 
-**Proven setup:** Windows with **Python 3.15.2**, using explicitly staged upstream
-dependency sources inside an isolated environment.
-
-**Not yet verified:**
-
-- Fresh installation through pip.
-- Package and wheel builds.
-- Other Python versions.
-- POSIX file locking (for example, on Linux or macOS).
-- General inference performance and semantic correctness; the bounded Windows
-  Python 3.14.10/ONNX/Ollama smoke is recorded separately above.
-
-Milestone 1 completion refers to the foundation working in this recorded setup.
-It **does not mean compatibility has been verified in every environment or that
-the software is guaranteed bug-free**. The declared Python version range is not
-a verified compatibility matrix.
-
-See [the adversarial audit](docs/MILESTONE_1_AUDIT.md) and
-[verification history](docs/VERIFICATION.md) for the evidence and limitations.
-
-## Run the fixture report
-
-For the local browser interface, run:
+From the repository root, using the existing project environment:
 
 ```powershell
-.venv/Scripts/python.exe -B scripts/run_web.py --serve
+& '.\.venv\Scripts\python.exe' -B scripts/run_web.py --serve --port 8501
 ```
 
-Open **http://127.0.0.1:8501** and select **Load comparison records**. It works with
-the standard library and existing fixture files; no further setup is required.
-See [interface instructions and verification limits](docs/LOCAL_WEB_UI.md).
+Open **http://127.0.0.1:8501**. Leave the terminal open; Ctrl+C stops the service.
+Choose **Scripted fixture replay**, then **Load comparison records**. File paths are under **Files and advanced options**. Fixture outputs and draft labels remain explicitly identified; this screen does not run a model.
 
-The standalone fixture report remains available:
+For an existing saved experiment, choose **Existing run JSON** and supply its original snapshot manifests, frozen dataset, relations and raw run JSON. Loading records does not regenerate answers. See [interface instructions](docs/LOCAL_WEB_UI.md).
 
-From the repository root, using the existing isolated Python:
+A fresh source-only UI environment needs Python and the standard library:
 
 ```powershell
-.venv/Scripts/python.exe -B scripts/fixture_demo.py --simulate-judgments --output-dir runs/my-fixture-report
+py -3 -m venv .venv
+& '.\.venv\Scripts\python.exe' -B scripts/run_web.py --serve --port 8501
 ```
 
-Open `runs/my-fixture-report/report.html` in your browser. This standard-library
-workflow requires no model, service, or extra runtime package. Omit
-`--simulate-judgments` to leave semantic judgments unresolved. Existing reports
-with different content are preserved; choose a new output directory for a new run.
+Python 3.15.2 and the separate Python 3.14.10 setup are the recorded Windows configurations; the declared Python range is not a verified cross-platform compatibility matrix.
 
-The [self-contained HTML sample](docs/samples/mvp-fixture/report.html) and
-[machine-readable JSON sample](docs/samples/mvp-fixture/report.json) contain
-**20 draft cases, 80 scripted answer records, zero human reviews and no model
-execution**. Download the HTML file and open it locally; GitHub displays its source.
-Simulated correctness labels illustrate the workflow and are not benchmark results.
+## Run offline checks
 
-The current local offline suite executed **373 tests**, with no failures, errors
-or skips; see [local web UI verification](docs/evidence/milestone3-local-web-verified/checks.json).
-The earlier [358-test setup-helper verification](docs/evidence/milestone3-ui-setup-helper/checks.json)
-and subsequent 15 real NumPy checks are preserved separately. Those numeric checks
-do not verify pandas or browser rendering.
-The [341-test UI preflight verification](docs/evidence/milestone3-ui-preflight-final/checks.json)
-remains preserved.
-The earlier [313-test measurement-input verification](docs/evidence/milestone3-measurement-inputs/checks.json)
-remains preserved.
-The published saved-run checkpoint executed **294 tests**. Brain independently
-checked all **127 source hashes** against the
-[saved-run/metrics verification](docs/evidence/milestone3-run-import-final/checks.json).
-The actual saved-run CLI preserved its input bytes and exported 80 fixture answers
-and 40 comparisons, with zero human reviews and null assistant accuracy.
-The [266-test interface checkpoint](docs/evidence/milestone3-interface/checks.json)
-is preserved as historical evidence.
-The earlier [250-test fixture checkpoint](docs/evidence/milestone3-evaluation/checks.json)
-and sample reports remain historical evidence. Streamlit and live inference are
-unverified; passing mocked launcher tests is not a successful UI launch.
-
-## Review answers and check the interface
-
-Import an existing raw experiment (the path below must already exist and its
-snapshots/dataset must match the displayed defaults):
+The repository's verified source-dependency setup uses:
 
 ```powershell
-.venv/Scripts/python.exe -B scripts/fixture_demo.py --run runs/recorded-run.json --output-dir runs/imported-report
-.venv/Scripts/python.exe -B scripts/review_fixture.py --run runs/recorded-run.json --case-id request-timeout-change --slot after --repetition 2
+& '.\.venv\Scripts\python.exe' -B scripts/run_checks.py --source-dependencies --evidence-dir runs/checks-new
 ```
 
-Repetition 2 must actually exist in that run; selecting it performs no generation.
-For other inputs, pass matching `--before`, `--after`, `--dataset` and `--relations`
-paths. See [saved-run prerequisites and metrics limits](docs/MILESTONE_3.md).
+The latest source checkpoint executed **583 tests**, with zero failures, errors or skips. Ordinary tests use constructed/fault fixtures and do not need Ollama, network access or model downloads. [Raw verification evidence](docs/evidence/milestone5-owner-approval-and-controls/checks.json) and [test setup](docs/TEST_SETUP.md) describe the environment and provenance.
 
-Optional measurement inputs are now wired into the local CLI/controller:
+For a conventional explicit test installation, the project declares the pytest dependency in `.[test]`. This is a separate installation step, not application startup. The archived source-dependency test route and an offline wheel/fresh-pip-install probe have actually run; online resolution of the full ML dependency stack has not been claimed.
 
-```powershell
-.venv/Scripts/python.exe -B scripts/fixture_demo.py --run runs/recorded-run.json --reference-labels runs/reference-labels.json --output-dir runs/reference-report
-```
+## Actual observations
 
-The reference file must already contain independently assessed labels with exact
-result bindings; no labels are created automatically. For an answer that actually
-abstained, an explicit review save may include `--abstention-judgment appropriate`
-with a pass or `--abstention-judgment unnecessary` with a fail. Reviewer identity,
-rationale, binding and revision are still required. See the
-[measurement-input schema](docs/MILESTONE_3.md#optional-measurement-inputs) before
-using these options. Ordinary source tests cover these inputs; real UI rendering
-remains unverified. Brain cleared this checkpoint; it is published as
-[`bf3a8a1`](https://github.com/kushagradeepsinha617-cpu/Knowledge-Delta-/commit/bf3a8a1187d175477595fd64659418d3b849437d),
-with all 129 tested source files reconciled and prior evidence preserved.
+- The ten-question CPU smoke produced ten structured responses and zero run errors in **122.453 seconds**. This establishes execution, not semantic accuracy.
+- A 40-record development experiment at a 128-token output cap retained **18 run errors**. The separate 256-token experiment completed **40/40 structured responses**, with zero run errors; recorded inputs were checked for the intended cap-only change.
+- Four actual human answer judgments for one selected dict-pairs family showed a basic-retrieval regression and filtered recovery. This assisted, post-hoc example is not a representative accuracy estimate or proof of a sole cause.
+- The core package built into a wheel and installed through pip in a fresh isolated environment, offline with already downloaded build tools. Installed CLI commands, packaged assets and the local fixture HTTP workflow passed.
 
-Inspect an answer and its review binding without writing a review:
+See [recorded results](docs/EXPERIMENT_RESULTS.md), [human review evidence](docs/HUMAN_REVIEW.md), [local inference details](docs/LOCAL_INFERENCE_RESULTS.md) and [Milestone 5 scope](docs/MILESTONE_5.md). New expanded-study outcomes will be added after their completion/control checks pass.
 
-```powershell
-.venv/Scripts/python.exe -B scripts/review_fixture.py --case-id request-timeout-change --slot before
-```
+## Evaluation boundaries
 
-Saving requires your reviewer name, rationale, judgment, and the binding/revision
-shown during inspection. Reviews are stored in an append-only project-local
-SQLite journal; they do not automatically approve draft dataset labels.
-See the [review and interface guide](docs/MILESTONE_3_INTERFACE.md) for commands.
+The expanded dataset has **20 development and 40 held-out cases** in one Pydantic domain. The held-out set spans **22 semantic families**. Its cases are withheld from project tuning, not claimed unseen during pretraining or independently authored.
 
-Export your current inspections while keeping fixture provenance:
+The owner approved all definitions as a batch. Existing **11 item-level human case reviews** and **four human answer judgments** remain distinct from that authorization. AI-drafted cases and AI-assisted analysis do not become independent human ground truth.
 
-```powershell
-.venv/Scripts/python.exe -B scripts/fixture_demo.py --include-manual-reviews --output-dir runs/reviewed-fixture
-```
+The study separates genuine upstream revisions from constructed corpus changes. Whitespace controls test formatting stability. Empty evidence-removal snapshots exercise the evidence-only abstention policy; those abstentions are not model calls. Semantic accuracy and testing-tool precision/recall require qualifying judgments, with errors and unknowns visible in denominators.
 
-Check UI readiness (no install, model request, or server start):
+## Architecture and setup
 
-```powershell
-.venv/Scripts/python.exe -B scripts/run_web.py
-```
+Python, Ollama, local Qwen, MiniLM ONNX Runtime, NumPy, JSON and SQLite. The local interface uses the standard library. Windows protection remains enabled; the ONNX backend and interface replacement are explicit engineering decisions after native-library policy failures.
 
-This is the new standard-library interface. It does not load the blocked pandas
-module or change Windows protection. The older `scripts/run_interface.py` and
-Streamlit adapter remain historical alternatives; they are not required for this
-interface. No startup command installs dependencies or downloads models.
+- [Architecture and engineering decisions](docs/ARCHITECTURE.md)
+- [Dataset card and source attribution](docs/DATASET_CARD.md)
+- [Evaluation protocol](docs/EVALUATION.md)
+- [Explicit local model setup](docs/MILESTONE_4.md)
+- [Reproducible offline build/install probe](docs/evidence/milestone5-packaging/verify_packaging.py)
+- [Demo script](docs/DEMO_SCRIPT.md) and [case study](docs/CASE_STUDY.md)
+- [Code audit](docs/CODE_AUDIT.md) and [verification history](docs/VERIFICATION.md)
 
-The user reported a successful normal-terminal PyPI connectivity check. The
-agent's Python still cannot reach PyPI. An explicit metadata/archive-directory
-preflight is documented in the [UI setup proposal](docs/MILESTONE_3_UI_DOWNLOAD_PROPOSAL.md);
-it installs nothing. The subsequent user-run preflight resolved 34 wheels declaring
-280.5 MB of expanded files, exceeding the current 250 MB total-folder ceiling.
-The [UI-only installation proposal](docs/MILESTONE_3_UI_INSTALLATION_PROPOSAL.md)
-now has user approval for a 750 MB UI-only ceiling and a 150 MB future package-download
-cap. The explicit setup helper passed offline checks and the user installed all
-34 packages. Its final import check hit a Windows policy block on pandas. NumPy
-and PyArrow import successfully; 15 separate real NumPy tests passed. No models
-are installed. See the [actual setup status](docs/MILESTONE_3_UI_INSTALLATION_STATUS.md)
-before taking further setup actions; do not redownload packages to repeat the failure.
+Model/dependency setup is explicit. Normal operation uses local assets; services bind to localhost. There is no required paid API, cloud hosting or subscription. Models and environments are excluded from GitHub.
 
-## Foundation features
+## Scope and limitations
 
-- Immutable snapshots with stable document IDs and reproducible snapshot hashes.
-- Added/removed documents and independent content/metadata change detection.
-- Strict case validation, exact evidence quotes, fixed requested versions,
-  snapshot bindings, review labels and family split checks.
-- Read-only readiness information and an opt-in localhost model inventory.
-- Two constructed snapshots, seven draft cases, and a sample JSON diff.
-- Reproducible CLI checks, pytest tests, source hashes and execution artifacts.
+This is an exploratory AI-engineering tool for small English Markdown/text corpora, one software domain and one local answering model. It is not a production connector test, universal semantic grader or validated commercial product. Existing RAG evaluation and regression tools are prior art; no unique-invention claim is made.
 
-This milestone tests the foundation. The RAG answering pipeline, semantic
-evaluation, Streamlit interface and HTML reports belong to later milestones.
-The seven example cases have **zero human reviews** and provide no benchmark
-or commercial-validation claims.
+Fresh core installation is verified in the recorded Windows/Python 3.14.10 environment. Fresh full-ML dependency resolution, other platforms/Python versions, OS peak memory and broad generalization remain unverified. Tests and successful execution do not guarantee bug-free software.
 
-## Windows setup
-
-Use an existing Python 3.11+ installation; only 3.15.2 was exercised here.
-Open PowerShell in the repository root. Choose the actual Python executable
-if Python is not in your PATH:
-
-```powershell
-# Replace this with your existing interpreter path.
-$basePython = "C:\path\to\python.exe"
-New-Item -ItemType Directory -Path ".tools\tmp" -Force | Out-Null
-$env:TEMP = (Resolve-Path ".tools\tmp").Path
-$env:TMP = $env:TEMP
-$env:PYTHONDONTWRITEBYTECODE = "1"
-& $basePython -B -m venv .venv
-.\.venv\Scripts\python.exe -B -m pip install --no-cache-dir -r requirements-test.txt
-```
-
-This is the intended ordinary dependency-installation route. The agent's network
-sandbox prevented PyPI installation, so that installer step was **not verified**.
-The tested source-only fallback and its exact revisions are documented in
-[TEST_SETUP.md](docs/TEST_SETUP.md). Neither route installs an answering model.
-The application runs directly from the repository; editable installation and
-the optional console entry point are not required.
-
-## Run the sample
-
-From the repository root, these commands print JSON:
-
-```powershell
-.\.venv\Scripts\python.exe -B -m knowledge_delta doctor
-.\.venv\Scripts\python.exe -B -m knowledge_delta compare examples/constructed/before/manifest.json examples/constructed/after/manifest.json
-.\.venv\Scripts\python.exe -B -m knowledge_delta validate-cases examples/constructed/before/manifest.json examples/constructed/after/manifest.json examples/constructed/cases.json
-```
-
-The comparison produces five document-change records: configuration and
-installation content/source-revision changes, legacy evidence removal, a
-version-scope metadata correction, and a version-2 document addition.
-See [the expected diff](examples/constructed/expected-diff.json).
-Case validation reports seven drafts and zero human-reviewed cases.
-Changing fixture bytes invalidates their dataset snapshot bindings by design.
-
-An explicit local Ollama inventory check is available without generation:
-
-```powershell
-.\.venv\Scripts\python.exe -B -m knowledge_delta doctor --check-ollama
-```
-
-It queries only `http://127.0.0.1:11434/api/tags`; it does not download models.
-The local service refused the connection during verification.
-
-## Offline checks and evidence
-
-After explicit dependency setup, run:
-
-```powershell
-.\.venv\Scripts\python.exe -B scripts/run_checks.py
-```
-
-On the existing machine's separately staged source-dependency setup, the
-**verified command** is:
-
-```powershell
-.\.venv\Scripts\python.exe -B scripts/run_checks.py --source-dependencies --evidence-dir docs/evidence/milestone1-audit
-```
-
-.tools setup is never pushed. The source-dependency option requires the ignored `.tools/vendor` assets
-described in TEST_SETUP.md; a fresh checkout does not contain those assets.
-
-The runner rejects inherited pytest collection/selection/plugin overrides, verifies
-JUnit execution and counts, and locks shared evidence outputs. It disables
-bytecode, pytest caching and third-party plugin autoload,
-keeps its temporary directory within the project, runs actual pytest, and checks
-the real CLI in subprocesses. No test or application startup downloads anything.
-An explicit evidence path saves JUnit XML, CLI output and a source-hash manifest.
-An explicit evidence path updates its current-run records on success or failure.
-Use a fresh output directory to retain previous runs. A busy directory is rejected.
-An unwritable destination is reported as an error.
-
-Checked-in results: [JUnit](docs/evidence/milestone1-audit/pytest.xml),
-[checks](docs/evidence/milestone1-audit/checks.json),
-[CLI output](docs/evidence/milestone1-audit/cli.json),
-[tested source hashes](docs/evidence/milestone1-audit/source-manifest.json), and
-[environment](docs/evidence/milestone1-audit/environment.json).
-
-## Design and status
-
-See [scope](PROJECT_SPEC.md), [plan](PLAN.md), [decisions](docs/DECISIONS.md),
-[schemas](docs/SCHEMAS.md), [dataset card](docs/DATASET_CARD.md), and
-[Milestone 1 acceptance](docs/MILESTONE_1_ACCEPTANCE.md).
-
-Interview concept: a document keeps its identity across edits; its content hash
-and the containing snapshot's identity change. This distinguishes an edit from
-a removal followed by an unrelated addition.
-
-Historical foundation scope: the Milestone 1 evidence above did not measure AI
-inference, UI rendering or production incremental-ingestion behavior. Current
-Milestone 4 observations and pending work are stated below and in PLAN.md.
-
-
-Current ML setup observation: the project-local Python 3.14.10 interpreter and
-42-wheel dependency metadata plan have been verified. All 42 dependency versions are installed. The final import check was blocked by
-Windows Application Control on the unsigned PyTorch torch_python.dll (WinError
-4551; corroborated by Code Integrity event 3077). That PyTorch execution path
-remains blocked. The subsequently approved direct ONNX backend now runs MiniLM
-locally; its pinned assets and embedding/retrieval evidence are preserved. Windows
-protection settings were not changed by setup.
-See [native policy findings](docs/MILESTONE_4_NATIVE_POLICY_BLOCK.md). The 3.15.2 offline test configuration above is a
-separate verification scope. See PLAN.md for the exact next command and evidence.
-
-
-Actual MiniLM ONNX embedding and separate-snapshot NumPy retrieval checks now
-pass locally. Evidence contains the raw vectors/configuration and 40 retrieval
-traces; no answering model was called. The next answering-runtime setup is
-[Ollama portable preparation](docs/OLLAMA_RUNTIME_SETUP.md). Qwen inference and
-controlled answer measurements remain pending.
+Earlier setup and verification details are preserved in the [archived README](docs/archive/README-before-milestone5.md).

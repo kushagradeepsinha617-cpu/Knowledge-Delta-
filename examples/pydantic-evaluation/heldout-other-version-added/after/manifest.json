@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "name": "heldout-other-version-added-after",
+  "domain": "pydantic",
+  "default_version": "2.10.6",
+  "provenance": "constructed",
+  "documents": [
+    {
+      "document_id": "pydantic.study.eb8c0df1d37cf2b3",
+      "path": "pydantic.study.eb8c0df1d37cf2b3.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/json_schema.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "JSON schema sorting"
+    },
+    {
+      "document_id": "pydantic.study.a9eae1a7d46829d5",
+      "path": "pydantic.study.a9eae1a7d46829d5.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/fields.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "Deprecated fields"
+    },
+    {
+      "document_id": "pydantic.study.adf616eb78ba365f",
+      "path": "pydantic.study.adf616eb78ba365f.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/type_adapter.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "!!! note\n    Despite some overlap in use cases with"
+    },
+    {
+      "document_id": "pydantic.study.a2ff9698896a9cd5",
+      "path": "pydantic.study.a2ff9698896a9cd5.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/validators.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "[](){#model-after-validator}"
+    },
+    {
+      "document_id": "pydantic.study.b1efb24685e235bb",
+      "path": "pydantic.study.b1efb24685e235bb.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/validators.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "[](){#model-before-validator}"
+    },
+    {
+      "document_id": "pydantic.study.ffcaa58b7ccaa099",
+      "path": "pydantic.study.ffcaa58b7ccaa099.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/validators.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "!!! note \"On inheritance\""
+    },
+    {
+      "document_id": "pydantic.study.bf156081553f4645",
+      "path": "pydantic.study.bf156081553f4645.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/validators.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "Validation context"
+    },
+    {
+      "document_id": "pydantic.study.7e6baad323b68c74",
+      "path": "pydantic.study.7e6baad323b68c74.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/validation_decorator.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "Parameter types"
+    },
+    {
+      "document_id": "pydantic.study.64605617fdf3b907",
+      "path": "pydantic.study.64605617fdf3b907.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/validation_decorator.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "Async functions"
+    },
+    {
+      "document_id": "pydantic.study.82e748f6d40391f2",
+      "path": "pydantic.study.82e748f6d40391f2.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/validation_decorator.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "Function signatures"
+    },
+    {
+      "document_id": "pydantic.v1.models",
+      "path": "v1-models.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/0cbba0f9774c470e8d8a2a62abb921b8cea4027d/docs/usage/models.md",
+      "source_revision": "0cbba0f9774c470e8d8a2a62abb921b8cea4027d",
+      "software_versions": [
+        "1.10.21"
+      ],
+      "title": "Pydantic v1 models"
+    }
+  ]
+}

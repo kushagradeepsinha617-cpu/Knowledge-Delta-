@@ -1,3 +1,50 @@
+# Current milestone: 5 — Final evaluation and portfolio packaging
+
+The user explicitly consolidated all remaining work into Milestone 5 on
+2026-11-07. This reorganizes unfinished work; it does not mark it completed.
+Milestone 4 describes the implemented workflow and exploratory study only.
+See `docs/MILESTONE_5.md` for the full remaining scope and completion criteria.
+
+- [x] Finish study-runner control/completion checks and verify the final source.
+- [x] Record the user's explicit blanket approval of all 60 case definitions and
+      relations in a bound ledger; preserve 11 item-level human case reviews
+      separately. Keep 20 development/40 held-out cases in separate families.
+- [ ] Freeze inputs/settings, run controlled local experiments and variability
+      checks, and preserve raw records, errors, missing results and provenance.
+- [ ] Review actual answers and publish only metrics supported by those judgments;
+      report review coverage and retain unresolved records in accounting.
+- [x] Verify the offline core wheel build, fresh isolated pip installation,
+      installed CLI/assets and installed local fixture HTTP workflow. Full fresh
+      ML dependency resolution and other platforms remain explicitly unverified.
+- [ ] Finish README, architecture, dataset/source documentation, results write-up,
+      screenshots, 60–90 second demo and case study.
+
+Current evidence: final study source passed 583 tests with zero failures/errors/
+skips, run `25f2ca58950a4edcb05e740f1443b209`; all 324 source/configuration/
+fixture files matched the frozen protocol. Evidence:
+`docs/evidence/milestone5-owner-approval-and-controls/`.
+The 60-case owner-approval ledger does not rewrite the 11 item-level human case
+reviews or one human-reviewed expected relation; the other 49 case labels remain
+drafts rather than fabricated human review. See `docs/REVIEW_PROVENANCE.md`.
+
+Frozen protocol: `runs/milestone5-study-protocol.json`, ID
+`a1f613c45be401fdf95a99ee9b47ef36261f7c7baa933eece8a4aaad1e1f23c4`.
+Serial model execution is running under handle 1375; initial summary run
+`3340520f537043c297e64eedce36daee`. Poll that handle before considering a restart.
+No completed held-out result is claimed. Code/datasets must stay unchanged during
+the frozen run; documentation and packaging artifacts can be prepared separately.
+
+Fresh build/install/installed HTTP workflow passed; receipt:
+`docs/evidence/milestone5-packaging/fe44d2c91ac643b894994586e9c44999.json`.
+Three actual Chrome fixture screenshots, reproducible four-human-judgment report,
+README, architecture, dataset card, demo script and case-study draft are prepared.
+
+Next: monitor the live study, assess retained answers with explicit AI/human
+provenance, finish actual-result artifacts and audit every completion criterion.
+Publishing is a separate delivery action; it is not a condition for completion.
+
+## Earlier checkpoints (preserved)
+
 # UI refinement checkpoint
 
 - User selected an overall UI improvement before portfolio packaging.

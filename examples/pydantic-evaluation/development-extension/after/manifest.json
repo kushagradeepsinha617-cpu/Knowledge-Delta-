@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "name": "development-extension-after",
+  "domain": "pydantic",
+  "default_version": "2.10.6",
+  "provenance": "constructed",
+  "documents": [
+    {
+      "document_id": "pydantic.study.fdd719da36de5aca",
+      "path": "pydantic.study.fdd719da36de5aca.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/migration.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "Changes to dataclasses"
+    },
+    {
+      "document_id": "pydantic.study.c40bd9681e60c85a",
+      "path": "pydantic.study.c40bd9681e60c85a.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/migration.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "Changes to config"
+    },
+    {
+      "document_id": "pydantic.study.a260eb16ce4192bf",
+      "path": "pydantic.study.a260eb16ce4192bf.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/migration.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "Changes to `pydantic.generics.GenericModel`"
+    },
+    {
+      "document_id": "pydantic.study.58af11970140209e",
+      "path": "pydantic.study.58af11970140209e.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/migration.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "Input types are not preserved"
+    },
+    {
+      "document_id": "pydantic.study.2b6c7200fd4cdcb8",
+      "path": "pydantic.study.2b6c7200fd4cdcb8.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/migration.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "Url and Dsn types in `pydantic.networks` no longer inherit from `str`"
+    },
+    {
+      "document_id": "pydantic.v1.models",
+      "path": "v1-models.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/0cbba0f9774c470e8d8a2a62abb921b8cea4027d/docs/usage/models.md",
+      "source_revision": "0cbba0f9774c470e8d8a2a62abb921b8cea4027d",
+      "software_versions": [
+        "1.10.21"
+      ],
+      "title": "Pydantic v1 models"
+    }
+  ]
+}

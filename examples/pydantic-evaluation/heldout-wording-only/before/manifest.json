@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "name": "heldout-wording-only-before",
+  "domain": "pydantic",
+  "default_version": "2.10.6",
+  "provenance": "constructed",
+  "documents": [
+    {
+      "document_id": "pydantic.study.beb1405ae823fc36",
+      "path": "pydantic.study.beb1405ae823fc36.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/fields.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "Default values"
+    },
+    {
+      "document_id": "pydantic.study.7d5533626134424f",
+      "path": "pydantic.study.7d5533626134424f.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/fields.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "Field aliases"
+    },
+    {
+      "document_id": "pydantic.study.a0e7d6c6eb2c2f31",
+      "path": "pydantic.study.a0e7d6c6eb2c2f31.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/alias.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "`AliasPath` and `AliasChoices`"
+    },
+    {
+      "document_id": "pydantic.study.310f4248d3d93584",
+      "path": "pydantic.study.310f4248d3d93584.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/alias.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "Using an `AliasGenerator`"
+    },
+    {
+      "document_id": "pydantic.study.b22659a9ae994490",
+      "path": "pydantic.study.b22659a9ae994490.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/alias.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "Alias Priority"
+    },
+    {
+      "document_id": "pydantic.study.edf6a3e14284cfb2",
+      "path": "pydantic.study.edf6a3e14284cfb2.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/strict_mode.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "Strict mode with `Field`"
+    },
+    {
+      "document_id": "pydantic.study.cc367687bb27f67c",
+      "path": "pydantic.study.cc367687bb27f67c.md",
+      "source_reference": "https://github.com/pydantic/pydantic/blob/df05e69a8a3fb37628a0e3a33518ca0425334bc9/docs/concepts/json.md",
+      "source_revision": "df05e69a8a3fb37628a0e3a33518ca0425334bc9",
+      "software_versions": [
+        "2.10.6"
+      ],
+      "title": "Partial JSON Parsing"
+    }
+  ]
+}

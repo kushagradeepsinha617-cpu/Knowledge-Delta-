@@ -5,6 +5,7 @@ from types import SimpleNamespace
 
 from .cases import validate_dataset
 from .questions import QuestionInput
+from .pipeline import RunConfiguration
 from .responses import parse_answer
 from .snapshots import Snapshot
 from .validation import ValidationError, choice, digest, fields, text, _unique_object, _reject_constant
@@ -32,6 +33,51 @@ def result_key(run, trace):
             "configuration_name": text(trace["configuration_name"], "configuration_name"),
             "repetition": repetition,
             "snapshot_slot": choice(trace["snapshot_slot"], ("before", "after"), "snapshot_slot")}
+
+
+def _recorded_configuration(trace, declared):
+    """Reject contradictory recorded controls without repairing imported data."""
+    if not isinstance(declared, dict):
+        raise ValidationError("Declared configuration must be an object")
+    try:
+        RunConfiguration(**declared)
+    except TypeError as exc:
+        raise ValidationError("Unknown declared configuration setting") from exc
+    if (trace.get("origin") == "live" and trace.get("status") != "run_error"
+            and set(declared) != set(RunConfiguration.__dataclass_fields__)):
+        raise ValidationError("Answered live traces require the complete declared configuration")
+    recorded = trace.get("configuration")
+    if recorded is not None:
+        if not isinstance(recorded, dict):
+            raise ValidationError("Recorded configuration must be an object")
+        try:
+            RunConfiguration(**recorded)
+        except TypeError as exc:
+            raise ValidationError("Unknown recorded configuration setting") from exc
+        if recorded != declared:
+            raise ValidationError("Recorded configuration differs from its declared experiment configuration")
+    elif "configuration" in trace or (trace.get("origin") == "live" and trace.get("status") != "run_error"):
+        raise ValidationError("Answered live traces require their recorded configuration")
+    # Scripted fixtures deliberately carry only their simulated filtering flag;
+    # an index-error record may have no prompt or generation at all.
+    if trace.get("origin") == "fixture":
+        return
+    prompt = trace.get("prompt")
+    if isinstance(prompt, dict):
+        for field in ("context_window", "max_output_tokens"):
+            if field in declared and prompt.get(field) != declared[field]:
+                raise ValidationError("Prompt budget differs from the declared configuration")
+    generation = trace.get("generation")
+    if isinstance(generation, dict) and isinstance(generation.get("request"), dict):
+        options = generation["request"].get("options")
+        if not isinstance(options, dict):
+            raise ValidationError("Generation request options are missing")
+        for config_field, option_field in (("context_window", "num_ctx"), ("max_output_tokens", "num_predict")):
+            if config_field in declared and options.get(option_field) != declared[config_field]:
+                raise ValidationError("Generation request differs from the declared configuration")
+        attempts = generation.get("attempts")
+        if isinstance(attempts, list) and "max_attempts" in declared and len(attempts) > declared["max_attempts"]:
+            raise ValidationError("Generation attempts exceed the declared configuration")
 
 
 def binding(run, trace, dataset, case, *, snapshots=None):
@@ -110,14 +156,21 @@ def _context_check(trace, passages):
         if request["snapshot_id"] != trace["snapshot_id"] or request["effective_version"] != trace["effective_version"]:
             return "Recorded prompt snapshot/version differs from the trace"
         if trace["origin"] == "fixture":
-            if trace.get("prompt_origin") != "fixture_simulated" or trace.get("generation_performed") is not False or trace.get("generation_attempted") is not False:
+            if (trace.get("prompt_origin") != "fixture_simulated" or trace.get("generation_performed") is not False
+                    or trace.get("generation_attempted") is not False or trace.get("generation") is not None):
                 return "Fixture prompts must be explicitly simulated, with no generation"
         else:
             generation = trace["generation"]
+            if trace["origin"] == "live" and (generation.get("origin") != "live"
+                    or trace.get("answer_origin") != "live" or generation.get("status") != "answered_pending_review"
+                    or any(value is not True for value in (trace.get("generation_attempted"),
+                        trace.get("generation_performed"), generation.get("generation_attempted"),
+                        generation.get("generation_performed")))):
+                return "Live answering trace contradicts its generation origin/status/completion flags"
             if (generation["request"]["messages"] != messages or generation["answer"] != trace["answer"]
                     or generation["request"]["format"] != trace["prompt"]["format"]):
                 return "Actual generation request/answer differs from the recorded prompt/answer"
-    except (KeyError, TypeError, ValueError, RecursionError) as exc:
+    except (KeyError, TypeError, AttributeError, ValueError, RecursionError) as exc:
         return f"Missing or invalid supplied-context trace: {exc}"
     return None
 
@@ -344,6 +397,8 @@ def evaluate_run(run, dataset, relation_bundle, reviews=(), *, snapshots, allow_
     if not isinstance(run["configurations"], dict) or not run["configurations"]:
         raise ValidationError("Experiment must declare its configurations")
     configurations = [text(name, "configuration name") for name in run["configurations"]]
+    for configuration in configurations:
+        _recorded_configuration({}, run["configurations"][configuration])
     cases = {case["case_id"]: case for case in dataset["cases"]}
     if len(cases) != len(dataset["cases"]) or not cases:
         raise ValidationError("Dataset requires distinct cases")
@@ -356,6 +411,7 @@ def evaluate_run(run, dataset, relation_bundle, reviews=(), *, snapshots, allow_
         if compact in traces:
             raise ValidationError("Duplicate result record")
         choice(trace.get("origin", "unverified"), ("live", "fixture", "test_double", "unverified"), "trace origin")
+        _recorded_configuration(trace, run["configurations"][key["configuration_name"]])
         traces[compact] = trace
     origins = {trace.get("origin", "unverified") for trace in traces.values()}
     for origin in origins:

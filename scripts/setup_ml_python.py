@@ -61,6 +61,25 @@ def extract(archive_path, package, target):
         raise SetupError("Official runtime lacks expected executable/venv; preserve partial evidence")
 
 
+def verify_cached_runtime(root, target):
+    receipt = read_json(inside(root, target / "KNOWLEDGEDELTA_RUNTIME.json"))
+    if not isinstance(receipt, dict):
+        raise SetupError("Existing Python receipt must be an object; preserve and inspect")
+    files = receipt.get("files")
+    if (receipt.get("archive_sha256") != ARCHIVE_SHA256 or receipt.get("version") != VERSION
+            or receipt.get("url") != URL or not isinstance(files, dict)
+            or not {"python.exe", "Lib/venv/__init__.py"}.issubset(files)):
+        raise SetupError("Existing Python receipt lacks required runtime file identities; preserve and inspect")
+    actual = {p.relative_to(target).as_posix() for p in target.rglob("*") if p.is_file()}
+    if actual != set(files) | {"KNOWLEDGEDELTA_RUNTIME.json"}:
+        raise SetupError("Python receipt does not cover the exact installed file set")
+    for relative, expected in files.items():
+        path = inside(root, target / relative)
+        if not path.is_relative_to(target) or not path.is_file() or file_hash(path) != expected:
+            raise SetupError("Existing runtime file changed: " + relative)
+    return receipt
+
+
 def perform(root, record):
     work = inside(root, root / ".tools/model-setup")
     target = inside(root, root / ".tools/python-3.14")
@@ -97,13 +116,7 @@ def perform(root, record):
             staging.rename(target)
             if archive_path.parent == work and file_hash(archive_path) == ARCHIVE_SHA256:
                 archive_path.unlink()
-        receipt = read_json(target / "KNOWLEDGEDELTA_RUNTIME.json")
-        if receipt.get("archive_sha256") != ARCHIVE_SHA256:
-            raise SetupError("Existing runtime receipt differs; preserve and inspect")
-        for relative, expected in receipt["files"].items():
-            path = inside(root, target / relative)
-            if not path.is_relative_to(target) or file_hash(path) != expected:
-                raise SetupError("Existing runtime file changed: " + relative)
+        verify_cached_runtime(root, target)
         record["runtime_files_verified"] = True
         # Reuse the already verified project-local pip wheel; no global ensurepip.
         pip_source = inside(root, root / ".tools/ui-setup" / PIP_NAME)

@@ -1,3 +1,28 @@
+# Pre-portfolio code audit checkpoint
+
+- User requested a code audit and fixes before Milestone 5; packaging has not
+  started. Broad source/test review covered snapshots/cases, chunking/retrieval,
+  local inference, experiments, evaluation/review persistence, reports/UI and
+  setup/download helpers. Brain independently reviewed evaluation/review/export.
+- Six confirmed issues fixed: contradictory recorded configurations; simulated
+  generation inside live traces; exports into `.venv-ml`; redirect bodies outside
+  download accounting; incomplete cached Ollama receipts; incomplete cached
+  Python receipts. Regression cases exercise the faults without network/models.
+- Full offline suite: **568 executed, zero failures/errors/skips**, run
+  `9c9c70b5d60a45f9ab3634e156b3aec4`, Windows/Python 3.15.2 with verified source
+  dependencies. All 213 tested source/configuration/fixture files unchanged
+  during execution. Real foundation CLI checks also passed.
+- Read-only compatibility probe reproduced original 128/256-token outcomes,
+  four published human-review counts/metrics, and four unresolved genuine-case
+  answers. Cached Python (2208 files) and Ollama (75 files) passed stricter
+  checks without native execution. No new model calls/downloads or journal edits.
+- See `docs/CODE_AUDIT.md` and `docs/evidence/pre-portfolio-code-audit/` for
+  reproducible commands, raw evidence, fixes and remaining verification limits.
+- Next: publish/hash-reconcile this audit under standing push authorization;
+  report completion. Milestone 5 remains a separate next step.
+
+## Earlier checkpoints (preserved)
+
 # Milestone 4 closure checkpoint
 
 - Required implementation and exploratory evaluation artifacts are verified;

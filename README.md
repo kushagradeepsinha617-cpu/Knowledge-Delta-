@@ -29,7 +29,7 @@ including 18 and 30 run errors respectively. See [results and complete report
 archives](docs/EXPERIMENT_RESULTS.md); semantic correctness is still ungraded.
 The separate 256-token run completed 40/40 structured responses with zero run
 errors; exact recorded prompts/evidence/model controls matched the baseline.
-The current offline suite passed 519 tests. Four actual answer judgments are recorded; see [review coverage and reproduction](docs/HUMAN_REVIEW.md).
+The current offline suite passed 568 tests. Four actual answer judgments are recorded; see [review coverage and reproduction](docs/HUMAN_REVIEW.md).
 The user approved bounded model setup: 12 GB total project storage and 5 GB
 additional artifact payload including retries, at most 1 GB for CPU embedding
 dependencies. Exact compatibility/hash/space checks still precede downloads.
@@ -40,6 +40,12 @@ regenerating answers. Assistant and testing-tool metrics remain separate, with
 explicit exclusions and unavailable scores when eligible labels do not exist.
 
 ## Verification scope
+
+The [pre-portfolio code audit](docs/CODE_AUDIT.md) fixed six issues in imported-run
+integrity, report export containment, download accounting and cached-runtime
+verification. All 568 offline tests passed; preserved experiment outcomes and
+published human-review metrics reproduced unchanged. This audit does not
+establish that every code path or environment is bug-free.
 
 **Proven setup:** Windows with **Python 3.15.2**, using explicitly staged upstream
 dependency sources inside an isolated environment.

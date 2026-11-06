@@ -101,6 +101,16 @@ def test_missing_import_record_is_retained_as_error(saved):
     assert report["counts"]["missing_answer_records"] == 1
 
 
+def test_import_rejects_configuration_cohort_mismatch_before_review_actions(saved):
+    root, path, run = saved
+    trace = next(item for item in run["results"] if item["status"] == "answered_pending_review")
+    trace["configuration"] = {"version_filter": not run["configurations"][trace["configuration_name"]]["version_filter"]}
+    path.write_text(json.dumps(run), encoding="utf-8")
+    with pytest.raises(ValidationError, match="configuration"):
+        ReviewSession(root, run_path=path)
+    assert not (root / "runs/manual_reviews.sqlite3").exists()
+
+
 def test_cli_inspects_and_exports_saved_records_without_inference(saved, monkeypatch, capsys):
     root, path, run = saved
     monkeypatch.setattr(review_fixture, "ROOT", root)

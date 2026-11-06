@@ -87,3 +87,25 @@ def test_runtime_directory_metadata_uses_explicit_global_reservation_scope(tmp_p
     assert reader.request(runtime.URL, limit=4, byte_range=(0,3,100)) == b"test"
     assert ledger.total == 1_000_000_005
     assert cpu_dependency_reserved(ledger) == 1_000_000_000
+
+
+@pytest.mark.parametrize("damage", [None, "empty", "omit_library", "changed_executable", "extra_file"])
+def test_cached_runtime_requires_pinned_executable_and_complete_inventory(tmp_path, monkeypatch, damage):
+    target = tmp_path / "runtime"
+    target.mkdir()
+    executable = b"INERT TEST ONLY"
+    checksum = sha256(executable).hexdigest()
+    monkeypatch.setattr(runtime, "EXECUTABLE_SHA256", checksum)
+    (target / "ollama.exe").write_bytes(executable)
+    (target / "library.dll").write_bytes(b"TEST LIBRARY")
+    files = {"ollama.exe": checksum, "library.dll": sha256(b"TEST LIBRARY").hexdigest()}
+    if damage == "empty": files = {}
+    elif damage == "omit_library": files.pop("library.dll")
+    elif damage == "changed_executable": (target / "ollama.exe").write_bytes(b"CHANGED")
+    elif damage == "extra_file": (target / "extra.dll").write_bytes(b"UNTRACKED")
+    receipt = {"release": runtime.VERSION, "source_archive": runtime.URL, "archive_sha256": runtime.SHA256, "files": files}
+    (target / "KNOWLEDGEDELTA_RUNTIME.json").write_text(json.dumps(receipt), encoding="utf-8")
+    if damage is None:
+        assert runtime.verify_cached_runtime(tmp_path, target) == receipt
+    else:
+        with pytest.raises(runtime.SetupError): runtime.verify_cached_runtime(tmp_path, target)

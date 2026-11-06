@@ -236,3 +236,95 @@ def test_malformed_imports_and_misleading_origin_labels_are_actionable(example, 
     with pytest.raises(ValidationError):
         evaluate_run(run, dataset, read_json(ROOT / "examples/mvp/relations.json"),
             snapshots={slot: load_snapshot(ROOT / "examples/mvp" / slot / "manifest.json") for slot in ("before", "after")}, allow_fixture=True)
+
+
+@pytest.mark.parametrize("change", ["wrong_filter", "invalid_filter", "null", "unknown_setting", "invalid_declared"])
+def test_recorded_configuration_cannot_mislabel_experiment_cohort(example, change):
+    run, dataset, case, traces = example
+    trace = traces["before"]
+    trace["configuration"] = {"version_filter": False}
+    if change == "wrong_filter": trace["configuration"]["version_filter"] = True
+    elif change == "invalid_filter": trace["configuration"]["version_filter"] = 0
+    elif change == "null": trace["configuration"] = None
+    elif change == "unknown_setting": trace["configuration"]["unexpected"] = True
+    else: run["configurations"]["basic"] = []
+    with pytest.raises(ValidationError, match="configuration|version_filter"):
+        evaluate_run(run, dataset, read_json(ROOT / "examples/mvp/relations.json"),
+            snapshots={slot: load_snapshot(ROOT / "examples/mvp" / slot / "manifest.json") for slot in ("before", "after")}, allow_fixture=True)
+
+
+@pytest.mark.parametrize("change", ["missing_config", "missing_declared", "prompt_context", "prompt_output", "request_context", "request_output", "retry_count"])
+def test_live_recorded_controls_must_match_declared_settings(example, change):
+    from dataclasses import asdict
+    from knowledge_delta.pipeline import RunConfiguration
+    run, dataset, case, traces = example
+    config = asdict(RunConfiguration())
+    run["origin"] = "live"
+    run["configurations"]["basic"] = config
+    for trace in traces.values():
+        trace.update(origin="live", configuration=deepcopy(config), generation_attempted=True,
+                     generation_performed=True, answer_origin="live")
+        trace["generation"] = {"request": {"messages": deepcopy(trace["prompt"]["messages"]),
+            "format": deepcopy(trace["prompt"]["format"]), "options": {"num_ctx": 4096, "num_predict": 128}},
+            "answer": deepcopy(trace["answer"]), "attempts": [{"number": 1}], "origin": "live",
+            "status": "answered_pending_review", "generation_attempted": True, "generation_performed": True}
+    trace = traces["before"]
+    if change == "missing_config": del trace["configuration"]
+    elif change == "missing_declared":
+        run["configurations"]["basic"] = {}
+        for item in traces.values(): item["configuration"] = {}
+    elif change == "prompt_context": trace["prompt"]["context_window"] = 2048
+    elif change == "prompt_output": trace["prompt"]["max_output_tokens"] = 256
+    elif change == "request_context": trace["generation"]["request"]["options"]["num_ctx"] = 2048
+    elif change == "request_output": trace["generation"]["request"]["options"]["num_predict"] = 256
+    else: trace["generation"]["attempts"] *= 3
+    with pytest.raises(ValidationError, match="configuration"):
+        evaluate_run(run, dataset, read_json(ROOT / "examples/mvp/relations.json"),
+            snapshots={slot: load_snapshot(ROOT / "examples/mvp" / slot / "manifest.json") for slot in ("before", "after")})
+
+
+def test_index_errors_keep_minimal_trace_contract_with_full_declared_configuration(example):
+    from dataclasses import asdict
+    from knowledge_delta.pipeline import RunConfiguration
+    run, dataset, case, traces = example
+    run["origin"] = "unverified"
+    run["configurations"]["basic"] = asdict(RunConfiguration())
+    run["results"] = [{"case_id": case["case_id"], "configuration_name": "basic", "repetition": 1,
+        "snapshot_slot": "before", "origin": "unverified", "status": "run_error", "error": "TEST-ONLY index failure"}]
+    value = evaluate_run(run, dataset, read_json(ROOT / "examples/mvp/relations.json"),
+        snapshots={slot: load_snapshot(ROOT / "examples/mvp" / slot / "manifest.json") for slot in ("before", "after")})
+    assert value["counts"]["recorded_answer_records"] == 1
+    assert value["counts"]["answer_outcomes"]["run_error"] == 40
+
+
+@pytest.mark.parametrize("change", ["generation_origin", "answer_origin", "generation_status", "trace_attempted",
+                                    "trace_performed", "generation_attempted", "generation_performed", "generation_not_object"])
+def test_live_generation_provenance_and_completion_contradictions_are_run_errors(example, change):
+    run, dataset, case, traces = example
+    trace = traces["before"]
+    trace.update(origin="live", answer_origin="live", generation_attempted=True, generation_performed=True)
+    trace["generation"] = {"origin": "live", "status": "answered_pending_review",
+        "generation_attempted": True, "generation_performed": True,
+        "request": {"messages": deepcopy(trace["prompt"]["messages"]), "format": deepcopy(trace["prompt"]["format"])},
+        "answer": deepcopy(trace["answer"])}
+    assert judge_snapshot(run, trace, dataset, case)["outcome"] == "needs_human_review"
+    if change == "generation_origin": trace["generation"]["origin"] = "test_double"
+    elif change == "answer_origin": trace["answer_origin"] = "test_double"
+    elif change == "generation_status": trace["generation"]["status"] = "run_error"
+    elif change == "trace_attempted": trace["generation_attempted"] = False
+    elif change == "trace_performed": trace["generation_performed"] = False
+    elif change == "generation_attempted": trace["generation"]["generation_attempted"] = False
+    elif change == "generation_performed": trace["generation"]["generation_performed"] = False
+    else: trace["generation"] = []
+    judgment = judge_snapshot(run, trace, dataset, case)
+    assert judgment["outcome"] == "run_error"
+    with pytest.raises(ValidationError, match="cannot override"):
+        make_review(run, trace, dataset, case, "pass", basis="human_review", reviewer="TEST-ONLY",
+            rationale="Synthetic attempted override of contradictory provenance")
+
+
+def test_scripted_fixture_cannot_hide_a_recorded_generation(example):
+    run, dataset, case, traces = example
+    trace = traces["before"]
+    trace["generation"] = {"origin": "live"}
+    assert judge_snapshot(run, trace, dataset, case)["outcome"] == "run_error"

@@ -7,6 +7,7 @@ import argparse
 from datetime import datetime, timezone
 import importlib.metadata
 import json
+from io import BytesIO
 from pathlib import Path
 import sys
 from urllib.parse import urljoin, urlsplit
@@ -40,6 +41,12 @@ def validate_url(url):
 class HuggingFaceRedirects(HTTPRedirectHandler):
     max_redirections = 5
     max_repeats = 2
+    def http_error_302(self, req, fp, code, msg, headers):
+        fp.close()
+        return super().http_error_302(req, BytesIO(), code, msg, headers)
+
+    http_error_301 = http_error_303 = http_error_307 = http_error_308 = http_error_302
+
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         validate_url(urljoin(req.full_url, newurl))
         return super().redirect_request(req, fp, code, msg, headers, newurl)

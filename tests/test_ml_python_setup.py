@@ -24,6 +24,45 @@ def archive(entries=None):
                   "declared_expanded_bytes": sum(len(body) for body in entries.values())}
 
 
+@pytest.mark.parametrize("missing", [None, "python.exe", "Lib/venv/__init__.py", "all"])
+def test_cached_python_receipt_cannot_skip_required_runtime_hashes(tmp_path, missing):
+    target=tmp_path/'python';(target/'Lib/venv').mkdir(parents=True)
+    contents={'python.exe':b'INERT EXE','Lib/venv/__init__.py':b'# TEST ONLY'}
+    files={}
+    for name,data in contents.items():
+        (target/name).write_bytes(data);files[name]=sha256(data).hexdigest()
+    if missing=='all': files={}
+    elif missing: files.pop(missing)
+    receipt={'version':runtime.VERSION,'url':runtime.URL,'archive_sha256':runtime.ARCHIVE_SHA256,'files':files}
+    (target/'KNOWLEDGEDELTA_RUNTIME.json').write_text(json.dumps(receipt),encoding='utf-8')
+    if missing:
+        with pytest.raises(runtime.SetupError): runtime.verify_cached_runtime(tmp_path,target)
+    else: assert runtime.verify_cached_runtime(tmp_path,target)==receipt
+
+
+@pytest.mark.parametrize("fault", ["unrecorded_file", "omitted_library", "invalid_object"])
+def test_cached_python_requires_complete_file_inventory(tmp_path, fault):
+    target = tmp_path / "python"
+    (target / "Lib/venv").mkdir(parents=True)
+    contents = {"python.exe": b"INERT", "Lib/venv/__init__.py": b"# TEST ONLY",
+                "python314.dll": b"INERT DLL"}
+    files = {}
+    for name, data in contents.items():
+        (target / name).write_bytes(data)
+        files[name] = sha256(data).hexdigest()
+    if fault == "unrecorded_file":
+        (target / "extra.dll").write_bytes(b"INERT EXTRA")
+    elif fault == "omitted_library":
+        files.pop("python314.dll")
+    receipt = {"version": runtime.VERSION, "url": runtime.URL,
+               "archive_sha256": runtime.ARCHIVE_SHA256, "files": files}
+    if fault == "invalid_object":
+        receipt = []
+    (target / "KNOWLEDGEDELTA_RUNTIME.json").write_text(json.dumps(receipt), encoding="utf-8")
+    with pytest.raises(runtime.SetupError):
+        runtime.verify_cached_runtime(tmp_path, target)
+
+
 def test_runtime_default_is_offline_and_does_not_execute_native_code(monkeypatch, capsys):
     monkeypatch.setattr(runtime, "perform", lambda *a: pytest.fail("Explicit --setup required"))
     assert runtime.main([]) == 0

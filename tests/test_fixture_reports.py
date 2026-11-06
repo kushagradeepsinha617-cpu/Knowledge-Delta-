@@ -102,3 +102,17 @@ def test_export_is_portable_idempotent_and_does_not_overwrite_changed_files(tmp_
 def test_export_cannot_escape_project_or_overwrite_sources(tmp_path, directory):
     with pytest.raises(ValidationError):
         export_report(tmp_path, directory, {"kind": "unused"})
+
+
+@pytest.mark.parametrize("environment", [".venv", ".venv-ml"])
+def test_export_does_not_create_reports_inside_active_python_environments(tmp_path, environment):
+    site_packages = tmp_path / environment / "Lib/site-packages"
+    site_packages.mkdir(parents=True)
+    marker = site_packages / "preserve.txt"
+    marker.write_text("existing environment contents", encoding="utf-8")
+    for target in (environment, f"{environment}/Lib/site-packages/report-output"):
+        with pytest.raises(ValidationError, match="environment"):
+            export_report(tmp_path, target, {"kind": "unused"})
+    assert marker.read_text(encoding="utf-8") == "existing environment contents"
+    assert not (site_packages / "report-output").exists()
+    assert not (tmp_path / environment / "report.json").exists()

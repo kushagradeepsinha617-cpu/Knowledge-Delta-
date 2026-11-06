@@ -31,7 +31,7 @@ def export_report(project_root, directory, evaluation):
     directory = (root / path).resolve() if not path.is_absolute() else path.resolve()
     if not directory.is_relative_to(root) or directory == root:
         raise ValidationError("Choose a report subdirectory inside the project")
-    for name in ("knowledge_delta", "scripts", "tests", "examples", ".tools", ".venv", ".git"):
+    for name in ("knowledge_delta", "scripts", "tests", "examples", ".tools", ".venv", ".venv-ml", ".git"):
         source = (root / name).resolve()
         if directory == source or directory.is_relative_to(source):
             raise ValidationError("Reports must not overwrite source, environment, models or repository metadata")

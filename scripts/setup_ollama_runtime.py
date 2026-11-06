@@ -2,6 +2,7 @@
 import argparse
 from hashlib import sha256
 import json
+from io import BytesIO
 from pathlib import Path
 import shutil
 import sys
@@ -23,6 +24,7 @@ VERSION = "0.40.14"
 URL = "https://github.com/ollama/ollama/releases/download/v0.40.14/ollama-windows-amd64.zip"
 SIZE = 1_601_954_968
 SHA256 = "65d68cade6cf6375f398b518224f8c8a15e062387f38cf477abfc848de7e7e29"
+EXECUTABLE_SHA256 = "14e0fff0449ce3c3a7fe9db8b8b32089274db5f835d4c99f5af7c32dcbf08981"
 
 
 def validate_url(url):
@@ -36,6 +38,12 @@ def validate_url(url):
 class ReleaseRedirects(HTTPRedirectHandler):
     max_redirections = 5
     max_repeats = 2
+    def http_error_302(self, req, fp, code, msg, headers):
+        fp.close()
+        return super().http_error_302(req, BytesIO(), code, msg, headers)
+
+    http_error_301 = http_error_303 = http_error_307 = http_error_308 = http_error_302
+
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         validate_url(urljoin(req.full_url, newurl))
         return super().redirect_request(req, fp, code, msg, headers, newurl)
@@ -68,6 +76,25 @@ def extract(path, package, target):
                     shutil.copyfileobj(source, output)
     if not (target / "ollama.exe").is_file():
         raise SetupError("Pinned runtime archive lacks expected ollama.exe")
+
+
+def verify_cached_runtime(root, target):
+    receipt = json.loads(inside(root, target / "KNOWLEDGEDELTA_RUNTIME.json").read_text(encoding="utf-8"))
+    if not isinstance(receipt, dict):
+        raise SetupError("Existing runtime receipt must be an object; preserve and inspect")
+    files = receipt.get("files")
+    if (receipt.get("archive_sha256") != SHA256 or receipt.get("release") != VERSION
+            or receipt.get("source_archive") != URL or not isinstance(files, dict)
+            or files.get("ollama.exe") != EXECUTABLE_SHA256):
+        raise SetupError("Existing runtime receipt lacks the pinned executable identity; preserve and inspect")
+    actual = {p.relative_to(target).as_posix() for p in target.rglob("*") if p.is_file()}
+    if actual != set(files) | {"KNOWLEDGEDELTA_RUNTIME.json"}:
+        raise SetupError("Runtime receipt does not cover the exact installed file set")
+    for relative, expected in files.items():
+        path = inside(root, target / relative)
+        if not path.is_relative_to(target) or not path.is_file() or file_hash(path) != expected:
+            raise SetupError("Existing runtime file differs from verified receipt")
+    return receipt
 
 
 def prepare(root, record):
@@ -114,13 +141,7 @@ def prepare(root, record):
                 staging.rename(target)
                 if path.parent == work and file_hash(path) == SHA256:
                     path.unlink()
-            receipt = json.loads((target / "KNOWLEDGEDELTA_RUNTIME.json").read_text(encoding="utf-8"))
-            if receipt.get("archive_sha256") != SHA256:
-                raise SetupError("Existing Ollama runtime receipt differs; preserve and inspect")
-            for relative, expected in receipt["files"].items():
-                path = inside(root, target / relative)
-                if not path.is_relative_to(target) or file_hash(path) != expected:
-                    raise SetupError("Existing runtime file differs from verified receipt")
+            verify_cached_runtime(root, target)
             executable = target / "ollama.exe"
             launch_plan = runtime_plan(root, executable)
             env = child_environment(root, work)

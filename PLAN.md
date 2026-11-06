@@ -1,3 +1,26 @@
+# UI refinement checkpoint
+
+- User selected an overall UI improvement before portfolio packaging.
+- Added a restrained teal/ink visual theme, local delta mark, workflow links,
+  clearer comparison table, summary cards and distinct before/after panels.
+- Fixture setup hides file paths in advanced options; choosing an existing run
+  opens those options automatically. Readiness is displayed as labeled rows.
+  Browser validation reveals collapsed required fields before focusing them.
+  Fixture notices, draft labels and full run accounting remain visible.
+- Verified startup and actual fixture loading in Microsoft Edge at localhost:
+  20 drafts, 80/80 answer records, 40 comparison rows, 71 pending judgments and
+  2 fixture run errors displayed. No model inference or review submission.
+- Browser automation host was unavailable; native Edge inspection confirmed
+  the initial and loaded layouts. A full viewport/browser accessibility matrix
+  remains unverified. Existing CSS includes narrow-screen/reduced-motion rules.
+- Final offline suite: 568 tests passed, zero failures/errors/skips, run
+  `46d7dba3725a40a093a15ca501e60265`; real CLI checks also passed.
+  Browser script syntax checked with Node. Final evidence:
+  `docs/evidence/ui-refresh-final/`; initial check retained in `ui-refresh/`.
+- Next: publish this UI checkpoint; continue UI refinements from user feedback.
+
+## Earlier checkpoints (preserved)
+
 # Pre-portfolio code audit checkpoint
 
 - User requested a code audit and fixes before Milestone 5; packaging has not

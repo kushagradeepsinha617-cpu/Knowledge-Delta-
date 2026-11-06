@@ -109,10 +109,21 @@
   }
 
   function render() {
-    $("readiness").textContent = JSON.stringify(state.readiness || {}, null, 2);
+    const readiness = state.readiness || {};
+    replace("readiness", ...[
+      ["Interface", readiness.interface || "Unknown"],
+      ["Python", readiness.python || "Unknown"],
+      ["Startup downloads", readiness.downloads || "Unknown"],
+      ["Inference", "Not performed by this review interface"]
+    ].map(([label, value]) => {
+      const row = element("div", null, "readiness-row");
+      row.append(element("span", label), element("strong", value));
+      return row;
+    }));
     const loaded = state.loaded === true && state.evaluation;
     $("empty-state").hidden = !!loaded;
     $("workspace").hidden = !loaded;
+    document.querySelector('.workflow-nav a[href="#export-title"]').hidden = !loaded;
     if (!loaded) return;
     const evaluation = state.evaluation;
     const rows = evaluation.rows || [];
@@ -354,6 +365,7 @@
 
   function sourceMode() {
     const existing = $("source-mode").value === "existing";
+    if (existing) $("input-paths").open = true;
     $("run-path-field").hidden = !existing;
     $("run-path").required = existing;
     $("simulation-field").hidden = existing;
@@ -362,6 +374,10 @@
   }
 
   $("source-mode").addEventListener("change", sourceMode);
+  $("load-form").addEventListener("invalid", (event) => {
+    // Reveal a collapsed required field before the browser tries to focus it.
+    if ($("input-paths").contains(event.target)) $("input-paths").open = true;
+  }, true);
   $("load-form").addEventListener("submit", async (event) => {
     event.preventDefault();
     message("");

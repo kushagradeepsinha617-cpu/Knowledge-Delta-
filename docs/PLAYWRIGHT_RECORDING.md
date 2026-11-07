@@ -42,7 +42,14 @@ Offline preflight without Playwright:
 & "$env:TEMP\Knowledge-Delta-\.venv-ml\Scripts\python.exe" -B "$env:TEMP\Knowledge-Delta-\scripts\record_demo.py" --check
 ```
 
-The agent executed that preflight successfully. Package installation and live
-browser recording remain unverified because the agent terminal could not reach
-PyPI. Official references: [video finalization](https://playwright.dev/python/docs/videos)
+The user subsequently installed the pinned tools and ran the complete walkthrough.
+All ten screenshots and a 75.12-second 1440x900 silent video were produced. The
+last save operation failed because browser.close preceded video.save_as. The
+generated video was recovered locally; sampled decoded frames and selected
+evidence screenshots were inspected. The original failure receipt is preserved.
+The helper now saves after context closure and before browser closure, with
+three lifecycle regressions covered in the 592-test offline suite. A new live
+run of that fix remains unverified because the agent account cannot read the
+user-installed package directory. See `evidence/playwright-video-save-fix/`.
+Official references: [video finalization](https://playwright.dev/python/docs/videos)
 and [browser selection/storage](https://playwright.dev/python/docs/browsers).

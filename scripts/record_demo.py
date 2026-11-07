@@ -29,6 +29,16 @@ CASES = ['request-timeout-change', 'installation-rewording', 'v1-token-despite-v
          'export-evidence-removed', 'worker-source-conflict']
 
 
+def finalize_capture(context, browser, video, saved):
+    """Keep the browser connection alive until the finalized video is saved."""
+    try:
+        context.close()
+        if video is not None:
+            video.save_as(str(saved))
+    finally:
+        browser.close()
+
+
 def environment():
     temp = TOOL / 'tmp'
     temp.mkdir(parents=True, exist_ok=True)
@@ -108,7 +118,8 @@ def record(output, check_only=False):
         try:
             from playwright.sync_api import sync_playwright
         except ImportError as exc:
-            raise RuntimeError('Run record_demo.py --setup explicitly first') from exc
+            raise RuntimeError('Playwright cannot be imported in this process. If setup succeeded, '
+                               'run recording from your normal PowerShell. Import error: ' + str(exc)) from exc
         receipt['playwright_version'] = importlib.metadata.version('playwright')
         with sync_playwright() as playwright:
             browser = playwright.chromium.launch(headless=True, chromium_sandbox=True)
@@ -117,6 +128,8 @@ def record(output, check_only=False):
                       record_video_dir=str(output / 'video'),
                       record_video_size={'width': 1440, 'height': 900},
                       reduced_motion='reduce', service_workers='block')
+            video = None
+            saved = output / 'knowledge-delta-demo.webm'
             try:
                 # The dedicated context can visit only the two owned local servers.
                 origins = {url, docs}
@@ -157,11 +170,9 @@ def record(output, check_only=False):
                 page.mouse.wheel(0, 420)
                 page.wait_for_timeout(6000)
             finally:
-                # Playwright finalizes the WebM only when this context closes.
-                context.close()
-                browser.close()
-            saved = output / 'knowledge-delta-demo.webm'
-            video.save_as(str(saved))
+                # Finalize the context, then save while the browser connection
+                # still exists. Closing the browser first invalidates save_as.
+                finalize_capture(context, browser, video, saved)
             receipt.update(status='captured_pending_visual_review', video=saved.name,
                            video_bytes=saved.stat().st_size,
                            video_sha256=sha256(saved.read_bytes()).hexdigest())

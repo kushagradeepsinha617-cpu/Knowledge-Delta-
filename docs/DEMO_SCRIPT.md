@@ -34,8 +34,10 @@ in HUMAN_REVIEW.md. Use recorded live results for the measured-results segment.
 - Fixture UI screenshots are labeled fixture demonstrations.
 - Only actual archived/live-run numbers are narrated as measurements.
 - User blanket case approval is distinct from item-level human review.
-- Any new 60-case results must be checked against the final execution summary
-  before replacing the example narration with new counts.
+- The completed 60-case execution retained 240/240 main records and 36/36
+  repeated records, with four main run errors. If those figures appear on
+  screen, label the 125/95/16/4 semantic counts as provisional AI-assisted
+  proposals, not human accuracy. The new run has zero human answer judgments.
 - No claim of independent validation, production readiness or unique invention.
 
 This is an executable recording script, not evidence that a video has already

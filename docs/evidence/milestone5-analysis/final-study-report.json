@@ -1,0 +1,1361 @@
+{
+  "kind": "verified_study_accounting",
+  "protocol_id": "a1f613c45be401fdf95a99ee9b47ef36261f7c7baa933eece8a4aaad1e1f23c4",
+  "execution_run_id": "3340520f537043c297e64eedce36daee",
+  "definitions": {
+    "development": 20,
+    "held_out": 40,
+    "human_reviewed": 11,
+    "draft": 49,
+    "human_relations": 1,
+    "cases": 60
+  },
+  "owner_approved_definitions": 60,
+  "main": {
+    "planned": 240,
+    "recorded": 240,
+    "run_errors": 4,
+    "structured": 236,
+    "policy_abstentions": 24,
+    "chat_attempts": 216,
+    "completed_model_responses": 212,
+    "human_answer_reviews": 0
+  },
+  "by_configuration": {
+    "basic": {
+      "planned": 120,
+      "recorded": 120,
+      "structured": 120,
+      "policy_abstentions": 12
+    },
+    "version_filtered": {
+      "planned": 120,
+      "recorded": 120,
+      "structured": 116,
+      "policy_abstentions": 12,
+      "run_errors": 4
+    }
+  },
+  "runs": [
+    {
+      "path": "examples/pydantic",
+      "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+      "raw_sha256": "827f91db6476808e3b7d4b9c83bd19587ab1748c917099d84e552db68bf3420f",
+      "counts": {
+        "planned": 40,
+        "recorded": 40,
+        "run_errors": 1,
+        "awaiting_semantic_review": 39
+      },
+      "official_judgments": {
+        "pass": 0,
+        "fail": 2,
+        "needs_human_review": 37,
+        "run_error": 1
+      },
+      "metrics": {
+        "schema_version": 1,
+        "kind": "knowledge_delta_metrics",
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "dataset_hash": "777aa73c178ad6a8ba2ddc8562a98bd7499d23a55f5890dee1e302560182a3ad",
+        "provenance_note": "Live origin and reviewer identities are recorded claims, not authenticated execution or identities. Independent reference means a separately attested procedure, not necessarily another person or a blind review.",
+        "accounting": {
+          "planned_answer_records": 40,
+          "recorded_answer_records": 40,
+          "missing_answer_records": 0,
+          "run_errors": 1,
+          "needs_human_review": 37,
+          "without_resolved_human_answer_review": 40,
+          "simulated_judgments": 0,
+          "automatic_failure_flags": 2
+        },
+        "partitions": {
+          "origin": {
+            "live": 40
+          },
+          "case_review_status": {
+            "human_reviewed": 40
+          },
+          "source_provenance": {
+            "constructed": 40
+          },
+          "split": {
+            "development": 40
+          },
+          "configuration": {
+            "basic": 20,
+            "version_filtered": 20
+          }
+        },
+        "assistant": {
+          "availability": "unavailable_no_eligible_human_judgments",
+          "planned_reviewed_case_answer_records": 40,
+          "resolved_eligible_human_judgments": 0,
+          "accuracy_resolved_human_judgments_only": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "confirmed_correct_per_planned_reviewed_case_answer": {
+            "numerator": 0,
+            "denominator": 40,
+            "value": 0.0
+          },
+          "review_coverage": {
+            "numerator": 0,
+            "denominator": 40,
+            "value": 0.0
+          },
+          "reviewed_case_run_errors": 1,
+          "reviewed_case_missing_records": 0,
+          "exclusion_reasons_nonexclusive": {
+            "no_resolved_human_answer_review": 40,
+            "run_error": 1
+          },
+          "primary_wrong_version_failure_labels": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "primary_unsupported_answer_failure_labels": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "diagnostic_note": "Failure-label fractions count explicit primary human classifications; they do not exhaustively assess overlapping failure causes.",
+          "abstention": {
+            "records_in_reviewed_cases": 3,
+            "unassessed_records": 3,
+            "appropriate_among_assessed": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unnecessary_among_assessed": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "answer_pipeline_latency_seconds": {
+            "observed_records": 40,
+            "missing_records": 0,
+            "mean": 28.757200647465652,
+            "median": 28.184486950049177,
+            "minimum": 11.411115899914876,
+            "maximum": 132.92090649995953,
+            "note": "Live-marked trace elapsed time includes retrieval and generation/error handling; it is not peak memory or isolated model inference time."
+          }
+        },
+        "testing_tool": {
+          "flag_policy": "At least one failed original mechanical check; post-review correctness does not define the flag.",
+          "reference_labels_submitted": 0,
+          "eligible_reference_labels": 0,
+          "ineligible_reference_labels": 0,
+          "eligible_records_without_reference": 39,
+          "run_errors_excluded_from_semantic_reference_scoring": 1,
+          "confusion": {
+            "true_positive": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "true_negative": 0
+          },
+          "precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reference_coverage": {
+            "numerator": 0,
+            "denominator": 39,
+            "value": 0.0
+          },
+          "needs_human_review": 37
+        }
+      },
+      "elapsed_seconds": 1166.6795169999823,
+      "latency_seconds": {
+        "structured": {
+          "count": 39,
+          "median": 28.164402100024745,
+          "minimum": 11.411115899914876,
+          "maximum": 53.59371339995414
+        },
+        "run_errors": {
+          "count": 1,
+          "median": 132.92090649995953,
+          "minimum": 132.92090649995953,
+          "maximum": 132.92090649995953
+        }
+      }
+    },
+    {
+      "path": "examples/pydantic-revision",
+      "run_id": "04f5caead7dd426db86618dd577b7acb",
+      "raw_sha256": "47c580c7e290fec36a941a3cdb9437fb0f13ed2e3a0871b0920c7e4aecab5c03",
+      "counts": {
+        "planned": 4,
+        "recorded": 4,
+        "run_errors": 0,
+        "awaiting_semantic_review": 4
+      },
+      "official_judgments": {
+        "pass": 0,
+        "fail": 0,
+        "needs_human_review": 4,
+        "run_error": 0
+      },
+      "metrics": {
+        "schema_version": 1,
+        "kind": "knowledge_delta_metrics",
+        "run_id": "04f5caead7dd426db86618dd577b7acb",
+        "dataset_hash": "865ba6b900917c22007ce3b6a466570051484a87659cefbbe8fc5917da09eb8d",
+        "provenance_note": "Live origin and reviewer identities are recorded claims, not authenticated execution or identities. Independent reference means a separately attested procedure, not necessarily another person or a blind review.",
+        "accounting": {
+          "planned_answer_records": 4,
+          "recorded_answer_records": 4,
+          "missing_answer_records": 0,
+          "run_errors": 0,
+          "needs_human_review": 4,
+          "without_resolved_human_answer_review": 4,
+          "simulated_judgments": 0,
+          "automatic_failure_flags": 0
+        },
+        "partitions": {
+          "origin": {
+            "live": 4
+          },
+          "case_review_status": {
+            "human_reviewed": 4
+          },
+          "source_provenance": {
+            "genuine": 4
+          },
+          "split": {
+            "development": 4
+          },
+          "configuration": {
+            "basic": 2,
+            "version_filtered": 2
+          }
+        },
+        "assistant": {
+          "availability": "unavailable_no_eligible_human_judgments",
+          "planned_reviewed_case_answer_records": 4,
+          "resolved_eligible_human_judgments": 0,
+          "accuracy_resolved_human_judgments_only": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "confirmed_correct_per_planned_reviewed_case_answer": {
+            "numerator": 0,
+            "denominator": 4,
+            "value": 0.0
+          },
+          "review_coverage": {
+            "numerator": 0,
+            "denominator": 4,
+            "value": 0.0
+          },
+          "reviewed_case_run_errors": 0,
+          "reviewed_case_missing_records": 0,
+          "exclusion_reasons_nonexclusive": {
+            "no_resolved_human_answer_review": 4
+          },
+          "primary_wrong_version_failure_labels": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "primary_unsupported_answer_failure_labels": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "diagnostic_note": "Failure-label fractions count explicit primary human classifications; they do not exhaustively assess overlapping failure causes.",
+          "abstention": {
+            "records_in_reviewed_cases": 0,
+            "unassessed_records": 0,
+            "appropriate_among_assessed": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unnecessary_among_assessed": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "answer_pipeline_latency_seconds": {
+            "observed_records": 4,
+            "missing_records": 0,
+            "mean": 15.01837920001708,
+            "median": 14.769652200047858,
+            "minimum": 9.20706499996595,
+            "maximum": 21.327147400006652,
+            "note": "Live-marked trace elapsed time includes retrieval and generation/error handling; it is not peak memory or isolated model inference time."
+          }
+        },
+        "testing_tool": {
+          "flag_policy": "At least one failed original mechanical check; post-review correctness does not define the flag.",
+          "reference_labels_submitted": 0,
+          "eligible_reference_labels": 0,
+          "ineligible_reference_labels": 0,
+          "eligible_records_without_reference": 4,
+          "run_errors_excluded_from_semantic_reference_scoring": 0,
+          "confusion": {
+            "true_positive": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "true_negative": 0
+          },
+          "precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reference_coverage": {
+            "numerator": 0,
+            "denominator": 4,
+            "value": 0.0
+          },
+          "needs_human_review": 4
+        }
+      },
+      "elapsed_seconds": 66.17627139994875,
+      "latency_seconds": {
+        "structured": {
+          "count": 4,
+          "median": 14.769652200047858,
+          "minimum": 9.20706499996595,
+          "maximum": 21.327147400006652
+        }
+      }
+    },
+    {
+      "path": "examples/pydantic-evaluation/development-extension",
+      "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+      "raw_sha256": "194f629fe22fa3f9e303620ffa45e6da47cb075bd220065c94b3015ef2039973",
+      "counts": {
+        "planned": 36,
+        "recorded": 36,
+        "run_errors": 0,
+        "awaiting_semantic_review": 36
+      },
+      "official_judgments": {
+        "pass": 0,
+        "fail": 0,
+        "needs_human_review": 36,
+        "run_error": 0
+      },
+      "metrics": {
+        "schema_version": 1,
+        "kind": "knowledge_delta_metrics",
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "dataset_hash": "c3e88a524abb5ebd8e684b82924a6b7d222a0f680c74b0ecaca436851c259cfd",
+        "provenance_note": "Live origin and reviewer identities are recorded claims, not authenticated execution or identities. Independent reference means a separately attested procedure, not necessarily another person or a blind review.",
+        "accounting": {
+          "planned_answer_records": 36,
+          "recorded_answer_records": 36,
+          "missing_answer_records": 0,
+          "run_errors": 0,
+          "needs_human_review": 36,
+          "without_resolved_human_answer_review": 36,
+          "simulated_judgments": 0,
+          "automatic_failure_flags": 0
+        },
+        "partitions": {
+          "origin": {
+            "live": 36
+          },
+          "case_review_status": {
+            "draft": 36
+          },
+          "source_provenance": {
+            "constructed": 36
+          },
+          "split": {
+            "development": 36
+          },
+          "configuration": {
+            "basic": 18,
+            "version_filtered": 18
+          }
+        },
+        "assistant": {
+          "availability": "unavailable_no_eligible_human_judgments",
+          "planned_reviewed_case_answer_records": 0,
+          "resolved_eligible_human_judgments": 0,
+          "accuracy_resolved_human_judgments_only": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "confirmed_correct_per_planned_reviewed_case_answer": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "review_coverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reviewed_case_run_errors": 0,
+          "reviewed_case_missing_records": 0,
+          "exclusion_reasons_nonexclusive": {
+            "draft_case": 36,
+            "no_resolved_human_answer_review": 36
+          },
+          "primary_wrong_version_failure_labels": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "primary_unsupported_answer_failure_labels": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "diagnostic_note": "Failure-label fractions count explicit primary human classifications; they do not exhaustively assess overlapping failure causes.",
+          "abstention": {
+            "records_in_reviewed_cases": 0,
+            "unassessed_records": 0,
+            "appropriate_among_assessed": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unnecessary_among_assessed": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "answer_pipeline_latency_seconds": {
+            "observed_records": 36,
+            "missing_records": 0,
+            "mean": 22.69145651111224,
+            "median": 21.91677334997803,
+            "minimum": 13.545873399823904,
+            "maximum": 36.34471179987304,
+            "note": "Live-marked trace elapsed time includes retrieval and generation/error handling; it is not peak memory or isolated model inference time."
+          }
+        },
+        "testing_tool": {
+          "flag_policy": "At least one failed original mechanical check; post-review correctness does not define the flag.",
+          "reference_labels_submitted": 0,
+          "eligible_reference_labels": 0,
+          "ineligible_reference_labels": 0,
+          "eligible_records_without_reference": 0,
+          "run_errors_excluded_from_semantic_reference_scoring": 0,
+          "confusion": {
+            "true_positive": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "true_negative": 0
+          },
+          "precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reference_coverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "needs_human_review": 36
+        }
+      },
+      "elapsed_seconds": 830.5825288998894,
+      "latency_seconds": {
+        "structured": {
+          "count": 36,
+          "median": 21.91677334997803,
+          "minimum": 13.545873399823904,
+          "maximum": 36.34471179987304
+        }
+      }
+    },
+    {
+      "path": "examples/pydantic-evaluation/heldout-other-version-added",
+      "run_id": "2184415031aa4b62a1de5935be418a81",
+      "raw_sha256": "c5bab7882b1940d6448e773b96bbe9e7041646a3950b618eed0ba40d4285080f",
+      "counts": {
+        "planned": 44,
+        "recorded": 44,
+        "run_errors": 2,
+        "awaiting_semantic_review": 42
+      },
+      "official_judgments": {
+        "pass": 0,
+        "fail": 0,
+        "needs_human_review": 42,
+        "run_error": 2
+      },
+      "metrics": {
+        "schema_version": 1,
+        "kind": "knowledge_delta_metrics",
+        "run_id": "2184415031aa4b62a1de5935be418a81",
+        "dataset_hash": "ef9ca2bb82b16c96fc2923bd35946a1df4544e5b96b206c2f4a5eb8027eb6316",
+        "provenance_note": "Live origin and reviewer identities are recorded claims, not authenticated execution or identities. Independent reference means a separately attested procedure, not necessarily another person or a blind review.",
+        "accounting": {
+          "planned_answer_records": 44,
+          "recorded_answer_records": 44,
+          "missing_answer_records": 0,
+          "run_errors": 2,
+          "needs_human_review": 42,
+          "without_resolved_human_answer_review": 44,
+          "simulated_judgments": 0,
+          "automatic_failure_flags": 0
+        },
+        "partitions": {
+          "origin": {
+            "live": 44
+          },
+          "case_review_status": {
+            "draft": 44
+          },
+          "source_provenance": {
+            "constructed": 44
+          },
+          "split": {
+            "held_out": 44
+          },
+          "configuration": {
+            "basic": 22,
+            "version_filtered": 22
+          }
+        },
+        "assistant": {
+          "availability": "unavailable_no_eligible_human_judgments",
+          "planned_reviewed_case_answer_records": 0,
+          "resolved_eligible_human_judgments": 0,
+          "accuracy_resolved_human_judgments_only": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "confirmed_correct_per_planned_reviewed_case_answer": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "review_coverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reviewed_case_run_errors": 0,
+          "reviewed_case_missing_records": 0,
+          "exclusion_reasons_nonexclusive": {
+            "draft_case": 44,
+            "no_resolved_human_answer_review": 44,
+            "run_error": 2
+          },
+          "primary_wrong_version_failure_labels": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "primary_unsupported_answer_failure_labels": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "diagnostic_note": "Failure-label fractions count explicit primary human classifications; they do not exhaustively assess overlapping failure causes.",
+          "abstention": {
+            "records_in_reviewed_cases": 0,
+            "unassessed_records": 0,
+            "appropriate_among_assessed": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unnecessary_among_assessed": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "answer_pipeline_latency_seconds": {
+            "observed_records": 44,
+            "missing_records": 0,
+            "mean": 622.1237347977162,
+            "median": 27.77367564989254,
+            "minimum": 6.074150800006464,
+            "maximum": 26168.262359699933,
+            "note": "Live-marked trace elapsed time includes retrieval and generation/error handling; it is not peak memory or isolated model inference time."
+          }
+        },
+        "testing_tool": {
+          "flag_policy": "At least one failed original mechanical check; post-review correctness does not define the flag.",
+          "reference_labels_submitted": 0,
+          "eligible_reference_labels": 0,
+          "ineligible_reference_labels": 0,
+          "eligible_records_without_reference": 0,
+          "run_errors_excluded_from_semantic_reference_scoring": 2,
+          "confusion": {
+            "true_positive": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "true_negative": 0
+          },
+          "precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reference_coverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "needs_human_review": 42
+        }
+      },
+      "elapsed_seconds": 27392.52363130008,
+      "latency_seconds": {
+        "structured": {
+          "count": 42,
+          "median": 26.723093699896708,
+          "minimum": 6.074150800006464,
+          "maximum": 115.6405612998642
+        },
+        "run_errors": {
+          "count": 2,
+          "median": 13148.087678699987,
+          "minimum": 127.91299770004116,
+          "maximum": 26168.262359699933
+        }
+      }
+    },
+    {
+      "path": "examples/pydantic-evaluation/heldout-evidence-removed",
+      "run_id": "e551db7d6f0844579350ec41c2a8473b",
+      "raw_sha256": "153a953c8d0df975e37905f4736c27370822df395d1151ebc05e65e644408b05",
+      "counts": {
+        "planned": 48,
+        "recorded": 48,
+        "run_errors": 0,
+        "awaiting_semantic_review": 48
+      },
+      "official_judgments": {
+        "pass": 0,
+        "fail": 0,
+        "needs_human_review": 48,
+        "run_error": 0
+      },
+      "metrics": {
+        "schema_version": 1,
+        "kind": "knowledge_delta_metrics",
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "dataset_hash": "13fbd124cd7156c5a374f6206b270d5b1ca73d14de42bce28854a862da3aee41",
+        "provenance_note": "Live origin and reviewer identities are recorded claims, not authenticated execution or identities. Independent reference means a separately attested procedure, not necessarily another person or a blind review.",
+        "accounting": {
+          "planned_answer_records": 48,
+          "recorded_answer_records": 48,
+          "missing_answer_records": 0,
+          "run_errors": 0,
+          "needs_human_review": 48,
+          "without_resolved_human_answer_review": 48,
+          "simulated_judgments": 0,
+          "automatic_failure_flags": 0
+        },
+        "partitions": {
+          "origin": {
+            "live": 48
+          },
+          "case_review_status": {
+            "draft": 48
+          },
+          "source_provenance": {
+            "constructed": 48
+          },
+          "split": {
+            "held_out": 48
+          },
+          "configuration": {
+            "basic": 24,
+            "version_filtered": 24
+          }
+        },
+        "assistant": {
+          "availability": "unavailable_no_eligible_human_judgments",
+          "planned_reviewed_case_answer_records": 0,
+          "resolved_eligible_human_judgments": 0,
+          "accuracy_resolved_human_judgments_only": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "confirmed_correct_per_planned_reviewed_case_answer": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "review_coverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reviewed_case_run_errors": 0,
+          "reviewed_case_missing_records": 0,
+          "exclusion_reasons_nonexclusive": {
+            "draft_case": 48,
+            "no_resolved_human_answer_review": 48
+          },
+          "primary_wrong_version_failure_labels": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "primary_unsupported_answer_failure_labels": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "diagnostic_note": "Failure-label fractions count explicit primary human classifications; they do not exhaustively assess overlapping failure causes.",
+          "abstention": {
+            "records_in_reviewed_cases": 0,
+            "unassessed_records": 0,
+            "appropriate_among_assessed": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unnecessary_among_assessed": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "answer_pipeline_latency_seconds": {
+            "observed_records": 48,
+            "missing_records": 0,
+            "mean": 11.561296720819277,
+            "median": 4.745844249962829,
+            "minimum": 0.0002055000513792038,
+            "maximum": 40.50378050003201,
+            "note": "Live-marked trace elapsed time includes retrieval and generation/error handling; it is not peak memory or isolated model inference time."
+          }
+        },
+        "testing_tool": {
+          "flag_policy": "At least one failed original mechanical check; post-review correctness does not define the flag.",
+          "reference_labels_submitted": 0,
+          "eligible_reference_labels": 0,
+          "ineligible_reference_labels": 0,
+          "eligible_records_without_reference": 0,
+          "run_errors_excluded_from_semantic_reference_scoring": 0,
+          "confusion": {
+            "true_positive": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "true_negative": 0
+          },
+          "precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reference_coverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "needs_human_review": 48
+        }
+      },
+      "elapsed_seconds": 561.4066190000158,
+      "latency_seconds": {
+        "structured": {
+          "count": 48,
+          "median": 4.745844249962829,
+          "minimum": 0.0002055000513792038,
+          "maximum": 40.50378050003201
+        }
+      }
+    },
+    {
+      "path": "examples/pydantic-evaluation/heldout-wording-only",
+      "run_id": "fe7c78384e144415af15f6a941248f4c",
+      "raw_sha256": "c7653ea39f48f74112bea0689a92156e3c1e42cde29605f26aaad6db28e13404",
+      "counts": {
+        "planned": 40,
+        "recorded": 40,
+        "run_errors": 0,
+        "awaiting_semantic_review": 40
+      },
+      "official_judgments": {
+        "pass": 0,
+        "fail": 0,
+        "needs_human_review": 40,
+        "run_error": 0
+      },
+      "metrics": {
+        "schema_version": 1,
+        "kind": "knowledge_delta_metrics",
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "dataset_hash": "98adc581c768bcfb4aed4f9480ee52e8ec2bb412940dce290a73ac9a1e989495",
+        "provenance_note": "Live origin and reviewer identities are recorded claims, not authenticated execution or identities. Independent reference means a separately attested procedure, not necessarily another person or a blind review.",
+        "accounting": {
+          "planned_answer_records": 40,
+          "recorded_answer_records": 40,
+          "missing_answer_records": 0,
+          "run_errors": 0,
+          "needs_human_review": 40,
+          "without_resolved_human_answer_review": 40,
+          "simulated_judgments": 0,
+          "automatic_failure_flags": 0
+        },
+        "partitions": {
+          "origin": {
+            "live": 40
+          },
+          "case_review_status": {
+            "draft": 40
+          },
+          "source_provenance": {
+            "constructed": 40
+          },
+          "split": {
+            "held_out": 40
+          },
+          "configuration": {
+            "basic": 20,
+            "version_filtered": 20
+          }
+        },
+        "assistant": {
+          "availability": "unavailable_no_eligible_human_judgments",
+          "planned_reviewed_case_answer_records": 0,
+          "resolved_eligible_human_judgments": 0,
+          "accuracy_resolved_human_judgments_only": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "confirmed_correct_per_planned_reviewed_case_answer": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "review_coverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reviewed_case_run_errors": 0,
+          "reviewed_case_missing_records": 0,
+          "exclusion_reasons_nonexclusive": {
+            "draft_case": 40,
+            "no_resolved_human_answer_review": 40
+          },
+          "primary_wrong_version_failure_labels": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "primary_unsupported_answer_failure_labels": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "diagnostic_note": "Failure-label fractions count explicit primary human classifications; they do not exhaustively assess overlapping failure causes.",
+          "abstention": {
+            "records_in_reviewed_cases": 0,
+            "unassessed_records": 0,
+            "appropriate_among_assessed": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unnecessary_among_assessed": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "answer_pipeline_latency_seconds": {
+            "observed_records": 40,
+            "missing_records": 0,
+            "mean": 21.45362409001682,
+            "median": 19.438949250034057,
+            "minimum": 9.596781800035387,
+            "maximum": 35.202078900067136,
+            "note": "Live-marked trace elapsed time includes retrieval and generation/error handling; it is not peak memory or isolated model inference time."
+          }
+        },
+        "testing_tool": {
+          "flag_policy": "At least one failed original mechanical check; post-review correctness does not define the flag.",
+          "reference_labels_submitted": 0,
+          "eligible_reference_labels": 0,
+          "ineligible_reference_labels": 0,
+          "eligible_records_without_reference": 0,
+          "run_errors_excluded_from_semantic_reference_scoring": 0,
+          "confusion": {
+            "true_positive": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "true_negative": 0
+          },
+          "precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reference_coverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "needs_human_review": 40
+        }
+      },
+      "elapsed_seconds": 872.3564460999332,
+      "latency_seconds": {
+        "structured": {
+          "count": 40,
+          "median": 19.438949250034057,
+          "minimum": 9.596781800035387,
+          "maximum": 35.202078900067136
+        }
+      }
+    },
+    {
+      "path": "examples/pydantic-evaluation/heldout-unrelated-change",
+      "run_id": "c573cefd1f984650b55ac9ed4bd12bee",
+      "raw_sha256": "ee6c8932bb78300aced1baa088ffb9b7e0314f1fe48194e0aa149d27962256d7",
+      "counts": {
+        "planned": 28,
+        "recorded": 28,
+        "run_errors": 1,
+        "awaiting_semantic_review": 27
+      },
+      "official_judgments": {
+        "pass": 0,
+        "fail": 0,
+        "needs_human_review": 27,
+        "run_error": 1
+      },
+      "metrics": {
+        "schema_version": 1,
+        "kind": "knowledge_delta_metrics",
+        "run_id": "c573cefd1f984650b55ac9ed4bd12bee",
+        "dataset_hash": "0b52ba1b144efd2fef4fb2ffb01bf98f97fc5d2093a44adb4c24c28b5fb53cd9",
+        "provenance_note": "Live origin and reviewer identities are recorded claims, not authenticated execution or identities. Independent reference means a separately attested procedure, not necessarily another person or a blind review.",
+        "accounting": {
+          "planned_answer_records": 28,
+          "recorded_answer_records": 28,
+          "missing_answer_records": 0,
+          "run_errors": 1,
+          "needs_human_review": 27,
+          "without_resolved_human_answer_review": 28,
+          "simulated_judgments": 0,
+          "automatic_failure_flags": 0
+        },
+        "partitions": {
+          "origin": {
+            "live": 28
+          },
+          "case_review_status": {
+            "draft": 28
+          },
+          "source_provenance": {
+            "constructed": 28
+          },
+          "split": {
+            "held_out": 28
+          },
+          "configuration": {
+            "basic": 14,
+            "version_filtered": 14
+          }
+        },
+        "assistant": {
+          "availability": "unavailable_no_eligible_human_judgments",
+          "planned_reviewed_case_answer_records": 0,
+          "resolved_eligible_human_judgments": 0,
+          "accuracy_resolved_human_judgments_only": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "confirmed_correct_per_planned_reviewed_case_answer": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "review_coverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reviewed_case_run_errors": 0,
+          "reviewed_case_missing_records": 0,
+          "exclusion_reasons_nonexclusive": {
+            "draft_case": 28,
+            "no_resolved_human_answer_review": 28,
+            "run_error": 1
+          },
+          "primary_wrong_version_failure_labels": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "primary_unsupported_answer_failure_labels": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "diagnostic_note": "Failure-label fractions count explicit primary human classifications; they do not exhaustively assess overlapping failure causes.",
+          "abstention": {
+            "records_in_reviewed_cases": 0,
+            "unassessed_records": 0,
+            "appropriate_among_assessed": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "unnecessary_among_assessed": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            }
+          },
+          "answer_pipeline_latency_seconds": {
+            "observed_records": 28,
+            "missing_records": 0,
+            "mean": 25.79623901785817,
+            "median": 26.134131300030276,
+            "minimum": 7.80073649995029,
+            "maximum": 128.11466510011815,
+            "note": "Live-marked trace elapsed time includes retrieval and generation/error handling; it is not peak memory or isolated model inference time."
+          }
+        },
+        "testing_tool": {
+          "flag_policy": "At least one failed original mechanical check; post-review correctness does not define the flag.",
+          "reference_labels_submitted": 0,
+          "eligible_reference_labels": 0,
+          "ineligible_reference_labels": 0,
+          "eligible_records_without_reference": 0,
+          "run_errors_excluded_from_semantic_reference_scoring": 1,
+          "confusion": {
+            "true_positive": 0,
+            "false_positive": 0,
+            "false_negative": 0,
+            "true_negative": 0
+          },
+          "precision": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "recall": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "reference_coverage": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "needs_human_review": 27
+        }
+      },
+      "elapsed_seconds": 726.9597177000251,
+      "latency_seconds": {
+        "structured": {
+          "count": 27,
+          "median": 25.71454229997471,
+          "minimum": 7.80073649995029,
+          "maximum": 49.43219340010546
+        },
+        "run_errors": {
+          "count": 1,
+          "median": 128.11466510011815,
+          "minimum": 128.11466510011815,
+          "maximum": 128.11466510011815
+        }
+      }
+    }
+  ],
+  "variability": {
+    "counts": {
+      "planned": 36,
+      "recorded": 36,
+      "run_errors": 0,
+      "awaiting_semantic_review": 36
+    },
+    "groups": [
+      {
+        "case_id": "pydantic-serialization",
+        "configuration": "basic",
+        "snapshot_slot": "before",
+        "planned_repetitions": 3,
+        "recorded": 3,
+        "run_errors": 0,
+        "valid_answers": 3,
+        "distinct_answer_objects": 2,
+        "semantic_difference_judged": false
+      },
+      {
+        "case_id": "pydantic-serialization",
+        "configuration": "basic",
+        "snapshot_slot": "after",
+        "planned_repetitions": 3,
+        "recorded": 3,
+        "run_errors": 0,
+        "valid_answers": 3,
+        "distinct_answer_objects": 2,
+        "semantic_difference_judged": false
+      },
+      {
+        "case_id": "pydantic-optional",
+        "configuration": "basic",
+        "snapshot_slot": "before",
+        "planned_repetitions": 3,
+        "recorded": 3,
+        "run_errors": 0,
+        "valid_answers": 3,
+        "distinct_answer_objects": 2,
+        "semantic_difference_judged": false
+      },
+      {
+        "case_id": "pydantic-optional",
+        "configuration": "basic",
+        "snapshot_slot": "after",
+        "planned_repetitions": 3,
+        "recorded": 3,
+        "run_errors": 0,
+        "valid_answers": 3,
+        "distinct_answer_objects": 1,
+        "semantic_difference_judged": false
+      },
+      {
+        "case_id": "pydantic-union",
+        "configuration": "basic",
+        "snapshot_slot": "before",
+        "planned_repetitions": 3,
+        "recorded": 3,
+        "run_errors": 0,
+        "valid_answers": 3,
+        "distinct_answer_objects": 2,
+        "semantic_difference_judged": false
+      },
+      {
+        "case_id": "pydantic-union",
+        "configuration": "basic",
+        "snapshot_slot": "after",
+        "planned_repetitions": 3,
+        "recorded": 3,
+        "run_errors": 0,
+        "valid_answers": 3,
+        "distinct_answer_objects": 2,
+        "semantic_difference_judged": false
+      },
+      {
+        "case_id": "pydantic-serialization",
+        "configuration": "version_filtered",
+        "snapshot_slot": "before",
+        "planned_repetitions": 3,
+        "recorded": 3,
+        "run_errors": 0,
+        "valid_answers": 3,
+        "distinct_answer_objects": 1,
+        "semantic_difference_judged": false
+      },
+      {
+        "case_id": "pydantic-serialization",
+        "configuration": "version_filtered",
+        "snapshot_slot": "after",
+        "planned_repetitions": 3,
+        "recorded": 3,
+        "run_errors": 0,
+        "valid_answers": 3,
+        "distinct_answer_objects": 1,
+        "semantic_difference_judged": false
+      },
+      {
+        "case_id": "pydantic-optional",
+        "configuration": "version_filtered",
+        "snapshot_slot": "before",
+        "planned_repetitions": 3,
+        "recorded": 3,
+        "run_errors": 0,
+        "valid_answers": 3,
+        "distinct_answer_objects": 1,
+        "semantic_difference_judged": false
+      },
+      {
+        "case_id": "pydantic-optional",
+        "configuration": "version_filtered",
+        "snapshot_slot": "after",
+        "planned_repetitions": 3,
+        "recorded": 3,
+        "run_errors": 0,
+        "valid_answers": 3,
+        "distinct_answer_objects": 1,
+        "semantic_difference_judged": false
+      },
+      {
+        "case_id": "pydantic-union",
+        "configuration": "version_filtered",
+        "snapshot_slot": "before",
+        "planned_repetitions": 3,
+        "recorded": 3,
+        "run_errors": 0,
+        "valid_answers": 3,
+        "distinct_answer_objects": 1,
+        "semantic_difference_judged": false
+      },
+      {
+        "case_id": "pydantic-union",
+        "configuration": "version_filtered",
+        "snapshot_slot": "after",
+        "planned_repetitions": 3,
+        "recorded": 3,
+        "run_errors": 0,
+        "valid_answers": 3,
+        "distinct_answer_objects": 1,
+        "semantic_difference_judged": false
+      }
+    ],
+    "answer_cache_used": false
+  },
+  "provisional_ai_review": {
+    "assessed": 240,
+    "unassessed": 0,
+    "proposed_outcomes": {
+      "fail": 95,
+      "pass": 125,
+      "needs_human_review": 16,
+      "run_error": 4
+    },
+    "files": [
+      {
+        "file": "docs/evidence/milestone5-analysis/development-assessments.json",
+        "sha256": "b524b55af02d41954b736866fdb46c5e16635fb3d0610c3a1b96d4b289d4166d",
+        "assessor": "Brain/Codex AI-assisted",
+        "records": 40
+      },
+      {
+        "file": "docs/evidence/milestone5-analysis/development-extension-assessments.json",
+        "sha256": "0fcf185d327b66d52e52c96650e08bff1a634706ffa43c787e68673002ac6995",
+        "assessor": "Brain/Codex AI-assisted",
+        "records": 36
+      },
+      {
+        "file": "docs/evidence/milestone5-analysis/genuine-revision-assessments.json",
+        "sha256": "7ff07e8e8f0dbf6aff16f6fd1e6ddc86f9324fc156826938d57b834f3052e483",
+        "assessor": "Codex AI-assisted",
+        "records": 4
+      },
+      {
+        "file": "docs/evidence/milestone5-analysis/heldout-evidence-removed-assessments.json",
+        "sha256": "b3a858c4ab15851d979366fa502df05ce9828d5195d8fcc80357f55d5c92b41a",
+        "assessor": "Codex AI-assisted",
+        "records": 48
+      },
+      {
+        "file": "docs/evidence/milestone5-analysis/heldout-other-version-added-assessments.json",
+        "sha256": "b29b3d0ae7e44f72e568c24e7042df2fa643ea8af4947332eeb800bdd9feba76",
+        "assessor": "Brain/Codex AI-assisted",
+        "records": 44
+      },
+      {
+        "file": "docs/evidence/milestone5-analysis/heldout-unrelated-change-assessments.json",
+        "sha256": "a19f8185a09880d60d9d0b8e472d478530a7b5bd4c60a168562d65a37a108965",
+        "assessor": "Brain/Codex AI-assisted",
+        "records": 28
+      },
+      {
+        "file": "docs/evidence/milestone5-analysis/heldout-wording-only-assessments.json",
+        "sha256": "573083857707c38f82dbd9ac19bd6cf694f5cff4ff85e8c7f174d3f2c741205e",
+        "assessor": "Brain/Codex AI-assisted",
+        "records": 40
+      }
+    ],
+    "by_configuration": {
+      "basic": {
+        "fail": 47,
+        "pass": 64,
+        "needs_human_review": 9
+      },
+      "version_filtered": {
+        "fail": 48,
+        "pass": 61,
+        "needs_human_review": 7,
+        "run_error": 4
+      }
+    },
+    "by_answer_origin": {
+      "live": {
+        "fail": 95,
+        "pass": 101,
+        "needs_human_review": 16,
+        "run_error": 4
+      },
+      "policy_abstention": {
+        "pass": 24
+      }
+    },
+    "by_case_split": {
+      "development": {
+        "fail": 22,
+        "pass": 50,
+        "needs_human_review": 7,
+        "run_error": 1
+      },
+      "held_out": {
+        "fail": 73,
+        "pass": 75,
+        "needs_human_review": 9,
+        "run_error": 3
+      }
+    },
+    "human_review": false,
+    "independent_ground_truth": false,
+    "benchmark_accuracy_measured": false
+  },
+  "limitations": [
+    "Owner blanket approval does not establish individual human case review.",
+    "AI-assisted proposals are not human judgments, deterministic correctness checks or independent reference labels.",
+    "Reported latencies reflect execution order and concurrent desktop/packaging workload; no causal speedup is inferred.",
+    "Formatting controls are whitespace-only; empty removal snapshots test policy abstention rather than model generation."
+  ]
+}

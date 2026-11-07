@@ -46,10 +46,24 @@ embedding backend without disabling Windows protection.
 - A fresh offline wheel build and isolated pip installation were exercised using
   already downloaded build tools. This does not establish online ML dependency
   resolution or compatibility on every Python/operating system.
+- The frozen 60-case execution retained all 240 planned main records: 236
+  structured results, including 24 deterministic abstentions after evidence
+  removal, and four run errors. It recorded 216 chat attempts and 212 completed
+  model responses. The fixed variability subset retained all 36 repeats with
+  zero errors; five of twelve case/configuration/snapshot cells had more than
+  one distinct answer object. Those differences have not been semantically
+  adjudicated.
+- A hash-bound AI-assisted review proposes 125 passes (24 from the policy
+  abstention path and 101 generated answers), 95 failures, 16 unresolved cases
+  and four run errors. These are provisional diagnostic labels, **not** human
+  benchmark accuracy. In this exploratory run, wrong answers often appeared
+  in both snapshots, so a changed corpus alone is not established as their
+  cause. Basic retrieval had no run errors; version-filtered retrieval had four.
 
-See EXPERIMENT_RESULTS.md, HUMAN_REVIEW.md and the raw evidence for precise
-denominators and limitations. Later study results must be incorporated only after
-their execution and control checks pass.
+See [the full study report](evidence/milestone5-analysis/final-study-report.html),
+[the source and raw-artifact manifest](evidence/milestone5-study/final-artifact-manifest.json),
+[offline reproduction receipt](evidence/milestone5-study/offline-reproduction-receipt.json),
+EXPERIMENT_RESULTS.md and HUMAN_REVIEW.md for denominators and limitations.
 
 ## Expanded evaluation and review provenance
 
@@ -63,8 +77,14 @@ ledger binds that authorization to exact cases, expected relations, datasets and
 snapshot IDs. It preserves 11 existing item-level human case reviews instead of
 inventing 49 more. Actual-answer human review remains a separate record.
 
-At this document's initial packaging checkpoint, the 240 main-record and
-36-record variability study is running. No completed held-out score is asserted.
+The 240 main-record and 36-repeat study completed under a frozen 324-file source
+manifest. The final JSON/HTML report reproduced offline from that source archive
+and the archived raw runs. A later validation-only fix requires both model-digest
+observations for answered live rows; it was tested separately and did not
+change the historical answers. The new study has **zero human answer judgments**;
+the four earlier human judgments remain bound to their original run. No
+human-validated held-out accuracy or independent evaluator precision/recall is
+asserted.
 
 ## Lessons
 

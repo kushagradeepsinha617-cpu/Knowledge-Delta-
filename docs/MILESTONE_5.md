@@ -108,3 +108,30 @@ Zero spending, project-local files, approved storage/download limits, localhost
 services and Windows protection remain unchanged. No new model downloads are
 authorized by this organizational change. Publishing a repository or posting a
 showcase is separate from completing the technical work and deliverables.
+
+## Verified completion evidence
+
+- **5A:** The 324-file frozen source passed 583 offline tests. A post-run
+  validation-only digest fix passed 589 tests; original model records were not
+  altered. See [verification history](VERIFICATION.md).
+- **5B:** The owner-approved ledger binds all 60 exact definitions and expected
+  relations. Eleven cases and one relation have item-specific human review;
+  the remaining draft labels were not promoted.
+- **5C:** The 240/240 main records and 36/36 repeated records completed. Four
+  main errors are retained. All main records have hash-bound, provisional
+  AI-assisted assessment, while the new study has zero human answer judgments.
+  [Final accounting](evidence/milestone5-analysis/final-study-report.json)
+  reports 125 proposed pass, 95 fail, 16 unresolved and four errors; 24 of the
+  proposed passes are deterministic policy abstentions. No human accuracy or
+  independent testing-tool precision/recall is inferred.
+- **5D:** The final core wheel, isolated offline pip install, installed CLI,
+  packaged assets and fixture HTTP workflow passed in
+  [the packaging receipt](evidence/milestone5-packaging/0085d125bf1b4f64b2b04b2b17300708.json).
+  The final report also reproduced offline from frozen source/raw archives with
+  matching JSON and HTML hashes in the
+  [reproduction receipt](evidence/milestone5-study/offline-reproduction-receipt.json).
+- **5E:** README, architecture, dataset card, result write-up, actual fixture
+  screenshots, 60–90 second demo script, case study and a portable static
+  portfolio package are prepared. A video is a separate, explicitly deferred
+  capture; no video is claimed. The final published-tree audit is tracked in
+  PLAN.md.

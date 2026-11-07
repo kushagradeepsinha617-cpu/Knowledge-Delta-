@@ -156,5 +156,25 @@ verification of every ML dependency or every declared Python version. Evidence:
 
 See [DATASET_CARD.md](DATASET_CARD.md), [EVALUATION.md](EVALUATION.md), and
 [EXPERIMENT_RESULTS.md](EXPERIMENT_RESULTS.md) for the study scope and actual
-results. The current 60-case execution is in progress; this architecture document
-does not claim completed held-out results.
+results. The frozen 60-case study completed all 240 planned main records, with
+four run errors. Its 236 structured records comprise 212 completed model responses
+and 24 deterministic policy abstentions; 216 chat attempts were retained. The
+separate 36-record variability run completed without errors, with more than one
+distinct answer object in five of twelve cells. That is object-level variation,
+not a human judgment of changed meaning.
+
+[Final study accounting](evidence/milestone5-analysis/final-study-report.json)
+keeps all denominators and 240 hash-bound provisional AI assessments visible:
+125 proposed pass (24 policy, 101 generated), 95 fail, 16 unresolved and four run
+errors. The study has zero human answer judgments; those proposals are not human
+accuracy or independent testing-tool reference labels. Blanket owner approval of
+60 definitions remains separate from 11 item-level human case reviews and one
+item-level expected-relation review.
+
+The [protocol at start](evidence/milestone5-study/protocol-at-start.json) and
+[frozen source archive](evidence/milestone5-study/frozen-source.zip) identify the
+actual execution version. Current source includes a post-run validation fix
+requiring observed model digests for successful generations. That fix did not
+change recorded runs or execute retroactively; the final offline analyzer
+separately validates retained model/request controls. Reproduction uses the
+frozen execution source so later hardening cannot silently rebind this study.

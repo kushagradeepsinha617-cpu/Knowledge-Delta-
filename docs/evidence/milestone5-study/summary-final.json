@@ -1,0 +1,168 @@
+{
+  "kind": "study_execution",
+  "protocol_id": "a1f613c45be401fdf95a99ee9b47ef36261f7c7baa933eece8a4aaad1e1f23c4",
+  "run_id": "3340520f537043c297e64eedce36daee",
+  "status": "completed_with_run_errors_ungraded",
+  "semantic_correctness_measured": false,
+  "runs": [
+    {
+      "path": "examples/pydantic",
+      "raw": "runs\\milestone5-study\\bundle-1.json",
+      "raw_sha256": "827f91db6476808e3b7d4b9c83bd19587ab1748c917099d84e552db68bf3420f",
+      "counts": {
+        "planned": 40,
+        "recorded": 40,
+        "run_errors": 1,
+        "awaiting_semantic_review": 39
+      },
+      "reported_counts": {
+        "planned": 40,
+        "recorded": 40,
+        "run_errors": 1,
+        "awaiting_semantic_review": 39
+      },
+      "origin": "live",
+      "model_responses": 39,
+      "chat_attempts": 40,
+      "policy_abstentions": 0
+    },
+    {
+      "path": "examples/pydantic-revision",
+      "raw": "runs\\milestone5-study\\bundle-2.json",
+      "raw_sha256": "47c580c7e290fec36a941a3cdb9437fb0f13ed2e3a0871b0920c7e4aecab5c03",
+      "counts": {
+        "planned": 4,
+        "recorded": 4,
+        "run_errors": 0,
+        "awaiting_semantic_review": 4
+      },
+      "reported_counts": {
+        "planned": 4,
+        "recorded": 4,
+        "run_errors": 0,
+        "awaiting_semantic_review": 4
+      },
+      "origin": "live",
+      "model_responses": 4,
+      "chat_attempts": 4,
+      "policy_abstentions": 0
+    },
+    {
+      "path": "examples/pydantic-evaluation/development-extension",
+      "raw": "runs\\milestone5-study\\bundle-3.json",
+      "raw_sha256": "194f629fe22fa3f9e303620ffa45e6da47cb075bd220065c94b3015ef2039973",
+      "counts": {
+        "planned": 36,
+        "recorded": 36,
+        "run_errors": 0,
+        "awaiting_semantic_review": 36
+      },
+      "reported_counts": {
+        "planned": 36,
+        "recorded": 36,
+        "run_errors": 0,
+        "awaiting_semantic_review": 36
+      },
+      "origin": "live",
+      "model_responses": 36,
+      "chat_attempts": 36,
+      "policy_abstentions": 0
+    },
+    {
+      "path": "examples/pydantic-evaluation/heldout-other-version-added",
+      "raw": "runs\\milestone5-study\\bundle-4.json",
+      "raw_sha256": "c5bab7882b1940d6448e773b96bbe9e7041646a3950b618eed0ba40d4285080f",
+      "counts": {
+        "planned": 44,
+        "recorded": 44,
+        "run_errors": 2,
+        "awaiting_semantic_review": 42
+      },
+      "reported_counts": {
+        "planned": 44,
+        "recorded": 44,
+        "run_errors": 2,
+        "awaiting_semantic_review": 42
+      },
+      "origin": "live",
+      "model_responses": 42,
+      "chat_attempts": 44,
+      "policy_abstentions": 0
+    },
+    {
+      "path": "examples/pydantic-evaluation/heldout-evidence-removed",
+      "raw": "runs\\milestone5-study\\bundle-5.json",
+      "raw_sha256": "153a953c8d0df975e37905f4736c27370822df395d1151ebc05e65e644408b05",
+      "counts": {
+        "planned": 48,
+        "recorded": 48,
+        "run_errors": 0,
+        "awaiting_semantic_review": 48
+      },
+      "reported_counts": {
+        "planned": 48,
+        "recorded": 48,
+        "run_errors": 0,
+        "awaiting_semantic_review": 48
+      },
+      "origin": "live",
+      "model_responses": 24,
+      "chat_attempts": 24,
+      "policy_abstentions": 24
+    },
+    {
+      "path": "examples/pydantic-evaluation/heldout-wording-only",
+      "raw": "runs\\milestone5-study\\bundle-6.json",
+      "raw_sha256": "c7653ea39f48f74112bea0689a92156e3c1e42cde29605f26aaad6db28e13404",
+      "counts": {
+        "planned": 40,
+        "recorded": 40,
+        "run_errors": 0,
+        "awaiting_semantic_review": 40
+      },
+      "reported_counts": {
+        "planned": 40,
+        "recorded": 40,
+        "run_errors": 0,
+        "awaiting_semantic_review": 40
+      },
+      "origin": "live",
+      "model_responses": 40,
+      "chat_attempts": 40,
+      "policy_abstentions": 0
+    },
+    {
+      "path": "examples/pydantic-evaluation/heldout-unrelated-change",
+      "raw": "runs\\milestone5-study\\bundle-7.json",
+      "raw_sha256": "ee6c8932bb78300aced1baa088ffb9b7e0314f1fe48194e0aa149d27962256d7",
+      "counts": {
+        "planned": 28,
+        "recorded": 28,
+        "run_errors": 1,
+        "awaiting_semantic_review": 27
+      },
+      "reported_counts": {
+        "planned": 28,
+        "recorded": 28,
+        "run_errors": 1,
+        "awaiting_semantic_review": 27
+      },
+      "origin": "live",
+      "model_responses": 27,
+      "chat_attempts": 28,
+      "policy_abstentions": 0
+    }
+  ],
+  "planned_main_records": 240,
+  "planned_variability_records": 36,
+  "recorded_main_records": 240,
+  "missing_main_records": 0,
+  "main_run_errors": 4,
+  "variability_counts": {
+    "planned": 36,
+    "recorded": 36,
+    "run_errors": 0,
+    "awaiting_semantic_review": 36
+  },
+  "variability_raw_sha256": "5317b50bcb20e7804969beb06bee6c7c41ce5d3432dbb98c66bb040ee8ca0ce9"
+}

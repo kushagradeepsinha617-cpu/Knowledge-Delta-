@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>KnowledgeDelta | Documentation change testing</title>
+  <style>
+    :root { --ink:#182c37; --muted:#506570; --teal:#176a63; --pale:#eff6f3; --line:#d9e5e1; --amber:#825913; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:#f7faf8; font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    a { color:var(--teal); text-underline-offset:3px; }
+    a:focus-visible { outline:3px solid #a1cfc4; outline-offset:3px; }
+    .wrap { max-width:1120px; margin:auto; padding:0 24px; }
+    header { background:#103b3a; color:#fff; padding:18px 0 78px; }
+    header a { color:#d7f3e6; }
+    nav { display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    nav .brand { font-weight:760; letter-spacing:.02em; color:#fff; text-decoration:none; font-size:1.05rem; }
+    nav .links { display:flex; gap:20px; flex-wrap:wrap; font-size:.92rem; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { max-width:850px; font-size:clamp(2.3rem,5vw,4rem); line-height:1.1; letter-spacing:-.035em; margin:74px 0 20px; }
+    header .lede { max-width:760px; color:#d7e8e1; font-size:1.15rem; }
+    .eyebrow { text-transform:uppercase; letter-spacing:.12em; font-size:.73rem; font-weight:740; color:#a8d8c4; }
+    .actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:28px; }
+    .button { display:inline-block; padding:10px 17px; border:1px solid #99c4b2; border-radius:7px; text-decoration:none; font-weight:650; }
+    .button.primary { background:#e3f5e9; color:#173b38; border-color:#e3f5e9; }
+    main { margin-top:-38px; }
+    section { margin:0 0 56px; }
+    .panel { background:#fff; border:1px solid var(--line); border-radius:13px; box-shadow:0 8px 30px #184f3d0b; }
+    .stats { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; padding:16px; }
+    .stat { padding:13px 17px; border-right:1px solid var(--line); }
+    .stat:last-child { border:0; }
+    .stat strong { display:block; font-size:1.8rem; line-height:1.15; }
+    .stat span { color:var(--muted); font-size:.87rem; }
+    .note { margin:16px 0 0; padding:14px 18px; border-left:4px solid #c28f31; color:#594719; background:#fff9e9; border-radius:5px; }
+    h2 { font-size:1.75rem; letter-spacing:-.02em; margin-bottom:10px; }
+    .sub { color:var(--muted); max-width:850px; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:17px; }
+    .card { padding:22px; }
+    .card h3 { font-size:1.1rem; margin-bottom:8px; }
+    .card p { color:var(--muted); margin:0; }
+    .evidence { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(275px,.7fr); gap:19px; }
+    .evidence .panel { padding:23px; }
+    .splitbar { display:flex; height:18px; overflow:hidden; border-radius:9px; background:#e7ece9; margin:17px 0 9px; }
+    .splitbar span:nth-child(1) { background:#2e8270; width:52.083%; }
+    .splitbar span:nth-child(2) { background:#b86951; width:39.583%; }
+    .splitbar span:nth-child(3) { background:#d8b56b; width:6.667%; }
+    .splitbar span:nth-child(4) { background:#596975; width:1.667%; }
+    .legend { display:flex; flex-wrap:wrap; gap:8px 16px; font-size:.87rem; color:var(--muted); }
+    .legend b { color:var(--ink); }
+    .callout { color:var(--amber); font-weight:640; }
+    .shots { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    figure { margin:0; overflow:hidden; }
+    figure img { width:100%; display:block; border-bottom:1px solid var(--line); }
+    figcaption { padding:11px 14px 14px; color:var(--muted); font-size:.9rem; }
+    .resources { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px 30px; }
+    .resources a { display:block; background:#fff; border:1px solid var(--line); border-radius:8px; padding:13px 16px; font-weight:620; text-decoration:none; }
+    .resources a:hover { border-color:#77a99d; background:#f3faf6; }
+    footer { border-top:1px solid var(--line); color:var(--muted); padding:30px 0 50px; font-size:.9rem; }
+    @media(max-width:780px) { .stats,.grid,.shots { grid-template-columns:repeat(2,minmax(0,1fr)); } .evidence { grid-template-columns:1fr; } .stat:nth-child(2){border:0;} }
+    @media(max-width:560px) { .stats,.grid,.shots,.resources { grid-template-columns:1fr; } .stat{border:0;border-bottom:1px solid var(--line);} .stat:last-child{border:0;} nav{align-items:flex-start;flex-direction:column;} h1{margin-top:52px;} }
+  </style>
+</head>
+<body>
+  <header><div class="wrap">
+    <nav><a class="brand" href="../../README.md">KnowledgeDelta</a><div class="links"><a href="../ARCHITECTURE.md">Architecture</a><a href="../DATASET_CARD.md">Dataset card</a><a href="../evidence/milestone5-analysis/final-study-report.html">Study report</a><a href="https://github.com/kushagradeepsinha617-cpu/Knowledge-Delta-">Source on GitHub</a></div></nav>
+    <h1>When the docs change, which assistant answers should change?</h1>
+    <p class="lede">A local testing workflow for versioned software documentation. Compare snapshots, run fixed questions, and inspect the exact evidence behind every answer.</p>
+    <div class="actions"><a class="button primary" href="../evidence/milestone5-analysis/final-study-report.html">Explore the recorded study</a><a class="button" href="../../README.md">Run it locally</a></div>
+  </div></header>
+  <main class="wrap">
+    <section class="panel stats" aria-label="Recorded study totals">
+      <div class="stat"><strong>60</strong><span>case definitions</span></div>
+      <div class="stat"><strong>240/240</strong><span>main records saved</span></div>
+      <div class="stat"><strong>36/36</strong><span>repeat records saved</span></div>
+      <div class="stat"><strong>4</strong><span>main run errors retained</span></div>
+    </section>
+    <p class="note"><strong>Evidence boundary:</strong> The study has zero human answer judgments. The semantic outcomes below are AI-assisted proposals and need human validation. The case owner approved all definitions as a batch; 11 cases have individual human review.</p>
+    <section id="workflow"><h2>What the tool records</h2><p class="sub">The evaluator is the product. A small local RAG assistant supplies answers so the testing and review workflow can be exercised end to end.</p>
+      <div class="grid"><article class="panel card"><h3>Snapshot changes</h3><p>Stable document IDs, version scope and hashes identify additions, edits, metadata changes and removals.</p></article><article class="panel card"><h3>Answer evidence</h3><p>Each answer retains the retrieved passages actually supplied, citations, model identity, settings and errors.</p></article><article class="panel card"><h3>Reviewable comparison</h3><p>Each snapshot has its own expectation. Human review can resolve semantic correctness without treating every changed answer as a regression.</p></article></div>
+    </section>
+    <section><h2>What the local study found</h2><p class="sub">The complete main matrix includes 24 deterministic evidence-only abstentions. It logged 216 chat attempts and 212 completed model responses. Basic and version-filtered retrieval each had 120 planned records.</p>
+      <div class="evidence"><div class="panel"><h3>Provisional AI-assisted assessment of 240 records</h3><div class="splitbar" role="img" aria-label="125 proposed pass, 95 proposed fail, 16 need human review, 4 run errors"><span></span><span></span><span></span><span></span></div><div class="legend"><span><b>125</b> proposed pass (24 policy, 101 generated)</span><span><b>95</b> proposed fail</span><span><b>16</b> need review</span><span><b>4</b> run errors</span></div><p class="callout">These counts are diagnostic proposals, not human-validated accuracy.</p></div><div class="panel"><h3>Repeated runs</h3><p>All 36 fixed repeated records completed. Five of twelve case/configuration/snapshot cells produced more than one distinct structured answer object over three repetitions. Object changes were not semantically graded.</p><p><a href="../EXPERIMENT_RESULTS.md">Read methods and limitations</a></p></div></div>
+    </section>
+    <section><h2>Actual interface, labeled fixture mode</h2><p class="sub">These screenshots came from the local browser application. They demonstrate the review flow without representing live-model benchmark results.</p>
+      <div class="shots"><figure class="panel"><img src="../screenshots/fixture-workspace.png" alt="KnowledgeDelta comparison workspace with scripted fixture banner" loading="lazy"><figcaption>Snapshot comparison workspace</figcaption></figure><figure class="panel"><img src="../screenshots/fixture-comparisons.png" alt="Case list and comparison filters in scripted fixture replay" loading="lazy"><figcaption>Case explorer and filters</figcaption></figure><figure class="panel"><img src="../screenshots/fixture-evidence.png" alt="Before and after answers with retrieved evidence in scripted fixture replay" loading="lazy"><figcaption>Exact evidence inspection</figcaption></figure></div>
+    </section>
+    <section><h2>Inspect and reproduce</h2><p class="sub">The report was regenerated offline from the archived 324-file execution source and raw runs. A later validation fix is recorded separately; historical answers were not rewritten.</p>
+      <div class="resources"><a href="../evidence/milestone5-analysis/final-study-report.html">Self-contained HTML report ↗</a><a href="../evidence/milestone5-analysis/final-study-report.json">Machine-readable JSON ↗</a><a href="../evidence/milestone5-study/final-artifact-manifest.json">Raw artifact manifest ↗</a><a href="../evidence/milestone5-study/offline-reproduction-receipt.json">Offline reproduction receipt ↗</a><a href="../CASE_STUDY.md">Case study ↗</a><a href="../DEMO_SCRIPT.md">90-second demo script ↗</a></div>
+    </section>
+  </main>
+  <footer><div class="wrap">Exploratory engineering study. Commercial demand, independent benchmark accuracy and production readiness remain unverified. Full runnable source: <a href="https://github.com/kushagradeepsinha617-cpu/Knowledge-Delta-">Knowledge-Delta- on GitHub</a>.</div></footer>
+</body>
+</html>

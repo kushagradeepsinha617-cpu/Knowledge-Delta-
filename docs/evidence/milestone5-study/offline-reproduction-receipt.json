@@ -1,0 +1,20 @@
+{
+  "kind": "offline_study_reproduction_receipt",
+  "status": "passed",
+  "checked_at": "2026-11-07T06:41:42.763860+00:00",
+  "command": ".venv\\Scripts\\python.exe -I -B docs/evidence/milestone5-analysis/reproduce_study.py",
+  "python_version": "3.15.2",
+  "output_relative": ".tools/r/reproduced-bba92d90",
+  "protocol_id": "a1f613c45be401fdf95a99ee9b47ef36261f7c7baa933eece8a4aaad1e1f23c4",
+  "frozen_source_files": 324,
+  "main_records": 240,
+  "variability_records": 36,
+  "artifact_manifest_sha256": "a6de99db43d7142c117d1cf6810497feb2fb935758b55a42b82cb0a177c7d565",
+  "report_sha256": {
+    "html": "972a5284b054c043e333260e4673dddbd8535e9837c05e96ab75df81f3921c59",
+    "json": "ea9e5d5398a20bb3e54ab7b55a3f8f26ef790ea1583f00d5f89ec3dbbeb2d6ca"
+  },
+  "model_inference_performed": false,
+  "network_download_performed": false,
+  "scope": "Re-extracted archived source and raw runs into a project-local folder; recomputed exact JSON/HTML report hashes offline. Does not re-run model inference."
+}

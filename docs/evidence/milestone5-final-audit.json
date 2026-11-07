@@ -1,0 +1,31 @@
+{
+  "kind": "milestone5_final_local_audit",
+  "status": "passed",
+  "current_source_id": "ccc4bed4c860e73eb831ecd27fbc264ff0fdee8057131e2c2fd0185114c49f67",
+  "frozen_source_id": "1a7a6a894a28dff7d6b9a6591ab340bb7eeb64a5d303c02690f9697da0dd90b8",
+  "offline_tests": {
+    "tests": 589,
+    "skipped": 0,
+    "failures": 0,
+    "errors": 0,
+    "executed": 589
+  },
+  "packaging_run_id": "0085d125bf1b4f64b2b04b2b17300708",
+  "study_protocol_id": "a1f613c45be401fdf95a99ee9b47ef36261f7c7baa933eece8a4aaad1e1f23c4",
+  "main_records": 240,
+  "main_run_errors": 4,
+  "variability_records": 36,
+  "provisional_ai_assessments": 240,
+  "new_study_human_answer_judgments": 0,
+  "report_reproduced_offline": true,
+  "portfolio_zip_sha256": "6a91b621ebbc75d5a6658a47373a8bce4cfb91f54062c133cb90f328bfbf05ff",
+  "portfolio_members_verified": 21,
+  "local_html_links_verified": 16,
+  "local_markdown_links_verified": 69,
+  "video_included": false,
+  "limits": [
+    "Fresh full-ML dependency resolution, other operating systems and OS peak RAM are unverified.",
+    "AI-assisted semantic proposals are not human benchmark accuracy.",
+    "Actual video capture was deferred; the three UI screenshots are labeled fixtures."
+  ]
+}

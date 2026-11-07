@@ -16,6 +16,52 @@ from knowledge_delta.metrics import summarize_metrics
 from knowledge_delta.validation import ValidationError, digest, read_json
 
 
+def verify_frozen_controls(run, protocol):
+    """Independently check successful requests; the historical runner was lenient."""
+    expected = {name: dict(protocol["configuration"], version_filter=(name == "version_filtered"))
+                for name in ("basic", "version_filtered")}
+    if run.get("origin") != "live" or run.get("answer_cache_used") is not False or run.get("configurations") != expected:
+        raise ValidationError("Run origin/cache/configuration differs from frozen controls")
+    for row in run["results"]:
+        name = row.get("configuration_name")
+        if (name not in expected or row.get("configuration") != expected[name]
+                or row.get("origin") != "live" or row.get("answer_cache_used") is not False):
+            raise ValidationError("Recorded row differs from frozen retrieval controls")
+        generation = row.get("generation")
+        if row.get("answer_origin") == "policy_abstention":
+            answer = row.get("answer") or {}
+            if (generation is not None or row.get("generation_performed") or row.get("generation_attempted")
+                    or row.get("retrieved_passages") or answer.get("abstained") is not True):
+                raise ValidationError("Policy abstention contains model execution or supplied evidence")
+            continue
+        if row.get("answer_origin") != "live":
+            raise ValidationError("Unknown answer origin in live study")
+        if isinstance(generation, dict):
+            for field in ("model_digest", "model_digest_after"):
+                observed = generation.get(field)
+                if observed is not None and observed != protocol["model_digest"]:
+                    raise ValidationError("Observed model digest differs from frozen protocol")
+        if row.get("status") == "run_error":
+            # A failed request may have no model observation at all. Preserve it as an error.
+            continue
+        if row.get("status") != "answered_pending_review" or not isinstance(generation, dict):
+            raise ValidationError("Answered live record lacks generation metadata")
+        if (generation.get("model") != protocol["model"] or generation.get("model_digest") != protocol["model_digest"]
+                or generation.get("model_digest_after") != protocol["model_digest"]
+                or generation.get("generation_performed") is not True or row.get("generation_performed") is not True):
+            raise ValidationError("Answered live record lacks both frozen model observations")
+        request = generation.get("request") or {}
+        options = request.get("options") or {}
+        config = expected[name]
+        if (request.get("model") != protocol["model"] or request.get("think") is not False
+                or request.get("stream") is not False or options.get("temperature") != 0
+                or options.get("num_ctx") != config["context_window"]
+                or options.get("num_predict") != config["max_output_tokens"]
+                or options.get("num_gpu") != 0
+                or request.get("messages") != (row.get("prompt") or {}).get("messages")):
+            raise ValidationError("Answered live request differs from frozen generation controls")
+
+
 def summarize(root, study_path, protocol_path):
     folder = (root / study_path).resolve()
     if not folder.is_relative_to(root.resolve()):
@@ -43,6 +89,7 @@ def summarize(root, study_path, protocol_path):
         run = json.loads(raw)
         planned = len(entry["dataset"]["cases"]) * 4
         verify_result(run, planned, protocol["model_digest"])
+        verify_frozen_controls(run, protocol)
         evaluation = evaluate_run(run, entry["dataset"], entry["relations"], snapshots=entry["snapshots"])
         cases = {c["case_id"]: c for c in entry["dataset"]["cases"]}
         totals["recorded"] += len(run["results"])
@@ -84,6 +131,7 @@ def summarize(root, study_path, protocol_path):
         raise ValidationError("Variability raw run hash changed")
     variability = json.loads(raw)
     verify_result(variability, 36, protocol["model_digest"])
+    verify_frozen_controls(variability, protocol)
     base = entries[0]
     subset = dict(base["dataset"], cases=[c for c in base["dataset"]["cases"] if c["case_id"] in protocol["variability_cases"]])
     relations = dict(base["relations"], dataset_hash=digest(subset), relations=[
@@ -107,6 +155,9 @@ def summarize(root, study_path, protocol_path):
             "valid_answers": len(answers), "distinct_answer_objects": len(set(answers)),
             "semantic_difference_judged": False})
     proposals, proposed_counts, covered = [], Counter(), set()
+    proposal_by_configuration = defaultdict(Counter)
+    proposal_by_origin = defaultdict(Counter)
+    proposal_by_split = defaultdict(Counter)
     analysis = root / "docs/evidence/milestone5-analysis"
     for file in sorted(analysis.glob("*-assessments.json")):
         report = read_json(file)
@@ -131,6 +182,9 @@ def summarize(root, study_path, protocol_path):
                 raise ValidationError("AI assessment row misrepresents provenance")
             covered.add(key)
             proposed_counts[item["proposed_outcome"]] += 1
+            proposal_by_configuration[traces[key]["configuration_name"]][item["proposed_outcome"]] += 1
+            proposal_by_origin[traces[key]["answer_origin"]][item["proposed_outcome"]] += 1
+            proposal_by_split[traces[key]["case_split"]][item["proposed_outcome"]] += 1
         if len(packet_runs) != 1:
             raise ValidationError("AI assessment packet mixes runs")
         bound = dict(next(iter(packet_runs)))
@@ -144,6 +198,9 @@ def summarize(root, study_path, protocol_path):
         "variability": {"counts": variability["counts"], "groups": variations, "answer_cache_used": False},
         "provisional_ai_review": {"assessed": len(covered), "unassessed": 240-len(covered),
                                   "proposed_outcomes": dict(proposed_counts), "files": proposals,
+                                  "by_configuration": {k: dict(v) for k, v in proposal_by_configuration.items()},
+                                  "by_answer_origin": {k: dict(v) for k, v in proposal_by_origin.items()},
+                                  "by_case_split": {k: dict(v) for k, v in proposal_by_split.items()},
                                   "human_review": False, "independent_ground_truth": False, "benchmark_accuracy_measured": False},
         "limitations": ["Owner blanket approval does not establish individual human case review.",
             "AI-assisted proposals are not human judgments, deterministic correctness checks or independent reference labels.",

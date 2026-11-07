@@ -184,7 +184,9 @@ def test_raw_execution_remains_accounted_when_report_export_fails(project, monke
     assert (project / summary["runs"][0]["raw"]).is_file()
 
 
-@pytest.mark.parametrize("fault", ["missing", "false_error_count", "changed_after_digest"])
+@pytest.mark.parametrize("fault", ["missing", "false_error_count", "changed_after_digest",
+                                   "missing_generation", "missing_start_digest", "missing_after_digest",
+                                   "null_start_digest", "null_after_digest"])
 def test_completed_control_claim_requires_all_rows_and_both_digests(fault):
     result = {"counts": {"planned": 4, "recorded": 4, "run_errors": 0}, "results": [
         {"status": "answered_pending_review", "generation": {"model_digest": "TEST", "model_digest_after": "TEST"}}
@@ -192,5 +194,21 @@ def test_completed_control_claim_requires_all_rows_and_both_digests(fault):
     study.verify_result(result, 4, "TEST")
     if fault == "missing": result["results"].pop()
     elif fault == "false_error_count": result["counts"]["run_errors"] = 1
+    elif fault == "missing_generation": result["results"][0].pop("generation")
+    elif fault == "missing_start_digest": result["results"][0]["generation"].pop("model_digest")
+    elif fault == "missing_after_digest": result["results"][0]["generation"].pop("model_digest_after")
+    elif fault == "null_start_digest": result["results"][0]["generation"]["model_digest"] = None
+    elif fault == "null_after_digest": result["results"][0]["generation"]["model_digest_after"] = None
     else: result["results"][0]["generation"]["model_digest_after"] = "CHANGED"
     with pytest.raises(ValidationError): study.verify_result(result, 4, "TEST")
+
+
+def test_policy_abstention_and_incomplete_run_error_do_not_require_model_observations():
+    result = {"counts": {"planned": 2, "recorded": 2, "run_errors": 1}, "results": [
+        {"status": "answered_pending_review", "answer_origin": "policy_abstention", "generation": None},
+        {"status": "run_error", "answer_origin": "live", "generation": {"model_digest": None}},
+    ]}
+    study.verify_result(result, 2, "TEST")
+    result["results"][1]["generation"]["model_digest"] = "OTHER"
+    with pytest.raises(ValidationError):
+        study.verify_result(result, 2, "TEST")

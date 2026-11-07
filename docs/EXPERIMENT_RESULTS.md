@@ -145,4 +145,53 @@ failure-flag precision/recall remain unavailable.
 
 The genuine case definition and should_change relation were subsequently approved.
 Its old draft diagnostic is preserved, and a fresh reviewed-case four-record run
-completed without errors. Actual-answer review of those new traces is pending.
+completed without errors. Human actual-answer review of those new traces is pending;
+the later 60-case study has separate provisional AI assessments.
+
+## Frozen 60-case study: completed execution, provisional semantic analysis
+
+The frozen protocol binds 324 source/configuration/fixture files, 20 development
+and 40 held-out case definitions, two retrieval configurations and two snapshots.
+The user approved all definitions as a batch; only 11 case definitions and one
+expected relation have item-specific human review. These review types are not
+interchangeable. The study used the same local Qwen model digest and MiniLM ONNX
+backend throughout. The only intended configuration difference was explicit
+software-version filtering.
+
+The [verified report](evidence/milestone5-analysis/final-study-report.html) gives
+the full denominators and per-bundle accounting. Exact answer/evidence traces
+are preserved in the raw bundle archives. The main run retained **240/240**
+planned records: **236 structured**, including **24 deterministic policy
+abstentions** after evidence removal, and **4 run errors**. It logged **216 chat
+attempts** and **212 completed model responses**. Basic retrieval had 120
+structured records and zero errors; version-filtered retrieval had 116
+structured records and four errors. No general correctness improvement follows
+from those counts.
+
+All 240 records have hash-bound **AI-assisted provisional proposals**: 125 pass
+(101 generated answers and 24 policy abstentions), 95 fail, 16 need human review,
+and four run errors. In pass/fail/unresolved/error order, development proposals
+were 50/22/7/1 and held-out proposals were 75/73/9/3. Basic-retrieval proposals
+were 64/47/9/0, and version-filtered proposals were 61/48/7/4. These are agent observations, not human-validated
+accuracy or independent evaluator labels. The new study has **zero human answer
+judgments**. The four older human judgments remain attached to their earlier
+run and are not copied here. Testing-tool precision/recall therefore remain
+unavailable. Most observed failure patterns should be treated as model or
+evidence problems in these tested cases; the corpus change is not established
+as their sole cause.
+
+The fixed three-case variability subset retained **36/36** repeated records with
+zero errors and answer caching disabled. Five of twelve
+case/configuration/snapshot cells produced more than one distinct structured
+answer object over three repetitions. That is an exact-object observation;
+semantic difference was not adjudicated. Formatting controls changed whitespace
+only. Empty-after removal rows exercised the configured evidence-only policy,
+not the model's ability to infer a fact from deleted evidence.
+
+The [artifact manifest](evidence/milestone5-study/final-artifact-manifest.json)
+binds raw archives, the frozen source and review packets. The
+[offline reproduction receipt](evidence/milestone5-study/offline-reproduction-receipt.json)
+records a fresh project-local extraction that regenerated the exact JSON/HTML
+report hashes without model inference. The current source has a later
+validation-only model-digest fix, separately verified by 589 offline tests;
+the recorded study used the archived source.

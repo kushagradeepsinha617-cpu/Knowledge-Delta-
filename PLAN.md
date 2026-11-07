@@ -1,52 +1,51 @@
-# Current milestone: 5 — Final evaluation and portfolio packaging
+# Current milestone: 5 ? Final evaluation and portfolio packaging
 
-The user explicitly consolidated all remaining work into Milestone 5 on
-2026-11-07. This reorganizes unfinished work; it does not mark it completed.
-Milestone 4 describes the implemented workflow and exploratory study only.
-See `docs/MILESTONE_5.md` for the full remaining scope and completion criteria.
+See `docs/MILESTONE_5.md` for scope and completion criteria.
 
-- [x] Finish study-runner control/completion checks and verify the final source.
-- [x] Record the user's explicit blanket approval of all 60 case definitions and
-      relations in a bound ledger; preserve 11 item-level human case reviews
-      separately. Keep 20 development/40 held-out cases in separate families.
-- [ ] Freeze inputs/settings, run controlled local experiments and variability
-      checks, and preserve raw records, errors, missing results and provenance.
-- [ ] Review actual answers and publish only metrics supported by those judgments;
-      report review coverage and retain unresolved records in accounting.
-- [x] Verify the offline core wheel build, fresh isolated pip installation,
-      installed CLI/assets and installed local fixture HTTP workflow. Full fresh
-      ML dependency resolution and other platforms remain explicitly unverified.
-- [ ] Finish README, architecture, dataset/source documentation, results write-up,
-      screenshots, 60–90 second demo and case study.
+- [x] Freeze inputs, run 60 cases across both snapshots/configurations, and retain raw evidence.
+- [x] Run the fixed three-case variability subset and preserve errors and provenance.
+- [x] Assess all main answers with hash-bound provisional AI assistance; keep human judgments separate.
+- [x] Reproduce the JSON/HTML report offline from frozen source and raw archives.
+- [x] Verify core wheel build, fresh isolated pip install, installed CLI/assets and fixture HTTP workflow.
+- [x] Prepare README, architecture, dataset card, results, screenshots, demo script and case study.
+- [x] Build the static portfolio package and 60–90 second demo script.
+- [ ] Finish the final artifact audit and GitHub push.
 
-Current evidence: final study source passed 583 tests with zero failures/errors/
-skips, run `25f2ca58950a4edcb05e740f1443b209`; all 324 source/configuration/
-fixture files matched the frozen protocol. Evidence:
-`docs/evidence/milestone5-owner-approval-and-controls/`.
-The 60-case owner-approval ledger does not rewrite the 11 item-level human case
-reviews or one human-reviewed expected relation; the other 49 case labels remain
-drafts rather than fabricated human review. See `docs/REVIEW_PROVENANCE.md`.
+The actual video is deferred at the user's direction and is not claimed by the
+package. Browser automation and headless Chrome/Edge capture were unavailable
+in this session; the three previously recorded actual UI screenshots remain.
 
-Frozen protocol: `runs/milestone5-study-protocol.json`, ID
-`a1f613c45be401fdf95a99ee9b47ef36261f7c7baa933eece8a4aaad1e1f23c4`.
-Serial model execution is running under handle 1375; initial summary run
-`3340520f537043c297e64eedce36daee`. Poll that handle before considering a restart.
-All seven main bundles are retained: 240/240 main records, including 4 run
-errors. All 240 have bound, provisional AI-assisted assessments, not human answer
-judgments or official accuracy. The 36 fixed repeated-run records are still
-pending. Frozen code/datasets must stay unchanged until the run finishes;
-documentation and packaging artifacts can be prepared separately. Raw bundles
-1–6 and their completed review packets are published through `6109e11`; bundle
-7 and its review packet are prepared locally for the next checkpoint.
+Frozen protocol `a1f613c45be401fdf95a99ee9b47ef36261f7c7baa933eece8a4aaad1e1f23c4`
+binds 324 source/configuration/fixture files. The frozen source passed 583
+offline tests, zero failures/errors/skips (`25f2ca58950a4edcb05e740f1443b209`).
+Execution run `3340520f537043c297e64eedce36daee` retained **240/240**
+main records: four run errors, 24 deterministic policy abstentions, 216 chat
+attempts and 212 completed model responses. The fixed variability subset
+retained **36/36** records with zero errors; five of twelve cells had more
+than one distinct answer object. Semantic differences were not adjudicated.
 
-Fresh build/install/installed HTTP workflow passed; receipt:
-`docs/evidence/milestone5-packaging/fe44d2c91ac643b894994586e9c44999.json`.
-Three actual Chrome fixture screenshots, reproducible four-human-judgment report,
-README, architecture, dataset card, demo script and case-study draft are prepared.
+All 240 main records have hash-bound provisional AI-assisted proposals: 125 pass
+(24 policy and 101 generated), 95 fail, 16 need human review, four run errors.
+The new study has **zero human answer judgments**. Owner blanket approval covers
+all 60 definitions; only 11 case definitions and one expected relation have
+item-level human review. Forty-nine draft labels remain drafts. No human
+accuracy or independent evaluator precision/recall is claimed.
 
-Next: monitor the live study, assess remaining answers with explicit AI/human
-provenance, finish actual-result artifacts and audit every completion criterion.
-Publishing is a separate delivery action; it is not a condition for completion.
+The exact final JSON/HTML report reproduced offline from archived frozen source
+and raw runs. See `docs/evidence/milestone5-study/` and
+`docs/evidence/milestone5-analysis/final-study-report.json`. Main bundles 1?7
+and review packets are published through `a18accb`; variability/final artifacts
+await the final push.
+
+A post-run validation-only fix requires both frozen model digests for answered
+live rows; recorded answers were not changed. Current source passed **589**
+offline tests, zero failures/errors/skips (`cc302a702b224bc1abb93b56956aaff2`).
+The core package built, installed and served the fixture workflow again in
+receipt `0085d125bf1b4f64b2b04b2b17300708`. Fresh full-ML resolution,
+other platforms and OS peak memory remain unverified.
+
+Next: complete portfolio packaging and final scope audit, then push and verify
+GitHub. Keep AI proposals distinct from human judgments.
 
 ## Earlier checkpoints (preserved)
 

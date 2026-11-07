@@ -1,0 +1,48 @@
+{
+  "analyzer_sha256": "7a2444875137a0759d20a4f42bc817dd6fd13645a23b8b60ebb9aaeaceafb9bd",
+  "assessment_sha256": {
+    "development-assessments.json": "b524b55af02d41954b736866fdb46c5e16635fb3d0610c3a1b96d4b289d4166d",
+    "development-extension-assessments.json": "0fcf185d327b66d52e52c96650e08bff1a634706ffa43c787e68673002ac6995",
+    "genuine-revision-assessments.json": "7ff07e8e8f0dbf6aff16f6fd1e6ddc86f9324fc156826938d57b834f3052e483",
+    "heldout-evidence-removed-assessments.json": "b3a858c4ab15851d979366fa502df05ce9828d5195d8fcc80357f55d5c92b41a",
+    "heldout-other-version-added-assessments.json": "b29b3d0ae7e44f72e568c24e7042df2fa643ea8af4947332eeb800bdd9feba76",
+    "heldout-unrelated-change-assessments.json": "a19f8185a09880d60d9d0b8e472d478530a7b5bd4c60a168562d65a37a108965",
+    "heldout-wording-only-assessments.json": "573083857707c38f82dbd9ac19bd6cf694f5cff4ff85e8c7f174d3f2c741205e"
+  },
+  "bundle_archive_files": {
+    "1": "development-bundle-1.zip",
+    "2": "bundle-2.zip",
+    "3": "bundle-3.zip",
+    "4": "bundle-4.zip",
+    "5": "bundle-5.zip",
+    "6": "bundle-6.zip",
+    "7": "bundle-7.zip"
+  },
+  "bundle_archive_sha256": {
+    "1": "c080fbfcd6a374bbbe1dcc26628cb4c23f354c6ebfebbd7a4e17b3d049fc45ea",
+    "2": "84a8063522fa2c6c1853aecbdeb900aa05116852998756a0af0319f93ec31dac",
+    "3": "abc7a4ddba228937332b7befb403c735bf3e7e645540095e46273a2976bf3648",
+    "4": "6660d84f606fb266e5874e36a189538b57d0b844a17dfdfa651191df8539b642",
+    "5": "15a9e504654a92a08ea2b10faa3a4ff06469131f0c20709bcf2b2012cb7c1d06",
+    "6": "662706e1f381b3247aff1131e280fcbcdb6bc3ffd2f691c3766709ddabdadbd6",
+    "7": "d358b427439afddb324acc698412d952255e5bd8b6e7f1348ca764fa9a2eabfd"
+  },
+  "claims": {
+    "ai_assessments_provisional": 240,
+    "human_answer_reviews_in_new_study": 0,
+    "main_records": 240,
+    "main_run_errors": 4,
+    "variability_records": 36
+  },
+  "frozen_source_archive_sha256": "28a61c3a1bd6e3e812dea2d2bc48e2c2e7cdef1169a0cb4662cd385973dac5f6",
+  "kind": "frozen_study_publication_manifest",
+  "protocol_id": "a1f613c45be401fdf95a99ee9b47ef36261f7c7baa933eece8a4aaad1e1f23c4",
+  "protocol_sha256": "38e8cf227c06c00820ec54ed552ae41f35b6846c6b361ebb650c1483f26590f7",
+  "report_sha256": {
+    "html": "972a5284b054c043e333260e4673dddbd8535e9837c05e96ab75df81f3921c59",
+    "json": "ea9e5d5398a20bb3e54ab7b55a3f8f26ef790ea1583f00d5f89ec3dbbeb2d6ca"
+  },
+  "schema_version": 1,
+  "summary_sha256": "dc7872907d556c675df36e12b1642ebf7019ddc36eb6b44ed1afecec220838db",
+  "variability_archive_sha256": "2457e0fc81070f7cb922a2a8226979673cad3b1ee96d7bae006a372114de9c16"
+}

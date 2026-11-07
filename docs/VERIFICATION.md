@@ -1,27 +1,41 @@
-# Milestone 5 current verification checkpoint
+# Milestone 5 verification
 
-The study runner and bound owner-approval gate passed **583 offline tests**,
-zero failures/errors/skips, run `25f2ca58950a4edcb05e740f1443b209`.
-All 324 tested source/configuration/fixture files matched at the study freeze.
-See `evidence/milestone5-owner-approval-and-controls/` for JUnit, raw output,
-real CLI checks and exact source hashes. Failed earlier path-length fixture
-verification remains preserved separately; it was not counted as a pass.
+The frozen 324-file study source passed **583 offline tests**, zero
+failures/errors/skips, run `25f2ca58950a4edcb05e740f1443b209`. Evidence:
+`evidence/milestone5-owner-approval-and-controls/`. Its execution then retained
+240/240 main and 36/36 repeated records. The main matrix has four run errors,
+24 deterministic policy abstentions and 212 completed model responses. The
+[final report](evidence/milestone5-analysis/final-study-report.json) validates
+record matrices, source/protocol identity, both model digests for successful
+answers, request controls, raw hashes, review bindings and repetition counts.
 
-The core wheel built using existing setuptools 84.2.1 and installed through the
-previously hash-verified pip wheel into a new isolated Python 3.14.10 environment.
-Installed CLI help, doctor, real document comparison, packaged web assets and
-the installed local HTTP fixture load passed. Receipt:
-`evidence/milestone5-packaging/fe44d2c91ac643b894994586e9c44999.json`.
+A later validation-only fix requires both model-digest observations for answered
+live rows in the study runner. The current source, including this fix, passed
+**589 offline tests**, zero failures/errors/skips, run
+`cc302a702b224bc1abb93b56956aaff2`. Evidence:
+`evidence/milestone5-post-study-hardening/`. The historical run was not
+rewritten. The exact final JSON/HTML report reproduced offline from the archived
+frozen source and raw run files; the
+[receipt](evidence/milestone5-study/offline-reproduction-receipt.json) binds
+both output hashes.
+
+The core wheel built using existing setuptools 84.2.1 and installed through a
+hash-verified pip wheel into a new isolated Python 3.14.10 environment. Installed
+CLI help, doctor, real document comparison, packaged web assets and local HTTP
+fixture load passed again after the fix. Final receipt:
+`evidence/milestone5-packaging/0085d125bf1b4f64b2b04b2b17300708.json`.
 No network, model request, global installation or security change was used for
 that probe. Fresh online/full-ML resolution and a cross-platform matrix remain
-unverified; this checkpoint is broader than the earlier source-only test setup.
+unverified.
 
-Actual Chrome desktop fixture screenshots are in `screenshots/` and described
-in SHOWCASE.md. They show observed UI state, not live benchmark results. A full
-viewport/browser visual audit is not established by those three captures.
+A recursive project-folder measurement after report and portfolio preparation
+found 5,643,537,432 bytes across 160,300 files, below the approved 12 GB
+project ceiling. This is retained disk use, not peak runtime RAM or installer
+peak storage.
 
-The expanded study was started under a frozen protocol; successful complete
-execution and semantic findings are not claimed by these code/setup checks.
+Three actual Chrome fixture screenshots are in `screenshots/` and described in
+SHOWCASE.md. They show fixture UI state, not live benchmark results. No video is
+claimed by those captures.
 
 ## Earlier verification history (preserved)
 

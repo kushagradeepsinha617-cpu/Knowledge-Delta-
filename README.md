@@ -4,7 +4,7 @@ Test whether documentation changes cause incorrect answers in an AI documentatio
 
 KnowledgeDelta compares two document snapshots, asks the same version-specific questions, and preserves the answers and exact evidence for review. A changed answer can be expected; an old document can still be correct for an old software version.
 
-**Status:** working local application and exploratory evaluation. The expanded 60-case study is currently running under a frozen protocol. User approval of all definitions is recorded separately from item-level human review. [Review provenance](docs/REVIEW_PROVENANCE.md) explains that distinction.
+**Status:** working local application and completed exploratory 60-case execution. The recorded study has 240/240 main results and 36/36 repeated-run results. Its semantic assessments are AI-assisted proposals, not human-graded benchmark accuracy. User approval of all definitions is recorded separately from item-level human review. [Review provenance](docs/REVIEW_PROVENANCE.md) explains that distinction.
 
 ## What you can inspect
 
@@ -14,6 +14,11 @@ KnowledgeDelta compares two document snapshots, asks the same version-specific q
 - Answer text, exact supplied passages, citations, model/configuration identities, malformed attempts and errors.
 - Per-snapshot judgments, expected-change comparisons, manual review history and HTML/JSON exports.
 - Clearly labeled fixture replay that works without models or downloads.
+
+For a quick portfolio tour, open the [static showcase](docs/portfolio/index.html)
+or download the [portable presentation package](docs/portfolio/knowledge-delta-portfolio.zip).
+The showcase is static; the Python/model workflow still runs locally from this
+repository. No public inference service is deployed.
 
 ## Run the interface
 
@@ -45,7 +50,7 @@ The repository's verified source-dependency setup uses:
 & '.\.venv\Scripts\python.exe' -B scripts/run_checks.py --source-dependencies --evidence-dir runs/checks-new
 ```
 
-The latest source checkpoint executed **583 tests**, with zero failures, errors or skips. Ordinary tests use constructed/fault fixtures and do not need Ollama, network access or model downloads. [Raw verification evidence](docs/evidence/milestone5-owner-approval-and-controls/checks.json) and [test setup](docs/TEST_SETUP.md) describe the environment and provenance.
+The frozen study source passed **583 tests** before execution. After a validation-only fix, the current source passed **589 tests**, with zero failures, errors or skips. Ordinary tests use constructed/fault fixtures and do not need Ollama, network access or model downloads. [Frozen-source evidence](docs/evidence/milestone5-owner-approval-and-controls/checks.json), [current-source evidence](docs/evidence/milestone5-post-study-hardening/checks.json) and [test setup](docs/TEST_SETUP.md) describe the environment and provenance.
 
 For a conventional explicit test installation, the project declares the pytest dependency in `.[test]`. Keep setup/cache state project-local:
 
@@ -66,15 +71,17 @@ This explicitly installs test dependencies and may use the internet. It is not a
 - The ten-question CPU smoke produced ten structured responses and zero run errors in **122.453 seconds**. This establishes execution, not semantic accuracy.
 - A 40-record development experiment at a 128-token output cap retained **18 run errors**. The separate 256-token experiment completed **40/40 structured responses**, with zero run errors; recorded inputs were checked for the intended cap-only change.
 - Four actual human answer judgments for one selected dict-pairs family showed a basic-retrieval regression and filtered recovery. This assisted, post-hoc example is not a representative accuracy estimate or proof of a sole cause.
+- The frozen 60-case study retained **240/240 main records**, including **4 run errors**, **24 deterministic empty-context abstentions**, and **212 completed model responses**. Its 36 repeated-run records had zero errors; 5 of 12 repeated cells produced more than one distinct structured answer object. Distinct objects do not by themselves prove semantic differences.
+- All 240 main records have hash-bound, **provisional AI-assisted assessments**: 125 proposed pass (24 policy abstentions and 101 generated answers), 95 proposed fail, 16 need human review, and 4 run errors. The new study has **zero human answer judgments**, so these counts are not human-validated accuracy or testing-tool precision/recall. Version filtering had 4 run errors versus none for basic retrieval; the provisional proposals do not establish a general filtering improvement.
 - The core package built into a wheel and installed through pip in a fresh isolated environment, offline with already downloaded build tools. Installed CLI commands, packaged assets and the local fixture HTTP workflow passed.
 
-See [recorded results](docs/EXPERIMENT_RESULTS.md), [human review evidence](docs/HUMAN_REVIEW.md), [local inference details](docs/LOCAL_INFERENCE_RESULTS.md) and [Milestone 5 scope](docs/MILESTONE_5.md). New expanded-study outcomes will be added after their completion/control checks pass.
+See the [final study report](docs/evidence/milestone5-analysis/final-study-report.html), [offline reproduction receipt](docs/evidence/milestone5-study/offline-reproduction-receipt.json), [recorded results](docs/EXPERIMENT_RESULTS.md), [human review evidence](docs/HUMAN_REVIEW.md), [local inference details](docs/LOCAL_INFERENCE_RESULTS.md) and [Milestone 5 scope](docs/MILESTONE_5.md). The final report was reproduced from the 324-file frozen-source archive and raw runs without model calls. The later validation fix was tested separately and did not alter recorded answers.
 
 ## Evaluation boundaries
 
 The expanded dataset has **20 development and 40 held-out cases** in one Pydantic domain. The held-out set spans **22 semantic families**. Its cases are withheld from project tuning, not claimed unseen during pretraining or independently authored.
 
-The owner approved all definitions as a batch. Existing **11 item-level human case reviews** and **four human answer judgments** remain distinct from that authorization. AI-drafted cases and AI-assisted analysis do not become independent human ground truth.
+The owner approved all definitions as a batch. Existing **11 item-level human case reviews** and **four human answer judgments from an earlier run** remain distinct from that authorization. The expanded study has no human answer judgments. AI-drafted cases and AI-assisted analysis do not become independent human ground truth.
 
 The study separates genuine upstream revisions from constructed corpus changes. Whitespace controls test formatting stability. Empty evidence-removal snapshots exercise the evidence-only abstention policy; those abstentions are not model calls. Semantic accuracy and testing-tool precision/recall require qualifying judgments, with errors and unknowns visible in denominators.
 

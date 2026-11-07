@@ -1,0 +1,1361 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>KnowledgeDelta study evidence</title><style>body{font:15px/1.6 system-ui;max-width:1100px;margin:32px auto;padding:24px;color:#172c38}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f3f7f5;padding:24px}</style><h1>Verified study accounting</h1><p>Execution and mechanical checks are separate from provisional AI-assisted semantic assessments.</p><pre>{
+  &quot;kind&quot;: &quot;verified_study_accounting&quot;,
+  &quot;protocol_id&quot;: &quot;a1f613c45be401fdf95a99ee9b47ef36261f7c7baa933eece8a4aaad1e1f23c4&quot;,
+  &quot;execution_run_id&quot;: &quot;3340520f537043c297e64eedce36daee&quot;,
+  &quot;definitions&quot;: {
+    &quot;development&quot;: 20,
+    &quot;held_out&quot;: 40,
+    &quot;human_reviewed&quot;: 11,
+    &quot;draft&quot;: 49,
+    &quot;human_relations&quot;: 1,
+    &quot;cases&quot;: 60
+  },
+  &quot;owner_approved_definitions&quot;: 60,
+  &quot;main&quot;: {
+    &quot;planned&quot;: 240,
+    &quot;recorded&quot;: 240,
+    &quot;run_errors&quot;: 4,
+    &quot;structured&quot;: 236,
+    &quot;policy_abstentions&quot;: 24,
+    &quot;chat_attempts&quot;: 216,
+    &quot;completed_model_responses&quot;: 212,
+    &quot;human_answer_reviews&quot;: 0
+  },
+  &quot;by_configuration&quot;: {
+    &quot;basic&quot;: {
+      &quot;planned&quot;: 120,
+      &quot;recorded&quot;: 120,
+      &quot;structured&quot;: 120,
+      &quot;policy_abstentions&quot;: 12
+    },
+    &quot;version_filtered&quot;: {
+      &quot;planned&quot;: 120,
+      &quot;recorded&quot;: 120,
+      &quot;structured&quot;: 116,
+      &quot;policy_abstentions&quot;: 12,
+      &quot;run_errors&quot;: 4
+    }
+  },
+  &quot;runs&quot;: [
+    {
+      &quot;path&quot;: &quot;examples/pydantic&quot;,
+      &quot;run_id&quot;: &quot;12c1b5bbbf764aa4a355661b28edfcef&quot;,
+      &quot;raw_sha256&quot;: &quot;827f91db6476808e3b7d4b9c83bd19587ab1748c917099d84e552db68bf3420f&quot;,
+      &quot;counts&quot;: {
+        &quot;planned&quot;: 40,
+        &quot;recorded&quot;: 40,
+        &quot;run_errors&quot;: 1,
+        &quot;awaiting_semantic_review&quot;: 39
+      },
+      &quot;official_judgments&quot;: {
+        &quot;pass&quot;: 0,
+        &quot;fail&quot;: 2,
+        &quot;needs_human_review&quot;: 37,
+        &quot;run_error&quot;: 1
+      },
+      &quot;metrics&quot;: {
+        &quot;schema_version&quot;: 1,
+        &quot;kind&quot;: &quot;knowledge_delta_metrics&quot;,
+        &quot;run_id&quot;: &quot;12c1b5bbbf764aa4a355661b28edfcef&quot;,
+        &quot;dataset_hash&quot;: &quot;777aa73c178ad6a8ba2ddc8562a98bd7499d23a55f5890dee1e302560182a3ad&quot;,
+        &quot;provenance_note&quot;: &quot;Live origin and reviewer identities are recorded claims, not authenticated execution or identities. Independent reference means a separately attested procedure, not necessarily another person or a blind review.&quot;,
+        &quot;accounting&quot;: {
+          &quot;planned_answer_records&quot;: 40,
+          &quot;recorded_answer_records&quot;: 40,
+          &quot;missing_answer_records&quot;: 0,
+          &quot;run_errors&quot;: 1,
+          &quot;needs_human_review&quot;: 37,
+          &quot;without_resolved_human_answer_review&quot;: 40,
+          &quot;simulated_judgments&quot;: 0,
+          &quot;automatic_failure_flags&quot;: 2
+        },
+        &quot;partitions&quot;: {
+          &quot;origin&quot;: {
+            &quot;live&quot;: 40
+          },
+          &quot;case_review_status&quot;: {
+            &quot;human_reviewed&quot;: 40
+          },
+          &quot;source_provenance&quot;: {
+            &quot;constructed&quot;: 40
+          },
+          &quot;split&quot;: {
+            &quot;development&quot;: 40
+          },
+          &quot;configuration&quot;: {
+            &quot;basic&quot;: 20,
+            &quot;version_filtered&quot;: 20
+          }
+        },
+        &quot;assistant&quot;: {
+          &quot;availability&quot;: &quot;unavailable_no_eligible_human_judgments&quot;,
+          &quot;planned_reviewed_case_answer_records&quot;: 40,
+          &quot;resolved_eligible_human_judgments&quot;: 0,
+          &quot;accuracy_resolved_human_judgments_only&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;confirmed_correct_per_planned_reviewed_case_answer&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 40,
+            &quot;value&quot;: 0.0
+          },
+          &quot;review_coverage&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 40,
+            &quot;value&quot;: 0.0
+          },
+          &quot;reviewed_case_run_errors&quot;: 1,
+          &quot;reviewed_case_missing_records&quot;: 0,
+          &quot;exclusion_reasons_nonexclusive&quot;: {
+            &quot;no_resolved_human_answer_review&quot;: 40,
+            &quot;run_error&quot;: 1
+          },
+          &quot;primary_wrong_version_failure_labels&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;primary_unsupported_answer_failure_labels&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;diagnostic_note&quot;: &quot;Failure-label fractions count explicit primary human classifications; they do not exhaustively assess overlapping failure causes.&quot;,
+          &quot;abstention&quot;: {
+            &quot;records_in_reviewed_cases&quot;: 3,
+            &quot;unassessed_records&quot;: 3,
+            &quot;appropriate_among_assessed&quot;: {
+              &quot;numerator&quot;: 0,
+              &quot;denominator&quot;: 0,
+              &quot;value&quot;: null
+            },
+            &quot;unnecessary_among_assessed&quot;: {
+              &quot;numerator&quot;: 0,
+              &quot;denominator&quot;: 0,
+              &quot;value&quot;: null
+            }
+          },
+          &quot;answer_pipeline_latency_seconds&quot;: {
+            &quot;observed_records&quot;: 40,
+            &quot;missing_records&quot;: 0,
+            &quot;mean&quot;: 28.757200647465652,
+            &quot;median&quot;: 28.184486950049177,
+            &quot;minimum&quot;: 11.411115899914876,
+            &quot;maximum&quot;: 132.92090649995953,
+            &quot;note&quot;: &quot;Live-marked trace elapsed time includes retrieval and generation/error handling; it is not peak memory or isolated model inference time.&quot;
+          }
+        },
+        &quot;testing_tool&quot;: {
+          &quot;flag_policy&quot;: &quot;At least one failed original mechanical check; post-review correctness does not define the flag.&quot;,
+          &quot;reference_labels_submitted&quot;: 0,
+          &quot;eligible_reference_labels&quot;: 0,
+          &quot;ineligible_reference_labels&quot;: 0,
+          &quot;eligible_records_without_reference&quot;: 39,
+          &quot;run_errors_excluded_from_semantic_reference_scoring&quot;: 1,
+          &quot;confusion&quot;: {
+            &quot;true_positive&quot;: 0,
+            &quot;false_positive&quot;: 0,
+            &quot;false_negative&quot;: 0,
+            &quot;true_negative&quot;: 0
+          },
+          &quot;precision&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;recall&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;reference_coverage&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 39,
+            &quot;value&quot;: 0.0
+          },
+          &quot;needs_human_review&quot;: 37
+        }
+      },
+      &quot;elapsed_seconds&quot;: 1166.6795169999823,
+      &quot;latency_seconds&quot;: {
+        &quot;structured&quot;: {
+          &quot;count&quot;: 39,
+          &quot;median&quot;: 28.164402100024745,
+          &quot;minimum&quot;: 11.411115899914876,
+          &quot;maximum&quot;: 53.59371339995414
+        },
+        &quot;run_errors&quot;: {
+          &quot;count&quot;: 1,
+          &quot;median&quot;: 132.92090649995953,
+          &quot;minimum&quot;: 132.92090649995953,
+          &quot;maximum&quot;: 132.92090649995953
+        }
+      }
+    },
+    {
+      &quot;path&quot;: &quot;examples/pydantic-revision&quot;,
+      &quot;run_id&quot;: &quot;04f5caead7dd426db86618dd577b7acb&quot;,
+      &quot;raw_sha256&quot;: &quot;47c580c7e290fec36a941a3cdb9437fb0f13ed2e3a0871b0920c7e4aecab5c03&quot;,
+      &quot;counts&quot;: {
+        &quot;planned&quot;: 4,
+        &quot;recorded&quot;: 4,
+        &quot;run_errors&quot;: 0,
+        &quot;awaiting_semantic_review&quot;: 4
+      },
+      &quot;official_judgments&quot;: {
+        &quot;pass&quot;: 0,
+        &quot;fail&quot;: 0,
+        &quot;needs_human_review&quot;: 4,
+        &quot;run_error&quot;: 0
+      },
+      &quot;metrics&quot;: {
+        &quot;schema_version&quot;: 1,
+        &quot;kind&quot;: &quot;knowledge_delta_metrics&quot;,
+        &quot;run_id&quot;: &quot;04f5caead7dd426db86618dd577b7acb&quot;,
+        &quot;dataset_hash&quot;: &quot;865ba6b900917c22007ce3b6a466570051484a87659cefbbe8fc5917da09eb8d&quot;,
+        &quot;provenance_note&quot;: &quot;Live origin and reviewer identities are recorded claims, not authenticated execution or identities. Independent reference means a separately attested procedure, not necessarily another person or a blind review.&quot;,
+        &quot;accounting&quot;: {
+          &quot;planned_answer_records&quot;: 4,
+          &quot;recorded_answer_records&quot;: 4,
+          &quot;missing_answer_records&quot;: 0,
+          &quot;run_errors&quot;: 0,
+          &quot;needs_human_review&quot;: 4,
+          &quot;without_resolved_human_answer_review&quot;: 4,
+          &quot;simulated_judgments&quot;: 0,
+          &quot;automatic_failure_flags&quot;: 0
+        },
+        &quot;partitions&quot;: {
+          &quot;origin&quot;: {
+            &quot;live&quot;: 4
+          },
+          &quot;case_review_status&quot;: {
+            &quot;human_reviewed&quot;: 4
+          },
+          &quot;source_provenance&quot;: {
+            &quot;genuine&quot;: 4
+          },
+          &quot;split&quot;: {
+            &quot;development&quot;: 4
+          },
+          &quot;configuration&quot;: {
+            &quot;basic&quot;: 2,
+            &quot;version_filtered&quot;: 2
+          }
+        },
+        &quot;assistant&quot;: {
+          &quot;availability&quot;: &quot;unavailable_no_eligible_human_judgments&quot;,
+          &quot;planned_reviewed_case_answer_records&quot;: 4,
+          &quot;resolved_eligible_human_judgments&quot;: 0,
+          &quot;accuracy_resolved_human_judgments_only&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;confirmed_correct_per_planned_reviewed_case_answer&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 4,
+            &quot;value&quot;: 0.0
+          },
+          &quot;review_coverage&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 4,
+            &quot;value&quot;: 0.0
+          },
+          &quot;reviewed_case_run_errors&quot;: 0,
+          &quot;reviewed_case_missing_records&quot;: 0,
+          &quot;exclusion_reasons_nonexclusive&quot;: {
+            &quot;no_resolved_human_answer_review&quot;: 4
+          },
+          &quot;primary_wrong_version_failure_labels&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;primary_unsupported_answer_failure_labels&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;diagnostic_note&quot;: &quot;Failure-label fractions count explicit primary human classifications; they do not exhaustively assess overlapping failure causes.&quot;,
+          &quot;abstention&quot;: {
+            &quot;records_in_reviewed_cases&quot;: 0,
+            &quot;unassessed_records&quot;: 0,
+            &quot;appropriate_among_assessed&quot;: {
+              &quot;numerator&quot;: 0,
+              &quot;denominator&quot;: 0,
+              &quot;value&quot;: null
+            },
+            &quot;unnecessary_among_assessed&quot;: {
+              &quot;numerator&quot;: 0,
+              &quot;denominator&quot;: 0,
+              &quot;value&quot;: null
+            }
+          },
+          &quot;answer_pipeline_latency_seconds&quot;: {
+            &quot;observed_records&quot;: 4,
+            &quot;missing_records&quot;: 0,
+            &quot;mean&quot;: 15.01837920001708,
+            &quot;median&quot;: 14.769652200047858,
+            &quot;minimum&quot;: 9.20706499996595,
+            &quot;maximum&quot;: 21.327147400006652,
+            &quot;note&quot;: &quot;Live-marked trace elapsed time includes retrieval and generation/error handling; it is not peak memory or isolated model inference time.&quot;
+          }
+        },
+        &quot;testing_tool&quot;: {
+          &quot;flag_policy&quot;: &quot;At least one failed original mechanical check; post-review correctness does not define the flag.&quot;,
+          &quot;reference_labels_submitted&quot;: 0,
+          &quot;eligible_reference_labels&quot;: 0,
+          &quot;ineligible_reference_labels&quot;: 0,
+          &quot;eligible_records_without_reference&quot;: 4,
+          &quot;run_errors_excluded_from_semantic_reference_scoring&quot;: 0,
+          &quot;confusion&quot;: {
+            &quot;true_positive&quot;: 0,
+            &quot;false_positive&quot;: 0,
+            &quot;false_negative&quot;: 0,
+            &quot;true_negative&quot;: 0
+          },
+          &quot;precision&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;recall&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;reference_coverage&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 4,
+            &quot;value&quot;: 0.0
+          },
+          &quot;needs_human_review&quot;: 4
+        }
+      },
+      &quot;elapsed_seconds&quot;: 66.17627139994875,
+      &quot;latency_seconds&quot;: {
+        &quot;structured&quot;: {
+          &quot;count&quot;: 4,
+          &quot;median&quot;: 14.769652200047858,
+          &quot;minimum&quot;: 9.20706499996595,
+          &quot;maximum&quot;: 21.327147400006652
+        }
+      }
+    },
+    {
+      &quot;path&quot;: &quot;examples/pydantic-evaluation/development-extension&quot;,
+      &quot;run_id&quot;: &quot;44a9f78d5ff94af0babb5d497b8522d5&quot;,
+      &quot;raw_sha256&quot;: &quot;194f629fe22fa3f9e303620ffa45e6da47cb075bd220065c94b3015ef2039973&quot;,
+      &quot;counts&quot;: {
+        &quot;planned&quot;: 36,
+        &quot;recorded&quot;: 36,
+        &quot;run_errors&quot;: 0,
+        &quot;awaiting_semantic_review&quot;: 36
+      },
+      &quot;official_judgments&quot;: {
+        &quot;pass&quot;: 0,
+        &quot;fail&quot;: 0,
+        &quot;needs_human_review&quot;: 36,
+        &quot;run_error&quot;: 0
+      },
+      &quot;metrics&quot;: {
+        &quot;schema_version&quot;: 1,
+        &quot;kind&quot;: &quot;knowledge_delta_metrics&quot;,
+        &quot;run_id&quot;: &quot;44a9f78d5ff94af0babb5d497b8522d5&quot;,
+        &quot;dataset_hash&quot;: &quot;c3e88a524abb5ebd8e684b82924a6b7d222a0f680c74b0ecaca436851c259cfd&quot;,
+        &quot;provenance_note&quot;: &quot;Live origin and reviewer identities are recorded claims, not authenticated execution or identities. Independent reference means a separately attested procedure, not necessarily another person or a blind review.&quot;,
+        &quot;accounting&quot;: {
+          &quot;planned_answer_records&quot;: 36,
+          &quot;recorded_answer_records&quot;: 36,
+          &quot;missing_answer_records&quot;: 0,
+          &quot;run_errors&quot;: 0,
+          &quot;needs_human_review&quot;: 36,
+          &quot;without_resolved_human_answer_review&quot;: 36,
+          &quot;simulated_judgments&quot;: 0,
+          &quot;automatic_failure_flags&quot;: 0
+        },
+        &quot;partitions&quot;: {
+          &quot;origin&quot;: {
+            &quot;live&quot;: 36
+          },
+          &quot;case_review_status&quot;: {
+            &quot;draft&quot;: 36
+          },
+          &quot;source_provenance&quot;: {
+            &quot;constructed&quot;: 36
+          },
+          &quot;split&quot;: {
+            &quot;development&quot;: 36
+          },
+          &quot;configuration&quot;: {
+            &quot;basic&quot;: 18,
+            &quot;version_filtered&quot;: 18
+          }
+        },
+        &quot;assistant&quot;: {
+          &quot;availability&quot;: &quot;unavailable_no_eligible_human_judgments&quot;,
+          &quot;planned_reviewed_case_answer_records&quot;: 0,
+          &quot;resolved_eligible_human_judgments&quot;: 0,
+          &quot;accuracy_resolved_human_judgments_only&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;confirmed_correct_per_planned_reviewed_case_answer&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;review_coverage&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;reviewed_case_run_errors&quot;: 0,
+          &quot;reviewed_case_missing_records&quot;: 0,
+          &quot;exclusion_reasons_nonexclusive&quot;: {
+            &quot;draft_case&quot;: 36,
+            &quot;no_resolved_human_answer_review&quot;: 36
+          },
+          &quot;primary_wrong_version_failure_labels&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;primary_unsupported_answer_failure_labels&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;diagnostic_note&quot;: &quot;Failure-label fractions count explicit primary human classifications; they do not exhaustively assess overlapping failure causes.&quot;,
+          &quot;abstention&quot;: {
+            &quot;records_in_reviewed_cases&quot;: 0,
+            &quot;unassessed_records&quot;: 0,
+            &quot;appropriate_among_assessed&quot;: {
+              &quot;numerator&quot;: 0,
+              &quot;denominator&quot;: 0,
+              &quot;value&quot;: null
+            },
+            &quot;unnecessary_among_assessed&quot;: {
+              &quot;numerator&quot;: 0,
+              &quot;denominator&quot;: 0,
+              &quot;value&quot;: null
+            }
+          },
+          &quot;answer_pipeline_latency_seconds&quot;: {
+            &quot;observed_records&quot;: 36,
+            &quot;missing_records&quot;: 0,
+            &quot;mean&quot;: 22.69145651111224,
+            &quot;median&quot;: 21.91677334997803,
+            &quot;minimum&quot;: 13.545873399823904,
+            &quot;maximum&quot;: 36.34471179987304,
+            &quot;note&quot;: &quot;Live-marked trace elapsed time includes retrieval and generation/error handling; it is not peak memory or isolated model inference time.&quot;
+          }
+        },
+        &quot;testing_tool&quot;: {
+          &quot;flag_policy&quot;: &quot;At least one failed original mechanical check; post-review correctness does not define the flag.&quot;,
+          &quot;reference_labels_submitted&quot;: 0,
+          &quot;eligible_reference_labels&quot;: 0,
+          &quot;ineligible_reference_labels&quot;: 0,
+          &quot;eligible_records_without_reference&quot;: 0,
+          &quot;run_errors_excluded_from_semantic_reference_scoring&quot;: 0,
+          &quot;confusion&quot;: {
+            &quot;true_positive&quot;: 0,
+            &quot;false_positive&quot;: 0,
+            &quot;false_negative&quot;: 0,
+            &quot;true_negative&quot;: 0
+          },
+          &quot;precision&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;recall&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;reference_coverage&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;needs_human_review&quot;: 36
+        }
+      },
+      &quot;elapsed_seconds&quot;: 830.5825288998894,
+      &quot;latency_seconds&quot;: {
+        &quot;structured&quot;: {
+          &quot;count&quot;: 36,
+          &quot;median&quot;: 21.91677334997803,
+          &quot;minimum&quot;: 13.545873399823904,
+          &quot;maximum&quot;: 36.34471179987304
+        }
+      }
+    },
+    {
+      &quot;path&quot;: &quot;examples/pydantic-evaluation/heldout-other-version-added&quot;,
+      &quot;run_id&quot;: &quot;2184415031aa4b62a1de5935be418a81&quot;,
+      &quot;raw_sha256&quot;: &quot;c5bab7882b1940d6448e773b96bbe9e7041646a3950b618eed0ba40d4285080f&quot;,
+      &quot;counts&quot;: {
+        &quot;planned&quot;: 44,
+        &quot;recorded&quot;: 44,
+        &quot;run_errors&quot;: 2,
+        &quot;awaiting_semantic_review&quot;: 42
+      },
+      &quot;official_judgments&quot;: {
+        &quot;pass&quot;: 0,
+        &quot;fail&quot;: 0,
+        &quot;needs_human_review&quot;: 42,
+        &quot;run_error&quot;: 2
+      },
+      &quot;metrics&quot;: {
+        &quot;schema_version&quot;: 1,
+        &quot;kind&quot;: &quot;knowledge_delta_metrics&quot;,
+        &quot;run_id&quot;: &quot;2184415031aa4b62a1de5935be418a81&quot;,
+        &quot;dataset_hash&quot;: &quot;ef9ca2bb82b16c96fc2923bd35946a1df4544e5b96b206c2f4a5eb8027eb6316&quot;,
+        &quot;provenance_note&quot;: &quot;Live origin and reviewer identities are recorded claims, not authenticated execution or identities. Independent reference means a separately attested procedure, not necessarily another person or a blind review.&quot;,
+        &quot;accounting&quot;: {
+          &quot;planned_answer_records&quot;: 44,
+          &quot;recorded_answer_records&quot;: 44,
+          &quot;missing_answer_records&quot;: 0,
+          &quot;run_errors&quot;: 2,
+          &quot;needs_human_review&quot;: 42,
+          &quot;without_resolved_human_answer_review&quot;: 44,
+          &quot;simulated_judgments&quot;: 0,
+          &quot;automatic_failure_flags&quot;: 0
+        },
+        &quot;partitions&quot;: {
+          &quot;origin&quot;: {
+            &quot;live&quot;: 44
+          },
+          &quot;case_review_status&quot;: {
+            &quot;draft&quot;: 44
+          },
+          &quot;source_provenance&quot;: {
+            &quot;constructed&quot;: 44
+          },
+          &quot;split&quot;: {
+            &quot;held_out&quot;: 44
+          },
+          &quot;configuration&quot;: {
+            &quot;basic&quot;: 22,
+            &quot;version_filtered&quot;: 22
+          }
+        },
+        &quot;assistant&quot;: {
+          &quot;availability&quot;: &quot;unavailable_no_eligible_human_judgments&quot;,
+          &quot;planned_reviewed_case_answer_records&quot;: 0,
+          &quot;resolved_eligible_human_judgments&quot;: 0,
+          &quot;accuracy_resolved_human_judgments_only&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;confirmed_correct_per_planned_reviewed_case_answer&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;review_coverage&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;reviewed_case_run_errors&quot;: 0,
+          &quot;reviewed_case_missing_records&quot;: 0,
+          &quot;exclusion_reasons_nonexclusive&quot;: {
+            &quot;draft_case&quot;: 44,
+            &quot;no_resolved_human_answer_review&quot;: 44,
+            &quot;run_error&quot;: 2
+          },
+          &quot;primary_wrong_version_failure_labels&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;primary_unsupported_answer_failure_labels&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;diagnostic_note&quot;: &quot;Failure-label fractions count explicit primary human classifications; they do not exhaustively assess overlapping failure causes.&quot;,
+          &quot;abstention&quot;: {
+            &quot;records_in_reviewed_cases&quot;: 0,
+            &quot;unassessed_records&quot;: 0,
+            &quot;appropriate_among_assessed&quot;: {
+              &quot;numerator&quot;: 0,
+              &quot;denominator&quot;: 0,
+              &quot;value&quot;: null
+            },
+            &quot;unnecessary_among_assessed&quot;: {
+              &quot;numerator&quot;: 0,
+              &quot;denominator&quot;: 0,
+              &quot;value&quot;: null
+            }
+          },
+          &quot;answer_pipeline_latency_seconds&quot;: {
+            &quot;observed_records&quot;: 44,
+            &quot;missing_records&quot;: 0,
+            &quot;mean&quot;: 622.1237347977162,
+            &quot;median&quot;: 27.77367564989254,
+            &quot;minimum&quot;: 6.074150800006464,
+            &quot;maximum&quot;: 26168.262359699933,
+            &quot;note&quot;: &quot;Live-marked trace elapsed time includes retrieval and generation/error handling; it is not peak memory or isolated model inference time.&quot;
+          }
+        },
+        &quot;testing_tool&quot;: {
+          &quot;flag_policy&quot;: &quot;At least one failed original mechanical check; post-review correctness does not define the flag.&quot;,
+          &quot;reference_labels_submitted&quot;: 0,
+          &quot;eligible_reference_labels&quot;: 0,
+          &quot;ineligible_reference_labels&quot;: 0,
+          &quot;eligible_records_without_reference&quot;: 0,
+          &quot;run_errors_excluded_from_semantic_reference_scoring&quot;: 2,
+          &quot;confusion&quot;: {
+            &quot;true_positive&quot;: 0,
+            &quot;false_positive&quot;: 0,
+            &quot;false_negative&quot;: 0,
+            &quot;true_negative&quot;: 0
+          },
+          &quot;precision&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;recall&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;reference_coverage&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;needs_human_review&quot;: 42
+        }
+      },
+      &quot;elapsed_seconds&quot;: 27392.52363130008,
+      &quot;latency_seconds&quot;: {
+        &quot;structured&quot;: {
+          &quot;count&quot;: 42,
+          &quot;median&quot;: 26.723093699896708,
+          &quot;minimum&quot;: 6.074150800006464,
+          &quot;maximum&quot;: 115.6405612998642
+        },
+        &quot;run_errors&quot;: {
+          &quot;count&quot;: 2,
+          &quot;median&quot;: 13148.087678699987,
+          &quot;minimum&quot;: 127.91299770004116,
+          &quot;maximum&quot;: 26168.262359699933
+        }
+      }
+    },
+    {
+      &quot;path&quot;: &quot;examples/pydantic-evaluation/heldout-evidence-removed&quot;,
+      &quot;run_id&quot;: &quot;e551db7d6f0844579350ec41c2a8473b&quot;,
+      &quot;raw_sha256&quot;: &quot;153a953c8d0df975e37905f4736c27370822df395d1151ebc05e65e644408b05&quot;,
+      &quot;counts&quot;: {
+        &quot;planned&quot;: 48,
+        &quot;recorded&quot;: 48,
+        &quot;run_errors&quot;: 0,
+        &quot;awaiting_semantic_review&quot;: 48
+      },
+      &quot;official_judgments&quot;: {
+        &quot;pass&quot;: 0,
+        &quot;fail&quot;: 0,
+        &quot;needs_human_review&quot;: 48,
+        &quot;run_error&quot;: 0
+      },
+      &quot;metrics&quot;: {
+        &quot;schema_version&quot;: 1,
+        &quot;kind&quot;: &quot;knowledge_delta_metrics&quot;,
+        &quot;run_id&quot;: &quot;e551db7d6f0844579350ec41c2a8473b&quot;,
+        &quot;dataset_hash&quot;: &quot;13fbd124cd7156c5a374f6206b270d5b1ca73d14de42bce28854a862da3aee41&quot;,
+        &quot;provenance_note&quot;: &quot;Live origin and reviewer identities are recorded claims, not authenticated execution or identities. Independent reference means a separately attested procedure, not necessarily another person or a blind review.&quot;,
+        &quot;accounting&quot;: {
+          &quot;planned_answer_records&quot;: 48,
+          &quot;recorded_answer_records&quot;: 48,
+          &quot;missing_answer_records&quot;: 0,
+          &quot;run_errors&quot;: 0,
+          &quot;needs_human_review&quot;: 48,
+          &quot;without_resolved_human_answer_review&quot;: 48,
+          &quot;simulated_judgments&quot;: 0,
+          &quot;automatic_failure_flags&quot;: 0
+        },
+        &quot;partitions&quot;: {
+          &quot;origin&quot;: {
+            &quot;live&quot;: 48
+          },
+          &quot;case_review_status&quot;: {
+            &quot;draft&quot;: 48
+          },
+          &quot;source_provenance&quot;: {
+            &quot;constructed&quot;: 48
+          },
+          &quot;split&quot;: {
+            &quot;held_out&quot;: 48
+          },
+          &quot;configuration&quot;: {
+            &quot;basic&quot;: 24,
+            &quot;version_filtered&quot;: 24
+          }
+        },
+        &quot;assistant&quot;: {
+          &quot;availability&quot;: &quot;unavailable_no_eligible_human_judgments&quot;,
+          &quot;planned_reviewed_case_answer_records&quot;: 0,
+          &quot;resolved_eligible_human_judgments&quot;: 0,
+          &quot;accuracy_resolved_human_judgments_only&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;confirmed_correct_per_planned_reviewed_case_answer&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;review_coverage&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;reviewed_case_run_errors&quot;: 0,
+          &quot;reviewed_case_missing_records&quot;: 0,
+          &quot;exclusion_reasons_nonexclusive&quot;: {
+            &quot;draft_case&quot;: 48,
+            &quot;no_resolved_human_answer_review&quot;: 48
+          },
+          &quot;primary_wrong_version_failure_labels&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;primary_unsupported_answer_failure_labels&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;diagnostic_note&quot;: &quot;Failure-label fractions count explicit primary human classifications; they do not exhaustively assess overlapping failure causes.&quot;,
+          &quot;abstention&quot;: {
+            &quot;records_in_reviewed_cases&quot;: 0,
+            &quot;unassessed_records&quot;: 0,
+            &quot;appropriate_among_assessed&quot;: {
+              &quot;numerator&quot;: 0,
+              &quot;denominator&quot;: 0,
+              &quot;value&quot;: null
+            },
+            &quot;unnecessary_among_assessed&quot;: {
+              &quot;numerator&quot;: 0,
+              &quot;denominator&quot;: 0,
+              &quot;value&quot;: null
+            }
+          },
+          &quot;answer_pipeline_latency_seconds&quot;: {
+            &quot;observed_records&quot;: 48,
+            &quot;missing_records&quot;: 0,
+            &quot;mean&quot;: 11.561296720819277,
+            &quot;median&quot;: 4.745844249962829,
+            &quot;minimum&quot;: 0.0002055000513792038,
+            &quot;maximum&quot;: 40.50378050003201,
+            &quot;note&quot;: &quot;Live-marked trace elapsed time includes retrieval and generation/error handling; it is not peak memory or isolated model inference time.&quot;
+          }
+        },
+        &quot;testing_tool&quot;: {
+          &quot;flag_policy&quot;: &quot;At least one failed original mechanical check; post-review correctness does not define the flag.&quot;,
+          &quot;reference_labels_submitted&quot;: 0,
+          &quot;eligible_reference_labels&quot;: 0,
+          &quot;ineligible_reference_labels&quot;: 0,
+          &quot;eligible_records_without_reference&quot;: 0,
+          &quot;run_errors_excluded_from_semantic_reference_scoring&quot;: 0,
+          &quot;confusion&quot;: {
+            &quot;true_positive&quot;: 0,
+            &quot;false_positive&quot;: 0,
+            &quot;false_negative&quot;: 0,
+            &quot;true_negative&quot;: 0
+          },
+          &quot;precision&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;recall&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;reference_coverage&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;needs_human_review&quot;: 48
+        }
+      },
+      &quot;elapsed_seconds&quot;: 561.4066190000158,
+      &quot;latency_seconds&quot;: {
+        &quot;structured&quot;: {
+          &quot;count&quot;: 48,
+          &quot;median&quot;: 4.745844249962829,
+          &quot;minimum&quot;: 0.0002055000513792038,
+          &quot;maximum&quot;: 40.50378050003201
+        }
+      }
+    },
+    {
+      &quot;path&quot;: &quot;examples/pydantic-evaluation/heldout-wording-only&quot;,
+      &quot;run_id&quot;: &quot;fe7c78384e144415af15f6a941248f4c&quot;,
+      &quot;raw_sha256&quot;: &quot;c7653ea39f48f74112bea0689a92156e3c1e42cde29605f26aaad6db28e13404&quot;,
+      &quot;counts&quot;: {
+        &quot;planned&quot;: 40,
+        &quot;recorded&quot;: 40,
+        &quot;run_errors&quot;: 0,
+        &quot;awaiting_semantic_review&quot;: 40
+      },
+      &quot;official_judgments&quot;: {
+        &quot;pass&quot;: 0,
+        &quot;fail&quot;: 0,
+        &quot;needs_human_review&quot;: 40,
+        &quot;run_error&quot;: 0
+      },
+      &quot;metrics&quot;: {
+        &quot;schema_version&quot;: 1,
+        &quot;kind&quot;: &quot;knowledge_delta_metrics&quot;,
+        &quot;run_id&quot;: &quot;fe7c78384e144415af15f6a941248f4c&quot;,
+        &quot;dataset_hash&quot;: &quot;98adc581c768bcfb4aed4f9480ee52e8ec2bb412940dce290a73ac9a1e989495&quot;,
+        &quot;provenance_note&quot;: &quot;Live origin and reviewer identities are recorded claims, not authenticated execution or identities. Independent reference means a separately attested procedure, not necessarily another person or a blind review.&quot;,
+        &quot;accounting&quot;: {
+          &quot;planned_answer_records&quot;: 40,
+          &quot;recorded_answer_records&quot;: 40,
+          &quot;missing_answer_records&quot;: 0,
+          &quot;run_errors&quot;: 0,
+          &quot;needs_human_review&quot;: 40,
+          &quot;without_resolved_human_answer_review&quot;: 40,
+          &quot;simulated_judgments&quot;: 0,
+          &quot;automatic_failure_flags&quot;: 0
+        },
+        &quot;partitions&quot;: {
+          &quot;origin&quot;: {
+            &quot;live&quot;: 40
+          },
+          &quot;case_review_status&quot;: {
+            &quot;draft&quot;: 40
+          },
+          &quot;source_provenance&quot;: {
+            &quot;constructed&quot;: 40
+          },
+          &quot;split&quot;: {
+            &quot;held_out&quot;: 40
+          },
+          &quot;configuration&quot;: {
+            &quot;basic&quot;: 20,
+            &quot;version_filtered&quot;: 20
+          }
+        },
+        &quot;assistant&quot;: {
+          &quot;availability&quot;: &quot;unavailable_no_eligible_human_judgments&quot;,
+          &quot;planned_reviewed_case_answer_records&quot;: 0,
+          &quot;resolved_eligible_human_judgments&quot;: 0,
+          &quot;accuracy_resolved_human_judgments_only&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;confirmed_correct_per_planned_reviewed_case_answer&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;review_coverage&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;reviewed_case_run_errors&quot;: 0,
+          &quot;reviewed_case_missing_records&quot;: 0,
+          &quot;exclusion_reasons_nonexclusive&quot;: {
+            &quot;draft_case&quot;: 40,
+            &quot;no_resolved_human_answer_review&quot;: 40
+          },
+          &quot;primary_wrong_version_failure_labels&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;primary_unsupported_answer_failure_labels&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;diagnostic_note&quot;: &quot;Failure-label fractions count explicit primary human classifications; they do not exhaustively assess overlapping failure causes.&quot;,
+          &quot;abstention&quot;: {
+            &quot;records_in_reviewed_cases&quot;: 0,
+            &quot;unassessed_records&quot;: 0,
+            &quot;appropriate_among_assessed&quot;: {
+              &quot;numerator&quot;: 0,
+              &quot;denominator&quot;: 0,
+              &quot;value&quot;: null
+            },
+            &quot;unnecessary_among_assessed&quot;: {
+              &quot;numerator&quot;: 0,
+              &quot;denominator&quot;: 0,
+              &quot;value&quot;: null
+            }
+          },
+          &quot;answer_pipeline_latency_seconds&quot;: {
+            &quot;observed_records&quot;: 40,
+            &quot;missing_records&quot;: 0,
+            &quot;mean&quot;: 21.45362409001682,
+            &quot;median&quot;: 19.438949250034057,
+            &quot;minimum&quot;: 9.596781800035387,
+            &quot;maximum&quot;: 35.202078900067136,
+            &quot;note&quot;: &quot;Live-marked trace elapsed time includes retrieval and generation/error handling; it is not peak memory or isolated model inference time.&quot;
+          }
+        },
+        &quot;testing_tool&quot;: {
+          &quot;flag_policy&quot;: &quot;At least one failed original mechanical check; post-review correctness does not define the flag.&quot;,
+          &quot;reference_labels_submitted&quot;: 0,
+          &quot;eligible_reference_labels&quot;: 0,
+          &quot;ineligible_reference_labels&quot;: 0,
+          &quot;eligible_records_without_reference&quot;: 0,
+          &quot;run_errors_excluded_from_semantic_reference_scoring&quot;: 0,
+          &quot;confusion&quot;: {
+            &quot;true_positive&quot;: 0,
+            &quot;false_positive&quot;: 0,
+            &quot;false_negative&quot;: 0,
+            &quot;true_negative&quot;: 0
+          },
+          &quot;precision&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;recall&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;reference_coverage&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;needs_human_review&quot;: 40
+        }
+      },
+      &quot;elapsed_seconds&quot;: 872.3564460999332,
+      &quot;latency_seconds&quot;: {
+        &quot;structured&quot;: {
+          &quot;count&quot;: 40,
+          &quot;median&quot;: 19.438949250034057,
+          &quot;minimum&quot;: 9.596781800035387,
+          &quot;maximum&quot;: 35.202078900067136
+        }
+      }
+    },
+    {
+      &quot;path&quot;: &quot;examples/pydantic-evaluation/heldout-unrelated-change&quot;,
+      &quot;run_id&quot;: &quot;c573cefd1f984650b55ac9ed4bd12bee&quot;,
+      &quot;raw_sha256&quot;: &quot;ee6c8932bb78300aced1baa088ffb9b7e0314f1fe48194e0aa149d27962256d7&quot;,
+      &quot;counts&quot;: {
+        &quot;planned&quot;: 28,
+        &quot;recorded&quot;: 28,
+        &quot;run_errors&quot;: 1,
+        &quot;awaiting_semantic_review&quot;: 27
+      },
+      &quot;official_judgments&quot;: {
+        &quot;pass&quot;: 0,
+        &quot;fail&quot;: 0,
+        &quot;needs_human_review&quot;: 27,
+        &quot;run_error&quot;: 1
+      },
+      &quot;metrics&quot;: {
+        &quot;schema_version&quot;: 1,
+        &quot;kind&quot;: &quot;knowledge_delta_metrics&quot;,
+        &quot;run_id&quot;: &quot;c573cefd1f984650b55ac9ed4bd12bee&quot;,
+        &quot;dataset_hash&quot;: &quot;0b52ba1b144efd2fef4fb2ffb01bf98f97fc5d2093a44adb4c24c28b5fb53cd9&quot;,
+        &quot;provenance_note&quot;: &quot;Live origin and reviewer identities are recorded claims, not authenticated execution or identities. Independent reference means a separately attested procedure, not necessarily another person or a blind review.&quot;,
+        &quot;accounting&quot;: {
+          &quot;planned_answer_records&quot;: 28,
+          &quot;recorded_answer_records&quot;: 28,
+          &quot;missing_answer_records&quot;: 0,
+          &quot;run_errors&quot;: 1,
+          &quot;needs_human_review&quot;: 27,
+          &quot;without_resolved_human_answer_review&quot;: 28,
+          &quot;simulated_judgments&quot;: 0,
+          &quot;automatic_failure_flags&quot;: 0
+        },
+        &quot;partitions&quot;: {
+          &quot;origin&quot;: {
+            &quot;live&quot;: 28
+          },
+          &quot;case_review_status&quot;: {
+            &quot;draft&quot;: 28
+          },
+          &quot;source_provenance&quot;: {
+            &quot;constructed&quot;: 28
+          },
+          &quot;split&quot;: {
+            &quot;held_out&quot;: 28
+          },
+          &quot;configuration&quot;: {
+            &quot;basic&quot;: 14,
+            &quot;version_filtered&quot;: 14
+          }
+        },
+        &quot;assistant&quot;: {
+          &quot;availability&quot;: &quot;unavailable_no_eligible_human_judgments&quot;,
+          &quot;planned_reviewed_case_answer_records&quot;: 0,
+          &quot;resolved_eligible_human_judgments&quot;: 0,
+          &quot;accuracy_resolved_human_judgments_only&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;confirmed_correct_per_planned_reviewed_case_answer&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;review_coverage&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;reviewed_case_run_errors&quot;: 0,
+          &quot;reviewed_case_missing_records&quot;: 0,
+          &quot;exclusion_reasons_nonexclusive&quot;: {
+            &quot;draft_case&quot;: 28,
+            &quot;no_resolved_human_answer_review&quot;: 28,
+            &quot;run_error&quot;: 1
+          },
+          &quot;primary_wrong_version_failure_labels&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;primary_unsupported_answer_failure_labels&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;diagnostic_note&quot;: &quot;Failure-label fractions count explicit primary human classifications; they do not exhaustively assess overlapping failure causes.&quot;,
+          &quot;abstention&quot;: {
+            &quot;records_in_reviewed_cases&quot;: 0,
+            &quot;unassessed_records&quot;: 0,
+            &quot;appropriate_among_assessed&quot;: {
+              &quot;numerator&quot;: 0,
+              &quot;denominator&quot;: 0,
+              &quot;value&quot;: null
+            },
+            &quot;unnecessary_among_assessed&quot;: {
+              &quot;numerator&quot;: 0,
+              &quot;denominator&quot;: 0,
+              &quot;value&quot;: null
+            }
+          },
+          &quot;answer_pipeline_latency_seconds&quot;: {
+            &quot;observed_records&quot;: 28,
+            &quot;missing_records&quot;: 0,
+            &quot;mean&quot;: 25.79623901785817,
+            &quot;median&quot;: 26.134131300030276,
+            &quot;minimum&quot;: 7.80073649995029,
+            &quot;maximum&quot;: 128.11466510011815,
+            &quot;note&quot;: &quot;Live-marked trace elapsed time includes retrieval and generation/error handling; it is not peak memory or isolated model inference time.&quot;
+          }
+        },
+        &quot;testing_tool&quot;: {
+          &quot;flag_policy&quot;: &quot;At least one failed original mechanical check; post-review correctness does not define the flag.&quot;,
+          &quot;reference_labels_submitted&quot;: 0,
+          &quot;eligible_reference_labels&quot;: 0,
+          &quot;ineligible_reference_labels&quot;: 0,
+          &quot;eligible_records_without_reference&quot;: 0,
+          &quot;run_errors_excluded_from_semantic_reference_scoring&quot;: 1,
+          &quot;confusion&quot;: {
+            &quot;true_positive&quot;: 0,
+            &quot;false_positive&quot;: 0,
+            &quot;false_negative&quot;: 0,
+            &quot;true_negative&quot;: 0
+          },
+          &quot;precision&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;recall&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;reference_coverage&quot;: {
+            &quot;numerator&quot;: 0,
+            &quot;denominator&quot;: 0,
+            &quot;value&quot;: null
+          },
+          &quot;needs_human_review&quot;: 27
+        }
+      },
+      &quot;elapsed_seconds&quot;: 726.9597177000251,
+      &quot;latency_seconds&quot;: {
+        &quot;structured&quot;: {
+          &quot;count&quot;: 27,
+          &quot;median&quot;: 25.71454229997471,
+          &quot;minimum&quot;: 7.80073649995029,
+          &quot;maximum&quot;: 49.43219340010546
+        },
+        &quot;run_errors&quot;: {
+          &quot;count&quot;: 1,
+          &quot;median&quot;: 128.11466510011815,
+          &quot;minimum&quot;: 128.11466510011815,
+          &quot;maximum&quot;: 128.11466510011815
+        }
+      }
+    }
+  ],
+  &quot;variability&quot;: {
+    &quot;counts&quot;: {
+      &quot;planned&quot;: 36,
+      &quot;recorded&quot;: 36,
+      &quot;run_errors&quot;: 0,
+      &quot;awaiting_semantic_review&quot;: 36
+    },
+    &quot;groups&quot;: [
+      {
+        &quot;case_id&quot;: &quot;pydantic-serialization&quot;,
+        &quot;configuration&quot;: &quot;basic&quot;,
+        &quot;snapshot_slot&quot;: &quot;before&quot;,
+        &quot;planned_repetitions&quot;: 3,
+        &quot;recorded&quot;: 3,
+        &quot;run_errors&quot;: 0,
+        &quot;valid_answers&quot;: 3,
+        &quot;distinct_answer_objects&quot;: 2,
+        &quot;semantic_difference_judged&quot;: false
+      },
+      {
+        &quot;case_id&quot;: &quot;pydantic-serialization&quot;,
+        &quot;configuration&quot;: &quot;basic&quot;,
+        &quot;snapshot_slot&quot;: &quot;after&quot;,
+        &quot;planned_repetitions&quot;: 3,
+        &quot;recorded&quot;: 3,
+        &quot;run_errors&quot;: 0,
+        &quot;valid_answers&quot;: 3,
+        &quot;distinct_answer_objects&quot;: 2,
+        &quot;semantic_difference_judged&quot;: false
+      },
+      {
+        &quot;case_id&quot;: &quot;pydantic-optional&quot;,
+        &quot;configuration&quot;: &quot;basic&quot;,
+        &quot;snapshot_slot&quot;: &quot;before&quot;,
+        &quot;planned_repetitions&quot;: 3,
+        &quot;recorded&quot;: 3,
+        &quot;run_errors&quot;: 0,
+        &quot;valid_answers&quot;: 3,
+        &quot;distinct_answer_objects&quot;: 2,
+        &quot;semantic_difference_judged&quot;: false
+      },
+      {
+        &quot;case_id&quot;: &quot;pydantic-optional&quot;,
+        &quot;configuration&quot;: &quot;basic&quot;,
+        &quot;snapshot_slot&quot;: &quot;after&quot;,
+        &quot;planned_repetitions&quot;: 3,
+        &quot;recorded&quot;: 3,
+        &quot;run_errors&quot;: 0,
+        &quot;valid_answers&quot;: 3,
+        &quot;distinct_answer_objects&quot;: 1,
+        &quot;semantic_difference_judged&quot;: false
+      },
+      {
+        &quot;case_id&quot;: &quot;pydantic-union&quot;,
+        &quot;configuration&quot;: &quot;basic&quot;,
+        &quot;snapshot_slot&quot;: &quot;before&quot;,
+        &quot;planned_repetitions&quot;: 3,
+        &quot;recorded&quot;: 3,
+        &quot;run_errors&quot;: 0,
+        &quot;valid_answers&quot;: 3,
+        &quot;distinct_answer_objects&quot;: 2,
+        &quot;semantic_difference_judged&quot;: false
+      },
+      {
+        &quot;case_id&quot;: &quot;pydantic-union&quot;,
+        &quot;configuration&quot;: &quot;basic&quot;,
+        &quot;snapshot_slot&quot;: &quot;after&quot;,
+        &quot;planned_repetitions&quot;: 3,
+        &quot;recorded&quot;: 3,
+        &quot;run_errors&quot;: 0,
+        &quot;valid_answers&quot;: 3,
+        &quot;distinct_answer_objects&quot;: 2,
+        &quot;semantic_difference_judged&quot;: false
+      },
+      {
+        &quot;case_id&quot;: &quot;pydantic-serialization&quot;,
+        &quot;configuration&quot;: &quot;version_filtered&quot;,
+        &quot;snapshot_slot&quot;: &quot;before&quot;,
+        &quot;planned_repetitions&quot;: 3,
+        &quot;recorded&quot;: 3,
+        &quot;run_errors&quot;: 0,
+        &quot;valid_answers&quot;: 3,
+        &quot;distinct_answer_objects&quot;: 1,
+        &quot;semantic_difference_judged&quot;: false
+      },
+      {
+        &quot;case_id&quot;: &quot;pydantic-serialization&quot;,
+        &quot;configuration&quot;: &quot;version_filtered&quot;,
+        &quot;snapshot_slot&quot;: &quot;after&quot;,
+        &quot;planned_repetitions&quot;: 3,
+        &quot;recorded&quot;: 3,
+        &quot;run_errors&quot;: 0,
+        &quot;valid_answers&quot;: 3,
+        &quot;distinct_answer_objects&quot;: 1,
+        &quot;semantic_difference_judged&quot;: false
+      },
+      {
+        &quot;case_id&quot;: &quot;pydantic-optional&quot;,
+        &quot;configuration&quot;: &quot;version_filtered&quot;,
+        &quot;snapshot_slot&quot;: &quot;before&quot;,
+        &quot;planned_repetitions&quot;: 3,
+        &quot;recorded&quot;: 3,
+        &quot;run_errors&quot;: 0,
+        &quot;valid_answers&quot;: 3,
+        &quot;distinct_answer_objects&quot;: 1,
+        &quot;semantic_difference_judged&quot;: false
+      },
+      {
+        &quot;case_id&quot;: &quot;pydantic-optional&quot;,
+        &quot;configuration&quot;: &quot;version_filtered&quot;,
+        &quot;snapshot_slot&quot;: &quot;after&quot;,
+        &quot;planned_repetitions&quot;: 3,
+        &quot;recorded&quot;: 3,
+        &quot;run_errors&quot;: 0,
+        &quot;valid_answers&quot;: 3,
+        &quot;distinct_answer_objects&quot;: 1,
+        &quot;semantic_difference_judged&quot;: false
+      },
+      {
+        &quot;case_id&quot;: &quot;pydantic-union&quot;,
+        &quot;configuration&quot;: &quot;version_filtered&quot;,
+        &quot;snapshot_slot&quot;: &quot;before&quot;,
+        &quot;planned_repetitions&quot;: 3,
+        &quot;recorded&quot;: 3,
+        &quot;run_errors&quot;: 0,
+        &quot;valid_answers&quot;: 3,
+        &quot;distinct_answer_objects&quot;: 1,
+        &quot;semantic_difference_judged&quot;: false
+      },
+      {
+        &quot;case_id&quot;: &quot;pydantic-union&quot;,
+        &quot;configuration&quot;: &quot;version_filtered&quot;,
+        &quot;snapshot_slot&quot;: &quot;after&quot;,
+        &quot;planned_repetitions&quot;: 3,
+        &quot;recorded&quot;: 3,
+        &quot;run_errors&quot;: 0,
+        &quot;valid_answers&quot;: 3,
+        &quot;distinct_answer_objects&quot;: 1,
+        &quot;semantic_difference_judged&quot;: false
+      }
+    ],
+    &quot;answer_cache_used&quot;: false
+  },
+  &quot;provisional_ai_review&quot;: {
+    &quot;assessed&quot;: 240,
+    &quot;unassessed&quot;: 0,
+    &quot;proposed_outcomes&quot;: {
+      &quot;fail&quot;: 95,
+      &quot;pass&quot;: 125,
+      &quot;needs_human_review&quot;: 16,
+      &quot;run_error&quot;: 4
+    },
+    &quot;files&quot;: [
+      {
+        &quot;file&quot;: &quot;docs/evidence/milestone5-analysis/development-assessments.json&quot;,
+        &quot;sha256&quot;: &quot;b524b55af02d41954b736866fdb46c5e16635fb3d0610c3a1b96d4b289d4166d&quot;,
+        &quot;assessor&quot;: &quot;Brain/Codex AI-assisted&quot;,
+        &quot;records&quot;: 40
+      },
+      {
+        &quot;file&quot;: &quot;docs/evidence/milestone5-analysis/development-extension-assessments.json&quot;,
+        &quot;sha256&quot;: &quot;0fcf185d327b66d52e52c96650e08bff1a634706ffa43c787e68673002ac6995&quot;,
+        &quot;assessor&quot;: &quot;Brain/Codex AI-assisted&quot;,
+        &quot;records&quot;: 36
+      },
+      {
+        &quot;file&quot;: &quot;docs/evidence/milestone5-analysis/genuine-revision-assessments.json&quot;,
+        &quot;sha256&quot;: &quot;7ff07e8e8f0dbf6aff16f6fd1e6ddc86f9324fc156826938d57b834f3052e483&quot;,
+        &quot;assessor&quot;: &quot;Codex AI-assisted&quot;,
+        &quot;records&quot;: 4
+      },
+      {
+        &quot;file&quot;: &quot;docs/evidence/milestone5-analysis/heldout-evidence-removed-assessments.json&quot;,
+        &quot;sha256&quot;: &quot;b3a858c4ab15851d979366fa502df05ce9828d5195d8fcc80357f55d5c92b41a&quot;,
+        &quot;assessor&quot;: &quot;Codex AI-assisted&quot;,
+        &quot;records&quot;: 48
+      },
+      {
+        &quot;file&quot;: &quot;docs/evidence/milestone5-analysis/heldout-other-version-added-assessments.json&quot;,
+        &quot;sha256&quot;: &quot;b29b3d0ae7e44f72e568c24e7042df2fa643ea8af4947332eeb800bdd9feba76&quot;,
+        &quot;assessor&quot;: &quot;Brain/Codex AI-assisted&quot;,
+        &quot;records&quot;: 44
+      },
+      {
+        &quot;file&quot;: &quot;docs/evidence/milestone5-analysis/heldout-unrelated-change-assessments.json&quot;,
+        &quot;sha256&quot;: &quot;a19f8185a09880d60d9d0b8e472d478530a7b5bd4c60a168562d65a37a108965&quot;,
+        &quot;assessor&quot;: &quot;Brain/Codex AI-assisted&quot;,
+        &quot;records&quot;: 28
+      },
+      {
+        &quot;file&quot;: &quot;docs/evidence/milestone5-analysis/heldout-wording-only-assessments.json&quot;,
+        &quot;sha256&quot;: &quot;573083857707c38f82dbd9ac19bd6cf694f5cff4ff85e8c7f174d3f2c741205e&quot;,
+        &quot;assessor&quot;: &quot;Brain/Codex AI-assisted&quot;,
+        &quot;records&quot;: 40
+      }
+    ],
+    &quot;by_configuration&quot;: {
+      &quot;basic&quot;: {
+        &quot;fail&quot;: 47,
+        &quot;pass&quot;: 64,
+        &quot;needs_human_review&quot;: 9
+      },
+      &quot;version_filtered&quot;: {
+        &quot;fail&quot;: 48,
+        &quot;pass&quot;: 61,
+        &quot;needs_human_review&quot;: 7,
+        &quot;run_error&quot;: 4
+      }
+    },
+    &quot;by_answer_origin&quot;: {
+      &quot;live&quot;: {
+        &quot;fail&quot;: 95,
+        &quot;pass&quot;: 101,
+        &quot;needs_human_review&quot;: 16,
+        &quot;run_error&quot;: 4
+      },
+      &quot;policy_abstention&quot;: {
+        &quot;pass&quot;: 24
+      }
+    },
+    &quot;by_case_split&quot;: {
+      &quot;development&quot;: {
+        &quot;fail&quot;: 22,
+        &quot;pass&quot;: 50,
+        &quot;needs_human_review&quot;: 7,
+        &quot;run_error&quot;: 1
+      },
+      &quot;held_out&quot;: {
+        &quot;fail&quot;: 73,
+        &quot;pass&quot;: 75,
+        &quot;needs_human_review&quot;: 9,
+        &quot;run_error&quot;: 3
+      }
+    },
+    &quot;human_review&quot;: false,
+    &quot;independent_ground_truth&quot;: false,
+    &quot;benchmark_accuracy_measured&quot;: false
+  },
+  &quot;limitations&quot;: [
+    &quot;Owner blanket approval does not establish individual human case review.&quot;,
+    &quot;AI-assisted proposals are not human judgments, deterministic correctness checks or independent reference labels.&quot;,
+    &quot;Reported latencies reflect execution order and concurrent desktop/packaging workload; no causal speedup is inferred.&quot;,
+    &quot;Formatting controls are whitespace-only; empty removal snapshots test policy abstention rather than model generation.&quot;
+  ]
+}</pre></html>

@@ -25,7 +25,7 @@ REPEAT_CASES = ["pydantic-serialization", "pydantic-optional", "pydantic-union"]
 
 
 def verify_result(result, expected_records, model_digest):
-    """Recorded execution counts and both model observations must agree."""
+    """Check the result matrix and require both digest observations for live answers."""
     rows = result.get("results")
     counts = result.get("counts")
     if not isinstance(rows, list) or not isinstance(counts, dict):
@@ -36,6 +36,12 @@ def verify_result(result, expected_records, model_digest):
         raise ValidationError("Run has missing or contradictory planned/recorded/error counts")
     for row in rows:
         generation = row.get("generation")
+        if row.get("status") == "answered_pending_review" and row.get("answer_origin") != "policy_abstention":
+            if (not isinstance(generation, dict)
+                    or generation.get("model_digest") != model_digest
+                    or generation.get("model_digest_after") != model_digest):
+                raise ValidationError("Answered live record lacks both frozen model observations")
+            continue
         if isinstance(generation, dict):
             for field in ("model_digest", "model_digest_after"):
                 if generation.get(field) not in (None, model_digest):

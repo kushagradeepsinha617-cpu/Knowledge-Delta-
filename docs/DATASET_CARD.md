@@ -13,11 +13,22 @@ cases across 15 semantic families and 40 held-out cases across 22 families, for
 keeps its seven snapshot-pair bundles separate instead of rebinding old approvals
 or old runs to new corpora.
 
-The frozen 60-case execution has started. Held-out outcomes, final completion
-counts and correctness are **pending** in this card; preparing or starting a run
-does not establish that it finished. The main plan is 240 answer records, with a
-separate 36-record development variability run. Policy abstentions are records
-without model generation, so these totals are not model-call counts.
+The frozen execution completed **240/240 main records**: 236 structured records
+and four run errors. The structured total includes 24 deterministic no-evidence
+policy abstentions and 212 completed model responses. There were 216 chat
+attempts; records, attempts and completed responses are different denominators.
+The separate development variability run completed **36/36 records**, with no
+run errors. Five of its twelve case/configuration/snapshot cells had more than
+one distinct answer object across three repeats. Object inequality does not
+establish a semantic difference, and no answer caching was used.
+
+[Final study accounting](evidence/milestone5-analysis/final-study-report.json)
+binds the measured counts and the provisional assessments to retained raw runs.
+All 240 main records have AI-assisted proposals: **125 pass, 95 fail, 16 needing
+human review and four run errors**. Of the proposed passes, 24 are deterministic
+policy abstentions and 101 are generated answers. These proposals are not human
+benchmark accuracy, independent reference labels or a validated semantic grader.
+The new study has **zero human answer judgments**.
 
 ## Inventory and split allocation
 
@@ -86,8 +97,9 @@ of 60 item-specifically human-reviewed definitions remains unachieved.
 
 There are four actual human answer judgments from one earlier development family,
 selected after seeing outputs and assessed with agent assistance, unblinded.
-They are bound to that earlier run and cannot grade the new 240 records. New-run
-semantic judgments remain pending unless separately recorded. Owner approval of
+They are bound to that earlier run and cannot grade the new 240 records. The
+new study has AI-assisted provisional assessments only; qualifying human semantic
+judgments remain absent. Owner approval of
 a case is not approval of a model output; valid JSON and existing citations are
 not semantic passes. Draft cohorts remain excluded from metrics requiring human
 ground truth. Independent-reference failure-flag precision/recall is unavailable
@@ -113,9 +125,14 @@ without qualifying separate annotations. See
   exclusions. Keep unresolved judgments unresolved, with explicit denominators.
 
 See [EVALUATION.md](EVALUATION.md), [EXPERIMENT_RESULTS.md](EXPERIMENT_RESULTS.md)
-and the frozen execution artifacts for methodology and measured results. This
-card must be reconciled with actual completion evidence before final publication
-of study findings.
+and the frozen execution artifacts for methodology and measured results. The
+[protocol at start](evidence/milestone5-study/protocol-at-start.json) records the
+exact input/settings/source identities; [frozen source](evidence/milestone5-study/frozen-source.zip)
+preserves the execution version. A post-run validation fix tightens successful
+model-digest checks in current source; it does not alter or regenerate recorded
+runs. Offline final analysis separately checks those retained controls. Results
+therefore identify the frozen execution version, rather than implying that the
+later validation code ran during the study.
 
 ## Widget demonstration datasets
 

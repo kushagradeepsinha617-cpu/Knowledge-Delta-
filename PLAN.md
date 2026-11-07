@@ -31,15 +31,20 @@ Frozen protocol: `runs/milestone5-study-protocol.json`, ID
 `a1f613c45be401fdf95a99ee9b47ef36261f7c7baa933eece8a4aaad1e1f23c4`.
 Serial model execution is running under handle 1375; initial summary run
 `3340520f537043c297e64eedce36daee`. Poll that handle before considering a restart.
-No completed held-out result is claimed. Code/datasets must stay unchanged during
-the frozen run; documentation and packaging artifacts can be prepared separately.
+Five of seven main bundles are retained: 172/240 main records, including 3 run
+errors. Bundles 4 and 5 are held-out; their 92 records have bound, provisional
+AI-assisted assessments, not human answer judgments or official accuracy. The
+remaining 68 main records and 36 repeated-run records are still pending. Frozen
+code/datasets must stay unchanged during the run; documentation and packaging
+artifacts can be prepared separately. Raw bundles 1–5 and the completed review
+packets are already published in GitHub checkpoints through `202f692a`.
 
 Fresh build/install/installed HTTP workflow passed; receipt:
 `docs/evidence/milestone5-packaging/fe44d2c91ac643b894994586e9c44999.json`.
 Three actual Chrome fixture screenshots, reproducible four-human-judgment report,
 README, architecture, dataset card, demo script and case-study draft are prepared.
 
-Next: monitor the live study, assess retained answers with explicit AI/human
+Next: monitor the live study, assess remaining answers with explicit AI/human
 provenance, finish actual-result artifacts and audit every completion criterion.
 Publishing is a separate delivery action; it is not a condition for completion.
 

@@ -30,7 +30,7 @@ def summarize(root, study_path, protocol_path):
     totals = Counter(planned=240, recorded=0, run_errors=0, structured=0, policy_abstentions=0,
                      chat_attempts=0, completed_model_responses=0, human_answer_reviews=0)
     by_configuration = defaultdict(Counter)
-    run_rows, traces, expectations = [], {}, {}
+    run_rows, traces, expectations, trace_runs = [], {}, {}, {}
     for entry, recorded in zip(entries, execution["runs"]):
         if entry["path"] != recorded["path"]:
             raise ValidationError("Bundle order/identity changed")
@@ -50,8 +50,12 @@ def summarize(root, study_path, protocol_path):
         latency = defaultdict(list)
         for row in run["results"]:
             key = digest(result_key(run, row))
+            if key in traces:
+                raise ValidationError("Duplicate main result identity")
             traces[key] = row
             expectations[key] = cases[row["case_id"]]["expectations"][row["snapshot_slot"]]
+            trace_runs[key] = {"raw_run_sha256": recorded["raw_sha256"], "run_id": run["run_id"],
+                               "dataset_hash": digest(entry["dataset"])}
             cohort = by_configuration[row["configuration_name"]]
             cohort["planned"] += 1
             cohort["recorded"] += 1
@@ -88,6 +92,13 @@ def summarize(root, study_path, protocol_path):
     groups = defaultdict(list)
     for row in variability["results"]:
         groups[(row["case_id"], row["configuration_name"], row["snapshot_slot"])].append(row)
+    required_groups = {(case_id, configuration, slot)
+                       for case_id in protocol["variability_cases"]
+                       for configuration in ("basic", "version_filtered")
+                       for slot in ("before", "after")}
+    if (set(groups) != required_groups or any(len(rows) != 3 or
+            {row["repetition"] for row in rows} != {1, 2, 3} for rows in groups.values())):
+        raise ValidationError("Variability matrix lacks three distinct repeats for every planned cell")
     variations = []
     for key, rows in groups.items():
         answers = [digest(r["answer"]) for r in rows if r["status"] == "answered_pending_review"]
@@ -102,12 +113,16 @@ def summarize(root, study_path, protocol_path):
         if (report.get("kind") != "provisional_agent_assessment" or report.get("human_review") is not False
                 or report.get("independent_reference") is not False or report.get("provisional") is not True):
             raise ValidationError("AI assessment must retain explicit non-human/provisional provenance")
+        if not report.get("records"):
+            raise ValidationError("Empty AI assessment packet")
+        packet_runs = set()
         for item in report["records"]:
             key = digest(item["result_key"])
             if key not in traces or key in covered or digest(traces[key]) != item["trace_hash"]:
                 raise ValidationError("Stale, duplicate or foreign AI assessment")
             if digest(expectations[key]) != item["expectation_hash"]:
                 raise ValidationError("AI assessment expectation changed")
+            packet_runs.add(tuple(sorted(trace_runs[key].items())))
             if item["proposed_outcome"] not in ("pass", "fail", "needs_human_review", "run_error"):
                 raise ValidationError("Unknown provisional AI assessment outcome")
             if traces[key]["status"] == "run_error" and item["proposed_outcome"] != "run_error":
@@ -116,6 +131,11 @@ def summarize(root, study_path, protocol_path):
                 raise ValidationError("AI assessment row misrepresents provenance")
             covered.add(key)
             proposed_counts[item["proposed_outcome"]] += 1
+        if len(packet_runs) != 1:
+            raise ValidationError("AI assessment packet mixes runs")
+        bound = dict(next(iter(packet_runs)))
+        if any(report.get(field) != value for field, value in bound.items()):
+            raise ValidationError("AI assessment packet header disagrees with raw run")
         proposals.append({"file": file.relative_to(root).as_posix(), "sha256": sha256(file.read_bytes()).hexdigest(),
                           "assessor": report["assessor"], "records": len(report["records"])})
     return {"kind": "verified_study_accounting", "protocol_id": protocol["protocol_id"], "execution_run_id": execution["run_id"],

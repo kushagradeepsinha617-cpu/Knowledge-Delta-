@@ -1,0 +1,940 @@
+{
+  "schema_version": 1,
+  "kind": "provisional_agent_assessment",
+  "raw_run_path": "runs/milestone5-study/bundle-6.json",
+  "raw_run_sha256": "c7653ea39f48f74112bea0689a92156e3c1e42cde29605f26aaad6db28e13404",
+  "run_id": "fe7c78384e144415af15f6a941248f4c",
+  "dataset_hash": "98adc581c768bcfb4aed4f9480ee52e8ec2bb412940dce290a73ac9a1e989495",
+  "assessed_at": "2026-11-07T06:20:43.985841+00:00",
+  "assessor": "Brain/Codex AI-assisted",
+  "human_review": false,
+  "independent_reference": false,
+  "provisional": true,
+  "scope_note": "Source-aware provisional review of all 40 completed bundle-6 records against frozen per-snapshot expectations and exact supplied passages. These constructed controls change whitespace only, not substantive wording. They do not establish broad wording/paraphrase robustness. No inference, human judgments, or independent reference labels were created.",
+  "assessment_policy": "Read actual full answers, expectations and retrieved passages; distinguish factual correctness from supplied support and citation/version compatibility. Unsupported extra claims can fail an otherwise correct opening. Incomplete or internally contradictory answers remain unresolved where semantic rubric application is uncertain. These annotations are AI-assisted proposals, excluded from official human accuracy and testing-tool precision/recall.",
+  "summary": {
+    "planned_records": 40,
+    "records_with_structured_answers": 40,
+    "run_error_records": 0,
+    "assessed_records": 40,
+    "proposed_outcomes": {
+      "pass": 10,
+      "fail": 27,
+      "needs_human_review": 3
+    },
+    "by_configuration": {
+      "basic": {
+        "planned_records": 20,
+        "assessed_records": 20,
+        "proposed_outcomes": {
+          "pass": 5,
+          "fail": 14,
+          "needs_human_review": 1
+        }
+      },
+      "version_filtered": {
+        "planned_records": 20,
+        "assessed_records": 20,
+        "proposed_outcomes": {
+          "pass": 5,
+          "fail": 13,
+          "needs_human_review": 2
+        }
+      }
+    },
+    "human_answer_judgments_created": 0,
+    "benchmark_accuracy_measured": false,
+    "testing_tool_reference_labels_created": 0,
+    "findings": [
+      "The 10 pass, 27 fail and 3 unresolved outcomes are provisional agent proposals over 40 records, not human benchmark accuracy.",
+      "Factory declaration-order answers permit later-field dependencies although that limitation was absent from actual retrieved context; alternative-name answers similarly lack the needed AliasChoices evidence.",
+      "AliasPath outputs repeat the whole input, separate-generator answers substitute per-field serialization aliases, and several priority/strictness answers contradict supplied rules.",
+      "All four partial-JSON-defaults answers invent explicit_version; this token is application target metadata, not the supplied Pydantic recommendation. Its reuse does not prove cause or answer-key leakage.",
+      "The three unresolved answers comprise one wrong-polarity strictness opening with a correct body and two partial-JSON answers that omit the concrete recovered prefix.",
+      "Before/after differences here are observations under whitespace-only corpus controls. Changed snapshot/chunk identifiers and unmeasured model variability preclude attributing differences solely to whitespace; broad wording robustness is not measured.",
+      "All cited IDs were checked to exist in actual supplied passages and have requested 2.10.6 scope; semantic relevance/support is assessed separately."
+    ]
+  },
+  "records": [
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-factory-exclusivity",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0c6b20965dd9653bb722fc902a07753b8f31ddfd961f55badae0857a27a6ce6f",
+      "trace_hash": "917ec456e45ee7ebf51013aeebe426edc220c78654fa3065257dfe7504810ebd",
+      "expectation_hash": "ac1d81907d419baee79567ba2d3a62974fed90bf64b9d8afd46c377ff3ed3d16",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: The explicit No correctly forbids specifying both default and default_factory. Evidence support: The actual cited default-values passage explicitly says not both at the same time. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-e7ca4a22f838194cd8a8f6a934afa60049310314c887eae1e8baa75f9a00662e"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-factory-exclusivity",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "b2c5121b2ed2bf0b5cc34d1e1d3d0d49074c4cd86b824281a42a6c1e5e89b847",
+      "trace_hash": "5cf1d6f72e7cf31f486100b49736a229ed4c5cf79e9452d102b6fcf89d16c88b",
+      "expectation_hash": "ac1d81907d419baee79567ba2d3a62974fed90bf64b9d8afd46c377ff3ed3d16",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: The explicit No correctly forbids specifying both default and default_factory. Evidence support: The actual cited default-values passage explicitly says not both at the same time. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-02c7482436d1cc3408e81514484893b7683cbbce10e5eb0deb6935a46e1667b3"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-factory-validated-data",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0c6b20965dd9653bb722fc902a07753b8f31ddfd961f55badae0857a27a6ce6f",
+      "trace_hash": "d98113397299ae8ba3d959cf26553131e095a15034ba0c49d9893db01bca88b7",
+      "expectation_hash": "45c6f7ac319ff78a763150de93330ba881283a10f1858d729ec009eea4abc6d1",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The answer permits depending on later-declared fields, contrary to the expected already-validated dictionary containing only earlier fields. Evidence support: The supplied factory passage establishes the already-validated data dictionary, but the declaration-order limitation was not retrieved. The permissive later-field claim therefore extrapolates beyond actual context; missing retrieval is an observation, not a proven cause. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-e7ca4a22f838194cd8a8f6a934afa60049310314c887eae1e8baa75f9a00662e"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-factory-validated-data",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "b2c5121b2ed2bf0b5cc34d1e1d3d0d49074c4cd86b824281a42a6c1e5e89b847",
+      "trace_hash": "12780e463d1e79ed9948107d2314e444b9511a6ff1f0cdc55a4bde860c3d12f2",
+      "expectation_hash": "45c6f7ac319ff78a763150de93330ba881283a10f1858d729ec009eea4abc6d1",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The answer permits depending on later-declared fields, contrary to the expected already-validated dictionary containing only earlier fields. Evidence support: The supplied factory passage establishes the already-validated data dictionary, but the declaration-order limitation was not retrieved. The permissive later-field claim therefore extrapolates beyond actual context; missing retrieval is an observation, not a proven cause. Its subsequent uncertainty and abstained flag do not retract the initial affirmative later-field claim; this is not a clean evidence-only abstention. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-02c7482436d1cc3408e81514484893b7683cbbce10e5eb0deb6935a46e1667b3"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-validation-only-alias",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0c6b20965dd9653bb722fc902a07753b8f31ddfd961f55badae0857a27a6ce6f",
+      "trace_hash": "9d4f2ac4f4e42914e046adb2ee8725b696dc6b64db9a22b6350b2c6cf0e56295",
+      "expectation_hash": "c31662b4dba180b830ba3e530de5110195894a2f23ff5277ed60603fe0b19a9f",
+      "proposed_outcome": "fail",
+      "failure_kind": "unsupported_answer",
+      "rationale": "Factual answer: The initial No correctly distinguishes validation aliases from serialized names, but the added @field decorator and @model_dump call explanation invents mechanisms not established by these passages. Evidence support: Retrieved material explains separate validation_alias and serialization_alias uses; it does not support those decorator/API claims. A correct opening alone does not establish correctness of the entire answer. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-1ceee96d2cda2393ca876c35c43495c5724463f7fd9c66aeb494b47c664a2f01"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-validation-only-alias",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "b2c5121b2ed2bf0b5cc34d1e1d3d0d49074c4cd86b824281a42a6c1e5e89b847",
+      "trace_hash": "687c3a899aa19e7328b97c210be384b7f3a2e0939479db0a20f543d9152243ee",
+      "expectation_hash": "c31662b4dba180b830ba3e530de5110195894a2f23ff5277ed60603fe0b19a9f",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: The No and distinction between validation-only and serialization aliases answer the question correctly. The reference to name is read as the supplied example field, not a universal serialized field name. Evidence support: The retrieved material explains distinct validation/serialization aliases and shows serialization using the field name unless a serialization alias applies. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-7c6304a9973f15981cf90a36218192c28fb33e87e83ed1556d41312847e8bbbc"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-alias-nested-path",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0c6b20965dd9653bb722fc902a07753b8f31ddfd961f55badae0857a27a6ce6f",
+      "trace_hash": "244ca485633beec154b395bc7e7adec9d1d071de871737e617873d8699e43433",
+      "expectation_hash": "20cffaf45db8964f2db14ef057ba918e2775de244520debd1fcc71aa2cd87934",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The answer repeats the whole names input instead of identifying John at index zero, failing the requested extraction. Evidence support: The actual supplied AliasPath example and its output identify first_name=John and last_name=Doe, so the extraction is available in context. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-e675df35f78e48306abf3c6c12e7ffd35685b77d985e40ef630a37cc3487e3dd"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-alias-nested-path",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "b2c5121b2ed2bf0b5cc34d1e1d3d0d49074c4cd86b824281a42a6c1e5e89b847",
+      "trace_hash": "999d8f669018cc141b1ad7198ec15b1b27cf185f9940125f301e21ff4254e537",
+      "expectation_hash": "20cffaf45db8964f2db14ef057ba918e2775de244520debd1fcc71aa2cd87934",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The answer repeats the whole names input instead of identifying John at index zero, failing the requested extraction. Evidence support: The actual supplied AliasPath example and its output identify first_name=John and last_name=Doe, so the extraction is available in context. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-298231a7e32f90ff74a4d15519bf010a1e2886b94d92f47779052b9331c4a4ea"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-alias-alternative-keys",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0c6b20965dd9653bb722fc902a07753b8f31ddfd961f55badae0857a27a6ce6f",
+      "trace_hash": "51fb117406070a0b0d7cd5c68f7c54723bbf083f91d56e3778a91fb02fa630a2",
+      "expectation_hash": "c8841310325926fe2ff09741c930647069ec63d02609aab3ca85bd50c2638f5e",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: A single Field(alias=...) does not by itself accept both alternative input names; the answer supplies neither AliasChoices nor a complete equivalent configuration. Evidence support: Actual retrieved passages show AliasPath and unrelated strict-field material, not AliasChoices. The full selected source contains the needed concept, but it was not supplied for this answer; the claimed either-name mechanism is unsupported. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-bc81be931f1476cd2ef22a2a69af86e8268eed90ac9778e44a37300c5551ad4b"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-alias-alternative-keys",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "b2c5121b2ed2bf0b5cc34d1e1d3d0d49074c4cd86b824281a42a6c1e5e89b847",
+      "trace_hash": "fbeddc770ad82af1a659e073b3e314bbdfbe6b2a17e9c6c7c8847936edded5c2",
+      "expectation_hash": "c8841310325926fe2ff09741c930647069ec63d02609aab3ca85bd50c2638f5e",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: A single Field(alias=...) does not by itself accept both alternative input names; the answer supplies neither AliasChoices nor a complete equivalent configuration. Evidence support: Actual retrieved passages show AliasPath and unrelated strict-field material, not AliasChoices. The full selected source contains the needed concept, but it was not supplied for this answer; the claimed either-name mechanism is unsupported. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-2a5fccacba049adbcf137f5fa9b520a372dd21b4d1f807b0299748ec02f916bb"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-alias-separate-generators",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0c6b20965dd9653bb722fc902a07753b8f31ddfd961f55badae0857a27a6ce6f",
+      "trace_hash": "5c4ad80bc67c4e2edb93c330cd5248678c83afd6bd800ab67ba805a119749290",
+      "expectation_hash": "74ab6ffd95b3102f0e841ed7ad614f0f5ff659d921fbbf014390a3d385012c99",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The initial Yes is possible, but the proposed serialization_alias parameter alone does not implement separate model-wide input and output alias generators. Evidence support: One supplied passage concerns per-field serialization aliases, while the other explicitly describes AliasGenerator with different validation and serialization generators. The answer chooses an inadequate mechanism despite that available distinction. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-1ceee96d2cda2393ca876c35c43495c5724463f7fd9c66aeb494b47c664a2f01"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-alias-separate-generators",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "b2c5121b2ed2bf0b5cc34d1e1d3d0d49074c4cd86b824281a42a6c1e5e89b847",
+      "trace_hash": "1ca3f445997473dbb21e0fa4794731b45b26e6a59b30f57e4a696f8f118760bb",
+      "expectation_hash": "74ab6ffd95b3102f0e841ed7ad614f0f5ff659d921fbbf014390a3d385012c99",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The initial Yes is possible, but the proposed serialization_alias parameter alone does not implement separate model-wide input and output alias generators. Evidence support: One supplied passage concerns per-field serialization aliases, while the other explicitly describes AliasGenerator with different validation and serialization generators. The answer chooses an inadequate mechanism despite that available distinction. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-7c6304a9973f15981cf90a36218192c28fb33e87e83ed1556d41312847e8bbbc"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-alias-generator-priority",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0c6b20965dd9653bb722fc902a07753b8f31ddfd961f55badae0857a27a6ce6f",
+      "trace_hash": "e1ece2b8d9851330b68a497bed60c00a641721710ef7f49c6d87e9a521f03a69",
+      "expectation_hash": "914eb7f6cf05a3e3409cbc849c94d1c71a34364f05fe854a7e232d4bb2610f22",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: It correctly says priority one lets the generator override an explicit alias, unlike default explicit-alias precedence. Evidence support: The cited introductory fragment identifies alias_priority as controlling precedence; the paired supplied fragment contains the exact priority-one and unset-with-alias rules. Numerical support is in the supplied context, not entirely in the cited introductory fragment. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-6cc7a1a90ef9d0f7fd578f98a84ad45ed24b0174a27c34827100f513940c1f3d"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-alias-generator-priority",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "b2c5121b2ed2bf0b5cc34d1e1d3d0d49074c4cd86b824281a42a6c1e5e89b847",
+      "trace_hash": "0ba955bf7aeea32aaeb1c42d493f9d633685beeb710800d9a6a3c3500699c0b1",
+      "expectation_hash": "914eb7f6cf05a3e3409cbc849c94d1c71a34364f05fe854a7e232d4bb2610f22",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: It reverses priority-one precedence by making the explicit alias override or take priority over the generator. The correct rule lets the generator override that alias. Evidence support: The paired supplied precedence passage explicitly lists priority one as overridden and an unset priority with an explicit alias as not overridden; the answer contradicts that available context. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-19328e38886fd2b8d8cde4c8e9439ad83ab07c56684df4b0cc583356861c83dd"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-strict-field-isolation",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0c6b20965dd9653bb722fc902a07753b8f31ddfd961f55badae0857a27a6ce6f",
+      "trace_hash": "10495800b9ea1a91464c84673c408739be05de6fd7e403f0c5a089f9be4b3cb0",
+      "expectation_hash": "fe00fa5f6873495cc4b3978b7a6c66d7afcacc9151c93b6b0666f3e679f63eff",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: It incorrectly extends age strictness to n_pets; field-level strict=True does not make an ordinary neighboring field strict. Evidence support: The actual cited passage explicitly says only fields for which strict=True is set are affected, and the supplied example has the corresponding age validation error. No global strict configuration is supplied to justify the claim. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-695b2b0a9cd6dcbab24ae955427e29c74c681c2d0fc5a5a1cde90880fe487d3f"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-strict-field-isolation",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "b2c5121b2ed2bf0b5cc34d1e1d3d0d49074c4cd86b824281a42a6c1e5e89b847",
+      "trace_hash": "c2f7cb9d9b79a454b6e5376d8de177ab369e08b5ed559935eab6f5ae08740b2d",
+      "expectation_hash": "fe00fa5f6873495cc4b3978b7a6c66d7afcacc9151c93b6b0666f3e679f63eff",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: It incorrectly extends age strictness to n_pets; field-level strict=True does not make an ordinary neighboring field strict. Evidence support: The actual cited passage explicitly says only fields for which strict=True is set are affected, and the supplied example has the corresponding age validation error. No global strict configuration is supplied to justify the claim. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-ff21f7fd37eb05a5b74016d688ceb0204f92b85ebcee124d223e504f19337dff"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-partial-json-prefix",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0c6b20965dd9653bb722fc902a07753b8f31ddfd961f55badae0857a27a6ce6f",
+      "trace_hash": "868eb2ebedfd0590888485edd056b1c91065fe295b681a107d9801cc0f8bfc1f",
+      "expectation_hash": "28128c4bc82b914f9d51610715b35ee1a4052cd2ed72fcc65aab883ff65a7f3a",
+      "proposed_outcome": "needs_human_review",
+      "failure_kind": null,
+      "rationale": "Factual answer: It describes partial deserialization without naming the required recovered items aa and bb or explicitly excluding unfinished c. This incomplete answer does not establish the requested concrete result; the rubric requires human resolution of whether the vague description is sufficient. Evidence support: The actual paired passages contain the example and completed prefix output, so the concrete result was available. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-b0daa748c4f535ceee86875bb7c3076719c7b11ce3d4f7fab81c78ca69cfe4e7"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-partial-json-prefix",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "b2c5121b2ed2bf0b5cc34d1e1d3d0d49074c4cd86b824281a42a6c1e5e89b847",
+      "trace_hash": "04e95589335485b8a91e6b7cf689ca158d941740314582bb81aef5009549d31d",
+      "expectation_hash": "28128c4bc82b914f9d51610715b35ee1a4052cd2ed72fcc65aab883ff65a7f3a",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: It explicitly recovers only aa and bb, excluding the unfinished c, matching the required prefix. Evidence support: The supplied partial-JSON example and adjacent continuation give that concrete output. The abbreviated missing-closing-delimiter explanation is imprecise but does not add c to the returned result. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-1103b37e9e6e745ade294aef30db5407bae5c5087b2d031112ecf12ecb6a51ee"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-partial-json-model-defaults",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0c6b20965dd9653bb722fc902a07753b8f31ddfd961f55badae0857a27a6ce6f",
+      "trace_hash": "c816cef4ababaca74d59b811415a85893ae95adbb4b47143984ff8852ec1ba4d",
+      "expectation_hash": "6bab1c22bb192d4c9db54c723140fa9a12a8af16d16ed7c7635478c592c0ac86",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: It invents an explicit_version recommendation rather than saying all model fields should have default values. Evidence support: The actual cited tip directly states the all-fields-defaults recommendation. explicit_version is request-target metadata, not a documented Pydantic recommendation in the supplied passages; its reuse suggests confusion but does not prove a causal mechanism or answer-key leakage. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-3878ac1d44b454d7d3525e98997b865d9ff7031a2a377a164127909aa9c855e9"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-partial-json-model-defaults",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "b2c5121b2ed2bf0b5cc34d1e1d3d0d49074c4cd86b824281a42a6c1e5e89b847",
+      "trace_hash": "db151a94e25175f1f887d5fd4fd157ebee2855bd60f6d2f55146d256f3ae3641",
+      "expectation_hash": "6bab1c22bb192d4c9db54c723140fa9a12a8af16d16ed7c7635478c592c0ac86",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: It invents an explicit_version recommendation rather than saying all model fields should have default values. Evidence support: The actual cited tip directly states the all-fields-defaults recommendation. explicit_version is request-target metadata, not a documented Pydantic recommendation in the supplied passages; its reuse suggests confusion but does not prove a causal mechanism or answer-key leakage. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-8f51c84d1d07127316f713bdd6c5a768f1eac3bca6ecaad52c53d05bce05ae67"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-factory-exclusivity",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0c6b20965dd9653bb722fc902a07753b8f31ddfd961f55badae0857a27a6ce6f",
+      "trace_hash": "4b229f027823ba37b4b2354ad21d26ba533c25d66108ad564b330169b3daa5f5",
+      "expectation_hash": "ac1d81907d419baee79567ba2d3a62974fed90bf64b9d8afd46c377ff3ed3d16",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: The explicit No correctly forbids specifying both default and default_factory. Evidence support: The actual cited default-values passage explicitly says not both at the same time. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-e7ca4a22f838194cd8a8f6a934afa60049310314c887eae1e8baa75f9a00662e"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-factory-exclusivity",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "b2c5121b2ed2bf0b5cc34d1e1d3d0d49074c4cd86b824281a42a6c1e5e89b847",
+      "trace_hash": "3cf3bd349d8dac3b237d3e11da6366f56e6778cf54c68ad64a4e96a08ae76cc3",
+      "expectation_hash": "ac1d81907d419baee79567ba2d3a62974fed90bf64b9d8afd46c377ff3ed3d16",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: The explicit No correctly forbids specifying both default and default_factory. Evidence support: The actual cited default-values passage explicitly says not both at the same time. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-02c7482436d1cc3408e81514484893b7683cbbce10e5eb0deb6935a46e1667b3"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-factory-validated-data",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0c6b20965dd9653bb722fc902a07753b8f31ddfd961f55badae0857a27a6ce6f",
+      "trace_hash": "e90fe38c4b2d350955d31c6f328394a048eea40211f2b38a20f727e335f7ac26",
+      "expectation_hash": "45c6f7ac319ff78a763150de93330ba881283a10f1858d729ec009eea4abc6d1",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The answer permits depending on later-declared fields, contrary to the expected already-validated dictionary containing only earlier fields. Evidence support: The supplied factory passage establishes the already-validated data dictionary, but the declaration-order limitation was not retrieved. The permissive later-field claim therefore extrapolates beyond actual context; missing retrieval is an observation, not a proven cause. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-e7ca4a22f838194cd8a8f6a934afa60049310314c887eae1e8baa75f9a00662e"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-factory-validated-data",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "b2c5121b2ed2bf0b5cc34d1e1d3d0d49074c4cd86b824281a42a6c1e5e89b847",
+      "trace_hash": "ce9480a5370b90bd0a86318bca5bd8937a62b862df218d51807c9b75dc6ac4a7",
+      "expectation_hash": "45c6f7ac319ff78a763150de93330ba881283a10f1858d729ec009eea4abc6d1",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The answer permits depending on later-declared fields, contrary to the expected already-validated dictionary containing only earlier fields. Evidence support: The supplied factory passage establishes the already-validated data dictionary, but the declaration-order limitation was not retrieved. The permissive later-field claim therefore extrapolates beyond actual context; missing retrieval is an observation, not a proven cause. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-02c7482436d1cc3408e81514484893b7683cbbce10e5eb0deb6935a46e1667b3"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-validation-only-alias",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0c6b20965dd9653bb722fc902a07753b8f31ddfd961f55badae0857a27a6ce6f",
+      "trace_hash": "d1e82a04aaad3f02da048e72107a4d9ccd434032693eba15a9807409c328de6c",
+      "expectation_hash": "c31662b4dba180b830ba3e530de5110195894a2f23ff5277ed60603fe0b19a9f",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: The No and distinction between validation-only and serialization aliases answer the question correctly. The reference to name is read as the supplied example field, not a universal serialized field name. Evidence support: The retrieved material explains distinct validation/serialization aliases and shows serialization using the field name unless a serialization alias applies. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-1ceee96d2cda2393ca876c35c43495c5724463f7fd9c66aeb494b47c664a2f01"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-validation-only-alias",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "b2c5121b2ed2bf0b5cc34d1e1d3d0d49074c4cd86b824281a42a6c1e5e89b847",
+      "trace_hash": "2d9b44e92b8843e951c96e5654b8451ae82005b90f042dfe88864dfe6367079c",
+      "expectation_hash": "c31662b4dba180b830ba3e530de5110195894a2f23ff5277ed60603fe0b19a9f",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: The No and distinction between validation-only and serialization aliases answer the question correctly. The reference to name is read as the supplied example field, not a universal serialized field name. Evidence support: The retrieved material explains distinct validation/serialization aliases and shows serialization using the field name unless a serialization alias applies. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-7c6304a9973f15981cf90a36218192c28fb33e87e83ed1556d41312847e8bbbc"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-alias-nested-path",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0c6b20965dd9653bb722fc902a07753b8f31ddfd961f55badae0857a27a6ce6f",
+      "trace_hash": "37ab39a2e602de6207b52f3b3d7c345201982055173440d1338a91198a2b1765",
+      "expectation_hash": "20cffaf45db8964f2db14ef057ba918e2775de244520debd1fcc71aa2cd87934",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The answer repeats the whole names input instead of identifying John at index zero, failing the requested extraction. Evidence support: The actual supplied AliasPath example and its output identify first_name=John and last_name=Doe, so the extraction is available in context. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-e675df35f78e48306abf3c6c12e7ffd35685b77d985e40ef630a37cc3487e3dd"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-alias-nested-path",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "b2c5121b2ed2bf0b5cc34d1e1d3d0d49074c4cd86b824281a42a6c1e5e89b847",
+      "trace_hash": "0392e3e547de2ff79ad15c8d449ed6e2c1d3b33206daaa12d8059f063117c3ca",
+      "expectation_hash": "20cffaf45db8964f2db14ef057ba918e2775de244520debd1fcc71aa2cd87934",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The answer repeats the whole names input instead of identifying John at index zero, failing the requested extraction. Evidence support: The actual supplied AliasPath example and its output identify first_name=John and last_name=Doe, so the extraction is available in context. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-298231a7e32f90ff74a4d15519bf010a1e2886b94d92f47779052b9331c4a4ea"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-alias-alternative-keys",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0c6b20965dd9653bb722fc902a07753b8f31ddfd961f55badae0857a27a6ce6f",
+      "trace_hash": "ba07d26bd6bae218ae69640012fbb47294ac4b76ff6daf1fc506329d08ae2c57",
+      "expectation_hash": "c8841310325926fe2ff09741c930647069ec63d02609aab3ca85bd50c2638f5e",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: A single Field(alias=...) does not by itself accept both alternative input names; the answer supplies neither AliasChoices nor a complete equivalent configuration. Evidence support: Actual retrieved passages show AliasPath and unrelated strict-field material, not AliasChoices. The full selected source contains the needed concept, but it was not supplied for this answer; the claimed either-name mechanism is unsupported. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-bc81be931f1476cd2ef22a2a69af86e8268eed90ac9778e44a37300c5551ad4b"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-alias-alternative-keys",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "b2c5121b2ed2bf0b5cc34d1e1d3d0d49074c4cd86b824281a42a6c1e5e89b847",
+      "trace_hash": "6edc06190ceb5ef14a36f53029148d0704aebc3e7e2453d38d9259925f5b6097",
+      "expectation_hash": "c8841310325926fe2ff09741c930647069ec63d02609aab3ca85bd50c2638f5e",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: A single Field(alias=...) does not by itself accept both alternative input names; the answer supplies neither AliasChoices nor a complete equivalent configuration. Evidence support: Actual retrieved passages show AliasPath and unrelated strict-field material, not AliasChoices. The full selected source contains the needed concept, but it was not supplied for this answer; the claimed either-name mechanism is unsupported. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-2a5fccacba049adbcf137f5fa9b520a372dd21b4d1f807b0299748ec02f916bb"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-alias-separate-generators",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0c6b20965dd9653bb722fc902a07753b8f31ddfd961f55badae0857a27a6ce6f",
+      "trace_hash": "6ecc721e88f5593a71f0eee1f32699f4204b58dbd0c3f0ebf1871e988c51d6a1",
+      "expectation_hash": "74ab6ffd95b3102f0e841ed7ad614f0f5ff659d921fbbf014390a3d385012c99",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The initial Yes is possible, but the proposed serialization_alias parameter alone does not implement separate model-wide input and output alias generators. Evidence support: One supplied passage concerns per-field serialization aliases, while the other explicitly describes AliasGenerator with different validation and serialization generators. The answer chooses an inadequate mechanism despite that available distinction. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-1ceee96d2cda2393ca876c35c43495c5724463f7fd9c66aeb494b47c664a2f01"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-alias-separate-generators",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "b2c5121b2ed2bf0b5cc34d1e1d3d0d49074c4cd86b824281a42a6c1e5e89b847",
+      "trace_hash": "64a3b94cd4ad9fbd639c4e9581b37bc630d1ba92a53a6796442ca63e07b7db51",
+      "expectation_hash": "74ab6ffd95b3102f0e841ed7ad614f0f5ff659d921fbbf014390a3d385012c99",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The initial Yes is possible, but the proposed serialization_alias parameter alone does not implement separate model-wide input and output alias generators. Evidence support: One supplied passage concerns per-field serialization aliases, while the other explicitly describes AliasGenerator with different validation and serialization generators. The answer chooses an inadequate mechanism despite that available distinction. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-7c6304a9973f15981cf90a36218192c28fb33e87e83ed1556d41312847e8bbbc"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-alias-generator-priority",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0c6b20965dd9653bb722fc902a07753b8f31ddfd961f55badae0857a27a6ce6f",
+      "trace_hash": "cb01e6575773aad6cdc55bae64331d6ff123555e8665efd81dc88be32d4ac9d6",
+      "expectation_hash": "914eb7f6cf05a3e3409cbc849c94d1c71a34364f05fe854a7e232d4bb2610f22",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: It reverses priority-one precedence by making the explicit alias override or take priority over the generator. The correct rule lets the generator override that alias. Evidence support: The paired supplied precedence passage explicitly lists priority one as overridden and an unset priority with an explicit alias as not overridden; the answer contradicts that available context. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-6cc7a1a90ef9d0f7fd578f98a84ad45ed24b0174a27c34827100f513940c1f3d"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-alias-generator-priority",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "b2c5121b2ed2bf0b5cc34d1e1d3d0d49074c4cd86b824281a42a6c1e5e89b847",
+      "trace_hash": "7d340344949b99616918399f8519ab2148fe37bc4e8961d56db5d5dcfb001bdf",
+      "expectation_hash": "914eb7f6cf05a3e3409cbc849c94d1c71a34364f05fe854a7e232d4bb2610f22",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: It reverses priority-one precedence by making the explicit alias override or take priority over the generator. The correct rule lets the generator override that alias. Evidence support: The paired supplied precedence passage explicitly lists priority one as overridden and an unset priority with an explicit alias as not overridden; the answer contradicts that available context. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-19328e38886fd2b8d8cde4c8e9439ad83ab07c56684df4b0cc583356861c83dd"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-strict-field-isolation",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0c6b20965dd9653bb722fc902a07753b8f31ddfd961f55badae0857a27a6ce6f",
+      "trace_hash": "45299b13035fc4803b2221ab0c9ba8d6ce4fbaa44f366eb879c8b10567977a26",
+      "expectation_hash": "fe00fa5f6873495cc4b3978b7a6c66d7afcacc9151c93b6b0666f3e679f63eff",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: It incorrectly extends age strictness to n_pets; field-level strict=True does not make an ordinary neighboring field strict. Evidence support: The actual cited passage explicitly says only fields for which strict=True is set are affected, and the supplied example has the corresponding age validation error. No global strict configuration is supplied to justify the claim. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-695b2b0a9cd6dcbab24ae955427e29c74c681c2d0fc5a5a1cde90880fe487d3f"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-strict-field-isolation",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "b2c5121b2ed2bf0b5cc34d1e1d3d0d49074c4cd86b824281a42a6c1e5e89b847",
+      "trace_hash": "8cd9f96d0a5ce3d4614d7c0b5d40d42de0360223e07c5ec60796b09d5d77f517",
+      "expectation_hash": "fe00fa5f6873495cc4b3978b7a6c66d7afcacc9151c93b6b0666f3e679f63eff",
+      "proposed_outcome": "needs_human_review",
+      "failure_kind": null,
+      "rationale": "Factual answer: The opening Yes answers the original question with the wrong polarity, but the substantive explanation correctly says n_pets is not strict and only explicitly strict fields are affected. This internal inconsistency is left unresolved rather than treated as a keyword pass. Evidence support: The actual cited passage explicitly limits the effect to fields for which strict=True is set, supporting the explanatory body. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-ff21f7fd37eb05a5b74016d688ceb0204f92b85ebcee124d223e504f19337dff"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-partial-json-prefix",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0c6b20965dd9653bb722fc902a07753b8f31ddfd961f55badae0857a27a6ce6f",
+      "trace_hash": "20a56d4116ae642ad641753b8c98eb5ed89c5c601c8cf0c364e20aa981f7cd54",
+      "expectation_hash": "28128c4bc82b914f9d51610715b35ee1a4052cd2ed72fcc65aab883ff65a7f3a",
+      "proposed_outcome": "needs_human_review",
+      "failure_kind": null,
+      "rationale": "Factual answer: It describes partial deserialization without naming the required recovered items aa and bb or explicitly excluding unfinished c. This incomplete answer does not establish the requested concrete result; the rubric requires human resolution of whether the vague description is sufficient. Evidence support: The actual paired passages contain the example and completed prefix output, so the concrete result was available. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-b0daa748c4f535ceee86875bb7c3076719c7b11ce3d4f7fab81c78ca69cfe4e7"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-partial-json-prefix",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "b2c5121b2ed2bf0b5cc34d1e1d3d0d49074c4cd86b824281a42a6c1e5e89b847",
+      "trace_hash": "8221785eb1994e7693bfe1c9d3833968859ca6c2db71f8f6f9436f0b48f89721",
+      "expectation_hash": "28128c4bc82b914f9d51610715b35ee1a4052cd2ed72fcc65aab883ff65a7f3a",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: It explicitly recovers only aa and bb, excluding the unfinished c, matching the required prefix. Evidence support: The supplied partial-JSON example and adjacent continuation give that concrete output. The abbreviated missing-closing-delimiter explanation is imprecise but does not add c to the returned result. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-1103b37e9e6e745ade294aef30db5407bae5c5087b2d031112ecf12ecb6a51ee"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-partial-json-model-defaults",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0c6b20965dd9653bb722fc902a07753b8f31ddfd961f55badae0857a27a6ce6f",
+      "trace_hash": "e99e4ac1f630b8fe3e5d0b626d12dc33faabd555402a1b8cbeac70281d2837d3",
+      "expectation_hash": "6bab1c22bb192d4c9db54c723140fa9a12a8af16d16ed7c7635478c592c0ac86",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: It invents an explicit_version recommendation rather than saying all model fields should have default values. Evidence support: The actual cited tip directly states the all-fields-defaults recommendation. explicit_version is request-target metadata, not a documented Pydantic recommendation in the supplied passages; its reuse suggests confusion but does not prove a causal mechanism or answer-key leakage. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-3878ac1d44b454d7d3525e98997b865d9ff7031a2a377a164127909aa9c855e9"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "fe7c78384e144415af15f6a941248f4c",
+        "case_id": "study-partial-json-model-defaults",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "b2c5121b2ed2bf0b5cc34d1e1d3d0d49074c4cd86b824281a42a6c1e5e89b847",
+      "trace_hash": "1f2f934d678a64c5b0f20a7340dd94572bcecf404248c37888c5e0b741e26501",
+      "expectation_hash": "6bab1c22bb192d4c9db54c723140fa9a12a8af16d16ed7c7635478c592c0ac86",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: It invents an explicit_version recommendation rather than saying all model fields should have default values. Evidence support: The actual cited tip directly states the all-fields-defaults recommendation. explicit_version is request-target metadata, not a documented Pydantic recommendation in the supplied passages; its reuse suggests confusion but does not prove a causal mechanism or answer-key leakage. Version applicability: Actual citations exist in the supplied context and are explicitly scoped to requested Pydantic 2.10.6; no wrong-version citation is identified in this record.",
+      "cited_chunk_ids": [
+        "chunk-8f51c84d1d07127316f713bdd6c5a768f1eac3bca6ecaad52c53d05bce05ae67"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    }
+  ]
+}

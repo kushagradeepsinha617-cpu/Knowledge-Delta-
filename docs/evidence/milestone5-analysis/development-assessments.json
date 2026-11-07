@@ -1,0 +1,943 @@
+{
+  "schema_version": 1,
+  "kind": "provisional_agent_assessment",
+  "raw_run_path": "runs/milestone5-study/bundle-1.json",
+  "raw_run_sha256": "827f91db6476808e3b7d4b9c83bd19587ab1748c917099d84e552db68bf3420f",
+  "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+  "dataset_hash": "777aa73c178ad6a8ba2ddc8562a98bd7499d23a55f5890dee1e302560182a3ad",
+  "assessed_at": "2026-11-06T22:04:46.861061+00:00",
+  "assessor": "Brain/Codex AI-assisted",
+  "human_review": false,
+  "independent_reference": false,
+  "provisional": true,
+  "scope_note": "All 40 saved bundle-1 records were read against their case expectations and exact supplied passages. Proposed passes/failures are AI-assisted analysis, not official human judgments, an independent reference set or benchmark ground truth. No keyword grader or new model inference was used.",
+  "assessment_policy": "Assess the snapshot-level task and evidence-only support separately. An abstention can respect the supplied context yet fail the snapshot-level expected answer when relevant source evidence was not retrieved. Ambiguous added assertions remain unresolved.",
+  "summary": {
+    "planned_records": 40,
+    "records_with_structured_answers": 39,
+    "run_error_records": 1,
+    "assessed_records": 40,
+    "proposed_outcomes": {
+      "fail": 14,
+      "pass": 23,
+      "needs_human_review": 2,
+      "run_error": 1
+    },
+    "by_configuration": {
+      "basic": {
+        "planned_records": 20,
+        "assessed_records": 20,
+        "proposed_outcomes": {
+          "fail": 7,
+          "pass": 12,
+          "needs_human_review": 1
+        }
+      },
+      "version_filtered": {
+        "planned_records": 20,
+        "assessed_records": 20,
+        "proposed_outcomes": {
+          "fail": 7,
+          "pass": 11,
+          "needs_human_review": 1,
+          "run_error": 1
+        }
+      }
+    },
+    "human_answer_judgments_created": 0,
+    "benchmark_accuracy_measured": false,
+    "testing_tool_reference_labels_created": 0,
+    "findings": [
+      "All four serialization answers falsely claim dict() was removed; correct mention of model_dump() does not rescue the contradictory claim.",
+      "All four Optional answers conflate requiredness/nullability or contradict themselves despite relevant supplied evidence.",
+      "The four ORM, four validator-TypeError, four numeric-string and four default-regex answers are provisionally source-supported; three successful settings answers are likewise supported.",
+      "Three equality abstentions reflect missing equality evidence in retrieval despite that evidence existing in the snapshot; the basic/after equality sentence has the right fact but cites incompatible and irrelevant v1 evidence.",
+      "Dict-pairs basic/before and filtered/after are supported negatives; basic/after and filtered/before reverse the supplied v2 rule.",
+      "The two union-before outputs state the right final string but add ambiguous integer-interpretation wording; they remain needs_human_review.",
+      "The filtered/before settings row is a preserved timeout/run_error and remains ungraded.",
+      "The basic and filtered dict-pairs before requests are exactly identical in recorded messages/schema/options/model, yet their answers differ. This observation does not establish a cause; filtering is not a sufficient explanation for that pair."
+    ],
+    "dict_pairs_before_requests_identical": true
+  },
+  "records": [
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-serialization",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "b034b1abe0325f77a39edeefd57ba6b01b3e88a9e6055b057069d5ff955a9ea6",
+      "trace_hash": "fe892591c117e936b970548dc56ff4f319cd8b708c2791dfdb3fcf01f6416b37",
+      "expectation_hash": "25320176c138e32cc79b8766d43489eb9d81f741527b45fb2b58ac98d65f24d0",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The recommendation model_dump() is right, but the added categorical claim that dict() was removed fails the explicit deprecated-versus-removed expectation. Evidence support: The cited paragraph describes retaining deprecated methods with warnings, not removal. The supplied chunks end before the dictionary-method mapping, and the other passage concerns numeric coercion. Neither supports the removal assertion. Version applicability: Cited metadata is compatible with 2.10.6; compatible version scope does not make a contradicted or unsupported statement correct.",
+      "cited_chunk_ids": [
+        "chunk-ed4bc61432abe22d42e3e5aea10a886fadffc60293f128b4771cf08a9d64d990"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-serialization",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "ca7c145907906944b5926bbe0c8202fbc16a471249d0fb9c2bb77a17b2e12f15",
+      "trace_hash": "2291e9a3e08a24ab33f64078cda51a8b93ac8241fba3f442e607b0cf57b462f0",
+      "expectation_hash": "25320176c138e32cc79b8766d43489eb9d81f741527b45fb2b58ac98d65f24d0",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: model_dump() is the recommended dictionary method, but saying dict() is unavailable is false under the approved rubric. The namedtuple/TypedDict creation methods are also not replacements for producing a dictionary. Evidence support: Both supplied passages are v1 material about GetterDict or model creation, not support for the asserted v2 removal/replacement claims. Both cited passages are present but do not substantiate this answer. Version applicability: The question retains 2.10.6 while both citations are scoped to 1.10.21; this is also an incompatible-version citation failure.",
+      "cited_chunk_ids": [
+        "chunk-713d100bea328e30751cd5521cdfb4a1ceef83131220eb9c467a77a823b39bf2",
+        "chunk-0342a8ed4b4148d67064380317132c5bf0933e4568a15027946572320d143be8"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-orm",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "b034b1abe0325f77a39edeefd57ba6b01b3e88a9e6055b057069d5ff955a9ea6",
+      "trace_hash": "75173169cade265429ce0be3c9714acfa404252be77a1d584b91c503b5148c13",
+      "expectation_hash": "40690812edd4204bb70192c1bb8548ffc49f206f5c4493111745c096e645f38f",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly recommends model_validate with from_attributes=True in model configuration and identifies from_orm as deprecated, without claiming removal. Evidence support: The cited ORM passage states exactly those requirements. The additional retrieved serialization or v1-error passage is not needed for this supported answer. Version applicability: The actual citation targets the 2.10.6-scoped ORM passage; uncited v1 context in basic/after does not by itself invalidate this answer.",
+      "cited_chunk_ids": [
+        "chunk-8acc5cda7a1a02cb7b0ed5da198cd06ab269fe546bd2700a2591afde4b20997c"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-orm",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "ca7c145907906944b5926bbe0c8202fbc16a471249d0fb9c2bb77a17b2e12f15",
+      "trace_hash": "834022ded37ca01f9314d202648de05de57fa3dfb31f08bd158f3061dc4aba04",
+      "expectation_hash": "40690812edd4204bb70192c1bb8548ffc49f206f5c4493111745c096e645f38f",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly recommends model_validate with from_attributes=True in model configuration and identifies from_orm as deprecated, without claiming removal. Evidence support: The cited ORM passage states exactly those requirements. The additional retrieved serialization or v1-error passage is not needed for this supported answer. Version applicability: The actual citation targets the 2.10.6-scoped ORM passage; uncited v1 context in basic/after does not by itself invalidate this answer.",
+      "cited_chunk_ids": [
+        "chunk-8182fc7ad52fb9314e799a74f6954a65d0ecfaeedf8cddf1a500e72830c014d2"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-equality",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "b034b1abe0325f77a39edeefd57ba6b01b3e88a9e6055b057069d5ff955a9ea6",
+      "trace_hash": "a03b9af93d6851f8c19c77c4fb2f9fc5bc974b95df7cce47c27091028e3e7e78",
+      "expectation_hash": "f90d6b4fb55bb2fe1f4c65ac720ae0fa4c3f29e1130debc9ddd02fcbb4ec9312",
+      "proposed_outcome": "fail",
+      "failure_kind": "unnecessary_abstention",
+      "rationale": "Factual answer: The answer does not provide the required negative equality result, although the snapshot contains the approved equality passage. This is a snapshot-level answer-expectation failure. Evidence support: Abstaining is reasonable for the exact supplied serialization/coercion passages, which omit equality evidence. Therefore this proposal concerns retrieval/end-to-end sufficiency, not a claim that generation should invent an unsupported answer. Version applicability: The cited passage has compatible 2.10.6 metadata but is not relevant support for the equality fact. The unnecessary-abstention label is relative to the available snapshot, not to the incomplete retrieved context.",
+      "cited_chunk_ids": [
+        "chunk-ed4bc61432abe22d42e3e5aea10a886fadffc60293f128b4771cf08a9d64d990"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-equality",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "ca7c145907906944b5926bbe0c8202fbc16a471249d0fb9c2bb77a17b2e12f15",
+      "trace_hash": "e6183a6d7a9f215cdfb30b88d21f0a8b8b0475547efd7093187d1ad40e33e30a",
+      "expectation_hash": "f90d6b4fb55bb2fe1f4c65ac720ae0fa4c3f29e1130debc9ddd02fcbb4ec9312",
+      "proposed_outcome": "fail",
+      "failure_kind": "citation_version_mismatch",
+      "rationale": "Factual answer: The negative model-versus-dictionary equality answer matches the approved v2 fact. Evidence support: The supplied passages discuss GetterDict/root validators and structural pattern matching. They do not support equality with dictionaries; a factually right sentence is not enough for the evidence-only policy. Version applicability: The cited GetterDict passage is scoped to 1.10.21, incompatible with requested 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-713d100bea328e30751cd5521cdfb4a1ceef83131220eb9c467a77a823b39bf2"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-optional",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "b034b1abe0325f77a39edeefd57ba6b01b3e88a9e6055b057069d5ff955a9ea6",
+      "trace_hash": "d3fdf6f0dfe39ac711152dc805446288179757a711cc9d50aed1714e164896e0",
+      "expectation_hash": "7fd0a8289c4f99c18a6aa5bf98aae596f5671e508b044e106409ceeb1a621fb3",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The opening Yes and optional/can-be-None description conflate omittability with nullability. A later statement that the field is required without a default partially corrects this but leaves a contradictory answer to the actual question. Evidence support: The supplied code contrasts f2: Optional[str] as required with f3: Optional[str] = None as not required. The answer conflicts with available evidence rather than merely missing a keyword. Version applicability: Both retrieved passages are scoped to 2.10.6; version filtering cannot fix this interpretation failure on its own.",
+      "cited_chunk_ids": [
+        "chunk-7c89327fbab84d0656ff40c337e348545514a5aa157a2b21c40c1d1f5eb474ae"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-optional",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "ca7c145907906944b5926bbe0c8202fbc16a471249d0fb9c2bb77a17b2e12f15",
+      "trace_hash": "48362d5b291e7e042a6fe4cc85d462e62b9666e3a3ed7100150eddab503ae6c8",
+      "expectation_hash": "7fd0a8289c4f99c18a6aa5bf98aae596f5671e508b044e106409ceeb1a621fb3",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: It explicitly says the field is not required and can be omitted. That contradicts the approved required-but-nullable behavior without a default. Evidence support: The supplied code contrasts f2: Optional[str] as required with f3: Optional[str] = None as not required. The answer conflicts with available evidence rather than merely missing a keyword. Version applicability: Both retrieved passages are scoped to 2.10.6; version filtering cannot fix this interpretation failure on its own.",
+      "cited_chunk_ids": [
+        "chunk-e4ef8b45e1ad2c5236b32991c8124e10ba4b89650c663a83e3ddfc5f53cf032d"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-union",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "b034b1abe0325f77a39edeefd57ba6b01b3e88a9e6055b057069d5ff955a9ea6",
+      "trace_hash": "c2ba7097fa0579fc73198196a3a10070728b4a0229d18955af13f287d5788a79",
+      "expectation_hash": "3f3b97f98211c9c8c4e4cfdda62f0df3b3e3b9ceaa91d4ef1259baa95d63891a",
+      "proposed_outcome": "needs_human_review",
+      "failure_kind": null,
+      "rationale": "Factual answer: The final value is correctly described as string 1. However, the added phrase even though it is interpreted as an integer is ambiguous and may suggest a contradictory intermediate conversion. Evidence support: The evidence explicitly preserves the input string and describes short-circuiting; it does not establish the asserted integer interpretation. A reviewer should determine whether this is merely awkward reference to the v1 contrast or an unsupported process claim. Version applicability: Both supplied passages and the citation are scoped to 2.10.6. No semantic pass is proposed until the ambiguous additional assertion is resolved.",
+      "cited_chunk_ids": [
+        "chunk-77f66b51fd8c007823e9557d9a6c2cc57ef5d0b687db7a93b3230a3820dfb168"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-union",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "ca7c145907906944b5926bbe0c8202fbc16a471249d0fb9c2bb77a17b2e12f15",
+      "trace_hash": "73aa786cab9fd2640897ea58d1d7d3a9cc95cafc05ce5be30547abe035c47b32",
+      "expectation_hash": "3f3b97f98211c9c8c4e4cfdda62f0df3b3e3b9ceaa91d4ef1259baa95d63891a",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly returns x as the string 1 and, where explained, describes short-circuiting for this already matching input; it does not claim every union always selects strings. Evidence support: The cited passage describes v2 short-circuiting and the second supplied passage explicitly shows x='1' for Union[int, str]. The explanation is supported by the actual context. Version applicability: The citations are compatible with requested 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-757f4a1aa0dc96b08dd61a68b1b44d6142763d7450009145b90bca877c325c82"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-dict-pairs",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "b034b1abe0325f77a39edeefd57ba6b01b3e88a9e6055b057069d5ff955a9ea6",
+      "trace_hash": "ebcae54de168d5c176fdfaf279b4c200e9a401b30d619f63429c6fc0386f85ab",
+      "expectation_hash": "cd772d9c94efa8ccd118fe89b53264bb10349f39c27caf168734c59c2dec3d27",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly rejects a list of pairs for a dict field without claiming ordinary dictionary inputs are rejected. Evidence support: The cited Dicts passage explicitly says iterables of pairs no longer pass validation. The neighboring numeric-coercion passage independently repeats that pairs are no longer coerced. Version applicability: The cited supporting passage is scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-a35d961d149a0ca50dd69d8e32c3492b2983ff99479b8680fac09356023cb467"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-dict-pairs",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "ca7c145907906944b5926bbe0c8202fbc16a471249d0fb9c2bb77a17b2e12f15",
+      "trace_hash": "cf60b62aea622f2be68b3727afb60974f6d7cc14bc7b2af72901e91c511c929f",
+      "expectation_hash": "cd772d9c94efa8ccd118fe89b53264bb10349f39c27caf168734c59c2dec3d27",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The categorical Yes contradicts the approved v2 behavior: iterable pairs do not pass validation for dict fields. Evidence support: This is not an absence-of-evidence case. The actual cited passage itself says pairs are no longer coerced or no longer pass validation; the answer reverses its meaning. Version applicability: The actual citation has compatible 2.10.6 metadata, so citation membership/version checks alone do not detect the semantic reversal.",
+      "cited_chunk_ids": [
+        "chunk-d078e2f8affc03bba5fd409b1cb6146daf335915973faf277163a5650846bac2"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-validator-error",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "b034b1abe0325f77a39edeefd57ba6b01b3e88a9e6055b057069d5ff955a9ea6",
+      "trace_hash": "98efd413c9994162c279f4b53742d6668865d093af94bb39019693adc800c67c",
+      "expectation_hash": "3998bc1684b0e4a53e0735f29eb9ac6feeab601bb5d16cca1327bc0a9a4c7abe",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly says a TypeError raised inside a validator is not converted to ValidationError. It does not claim all validation exceptions disappeared. Evidence support: The actual cited passage directly states the v2 non-conversion rule and supplies a TypeError example. Version applicability: Both retrieved passages and the citation are scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-35d54042f6d0cd35ead9a2d66620c967a97bdfff4fd9ad83e3e11d24af0675c0"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-validator-error",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "ca7c145907906944b5926bbe0c8202fbc16a471249d0fb9c2bb77a17b2e12f15",
+      "trace_hash": "4581361b92cfc4a78d7eaeac87aa46b2feb0216070751d0b2e47c69481c32cba",
+      "expectation_hash": "3998bc1684b0e4a53e0735f29eb9ac6feeab601bb5d16cca1327bc0a9a4c7abe",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly says a TypeError raised inside a validator is not converted to ValidationError. It does not claim all validation exceptions disappeared. Evidence support: The actual cited passage directly states the v2 non-conversion rule and supplies a TypeError example. Version applicability: Both retrieved passages and the citation are scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-e6bdac2d9d81d04bc9e507eb1a84a2b420d0b7f7ec7a5378406dbc08a5b8d5a4"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-number-string",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "b034b1abe0325f77a39edeefd57ba6b01b3e88a9e6055b057069d5ff955a9ea6",
+      "trace_hash": "dbf5a6058c2272a94c22afbb6af8972ca726fc8fa5dee45f21a001fbc859b888",
+      "expectation_hash": "9021ab640b4e4fe83cc6e4253f55565ff1ba3550fc15bc4187bb2cdefd15b392",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly says numeric-to-string coercion for a str field is disabled by default while retaining the possibility of explicit opt-in. References to coercion are read within that stated numeric-to-string scope. Evidence support: The cited passage explicitly describes optional numeric-to-string coercion disabled by default and links its configuration. The answer does not rely on the uncited v1 passage sometimes retrieved alongside it. Version applicability: The actual citation targets the compatible 2.10.6 passage.",
+      "cited_chunk_ids": [
+        "chunk-33b1a14fd8def7fcd355d52a98e53539cfd55759b278487f5a162e346b8eddfd"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-number-string",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "ca7c145907906944b5926bbe0c8202fbc16a471249d0fb9c2bb77a17b2e12f15",
+      "trace_hash": "68bcd6778e75418f335fe81f1b1f2097e0bb0e304bae2bf29196ffe2cdff7488",
+      "expectation_hash": "9021ab640b4e4fe83cc6e4253f55565ff1ba3550fc15bc4187bb2cdefd15b392",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly says numeric-to-string coercion for a str field is disabled by default while retaining the possibility of explicit opt-in. References to coercion are read within that stated numeric-to-string scope. Evidence support: The cited passage explicitly describes optional numeric-to-string coercion disabled by default and links its configuration. The answer does not rely on the uncited v1 passage sometimes retrieved alongside it. Version applicability: The actual citation targets the compatible 2.10.6 passage.",
+      "cited_chunk_ids": [
+        "chunk-d078e2f8affc03bba5fd409b1cb6146daf335915973faf277163a5650846bac2"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-regex",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "b034b1abe0325f77a39edeefd57ba6b01b3e88a9e6055b057069d5ff955a9ea6",
+      "trace_hash": "c8b1f74597371e809328078970a695d520244d2c5e353ea5fc2d678af3fd9406",
+      "expectation_hash": "7b973926e18cb2bb826f644e0e1be77fc970d32c8fa76e52d8cc7b8da5f26ba0",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly denies lookaround/backreference support in the default Rust engine. The question asks about that default engine, so omission of the optional Python-engine configuration is not itself a failure. Evidence support: The cited passage explicitly says those features were dropped by the Rust regex crate. The answer does not generalize the restriction to all possible regex engines. Version applicability: The actual citation and supplied passages are compatible with 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-016aea651180181c004b12aaf819c0daa39e2e0dec6e2e78fc73cc79ea756fab"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-regex",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "ca7c145907906944b5926bbe0c8202fbc16a471249d0fb9c2bb77a17b2e12f15",
+      "trace_hash": "ffec291078347649eef515f8e21027543ae0d081661c5791176438c55da535fb",
+      "expectation_hash": "7b973926e18cb2bb826f644e0e1be77fc970d32c8fa76e52d8cc7b8da5f26ba0",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly denies lookaround/backreference support in the default Rust engine. The question asks about that default engine, so omission of the optional Python-engine configuration is not itself a failure. Evidence support: The cited passage explicitly says those features were dropped by the Rust regex crate. The answer does not generalize the restriction to all possible regex engines. Version applicability: The actual citation and supplied passages are compatible with 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-24dbebb2c6bba2a6d27d6c7dd36e8e27054720c4c4cddc9c29301f398ac28616"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-settings",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "b034b1abe0325f77a39edeefd57ba6b01b3e88a9e6055b057069d5ff955a9ea6",
+      "trace_hash": "588ed7b4e6c7f784f83400520bab1f4780f8675141b42e714791cf9cdc783246",
+      "expectation_hash": "e8515b8e9ad527b356ee4c3648ec0ee394c915209c1e7b43c1e841f853ffc3ea",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly identifies pydantic-settings for the native v2 BaseSettings API, respecting the question's exclusion of the pydantic.v1 compatibility namespace. Evidence support: The cited passage directly states the move to the separate pydantic-settings package. No unrelated assertion from the extra retrieved passage is used. Version applicability: The cited package-move passage is scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-f28c83fd0e0b6a3e01e9156a00e24660e2503d006bc878304d786619fc16aa9e"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-settings",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "ca7c145907906944b5926bbe0c8202fbc16a471249d0fb9c2bb77a17b2e12f15",
+      "trace_hash": "a453116e5af3504bba104f57d769697561a55477186298ad80c7f2dca341852a",
+      "expectation_hash": "e8515b8e9ad527b356ee4c3648ec0ee394c915209c1e7b43c1e841f853ffc3ea",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly identifies pydantic-settings for the native v2 BaseSettings API, respecting the question's exclusion of the pydantic.v1 compatibility namespace. Evidence support: The cited passage directly states the move to the separate pydantic-settings package. No unrelated assertion from the extra retrieved passage is used. Version applicability: The cited package-move passage is scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-1af5882a4ce22582cfae338d8dfd1a6c4d938dc046d28ea3ae64f16e7e7a5859"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-serialization",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "b034b1abe0325f77a39edeefd57ba6b01b3e88a9e6055b057069d5ff955a9ea6",
+      "trace_hash": "624f9dd69b231e45deb898ea695b832631476ec4021455af9fbe5c34de52edf6",
+      "expectation_hash": "25320176c138e32cc79b8766d43489eb9d81f741527b45fb2b58ac98d65f24d0",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The recommendation model_dump() is right, but the added categorical claim that dict() was removed fails the explicit deprecated-versus-removed expectation. Evidence support: The cited paragraph describes retaining deprecated methods with warnings, not removal. The supplied chunks end before the dictionary-method mapping, and the other passage concerns numeric coercion. Neither supports the removal assertion. Version applicability: Cited metadata is compatible with 2.10.6; compatible version scope does not make a contradicted or unsupported statement correct.",
+      "cited_chunk_ids": [
+        "chunk-ed4bc61432abe22d42e3e5aea10a886fadffc60293f128b4771cf08a9d64d990"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-serialization",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "ca7c145907906944b5926bbe0c8202fbc16a471249d0fb9c2bb77a17b2e12f15",
+      "trace_hash": "aa208b500af019620d674842f3732664b11e6832f7dc438a3435faa56b63468b",
+      "expectation_hash": "25320176c138e32cc79b8766d43489eb9d81f741527b45fb2b58ac98d65f24d0",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The recommendation model_dump() is right, but the added categorical claim that dict() was removed fails the explicit deprecated-versus-removed expectation. Evidence support: The cited paragraph describes retaining deprecated methods with warnings, not removal. The supplied chunks end before the dictionary-method mapping, and the other passage concerns numeric coercion. Neither supports the removal assertion. Version applicability: Cited metadata is compatible with 2.10.6; compatible version scope does not make a contradicted or unsupported statement correct.",
+      "cited_chunk_ids": [
+        "chunk-f25d9d636f4b65bfa7d45d7ee9578621127f28d4bb8365fa7e5bcb7a8c3a7a06"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-orm",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "b034b1abe0325f77a39edeefd57ba6b01b3e88a9e6055b057069d5ff955a9ea6",
+      "trace_hash": "7604b50cad44414d4e0b5b0a953f492ee43cec44e41521d6d65165c6190ad75c",
+      "expectation_hash": "40690812edd4204bb70192c1bb8548ffc49f206f5c4493111745c096e645f38f",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly recommends model_validate with from_attributes=True in model configuration and identifies from_orm as deprecated, without claiming removal. Evidence support: The cited ORM passage states exactly those requirements. The additional retrieved serialization or v1-error passage is not needed for this supported answer. Version applicability: The actual citation targets the 2.10.6-scoped ORM passage; uncited v1 context in basic/after does not by itself invalidate this answer.",
+      "cited_chunk_ids": [
+        "chunk-8acc5cda7a1a02cb7b0ed5da198cd06ab269fe546bd2700a2591afde4b20997c"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-orm",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "ca7c145907906944b5926bbe0c8202fbc16a471249d0fb9c2bb77a17b2e12f15",
+      "trace_hash": "9cfaff449b225e2a031703a5ea665b9495cba0ebeaff346ab83c71365078a9ce",
+      "expectation_hash": "40690812edd4204bb70192c1bb8548ffc49f206f5c4493111745c096e645f38f",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly recommends model_validate with from_attributes=True in model configuration and identifies from_orm as deprecated, without claiming removal. Evidence support: The cited ORM passage states exactly those requirements. The additional retrieved serialization or v1-error passage is not needed for this supported answer. Version applicability: The actual citation targets the 2.10.6-scoped ORM passage; uncited v1 context in basic/after does not by itself invalidate this answer.",
+      "cited_chunk_ids": [
+        "chunk-8182fc7ad52fb9314e799a74f6954a65d0ecfaeedf8cddf1a500e72830c014d2"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-equality",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "b034b1abe0325f77a39edeefd57ba6b01b3e88a9e6055b057069d5ff955a9ea6",
+      "trace_hash": "c7dcc95cd81570c5f96737cc0883f28121eb3b43af85246a6f22e35ca467e109",
+      "expectation_hash": "f90d6b4fb55bb2fe1f4c65ac720ae0fa4c3f29e1130debc9ddd02fcbb4ec9312",
+      "proposed_outcome": "fail",
+      "failure_kind": "unnecessary_abstention",
+      "rationale": "Factual answer: The answer does not provide the required negative equality result, although the snapshot contains the approved equality passage. This is a snapshot-level answer-expectation failure. Evidence support: Abstaining is reasonable for the exact supplied serialization/coercion passages, which omit equality evidence. Therefore this proposal concerns retrieval/end-to-end sufficiency, not a claim that generation should invent an unsupported answer. Version applicability: The cited passage has compatible 2.10.6 metadata but is not relevant support for the equality fact. The unnecessary-abstention label is relative to the available snapshot, not to the incomplete retrieved context.",
+      "cited_chunk_ids": [
+        "chunk-ed4bc61432abe22d42e3e5aea10a886fadffc60293f128b4771cf08a9d64d990"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-equality",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "ca7c145907906944b5926bbe0c8202fbc16a471249d0fb9c2bb77a17b2e12f15",
+      "trace_hash": "ecfb3530614d2e6f0e84951ea58b68829b6779f17a4e487a7843f6624c415840",
+      "expectation_hash": "f90d6b4fb55bb2fe1f4c65ac720ae0fa4c3f29e1130debc9ddd02fcbb4ec9312",
+      "proposed_outcome": "fail",
+      "failure_kind": "unnecessary_abstention",
+      "rationale": "Factual answer: The answer does not provide the required negative equality result, although the snapshot contains the approved equality passage. This is a snapshot-level answer-expectation failure. Evidence support: Abstaining is reasonable for the exact supplied serialization/coercion passages, which omit equality evidence. Therefore this proposal concerns retrieval/end-to-end sufficiency, not a claim that generation should invent an unsupported answer. Version applicability: The cited passage has compatible 2.10.6 metadata but is not relevant support for the equality fact. The unnecessary-abstention label is relative to the available snapshot, not to the incomplete retrieved context.",
+      "cited_chunk_ids": [
+        "chunk-f25d9d636f4b65bfa7d45d7ee9578621127f28d4bb8365fa7e5bcb7a8c3a7a06"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-optional",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "b034b1abe0325f77a39edeefd57ba6b01b3e88a9e6055b057069d5ff955a9ea6",
+      "trace_hash": "5a10748263a465bd567057e1fe87504479c28022a97dfe515cca299504347e55",
+      "expectation_hash": "7fd0a8289c4f99c18a6aa5bf98aae596f5671e508b044e106409ceeb1a621fb3",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: It explicitly concludes that Optional[str] without a default is omitted from required fields. That is false; the field is required while accepting None. Evidence support: The supplied code contrasts f2: Optional[str] as required with f3: Optional[str] = None as not required. The answer conflicts with available evidence rather than merely missing a keyword. Version applicability: Both retrieved passages are scoped to 2.10.6; version filtering cannot fix this interpretation failure on its own.",
+      "cited_chunk_ids": [
+        "chunk-7c89327fbab84d0656ff40c337e348545514a5aa157a2b21c40c1d1f5eb474ae"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-optional",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "ca7c145907906944b5926bbe0c8202fbc16a471249d0fb9c2bb77a17b2e12f15",
+      "trace_hash": "2f5e8ca8e1a702c57c7da03628ef7970db917527367d62efc927eb644e4dc375",
+      "expectation_hash": "7fd0a8289c4f99c18a6aa5bf98aae596f5671e508b044e106409ceeb1a621fb3",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: It explicitly says the field is not required and can be omitted. That contradicts the approved required-but-nullable behavior without a default. Evidence support: The supplied code contrasts f2: Optional[str] as required with f3: Optional[str] = None as not required. The answer conflicts with available evidence rather than merely missing a keyword. Version applicability: Both retrieved passages are scoped to 2.10.6; version filtering cannot fix this interpretation failure on its own.",
+      "cited_chunk_ids": [
+        "chunk-e4ef8b45e1ad2c5236b32991c8124e10ba4b89650c663a83e3ddfc5f53cf032d"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-union",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "b034b1abe0325f77a39edeefd57ba6b01b3e88a9e6055b057069d5ff955a9ea6",
+      "trace_hash": "0f1fa9132cab529b834cb92fb80067d34b6c8d9bc627629d9858cb82081e8844",
+      "expectation_hash": "3f3b97f98211c9c8c4e4cfdda62f0df3b3e3b9ceaa91d4ef1259baa95d63891a",
+      "proposed_outcome": "needs_human_review",
+      "failure_kind": null,
+      "rationale": "Factual answer: The final value is correctly described as string 1. However, the added phrase even though it is interpreted as an integer is ambiguous and may suggest a contradictory intermediate conversion. Evidence support: The evidence explicitly preserves the input string and describes short-circuiting; it does not establish the asserted integer interpretation. A reviewer should determine whether this is merely awkward reference to the v1 contrast or an unsupported process claim. Version applicability: Both supplied passages and the citation are scoped to 2.10.6. No semantic pass is proposed until the ambiguous additional assertion is resolved.",
+      "cited_chunk_ids": [
+        "chunk-77f66b51fd8c007823e9557d9a6c2cc57ef5d0b687db7a93b3230a3820dfb168"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-union",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "ca7c145907906944b5926bbe0c8202fbc16a471249d0fb9c2bb77a17b2e12f15",
+      "trace_hash": "beb7c3d2ed4be17500944d3d5f5ee8e6a297b9d3fb69809a821aed7b76fbde75",
+      "expectation_hash": "3f3b97f98211c9c8c4e4cfdda62f0df3b3e3b9ceaa91d4ef1259baa95d63891a",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly returns x as the string 1 and, where explained, describes short-circuiting for this already matching input; it does not claim every union always selects strings. Evidence support: The cited passage describes v2 short-circuiting and the second supplied passage explicitly shows x='1' for Union[int, str]. The explanation is supported by the actual context. Version applicability: The citations are compatible with requested 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-757f4a1aa0dc96b08dd61a68b1b44d6142763d7450009145b90bca877c325c82"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-dict-pairs",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "b034b1abe0325f77a39edeefd57ba6b01b3e88a9e6055b057069d5ff955a9ea6",
+      "trace_hash": "26051ffdfabe2d4beeb233fb8ba891c03824c968e31e1370eb3a2c7377ec003d",
+      "expectation_hash": "cd772d9c94efa8ccd118fe89b53264bb10349f39c27caf168734c59c2dec3d27",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The categorical Yes contradicts the approved v2 behavior: iterable pairs do not pass validation for dict fields. Evidence support: This is not an absence-of-evidence case. The actual cited passage itself says pairs are no longer coerced or no longer pass validation; the answer reverses its meaning. Version applicability: The actual citation has compatible 2.10.6 metadata, so citation membership/version checks alone do not detect the semantic reversal.",
+      "cited_chunk_ids": [
+        "chunk-a35d961d149a0ca50dd69d8e32c3492b2983ff99479b8680fac09356023cb467"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-dict-pairs",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "ca7c145907906944b5926bbe0c8202fbc16a471249d0fb9c2bb77a17b2e12f15",
+      "trace_hash": "70ab9fda37b3c2ce825648e8a7577e46ebfae526d081ee7ab176ec63e98b840e",
+      "expectation_hash": "cd772d9c94efa8ccd118fe89b53264bb10349f39c27caf168734c59c2dec3d27",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly rejects a list of pairs for a dict field without claiming ordinary dictionary inputs are rejected. Evidence support: The cited Dicts passage explicitly says iterables of pairs no longer pass validation. The neighboring numeric-coercion passage independently repeats that pairs are no longer coerced. Version applicability: The cited supporting passage is scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-ed1a6beca5c75599102c2b3b3063575130409a3ee24d8d27dfbf72f47a399103"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-validator-error",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "b034b1abe0325f77a39edeefd57ba6b01b3e88a9e6055b057069d5ff955a9ea6",
+      "trace_hash": "6c907750ed54bc9bec84ef201da28dbc7f192445c38dc5338882c389c2b5ff1a",
+      "expectation_hash": "3998bc1684b0e4a53e0735f29eb9ac6feeab601bb5d16cca1327bc0a9a4c7abe",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly says a TypeError raised inside a validator is not converted to ValidationError. It does not claim all validation exceptions disappeared. Evidence support: The actual cited passage directly states the v2 non-conversion rule and supplies a TypeError example. Version applicability: Both retrieved passages and the citation are scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-35d54042f6d0cd35ead9a2d66620c967a97bdfff4fd9ad83e3e11d24af0675c0"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-validator-error",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "ca7c145907906944b5926bbe0c8202fbc16a471249d0fb9c2bb77a17b2e12f15",
+      "trace_hash": "7e3b0090de0cf1ef8d40e2f01488bdb1a267ec2efdd2cbdbcfb5659c5239a175",
+      "expectation_hash": "3998bc1684b0e4a53e0735f29eb9ac6feeab601bb5d16cca1327bc0a9a4c7abe",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly says a TypeError raised inside a validator is not converted to ValidationError. It does not claim all validation exceptions disappeared. Evidence support: The actual cited passage directly states the v2 non-conversion rule and supplies a TypeError example. Version applicability: Both retrieved passages and the citation are scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-e6bdac2d9d81d04bc9e507eb1a84a2b420d0b7f7ec7a5378406dbc08a5b8d5a4"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-number-string",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "b034b1abe0325f77a39edeefd57ba6b01b3e88a9e6055b057069d5ff955a9ea6",
+      "trace_hash": "48d3dff7414ee160cd399f2ddd0e0fff16a086e0db4ff426d43de37f3ce81110",
+      "expectation_hash": "9021ab640b4e4fe83cc6e4253f55565ff1ba3550fc15bc4187bb2cdefd15b392",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly says numeric-to-string coercion for a str field is disabled by default while retaining the possibility of explicit opt-in. References to coercion are read within that stated numeric-to-string scope. Evidence support: The cited passage explicitly describes optional numeric-to-string coercion disabled by default and links its configuration. The answer does not rely on the uncited v1 passage sometimes retrieved alongside it. Version applicability: The actual citation targets the compatible 2.10.6 passage.",
+      "cited_chunk_ids": [
+        "chunk-33b1a14fd8def7fcd355d52a98e53539cfd55759b278487f5a162e346b8eddfd"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-number-string",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "ca7c145907906944b5926bbe0c8202fbc16a471249d0fb9c2bb77a17b2e12f15",
+      "trace_hash": "658acbe35ebe893880d8319c4cc34162ec1630a77d9341021aeda9dcc7be4165",
+      "expectation_hash": "9021ab640b4e4fe83cc6e4253f55565ff1ba3550fc15bc4187bb2cdefd15b392",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly says numeric-to-string coercion for a str field is disabled by default while retaining the possibility of explicit opt-in. References to coercion are read within that stated numeric-to-string scope. Evidence support: The cited passage explicitly describes optional numeric-to-string coercion disabled by default and links its configuration. The answer does not rely on the uncited v1 passage sometimes retrieved alongside it. Version applicability: The actual citation targets the compatible 2.10.6 passage.",
+      "cited_chunk_ids": [
+        "chunk-d078e2f8affc03bba5fd409b1cb6146daf335915973faf277163a5650846bac2"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-regex",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "b034b1abe0325f77a39edeefd57ba6b01b3e88a9e6055b057069d5ff955a9ea6",
+      "trace_hash": "877cd44c177e92c4bfb0b55f8f4bdeacd885df5de499d8281604354b03c7df55",
+      "expectation_hash": "7b973926e18cb2bb826f644e0e1be77fc970d32c8fa76e52d8cc7b8da5f26ba0",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly denies lookaround/backreference support in the default Rust engine. The question asks about that default engine, so omission of the optional Python-engine configuration is not itself a failure. Evidence support: The cited passage explicitly says those features were dropped by the Rust regex crate. The answer does not generalize the restriction to all possible regex engines. Version applicability: The actual citation and supplied passages are compatible with 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-016aea651180181c004b12aaf819c0daa39e2e0dec6e2e78fc73cc79ea756fab"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-regex",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "ca7c145907906944b5926bbe0c8202fbc16a471249d0fb9c2bb77a17b2e12f15",
+      "trace_hash": "221d2aea832cd4c1542e90bd9bf77b32fd30159aaa30347bc27f8e7852a8b84e",
+      "expectation_hash": "7b973926e18cb2bb826f644e0e1be77fc970d32c8fa76e52d8cc7b8da5f26ba0",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly denies lookaround/backreference support in the default Rust engine. The question asks about that default engine, so omission of the optional Python-engine configuration is not itself a failure. Evidence support: The cited passage explicitly says those features were dropped by the Rust regex crate. The answer does not generalize the restriction to all possible regex engines. Version applicability: The actual citation and supplied passages are compatible with 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-24dbebb2c6bba2a6d27d6c7dd36e8e27054720c4c4cddc9c29301f398ac28616"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-settings",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "b034b1abe0325f77a39edeefd57ba6b01b3e88a9e6055b057069d5ff955a9ea6",
+      "trace_hash": "51c3fb33210cf8ff56920d21cb23a4c95776f662c817db2dc80af84861d57b8a",
+      "expectation_hash": "e8515b8e9ad527b356ee4c3648ec0ee394c915209c1e7b43c1e841f853ffc3ea",
+      "proposed_outcome": "run_error",
+      "failure_kind": null,
+      "rationale": "Factual answer: No validated answer exists to assess semantically; retain this planned record as a run error rather than an incorrect factual answer. Evidence support: Relevant BaseSettings package evidence was supplied, but the sole preserved generation attempt timed out. No successful answer content is available; a timeout does not prove the server performed no computation. Version applicability: The retrieved sources are scoped to 2.10.6, but scope cannot turn the failed request into a graded answer.",
+      "cited_chunk_ids": [],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "12c1b5bbbf764aa4a355661b28edfcef",
+        "case_id": "pydantic-settings",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "ca7c145907906944b5926bbe0c8202fbc16a471249d0fb9c2bb77a17b2e12f15",
+      "trace_hash": "3a9d4f34630988c16f5f5c945163b6a6b066d7a0acfe733b070c2f6e3aafc7a5",
+      "expectation_hash": "e8515b8e9ad527b356ee4c3648ec0ee394c915209c1e7b43c1e841f853ffc3ea",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly identifies pydantic-settings for the native v2 BaseSettings API, respecting the question's exclusion of the pydantic.v1 compatibility namespace. Evidence support: The cited passage directly states the move to the separate pydantic-settings package. No unrelated assertion from the extra retrieved passage is used. Version applicability: The cited package-move passage is scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-1af5882a4ce22582cfae338d8dfd1a6c4d938dc046d28ea3ae64f16e7e7a5859"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    }
+  ]
+}

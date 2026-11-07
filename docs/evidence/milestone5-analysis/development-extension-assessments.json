@@ -1,0 +1,852 @@
+{
+  "schema_version": 1,
+  "kind": "provisional_agent_assessment",
+  "raw_run_path": "runs/milestone5-study/bundle-3.json",
+  "raw_run_sha256": "194f629fe22fa3f9e303620ffa45e6da47cb075bd220065c94b3015ef2039973",
+  "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+  "dataset_hash": "c3e88a524abb5ebd8e684b82924a6b7d222a0f680c74b0ecaca436851c259cfd",
+  "assessed_at": "2026-11-06T22:19:17.637396+00:00",
+  "assessor": "Brain/Codex AI-assisted",
+  "human_review": false,
+  "independent_reference": false,
+  "provisional": true,
+  "scope_note": "All 36 actual development-extension records, rubrics and exact supplied passages were read. Proposed outcomes are source-aware AI-assisted analysis, not official human judgments, independent references or benchmark ground truth. Source cases retain their actual review metadata; no keyword grader or new inference was used.",
+  "assessment_policy": "Evaluate factual correctness, context support and citation/version applicability separately. A correct-looking gold match does not establish adequate supplied evidence. Ambiguous additional claims and semantic abstention-flag contradictions remain unresolved.",
+  "summary": {
+    "planned_records": 36,
+    "records_with_structured_answers": 36,
+    "run_error_records": 0,
+    "assessed_records": 36,
+    "proposed_outcomes": {
+      "pass": 25,
+      "needs_human_review": 5,
+      "fail": 6
+    },
+    "by_configuration": {
+      "basic": {
+        "planned_records": 18,
+        "assessed_records": 18,
+        "proposed_outcomes": {
+          "pass": 12,
+          "needs_human_review": 4,
+          "fail": 2
+        }
+      },
+      "version_filtered": {
+        "planned_records": 18,
+        "assessed_records": 18,
+        "proposed_outcomes": {
+          "pass": 13,
+          "needs_human_review": 1,
+          "fail": 4
+        }
+      }
+    },
+    "human_answer_judgments_created": 0,
+    "benchmark_accuracy_measured": false,
+    "testing_tool_reference_labels_created": 0,
+    "findings": [
+      "All four model_config-dictionary answers give the correct recommendation but wrongly strengthen deprecated inner Config to no longer supported.",
+      "Filtered/after dataclass-parent-config incorrectly says parent configuration is inherited. Three other answers match the full expected fact but rely on an anaphoric cited fragment missing its antecedent, so their evidence sufficiency remains unresolved.",
+      "Filtered/before Mapping gives a correct short no-guarantee answer but changes a counterfactual source cost into the unsupported claim that the new validator now checks types every time.",
+      "Basic/before Mapping has a direct no-guarantee answer with abstained=true; do not silently promote this inconsistent structured behavior to a pass or semantic abstention failure.",
+      "Basic/before dataclass extras answers the requested rule correctly but adds an ambiguous universal-sounding requirement to wrap dataclasses in TypeAdapter for validation.",
+      "The remaining 25 proposed passes cover tuple input, post-init order, three concise extras answers, model-config collision precedence, native-v2 generic bases, two narrow Mapping answers and URL/string conversion.",
+      "All 36 records are retained with no run errors. Differences between configurations or snapshots do not by themselves establish a document-change root cause or general filtering improvement."
+    ]
+  },
+  "records": [
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-dataclass-tuple-input",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "53a4ffb373ccd524d494d4c0288de2c3c1b33b0ca092989a3350197ef55fec95",
+      "trace_hash": "b62e40666c89aac45c659716d7954e5bf413c4155907f0040f323fa2b1410220",
+      "expectation_hash": "2ce89a4f14b83876d8a8b41a02726d6e1a5c1dcb530019be4d3f3a521dbfcfdb",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly recommends a dictionary rather than a tuple for a dataclass used as a model field. The answer is read within that explicit field context, not as a prohibition on every other way to construct any dataclass. Evidence support: The cited passage explicitly states that dataclasses used as fields no longer accept tuples and that dictionaries should be used. The optional unrelated v1 context is not used to support the answer. Version applicability: The actual supporting citation is scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-5d6a387db64d105150a47e1de8fc7882b752f282eba587c381e23806166ff37f"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-dataclass-tuple-input",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "7949b2ea38edf0db02ef4315471cd610e5ff37a0769356f6c4ba735493243d3a",
+      "trace_hash": "345e4e549038eefe88f46444ad8715d57af8dfca932e58d0b6d9451ecdf7594d",
+      "expectation_hash": "2ce89a4f14b83876d8a8b41a02726d6e1a5c1dcb530019be4d3f3a521dbfcfdb",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly recommends a dictionary rather than a tuple for a dataclass used as a model field. The answer is read within that explicit field context, not as a prohibition on every other way to construct any dataclass. Evidence support: The cited passage explicitly states that dataclasses used as fields no longer accept tuples and that dictionaries should be used. The optional unrelated v1 context is not used to support the answer. Version applicability: The actual supporting citation is scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-436d6d86b8508c0dd0f2bc51d512dc7848f186e3958509053537da948f3a2e2e"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-dataclass-post-init",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "53a4ffb373ccd524d494d4c0288de2c3c1b33b0ca092989a3350197ef55fec95",
+      "trace_hash": "99e4999dd2eefc7a25f7104e7449c3e0a11fb35e63751a1ea5c46d4afa445b2b",
+      "expectation_hash": "c990eb0a6a7b5c568692aeffbdb018c45c3ea9b466cdaf85f1c58f8e26d06aaa",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly places a Pydantic dataclass __post_init__ after validation without making a universal claim about all Python dataclasses. Evidence support: The supplied dataclass passages jointly identify __post_init__ and say it is called after validation. The cited continuation begins with a fragmented method token, but the other supplied chunk provides the missing method name and same clause. Version applicability: Both supplied passages and the citation are scoped to 2.10.6. Fragmented chunks reduce stand-alone citation readability but do not obscure the answer in this paired context.",
+      "cited_chunk_ids": [
+        "chunk-70563c0ba89b1cb2b7f2213e9ffa1511c708a58b2f5e371073d33d342b7e4c2d"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-dataclass-post-init",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "7949b2ea38edf0db02ef4315471cd610e5ff37a0769356f6c4ba735493243d3a",
+      "trace_hash": "32aedf4e6291e820c842b0f08b753d0393aff30875a59ae59214d0eaa3dbafcd",
+      "expectation_hash": "c990eb0a6a7b5c568692aeffbdb018c45c3ea9b466cdaf85f1c58f8e26d06aaa",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly places a Pydantic dataclass __post_init__ after validation without making a universal claim about all Python dataclasses. Evidence support: The supplied dataclass passages jointly identify __post_init__ and say it is called after validation. The cited continuation begins with a fragmented method token, but the other supplied chunk provides the missing method name and same clause. Version applicability: Both supplied passages and the citation are scoped to 2.10.6. Fragmented chunks reduce stand-alone citation readability but do not obscure the answer in this paired context.",
+      "cited_chunk_ids": [
+        "chunk-5875bf852602d7d292f107869d04e5ebd7f09a619a01da902c4da7607f77016f"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-dataclass-extra-attributes",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "53a4ffb373ccd524d494d4c0288de2c3c1b33b0ca092989a3350197ef55fec95",
+      "trace_hash": "194c7511a101b45affa6f294d68441f1333d961d0fb199235e2658bc7873137d",
+      "expectation_hash": "7ca3b5c46949291b70717cbfbc279f9f9f9355e5061b3fbbb68cdd91ecc587af",
+      "proposed_outcome": "needs_human_review",
+      "failure_kind": null,
+      "rationale": "Factual answer: The requested distinction is correct against the selected migration passage: allow-style storage is unsupported and ignore does not store extras. The additional claim that dataclasses must be wrapped with TypeAdapter for validation is broader and ambiguous. Evidence support: The supplied second passage recommends TypeAdapter for functionality formerly using __pydantic_model__. It does not establish that every ordinary construction/validation of a Pydantic dataclass requires wrapping. A reviewer should resolve this added universal-sounding claim rather than passing on the correct core words alone. Version applicability: The citation and both supplied passages are compatible with 2.10.6; the uncertainty is claim scope, not a wrong-version citation.",
+      "cited_chunk_ids": [
+        "chunk-70563c0ba89b1cb2b7f2213e9ffa1511c708a58b2f5e371073d33d342b7e4c2d"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-dataclass-extra-attributes",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "7949b2ea38edf0db02ef4315471cd610e5ff37a0769356f6c4ba735493243d3a",
+      "trace_hash": "22892f5c457be6034fcac04e228d6959e9e179006adc5d91f0ea21fca9175d92",
+      "expectation_hash": "7ca3b5c46949291b70717cbfbc279f9f9f9355e5061b3fbbb68cdd91ecc587af",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly distinguishes unsupported storage through extra=allow from ignoring unexpected fields without storing them. The answer remains scoped to Pydantic dataclasses. Evidence support: The supplied dataclass passages explicitly describe both behaviors; the continuation completes the no-storage clause. No unrelated claim about BaseModel extra handling is introduced. Version applicability: The cited dataclass passage is scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-5875bf852602d7d292f107869d04e5ebd7f09a619a01da902c4da7607f77016f"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-dataclass-parent-config",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "53a4ffb373ccd524d494d4c0288de2c3c1b33b0ca092989a3350197ef55fec95",
+      "trace_hash": "7775661b6cac0904abb81f4995befa88cc3a693aabed84c4da05604acad4bdfd",
+      "expectation_hash": "facacfee4d4bdf8164da9b397e6d8b94c652ea7e671c3029d33284a8c0e05ee6",
+      "proposed_outcome": "needs_human_review",
+      "failure_kind": null,
+      "rationale": "Factual answer: The no-inheritance answer and config-on-the-dataclass-decorator instruction match the full snapshot expectation. Evidence support: The actual cited chunk begins as well and this is no longer the case, with its vanilla-dataclass/parent-config antecedent missing. It explicitly supports decorator config, but support for the inheritance assertion depends on an unstated antecedent. The other retrieved passage concerns model inheritance or v1 dynamic model creation. Human review of evidence sufficiency is needed before a semantic pass. Version applicability: The actual citation has compatible 2.10.6 scope; the issue is incomplete retrieved context rather than known factual incorrectness or incompatible citation metadata.",
+      "cited_chunk_ids": [
+        "chunk-e1fe80a985117c8f4e0ed4c1e4bbfc348f67aa4b59c0c16024f61d501635868a"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-dataclass-parent-config",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "7949b2ea38edf0db02ef4315471cd610e5ff37a0769356f6c4ba735493243d3a",
+      "trace_hash": "065ac3295a6697efa3a9dfa56a9a2301246d62981d7aace138a103e89dee100d",
+      "expectation_hash": "facacfee4d4bdf8164da9b397e6d8b94c652ea7e671c3029d33284a8c0e05ee6",
+      "proposed_outcome": "needs_human_review",
+      "failure_kind": null,
+      "rationale": "Factual answer: The no-inheritance answer and config-on-the-dataclass-decorator instruction match the full snapshot expectation. Evidence support: The actual cited chunk begins as well and this is no longer the case, with its vanilla-dataclass/parent-config antecedent missing. It explicitly supports decorator config, but support for the inheritance assertion depends on an unstated antecedent. The other retrieved passage concerns model inheritance or v1 dynamic model creation. Human review of evidence sufficiency is needed before a semantic pass. Version applicability: The actual citation has compatible 2.10.6 scope; the issue is incomplete retrieved context rather than known factual incorrectness or incompatible citation metadata.",
+      "cited_chunk_ids": [
+        "chunk-4ccef1672e2dcc46683f55241481e014de5bf5db842e9947df5e61312ff14848"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-model-config-dictionary",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "53a4ffb373ccd524d494d4c0288de2c3c1b33b0ca092989a3350197ef55fec95",
+      "trace_hash": "17c7ad40cbb3675f1785d6384154397237ac763e6f35eccdda5528977bbed9b8",
+      "expectation_hash": "64b01f61494b1f99e5abdb4ebd7941a15802c3a9621e50bd92a9ba04ffd3c11a",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The model_config class-attribute/dictionary recommendation is correct, but the answer then says the deprecated inner Config behavior is no longer supported. The rubric explicitly requires distinguishing deprecated from removed/unsupported. Evidence support: The cited passage calls the Config-class approach deprecated, not unsupported. The answer adds a stronger categorical compatibility claim that the supplied evidence does not support. Version applicability: The actual citation is scoped to 2.10.6. This failure persists with version-compatible evidence in both configurations.",
+      "cited_chunk_ids": [
+        "chunk-a119e200039d87a6d0180c36e8d069f901b931ae88f0688d9a2fb037bbb39d2d"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-model-config-dictionary",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "7949b2ea38edf0db02ef4315471cd610e5ff37a0769356f6c4ba735493243d3a",
+      "trace_hash": "7f2286ecdc25f96b2e9f263b100fbd59a3362ad8b95f8cf8af4d6ff13ab0cd2b",
+      "expectation_hash": "64b01f61494b1f99e5abdb4ebd7941a15802c3a9621e50bd92a9ba04ffd3c11a",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The model_config class-attribute/dictionary recommendation is correct, but the answer then says the deprecated inner Config behavior is no longer supported. The rubric explicitly requires distinguishing deprecated from removed/unsupported. Evidence support: The cited passage calls the Config-class approach deprecated, not unsupported. The answer adds a stronger categorical compatibility claim that the supplied evidence does not support. Version applicability: The actual citation is scoped to 2.10.6. This failure persists with version-compatible evidence in both configurations.",
+      "cited_chunk_ids": [
+        "chunk-5f267a4aa9fb6287b38b68bbbdce9083ff1690c8ba197344b09909301e4ce3d5"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-model-config-multiple-inheritance",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "53a4ffb373ccd524d494d4c0288de2c3c1b33b0ca092989a3350197ef55fec95",
+      "trace_hash": "42843fb7a03ba514a42ba8958d4a7620d8c5103320da57a196e5bfdf78e9dfd8",
+      "expectation_hash": "d7ef11c15fd1a611c72bb4701afe0a25ebb6beda4077eaba2549b390fad96f51",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly describes combining non-default settings with the later Model2 overriding Model1 for a shared setting. The after answers phrase this as combining settings rather than replacing the entire configuration. Evidence support: The actual cited passage explicitly describes the merge and Model2 precedence for MyModel(Model1, Model2). The answer does not reverse precedence or claim all earlier settings are discarded. Version applicability: The cited settings passage is scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-a0ac2aae1628c00493d16b2ce0708b993f239d26f7384cdebaf623abcc090ffa"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-model-config-multiple-inheritance",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "7949b2ea38edf0db02ef4315471cd610e5ff37a0769356f6c4ba735493243d3a",
+      "trace_hash": "81471c8393d09d27a01b0d4f735f9be792897b4b078cd3472fe2c7594428e684",
+      "expectation_hash": "d7ef11c15fd1a611c72bb4701afe0a25ebb6beda4077eaba2549b390fad96f51",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly describes combining non-default settings with the later Model2 overriding Model1 for a shared setting. The after answers phrase this as combining settings rather than replacing the entire configuration. Evidence support: The actual cited passage explicitly describes the merge and Model2 precedence for MyModel(Model1, Model2). The answer does not reverse precedence or claim all earlier settings are discarded. Version applicability: The cited settings passage is scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-50d0669a4fd75842b8c7ad4bedd9f130e4f2b84492cf674a6f05a36761ef8325"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-generic-model-base-classes",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "53a4ffb373ccd524d494d4c0288de2c3c1b33b0ca092989a3350197ef55fec95",
+      "trace_hash": "1a0cd33a2a80188ad978bad4f49b9f05afb33783fb7473d5ab4c1b4d00b99cc0",
+      "expectation_hash": "9e7430d82266fc5e80cf5471e3b7769005cba8bcfab0b9219a938aecbc7a8acc",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly declares a generic using both BaseModel and Generic[T], without relying on native-v2 GenericModel or claiming runtime TypeVar bound enforcement. Evidence support: The cited v2 passage provides precisely that class declaration and explains GenericModel is unnecessary. In basic/after the older v1 declaration is also retrieved, but the answer cites and follows the applicable v2 passage. Version applicability: The actual citation is compatible with requested 2.10.6; uncited v1 distractor evidence does not itself make this answer wrong.",
+      "cited_chunk_ids": [
+        "chunk-b9ebc02ebe1d4f64f13fca7f217d842f5b5ad9bfc6720cc16e9117d0208a2d0c"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-generic-model-base-classes",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "7949b2ea38edf0db02ef4315471cd610e5ff37a0769356f6c4ba735493243d3a",
+      "trace_hash": "320509be0b9c00ae6bca38996ce2f4241711d20ab1b611fee762dd1404fcd81b",
+      "expectation_hash": "9e7430d82266fc5e80cf5471e3b7769005cba8bcfab0b9219a938aecbc7a8acc",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly declares a generic using both BaseModel and Generic[T], without relying on native-v2 GenericModel or claiming runtime TypeVar bound enforcement. Evidence support: The cited v2 passage provides precisely that class declaration and explains GenericModel is unnecessary. In basic/after the older v1 declaration is also retrieved, but the answer cites and follows the applicable v2 passage. Version applicability: The actual citation is compatible with requested 2.10.6; uncited v1 distractor evidence does not itself make this answer wrong.",
+      "cited_chunk_ids": [
+        "chunk-6b1ffe107e34ff689b17b80448917388d0565821120008b2d69c5cb1dece900d"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-mapping-input-type",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "53a4ffb373ccd524d494d4c0288de2c3c1b33b0ca092989a3350197ef55fec95",
+      "trace_hash": "3390393d86ece13b5fa883887eb077cf24b854bc70b20880f5552cb3960a8e85",
+      "expectation_hash": "ae8b143050825b1dd6a4f355020cd05fe8914da520fb1e8fd9c96d43c8d69bc8",
+      "proposed_outcome": "needs_human_review",
+      "failure_kind": null,
+      "rationale": "Factual answer: The text correctly denies a guarantee of preserving Counter, but the structured response simultaneously marks abstained=true. It gives a direct supported answer rather than an ordinary refusal. Evidence support: The supplied heading and v2 preservation discussion support the narrow no-guarantee conclusion. The inconsistency is the semantic abstention flag versus the answer text, not a JSON-schema failure; leave it unresolved rather than silently counting either a correct answer or unnecessary abstention. Version applicability: The citation and both passages are scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-8fdd672015f35b297338584bbb1c1ed65859a912c547360b09ca9b37ee3b12ef"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-mapping-input-type",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "7949b2ea38edf0db02ef4315471cd610e5ff37a0769356f6c4ba735493243d3a",
+      "trace_hash": "f0f3be78ab5b91f2bc3fb29ea8aaa5f4e3543043278c10ceab0b1ae4818a0bfc",
+      "expectation_hash": "ae8b143050825b1dd6a4f355020cd05fe8914da520fb1e8fd9c96d43c8d69bc8",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly denies a guarantee of preserving the Counter subtype. The concise answer does not assert that all input subtypes are always discarded. Evidence support: The retrieved Input types are not preserved section contrasts the old Counter-preservation effort with its v2 costs, and the second supplied passage states v2 no longer attempts general preservation. Together they support the narrow no-guarantee conclusion. The rubric does not require always naming the resulting plain dict. Version applicability: The citation and both supplied passages are scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-35e6587f480ab4d241fedab09f6f01a957340a2d23d9007fb5f0829d1b6ee5d3"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-url-string-conversion",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "53a4ffb373ccd524d494d4c0288de2c3c1b33b0ca092989a3350197ef55fec95",
+      "trace_hash": "a3da2bf9cf7012cab20cf5bc57291484fba216eb2e2471a18ff6e5543fd73ace",
+      "expectation_hash": "3c71e3e99a4dbc5ff34b63ad98d1108806bb84a76a6d2b2978d767e78aa75856",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly says URL/DSN values no longer inherit from str and recommends explicit str(url) conversion for a string-taking API. Evidence support: The first supplied passage and its heading establish the inheritance change; the second explicitly gives str(url). The recorded answer cites the first compatible chunk, with its conversion detail available in the paired supplied context. Version applicability: Both supplied passages and the actual citation are compatible with requested 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-17a8da886e50f12c39d17073cc7b1cf1b0848e7eb33f8f172a2170b6f9c94383"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-url-string-conversion",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "7949b2ea38edf0db02ef4315471cd610e5ff37a0769356f6c4ba735493243d3a",
+      "trace_hash": "dba020976f1a1aa60b9d64e2e928413579e2f1fff22037ced81ad74d972852df",
+      "expectation_hash": "3c71e3e99a4dbc5ff34b63ad98d1108806bb84a76a6d2b2978d767e78aa75856",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly says URL/DSN values no longer inherit from str and recommends explicit str(url) conversion for a string-taking API. Evidence support: The first supplied passage and its heading establish the inheritance change; the second explicitly gives str(url). The recorded answer cites the first compatible chunk, with its conversion detail available in the paired supplied context. Version applicability: Both supplied passages and the actual citation are compatible with requested 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-61ff6c1a0b77ef15869772cb92d7c95c9d8855303088322cd15ff55bba8340cf"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-dataclass-tuple-input",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "53a4ffb373ccd524d494d4c0288de2c3c1b33b0ca092989a3350197ef55fec95",
+      "trace_hash": "5857f5e5b3cc41290ff7236186ce25c006afca8bfd4e5105f4a57f2a77fd9010",
+      "expectation_hash": "2ce89a4f14b83876d8a8b41a02726d6e1a5c1dcb530019be4d3f3a521dbfcfdb",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly recommends a dictionary rather than a tuple for a dataclass used as a model field. The answer is read within that explicit field context, not as a prohibition on every other way to construct any dataclass. Evidence support: The cited passage explicitly states that dataclasses used as fields no longer accept tuples and that dictionaries should be used. The optional unrelated v1 context is not used to support the answer. Version applicability: The actual supporting citation is scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-5d6a387db64d105150a47e1de8fc7882b752f282eba587c381e23806166ff37f"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-dataclass-tuple-input",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "7949b2ea38edf0db02ef4315471cd610e5ff37a0769356f6c4ba735493243d3a",
+      "trace_hash": "ad69c61c6b6d339a3a3c830f0cfc6ffb964ee78158eb0b6055f517d900abe270",
+      "expectation_hash": "2ce89a4f14b83876d8a8b41a02726d6e1a5c1dcb530019be4d3f3a521dbfcfdb",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly recommends a dictionary rather than a tuple for a dataclass used as a model field. The answer is read within that explicit field context, not as a prohibition on every other way to construct any dataclass. Evidence support: The cited passage explicitly states that dataclasses used as fields no longer accept tuples and that dictionaries should be used. The optional unrelated v1 context is not used to support the answer. Version applicability: The actual supporting citation is scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-436d6d86b8508c0dd0f2bc51d512dc7848f186e3958509053537da948f3a2e2e"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-dataclass-post-init",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "53a4ffb373ccd524d494d4c0288de2c3c1b33b0ca092989a3350197ef55fec95",
+      "trace_hash": "d13e552aaf4dc31298c6bd1d6df993fe2827206f2c32646a8b9f68dee3f7e118",
+      "expectation_hash": "c990eb0a6a7b5c568692aeffbdb018c45c3ea9b466cdaf85f1c58f8e26d06aaa",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly places a Pydantic dataclass __post_init__ after validation without making a universal claim about all Python dataclasses. Evidence support: The supplied dataclass passages jointly identify __post_init__ and say it is called after validation. The cited continuation begins with a fragmented method token, but the other supplied chunk provides the missing method name and same clause. Version applicability: Both supplied passages and the citation are scoped to 2.10.6. Fragmented chunks reduce stand-alone citation readability but do not obscure the answer in this paired context.",
+      "cited_chunk_ids": [
+        "chunk-70563c0ba89b1cb2b7f2213e9ffa1511c708a58b2f5e371073d33d342b7e4c2d"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-dataclass-post-init",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "7949b2ea38edf0db02ef4315471cd610e5ff37a0769356f6c4ba735493243d3a",
+      "trace_hash": "08d714331a4fbf814b734eb280d25d6e2912f1847c06bf2c09dc21cf1cfdaf6e",
+      "expectation_hash": "c990eb0a6a7b5c568692aeffbdb018c45c3ea9b466cdaf85f1c58f8e26d06aaa",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly places a Pydantic dataclass __post_init__ after validation without making a universal claim about all Python dataclasses. Evidence support: The supplied dataclass passages jointly identify __post_init__ and say it is called after validation. The cited continuation begins with a fragmented method token, but the other supplied chunk provides the missing method name and same clause. Version applicability: Both supplied passages and the citation are scoped to 2.10.6. Fragmented chunks reduce stand-alone citation readability but do not obscure the answer in this paired context.",
+      "cited_chunk_ids": [
+        "chunk-5875bf852602d7d292f107869d04e5ebd7f09a619a01da902c4da7607f77016f"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-dataclass-extra-attributes",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "53a4ffb373ccd524d494d4c0288de2c3c1b33b0ca092989a3350197ef55fec95",
+      "trace_hash": "4bba0b588e042bb4a910d775574ed2288b21a6928a00e806e37b18a583f83c44",
+      "expectation_hash": "7ca3b5c46949291b70717cbfbc279f9f9f9355e5061b3fbbb68cdd91ecc587af",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly distinguishes unsupported storage through extra=allow from ignoring unexpected fields without storing them. The answer remains scoped to Pydantic dataclasses. Evidence support: The supplied dataclass passages explicitly describe both behaviors; the continuation completes the no-storage clause. No unrelated claim about BaseModel extra handling is introduced. Version applicability: The cited dataclass passage is scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-70563c0ba89b1cb2b7f2213e9ffa1511c708a58b2f5e371073d33d342b7e4c2d"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-dataclass-extra-attributes",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "7949b2ea38edf0db02ef4315471cd610e5ff37a0769356f6c4ba735493243d3a",
+      "trace_hash": "bb35dae7085355587f623aaa172fb970323d2bad64f7280fc6fe5557bf814aeb",
+      "expectation_hash": "7ca3b5c46949291b70717cbfbc279f9f9f9355e5061b3fbbb68cdd91ecc587af",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly distinguishes unsupported storage through extra=allow from ignoring unexpected fields without storing them. The answer remains scoped to Pydantic dataclasses. Evidence support: The supplied dataclass passages explicitly describe both behaviors; the continuation completes the no-storage clause. No unrelated claim about BaseModel extra handling is introduced. Version applicability: The cited dataclass passage is scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-5875bf852602d7d292f107869d04e5ebd7f09a619a01da902c4da7607f77016f"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-dataclass-parent-config",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "53a4ffb373ccd524d494d4c0288de2c3c1b33b0ca092989a3350197ef55fec95",
+      "trace_hash": "ec7fcfbab689152ff06afa918f2e04cd77bf42de7bc97f5775042159c72afc50",
+      "expectation_hash": "facacfee4d4bdf8164da9b397e6d8b94c652ea7e671c3029d33284a8c0e05ee6",
+      "proposed_outcome": "needs_human_review",
+      "failure_kind": null,
+      "rationale": "Factual answer: The no-inheritance answer and config-on-the-dataclass-decorator instruction match the full snapshot expectation. Evidence support: The actual cited chunk begins as well and this is no longer the case, with its vanilla-dataclass/parent-config antecedent missing. It explicitly supports decorator config, but support for the inheritance assertion depends on an unstated antecedent. The other retrieved passage concerns model inheritance or v1 dynamic model creation. Human review of evidence sufficiency is needed before a semantic pass. Version applicability: The actual citation has compatible 2.10.6 scope; the issue is incomplete retrieved context rather than known factual incorrectness or incompatible citation metadata.",
+      "cited_chunk_ids": [
+        "chunk-e1fe80a985117c8f4e0ed4c1e4bbfc348f67aa4b59c0c16024f61d501635868a"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-dataclass-parent-config",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "7949b2ea38edf0db02ef4315471cd610e5ff37a0769356f6c4ba735493243d3a",
+      "trace_hash": "b5a4c4c58e2e50108e74352ebe4aed0892a2a371c742569cb3081d4ffab10051",
+      "expectation_hash": "facacfee4d4bdf8164da9b397e6d8b94c652ea7e671c3029d33284a8c0e05ee6",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: Saying that the vanilla dataclass inherits the parent model configuration contradicts the snapshot expectation and full selected source. The correct decorator-config advice does not repair that incorrect first answer. Evidence support: The retrieved dataclass continuation says the prior behavior is no longer the case and provides decorator config. The other passage describes BaseModel subclass configuration inheritance, a different context; it cannot justify propagating that rule to dataclass fields. Version applicability: Both passages are scoped to 2.10.6, so compatible versions alone do not prevent the contextual misapplication.",
+      "cited_chunk_ids": [
+        "chunk-4ccef1672e2dcc46683f55241481e014de5bf5db842e9947df5e61312ff14848"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-model-config-dictionary",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "53a4ffb373ccd524d494d4c0288de2c3c1b33b0ca092989a3350197ef55fec95",
+      "trace_hash": "d2e346a486deee1856e31ada6360283b88606a721f78067b90216cbc65466562",
+      "expectation_hash": "64b01f61494b1f99e5abdb4ebd7941a15802c3a9621e50bd92a9ba04ffd3c11a",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The model_config class-attribute/dictionary recommendation is correct, but the answer then says the deprecated inner Config behavior is no longer supported. The rubric explicitly requires distinguishing deprecated from removed/unsupported. Evidence support: The cited passage calls the Config-class approach deprecated, not unsupported. The answer adds a stronger categorical compatibility claim that the supplied evidence does not support. Version applicability: The actual citation is scoped to 2.10.6. This failure persists with version-compatible evidence in both configurations.",
+      "cited_chunk_ids": [
+        "chunk-a119e200039d87a6d0180c36e8d069f901b931ae88f0688d9a2fb037bbb39d2d"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-model-config-dictionary",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "7949b2ea38edf0db02ef4315471cd610e5ff37a0769356f6c4ba735493243d3a",
+      "trace_hash": "dd6c923a3d64f336e884725e0c63abd2b8dd2f3090548b27d5c1ee3b9504ed1a",
+      "expectation_hash": "64b01f61494b1f99e5abdb4ebd7941a15802c3a9621e50bd92a9ba04ffd3c11a",
+      "proposed_outcome": "fail",
+      "failure_kind": "incorrect_answer",
+      "rationale": "Factual answer: The model_config class-attribute/dictionary recommendation is correct, but the answer then says the deprecated inner Config behavior is no longer supported. The rubric explicitly requires distinguishing deprecated from removed/unsupported. Evidence support: The cited passage calls the Config-class approach deprecated, not unsupported. The answer adds a stronger categorical compatibility claim that the supplied evidence does not support. Version applicability: The actual citation is scoped to 2.10.6. This failure persists with version-compatible evidence in both configurations.",
+      "cited_chunk_ids": [
+        "chunk-5f267a4aa9fb6287b38b68bbbdce9083ff1690c8ba197344b09909301e4ce3d5"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-model-config-multiple-inheritance",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "53a4ffb373ccd524d494d4c0288de2c3c1b33b0ca092989a3350197ef55fec95",
+      "trace_hash": "28d92db34297998b278333a8f9c1dd37cca84a10895b69f8991d161a4439bb14",
+      "expectation_hash": "d7ef11c15fd1a611c72bb4701afe0a25ebb6beda4077eaba2549b390fad96f51",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly describes combining non-default settings with the later Model2 overriding Model1 for a shared setting. The after answers phrase this as combining settings rather than replacing the entire configuration. Evidence support: The actual cited passage explicitly describes the merge and Model2 precedence for MyModel(Model1, Model2). The answer does not reverse precedence or claim all earlier settings are discarded. Version applicability: The cited settings passage is scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-a0ac2aae1628c00493d16b2ce0708b993f239d26f7384cdebaf623abcc090ffa"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-model-config-multiple-inheritance",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "7949b2ea38edf0db02ef4315471cd610e5ff37a0769356f6c4ba735493243d3a",
+      "trace_hash": "8f573c0c11b66573dd524d4ff1885a83c52042dd2b8f4340d495ea026f9340ec",
+      "expectation_hash": "d7ef11c15fd1a611c72bb4701afe0a25ebb6beda4077eaba2549b390fad96f51",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly describes combining non-default settings with the later Model2 overriding Model1 for a shared setting. The after answers phrase this as combining settings rather than replacing the entire configuration. Evidence support: The actual cited passage explicitly describes the merge and Model2 precedence for MyModel(Model1, Model2). The answer does not reverse precedence or claim all earlier settings are discarded. Version applicability: The cited settings passage is scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-50d0669a4fd75842b8c7ad4bedd9f130e4f2b84492cf674a6f05a36761ef8325"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-generic-model-base-classes",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "53a4ffb373ccd524d494d4c0288de2c3c1b33b0ca092989a3350197ef55fec95",
+      "trace_hash": "620591697833be89a27726955483fdf4b945285f3dee6a651971b3c1ec1ee3be",
+      "expectation_hash": "9e7430d82266fc5e80cf5471e3b7769005cba8bcfab0b9219a938aecbc7a8acc",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly declares a generic using both BaseModel and Generic[T], without relying on native-v2 GenericModel or claiming runtime TypeVar bound enforcement. Evidence support: The cited v2 passage provides precisely that class declaration and explains GenericModel is unnecessary. In basic/after the older v1 declaration is also retrieved, but the answer cites and follows the applicable v2 passage. Version applicability: The actual citation is compatible with requested 2.10.6; uncited v1 distractor evidence does not itself make this answer wrong.",
+      "cited_chunk_ids": [
+        "chunk-b9ebc02ebe1d4f64f13fca7f217d842f5b5ad9bfc6720cc16e9117d0208a2d0c"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-generic-model-base-classes",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "7949b2ea38edf0db02ef4315471cd610e5ff37a0769356f6c4ba735493243d3a",
+      "trace_hash": "6d22984d6b26bb5f429e27759ad9f44d45e5478ea98d306fcdc7a4e0a7aaed46",
+      "expectation_hash": "9e7430d82266fc5e80cf5471e3b7769005cba8bcfab0b9219a938aecbc7a8acc",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly declares a generic using both BaseModel and Generic[T], without relying on native-v2 GenericModel or claiming runtime TypeVar bound enforcement. Evidence support: The cited v2 passage provides precisely that class declaration and explains GenericModel is unnecessary. In basic/after the older v1 declaration is also retrieved, but the answer cites and follows the applicable v2 passage. Version applicability: The actual citation is compatible with requested 2.10.6; uncited v1 distractor evidence does not itself make this answer wrong.",
+      "cited_chunk_ids": [
+        "chunk-6b1ffe107e34ff689b17b80448917388d0565821120008b2d69c5cb1dece900d"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-mapping-input-type",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "53a4ffb373ccd524d494d4c0288de2c3c1b33b0ca092989a3350197ef55fec95",
+      "trace_hash": "49270ac859b728aa031acb7a3f3b1bfa09e2f361d75888d7fb620a0a2679d6bb",
+      "expectation_hash": "ae8b143050825b1dd6a4f355020cd05fe8914da520fb1e8fd9c96d43c8d69bc8",
+      "proposed_outcome": "fail",
+      "failure_kind": "unsupported_answer",
+      "rationale": "Factual answer: The opening no-guarantee conclusion is correct, but the explanation asserts that validation now checks types every time. It also risks overstating the removal as universal loss of input-type preservation. Evidence support: The actual passage says preserving the old behavior would require checks every time, as a counterfactual performance cost. Turning that into a claim about the new actual process reverses the explanation. The full snapshot also distinguishes loss of a general guarantee from preservation exceptions. Version applicability: Both passages and the citation have compatible 2.10.6 metadata; the additional process claim is unsupported despite a correct short answer.",
+      "cited_chunk_ids": [
+        "chunk-8fdd672015f35b297338584bbb1c1ed65859a912c547360b09ca9b37ee3b12ef"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-mapping-input-type",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "7949b2ea38edf0db02ef4315471cd610e5ff37a0769356f6c4ba735493243d3a",
+      "trace_hash": "aa30dd49b34d7252728ed218932d974e850a95ad23c01a47a90aaaaa0854f5e5",
+      "expectation_hash": "ae8b143050825b1dd6a4f355020cd05fe8914da520fb1e8fd9c96d43c8d69bc8",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly denies a guarantee of preserving the Counter subtype. The concise answer does not assert that all input subtypes are always discarded. Evidence support: The retrieved Input types are not preserved section contrasts the old Counter-preservation effort with its v2 costs, and the second supplied passage states v2 no longer attempts general preservation. Together they support the narrow no-guarantee conclusion. The rubric does not require always naming the resulting plain dict. Version applicability: The citation and both supplied passages are scoped to 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-35e6587f480ab4d241fedab09f6f01a957340a2d23d9007fb5f0829d1b6ee5d3"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-url-string-conversion",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "53a4ffb373ccd524d494d4c0288de2c3c1b33b0ca092989a3350197ef55fec95",
+      "trace_hash": "e606a634ac9a65dafac722a9375e003a3d107b0e83d275d39fab4e46d4594a91",
+      "expectation_hash": "3c71e3e99a4dbc5ff34b63ad98d1108806bb84a76a6d2b2978d767e78aa75856",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly says URL/DSN values no longer inherit from str and recommends explicit str(url) conversion for a string-taking API. Evidence support: The first supplied passage and its heading establish the inheritance change; the second explicitly gives str(url). The recorded answer cites the first compatible chunk, with its conversion detail available in the paired supplied context. Version applicability: Both supplied passages and the actual citation are compatible with requested 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-17a8da886e50f12c39d17073cc7b1cf1b0848e7eb33f8f172a2170b6f9c94383"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "44a9f78d5ff94af0babb5d497b8522d5",
+        "case_id": "study-url-string-conversion",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "7949b2ea38edf0db02ef4315471cd610e5ff37a0769356f6c4ba735493243d3a",
+      "trace_hash": "c59fb2c70895190bf353c6583630dc2dc88d1e0cee2916526fadb342d3406856",
+      "expectation_hash": "3c71e3e99a4dbc5ff34b63ad98d1108806bb84a76a6d2b2978d767e78aa75856",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "Factual answer: Correctly says URL/DSN values no longer inherit from str and recommends explicit str(url) conversion for a string-taking API. Evidence support: The first supplied passage and its heading establish the inheritance change; the second explicitly gives str(url). The recorded answer cites the first compatible chunk, with its conversion detail available in the paired supplied context. Version applicability: Both supplied passages and the actual citation are compatible with requested 2.10.6.",
+      "cited_chunk_ids": [
+        "chunk-61ff6c1a0b77ef15869772cb92d7c95c9d8855303088322cd15ff55bba8340cf"
+      ],
+      "assessor": "Brain/Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    }
+  ]
+}

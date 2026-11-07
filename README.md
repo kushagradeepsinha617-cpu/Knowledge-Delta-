@@ -31,7 +31,7 @@ For an existing saved experiment, choose **Existing run JSON** and supply its or
 A fresh source-only UI environment needs Python and the standard library:
 
 ```powershell
-py -3 -m venv .venv
+py -3 -m venv --without-pip .venv
 & '.\.venv\Scripts\python.exe' -B scripts/run_web.py --serve --port 8501
 ```
 
@@ -47,7 +47,19 @@ The repository's verified source-dependency setup uses:
 
 The latest source checkpoint executed **583 tests**, with zero failures, errors or skips. Ordinary tests use constructed/fault fixtures and do not need Ollama, network access or model downloads. [Raw verification evidence](docs/evidence/milestone5-owner-approval-and-controls/checks.json) and [test setup](docs/TEST_SETUP.md) describe the environment and provenance.
 
-For a conventional explicit test installation, the project declares the pytest dependency in `.[test]`. This is a separate installation step, not application startup. The archived source-dependency test route and an offline wheel/fresh-pip-install probe have actually run; online resolution of the full ML dependency stack has not been claimed.
+For a conventional explicit test installation, the project declares the pytest dependency in `.[test]`. Keep setup/cache state project-local:
+
+```powershell
+New-Item -ItemType Directory -Force .tools/tmp, .tools/pip-cache | Out-Null
+$env:TEMP = (Resolve-Path .tools/tmp).Path
+$env:TMP = $env:TEMP
+$env:PIP_CACHE_DIR = (Resolve-Path .tools/pip-cache).Path
+& '.\.venv\Scripts\python.exe' -B -m ensurepip
+& '.\.venv\Scripts\python.exe' -B -m pip install -e '.[test]'
+& '.\.venv\Scripts\python.exe' -B -m pytest -p no:cacheprovider --basetemp .tools/pytest
+```
+
+This explicitly installs test dependencies and may use the internet. It is not application startup. The archived source-dependency test route and an offline wheel/fresh-pip-install probe have actually run; this conventional online test-install route and fresh resolution of the full ML stack have not been claimed as exercised.
 
 ## Actual observations
 

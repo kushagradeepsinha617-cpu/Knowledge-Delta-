@@ -1,0 +1,1055 @@
+{
+  "schema_version": 1,
+  "kind": "provisional_agent_assessment",
+  "raw_run_path": "runs/milestone5-study/bundle-5.json",
+  "raw_run_sha256": "153a953c8d0df975e37905f4736c27370822df395d1151ebc05e65e644408b05",
+  "run_id": "e551db7d6f0844579350ec41c2a8473b",
+  "dataset_hash": "13fbd124cd7156c5a374f6206b270d5b1ca73d14de42bce28854a862da3aee41",
+  "assessed_at": "2026-11-07T06:08:18.114206+00:00",
+  "assessor": "Codex AI-assisted",
+  "human_review": false,
+  "independent_reference": false,
+  "provisional": true,
+  "scope_note": "All 48 actual rows were read against expectations, answers, citations and supplied passages. The after snapshot has no context and records policy abstentions. These proposals are not human grades or benchmark truth.",
+  "assessment_policy": "Factual contradiction fails; incomplete rubric/evidence support remains unresolved. Exact recorded passages, not keyword presence alone, inform these case-specific proposals.",
+  "summary": {
+    "planned_records": 48,
+    "assessed_records": 48,
+    "proposed_outcomes": {
+      "fail": 12,
+      "pass": 34,
+      "needs_human_review": 2
+    },
+    "by_configuration": {
+      "basic": {
+        "fail": 6,
+        "pass": 17,
+        "needs_human_review": 1
+      },
+      "version_filtered": {
+        "fail": 6,
+        "pass": 17,
+        "needs_human_review": 1
+      }
+    },
+    "human_answer_judgments_created": 0,
+    "benchmark_accuracy_measured": false,
+    "findings": [
+      "All 24 after-snapshot rows abstain through the deterministic empty-context policy; no model generation occurs there.",
+      "Twelve before-snapshot answers contradict their supplied evidence across six case definitions.",
+      "Two plain-validator answers leave the required short-circuit mechanism unstated and need human review.",
+      "Removing evidence tests the configured evidence-only response, not a change in Pydantic behavior."
+    ]
+  },
+  "records": [
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-mutable-default-isolation",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "4d0fc84c6bff37683cca19baae59ed5199a0d44f0d0f8b16da052b95492599b9",
+      "expectation_hash": "3bb91e0971081725250a92a1b2f018bfb2b44d8ebfc28d12dad3b895dba56d2a",
+      "proposed_outcome": "fail",
+      "failure_kind": "factual_contradiction",
+      "rationale": "The answer says the unhashable default is shared. Its cited passage says Pydantic deep-copies this default for each instance.",
+      "cited_chunk_ids": [
+        "chunk-f46ee74481b68b999c36f0af1c717332e8c1a41a9d81c1d85fb996d0fd9d46d7"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-mutable-default-isolation",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "0889ba6945ea4739925a903759fd4c70c939745198df23b14f9d76a8c45ce310",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-with-json-schema-replacement",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "ea9b1bef159647ef35b54438ee6dbfae0d6d6d2fa1f966d8fe68c4f938da4873",
+      "expectation_hash": "8dc998161a27f012958f7a531b59521bd99999c9431c831a24540d1c52abec72",
+      "proposed_outcome": "fail",
+      "failure_kind": "factual_contradiction",
+      "rationale": "The answer says WithJsonSchema merely appends keys and type may be omitted. The actually supplied passage says it overrides the base schema; the snapshot expectation additionally quotes the documentation's type-needed example. The type-needed sentence itself was not in these retrieved passages.",
+      "cited_chunk_ids": [
+        "chunk-3ba353c2b03537188ed33603790de51a0151948cf68c6997bcc7f0867d0b9bf5"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-with-json-schema-replacement",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "73dc307a6fedec0b5d8f2e810dcf1c7e7e32f8becfef5aab3d175e49007e05df",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-schema-specification",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "a92185ed26c05ac51e970cce57d93c4bb4770035242d47356183bd07f7c01381",
+      "expectation_hash": "3ee157ea31ef0d79c2b1fcc1edb9f6067686406d7e9c10c8422eb3d212d0bd3f",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The answer names Draft 2020-12, and its citation directly identifies that specification.",
+      "cited_chunk_ids": [
+        "chunk-84bbef36cc8afb31567d9e91867e82512af6b3fdd4deb498ef836907c9563619"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-schema-specification",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "af361adfecab472a2e0883be296d68796a4ad127d43a3c76c247f00c45b56175",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-schema-ref-definitions",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "ec3ceade9069f2d078db4e51a68acce55f54f9eee0567a9cf0e47c78922150df",
+      "expectation_hash": "a6e22ae5d32d4958ff09443e335d14cc98d40d0cca9868d054b9620072279003",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The answer separates reference formatting from definition placement. The cited passage explicitly retains definitions under $defs.",
+      "cited_chunk_ids": [
+        "chunk-37bf5467b04501b4be11b72bfb96302218217ebc1ce021eea923f3e33538e131"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-schema-ref-definitions",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "5e751f113bdaeb6de4d2ed212444c8171664f9558a2e2aba291337a779461088",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-skip-json-schema",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "bcac839dd3614cfac71a76ce623072b80b4356fba494542ffa130a18a0083782",
+      "expectation_hash": "cc150be61f6c984ea93866e67322919f34d96da14e39b73c76c6ac8d55187474",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The answer names SkipJsonSchema and limits the claim to generated schema. Its citation directly supports this.",
+      "cited_chunk_ids": [
+        "chunk-b57ebf28b280b0ae625e2cd0ffec784f36062469380f029160100acbc419fac2"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-skip-json-schema",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "f186aa6d6ce28ceb3416537532b88d1066df6f76cb6d5d31e6978c5f419440b4",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-adapter-reuse",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "2ac975168b9a363aacbc72c5b36ce513a8438eb99521f69460248767a30d3a75",
+      "expectation_hash": "1609e90a3574b3b9fb378a7e1274da5e972aafb44f4a51b532d17727138e1e9f",
+      "proposed_outcome": "fail",
+      "failure_kind": "factual_contradiction",
+      "rationale": "The answer recommends recreating TypeAdapter every loop. Its citation describes nontrivial construction overhead and recommends reuse.",
+      "cited_chunk_ids": [
+        "chunk-370dd86787713b6d6b22c8ccb57c197843fbff231f7c16f8852581349a1b1453"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-adapter-reuse",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "91b0b3fd6ab1a36b3601d2ce71228c275a63742b1e8f81e201cfe16ab43e231c",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-adapter-deferred-build",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "875434e910ad9b088f16d27d32adce9dbec46bfb8ad95135a19ad6ff1e5f7750",
+      "expectation_hash": "debb4063324aee8186edea8407489c6df7c4cf17c2b472c541ba81c8f62596fd",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The answer gives first-use construction for validation/serialization and the rebuild() method. Both facts appear in supplied passages; the filtered answer cites only the first fragment and relies on an uncited second fragment for the full rule.",
+      "cited_chunk_ids": [
+        "chunk-a71d3b41efa7dd296a17b887614acb7e5a0f84c6736b1647a821a068eaea1edf",
+        "chunk-3800cd2c251aa3845fafb015f7af2f0acc0bd7e883bcc171b3ae8a24970de498"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-adapter-deferred-build",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "f8f7cf49287929d0d2676b707272cc2b05d4b1e72852e9453eaee72406f60099",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-field-after-stage",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "b2a868f8370da24d0a4b0842f0a05ad013b4a08171bce9d9b0d10ab1915630ab",
+      "expectation_hash": "ec3e248123d4d42d8bf8f92e95f1b393a6330a6c620f1c52b63a82d46019f963",
+      "proposed_outcome": "fail",
+      "failure_kind": "factual_contradiction",
+      "rationale": "The answer places an after validator before internal validation and says it may omit returning the value. The case expectation contradicts both claims. Actual retrieved passages instead describe before and plain validators; the after-validator rule was not retrieved, so the response is unsupported by its context.",
+      "cited_chunk_ids": [
+        "chunk-89400c439e331f90eebfcbe2c1b5b54b43217796ed5e814213a2eed9ddd14dca"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-field-after-stage",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "cae2b06ff84398124d731e9d3f05c6d5e4ebad0ea20d5157b4538c6c79b143a6",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-field-before-inner-validation",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "453af426f6e31f9479b9a32ae82869bfb8de875074ac093a952f3eb367904ba2",
+      "expectation_hash": "352d376a0479ac4f12c3a20140cbabc8de9ed83c3b9dcb116a4bca233f93f92e",
+      "proposed_outcome": "fail",
+      "failure_kind": "factual_contradiction",
+      "rationale": "The answer claims a before validator bypasses subsequent type validation. A supplied passage explicitly says its returned value is then validated against the annotation.",
+      "cited_chunk_ids": [
+        "chunk-0e89e16ecc6ce7e701b7ac734d31db91d1d316c6808976880f1b4567398b371e"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-field-before-inner-validation",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "8a295367c5be6904166b21bc2cd9d6b43810d766233392e50e194088b72b9ff6",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-field-plain-termination",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "804b7b0abff92ef04b639d874386be4b3eb75abfcf60eca955b29ba6a70ef05d",
+      "expectation_hash": "f292b88f469aed498630af3e0526db144f559e2377e5cc952936ba3baef3e130",
+      "proposed_outcome": "needs_human_review",
+      "failure_kind": "incomplete_explanation",
+      "rationale": "The brief negative answer is compatible with the source, but omits the rubric's required explanation that a plain validator terminates the usual internal validation path.",
+      "cited_chunk_ids": [
+        "chunk-0a8313abf693fc78ebe8c3648a8b6cf975a6bc41f0c3b1bff3cda274391adf47"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-field-plain-termination",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "83318312ef93129a8de8a8b2f49b5e83091960e70498411b191f8ec08a178610",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-field-wrap-handler",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "2739bba8760b1fb3de113bff94eb0eea29b563604980ba823b1d90855672cd16",
+      "expectation_hash": "6e128700aff30990394d26b82c3afb2f36a3cfedab9d209fdede75ef1be945e2",
+      "proposed_outcome": "fail",
+      "failure_kind": "factual_contradiction",
+      "rationale": "The answer says the handler must always be called and errors cannot be intercepted. The actually supplied wrap passage describes flexible control and begins the optional handler-call sentence, but cuts before its try/except detail. The case expectation contains the full source quote; the mandatory-handler claim is contradicted by the documented rule.",
+      "cited_chunk_ids": [
+        "chunk-908930710f623165e230cd9ddda2ac2186673c84da0bbd5b3d3e0506ed3fbbd7"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-field-wrap-handler",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "30a72d6a72b535125feec2b6624e43df079f7077c55a94513d0c67fbf13c1602",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-annotated-validator-order",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "f6acb7bda990d6bee806e2d653af5f564f817a401acaa5004cda91a4b2bc5a25",
+      "expectation_hash": "5baa66aaddc229c212283780c6742fe87064c8f149e2a05dcadd407b1cbc001d",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The answer gives before/wrap right-to-left and after left-to-right, as the cited ordering passage states.",
+      "cited_chunk_ids": [
+        "chunk-0e89e16ecc6ce7e701b7ac734d31db91d1d316c6808976880f1b4567398b371e"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-annotated-validator-order",
+        "configuration_name": "basic",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "1b0382a9c9b098e1a719ec70932a806cd1dae4b7b6df288083c2a6380bb3a897",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-mutable-default-isolation",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "ddfd88d400fa867a0bd60a591feb72bb2e0b8d3b4a5247e7b3ab2463fc24e175",
+      "expectation_hash": "3bb91e0971081725250a92a1b2f018bfb2b44d8ebfc28d12dad3b895dba56d2a",
+      "proposed_outcome": "fail",
+      "failure_kind": "factual_contradiction",
+      "rationale": "The answer says the unhashable default is shared. Its cited passage says Pydantic deep-copies this default for each instance.",
+      "cited_chunk_ids": [
+        "chunk-f46ee74481b68b999c36f0af1c717332e8c1a41a9d81c1d85fb996d0fd9d46d7"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-mutable-default-isolation",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "44798f2a8f62cacead0ae2e378d35512566cef0b5f0b76b6ca02b70720b8a2c9",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-with-json-schema-replacement",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "814577291c2c8f8f7f490f0914c02c659d73fa54690691b5d87345de02a93cf5",
+      "expectation_hash": "8dc998161a27f012958f7a531b59521bd99999c9431c831a24540d1c52abec72",
+      "proposed_outcome": "fail",
+      "failure_kind": "factual_contradiction",
+      "rationale": "The answer says WithJsonSchema merely appends keys and type may be omitted. The actually supplied passage says it overrides the base schema; the snapshot expectation additionally quotes the documentation's type-needed example. The type-needed sentence itself was not in these retrieved passages.",
+      "cited_chunk_ids": [
+        "chunk-3ba353c2b03537188ed33603790de51a0151948cf68c6997bcc7f0867d0b9bf5"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-with-json-schema-replacement",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "203b7ce81a7be860994e3c3cff2b590f27e2d67c0f897986bd983891bb99239d",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-schema-specification",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "edbdecb6ae88bcd3b7197c0a45d58a4824a39de6e9876b86c0382bd92216eb23",
+      "expectation_hash": "3ee157ea31ef0d79c2b1fcc1edb9f6067686406d7e9c10c8422eb3d212d0bd3f",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The answer names Draft 2020-12, and its citation directly identifies that specification.",
+      "cited_chunk_ids": [
+        "chunk-84bbef36cc8afb31567d9e91867e82512af6b3fdd4deb498ef836907c9563619"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-schema-specification",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "9e4a33ee34e2153b01c41f5563a9bcfc7b05bbf987e64fdabb89a6829ebe0e28",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-schema-ref-definitions",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "0e55f167c11151258b7154aee57de4d6532f99711189d570246c390a232fca4b",
+      "expectation_hash": "a6e22ae5d32d4958ff09443e335d14cc98d40d0cca9868d054b9620072279003",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The answer separates reference formatting from definition placement. The cited passage explicitly retains definitions under $defs.",
+      "cited_chunk_ids": [
+        "chunk-37bf5467b04501b4be11b72bfb96302218217ebc1ce021eea923f3e33538e131"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-schema-ref-definitions",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "8a253f40422bbfd49cc35b2b927f4689e317c0ea1a6eeacb4b62608369dcf7d0",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-skip-json-schema",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "b4f571d0313b7eda7a6f2adf10990fd619a12311832cdfdf9e46fcaf038b0025",
+      "expectation_hash": "cc150be61f6c984ea93866e67322919f34d96da14e39b73c76c6ac8d55187474",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The answer names SkipJsonSchema and limits the claim to generated schema. Its citation directly supports this.",
+      "cited_chunk_ids": [
+        "chunk-b57ebf28b280b0ae625e2cd0ffec784f36062469380f029160100acbc419fac2"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-skip-json-schema",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "35137011b774facd58b978666ac9dcebe4521bb30743b0b5feda764b3f94dcfa",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-adapter-reuse",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "36412d845e09fdff980aca884ca9dcacef1c1c6109a594f16e92aa0f936732dc",
+      "expectation_hash": "1609e90a3574b3b9fb378a7e1274da5e972aafb44f4a51b532d17727138e1e9f",
+      "proposed_outcome": "fail",
+      "failure_kind": "factual_contradiction",
+      "rationale": "The answer recommends recreating TypeAdapter every loop. Its citation describes nontrivial construction overhead and recommends reuse.",
+      "cited_chunk_ids": [
+        "chunk-370dd86787713b6d6b22c8ccb57c197843fbff231f7c16f8852581349a1b1453"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-adapter-reuse",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "20105c0802c55eab41469db0b9a3c0e768e8193494e36f200dc4f4b39e3007b6",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-adapter-deferred-build",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "80cc5c3669ec546144d69efe7f23fa5115bbc8038f92067c7e0ee0910691d8f8",
+      "expectation_hash": "debb4063324aee8186edea8407489c6df7c4cf17c2b472c541ba81c8f62596fd",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The answer gives first-use construction for validation/serialization and the rebuild() method. Both facts appear in supplied passages; the filtered answer cites only the first fragment and relies on an uncited second fragment for the full rule.",
+      "cited_chunk_ids": [
+        "chunk-a71d3b41efa7dd296a17b887614acb7e5a0f84c6736b1647a821a068eaea1edf"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-adapter-deferred-build",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "685663ab43fa3dbc38eb237bd633802e0c5da32095259db42490d98a25c706f3",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-field-after-stage",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "665b3f7ef00fe49585f2d2f90ccdd5700f806cc0aaaea0a8fbfbdaf4d9018025",
+      "expectation_hash": "ec3e248123d4d42d8bf8f92e95f1b393a6330a6c620f1c52b63a82d46019f963",
+      "proposed_outcome": "fail",
+      "failure_kind": "factual_contradiction",
+      "rationale": "The answer places an after validator before internal validation and says it may omit returning the value. The case expectation contradicts both claims. Actual retrieved passages instead describe before and plain validators; the after-validator rule was not retrieved, so the response is unsupported by its context.",
+      "cited_chunk_ids": [
+        "chunk-89400c439e331f90eebfcbe2c1b5b54b43217796ed5e814213a2eed9ddd14dca"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-field-after-stage",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "78e8e0112cc0f7d797273947cacad0ab8184bfb223106aee688477ed6773cda5",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-field-before-inner-validation",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "c42d7cee8f0c26a554890dc8a233fedc5bae9bd469c8592c015687ff6e54fe42",
+      "expectation_hash": "352d376a0479ac4f12c3a20140cbabc8de9ed83c3b9dcb116a4bca233f93f92e",
+      "proposed_outcome": "fail",
+      "failure_kind": "factual_contradiction",
+      "rationale": "The answer claims a before validator bypasses subsequent type validation. A supplied passage explicitly says its returned value is then validated against the annotation.",
+      "cited_chunk_ids": [
+        "chunk-0e89e16ecc6ce7e701b7ac734d31db91d1d316c6808976880f1b4567398b371e"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-field-before-inner-validation",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "db6117b5f7acd961b7b7ffaf68e76b23d9bc756c922fd9d130f1aa6775b8e0fe",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-field-plain-termination",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "cbe6e03f5f96d1f19d8d1645407cdec2e9f0700c1d10d90a2fac1edcd7c824d6",
+      "expectation_hash": "f292b88f469aed498630af3e0526db144f559e2377e5cc952936ba3baef3e130",
+      "proposed_outcome": "needs_human_review",
+      "failure_kind": "incomplete_explanation",
+      "rationale": "The brief negative answer is compatible with the source, but omits the rubric's required explanation that a plain validator terminates the usual internal validation path.",
+      "cited_chunk_ids": [
+        "chunk-0a8313abf693fc78ebe8c3648a8b6cf975a6bc41f0c3b1bff3cda274391adf47"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-field-plain-termination",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "da6918235df3603e2207fd907cd1623b5c11ef11e4072b0fb0c85ec00b0f5143",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-field-wrap-handler",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "b8913b53046e80fec3312934289bb248e2ec371cf61f909d3db94b9a9815ce40",
+      "expectation_hash": "6e128700aff30990394d26b82c3afb2f36a3cfedab9d209fdede75ef1be945e2",
+      "proposed_outcome": "fail",
+      "failure_kind": "factual_contradiction",
+      "rationale": "The answer says the handler must always be called and errors cannot be intercepted. The actually supplied wrap passage describes flexible control and begins the optional handler-call sentence, but cuts before its try/except detail. The case expectation contains the full source quote; the mandatory-handler claim is contradicted by the documented rule.",
+      "cited_chunk_ids": [
+        "chunk-908930710f623165e230cd9ddda2ac2186673c84da0bbd5b3d3e0506ed3fbbd7"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-field-wrap-handler",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "b4152b7a95650c6cbe4579f019b22035001835137fb9d3c0e5cc0d3bc60ab377",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-annotated-validator-order",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "before"
+      },
+      "snapshot_id": "0bbc6862f7789fb83a7f75f6cbfe70a11b122a605ba4e1e05dacd7666630a6f7",
+      "trace_hash": "01b20b9c495ff6edf58516a47bfbfe75821643386c593a39613fb6912b039deb",
+      "expectation_hash": "5baa66aaddc229c212283780c6742fe87064c8f149e2a05dcadd407b1cbc001d",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The answer gives before/wrap right-to-left and after left-to-right, as the cited ordering passage states.",
+      "cited_chunk_ids": [
+        "chunk-0e89e16ecc6ce7e701b7ac734d31db91d1d316c6808976880f1b4567398b371e"
+      ],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    },
+    {
+      "result_key": {
+        "run_id": "e551db7d6f0844579350ec41c2a8473b",
+        "case_id": "study-annotated-validator-order",
+        "configuration_name": "version_filtered",
+        "repetition": 1,
+        "snapshot_slot": "after"
+      },
+      "snapshot_id": "f5d1dcd889e09569a8e4fc9f67f4bbd9918622b846cb4a39b059a15ed1774858",
+      "trace_hash": "a60de40dd2e48913f77282056a2aede3d371b593ec4d82319ec29ae6215b9019",
+      "expectation_hash": "4b0267cb1751f6b26b441214aae45244b9fbae7447ccd01c56b68681e8223b71",
+      "proposed_outcome": "pass",
+      "failure_kind": null,
+      "rationale": "The after snapshot supplies zero passages and the recorded evidence-only policy abstains without a model call. This verifies the configured policy path, not that the underlying fact became false.",
+      "cited_chunk_ids": [],
+      "assessor": "Codex AI-assisted",
+      "human_review": false,
+      "independent_reference": false,
+      "provisional": true
+    }
+  ]
+}

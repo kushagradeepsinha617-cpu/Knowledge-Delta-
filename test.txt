@@ -1,4 +1,0 @@
-Hello from Codex!
-
-This test file was created directly in the Knowledge-Delta- GitHub repository.
-No files were created or modified on your computer.

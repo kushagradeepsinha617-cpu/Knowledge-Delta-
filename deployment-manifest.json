@@ -1,0 +1,17 @@
+{
+  "kind": "static_showcase_export",
+  "files": {
+    ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "assets/fixture-comparisons.png": "e1baaa5e3c8080915aa1532f872bf6cdf2d3bafc27bfa07b53336c234f0b6be4",
+    "assets/fixture-evidence.png": "d3bd3b61b3618a843dbda5dc6b051128e6e86d0f4f4da609392cadcd055aab5f",
+    "assets/fixture-workspace.png": "0284683489750d55f99d5fcde3a1d37c9f525cd41d947c1e5f7f0013afe3fd76",
+    "index.html": "6f5666b77e48213c0ba363242639559669b9e128d8d75b4d32ac0cd3dd567f9a",
+    "reports/final-artifact-manifest.json": "a6de99db43d7142c117d1cf6810497feb2fb935758b55a42b82cb0a177c7d565",
+    "reports/final-study-report.html": "972a5284b054c043e333260e4673dddbd8535e9837c05e96ab75df81f3921c59",
+    "reports/final-study-report.json": "ea9e5d5398a20bb3e54ab7b55a3f8f26ef790ea1583f00d5f89ec3dbbeb2d6ca",
+    "reports/offline-reproduction-receipt.json": "e8eb998abe6f22c47eba2df06af296be7360eb2033a03cd9695714addf23ba21"
+  },
+  "verified_local_links": 9,
+  "model_service_deployed": false,
+  "source_repository": "https://github.com/kushagradeepsinha617-cpu/Knowledge-Delta-"
+}

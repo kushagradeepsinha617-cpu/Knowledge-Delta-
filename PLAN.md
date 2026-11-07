@@ -1,4 +1,4 @@
-# Current milestone: 5 ? Final evaluation and portfolio packaging
+# Milestone 5 complete ? final evaluation and portfolio packaging
 
 See `docs/MILESTONE_5.md` for scope and completion criteria.
 
@@ -9,7 +9,7 @@ See `docs/MILESTONE_5.md` for scope and completion criteria.
 - [x] Verify core wheel build, fresh isolated pip install, installed CLI/assets and fixture HTTP workflow.
 - [x] Prepare README, architecture, dataset card, results, screenshots, demo script and case study.
 - [x] Build the static portfolio package and 60–90 second demo script.
-- [ ] Finish the final artifact audit and GitHub push.
+- [x] Finish the final artifact audit and verify the GitHub push.
 
 The actual video is deferred at the user's direction and is not claimed by the
 package. Browser automation and headless Chrome/Edge capture were unavailable
@@ -33,9 +33,9 @@ accuracy or independent evaluator precision/recall is claimed.
 
 The exact final JSON/HTML report reproduced offline from archived frozen source
 and raw runs. See `docs/evidence/milestone5-study/` and
-`docs/evidence/milestone5-analysis/final-study-report.json`. Main bundles 1?7
-and review packets are published through `a18accb`; variability/final artifacts
-await the final push.
+`docs/evidence/milestone5-analysis/final-study-report.json`. All main bundles, repeated-run records, review packets, final report, offline
+reproduction evidence and static portfolio package were published and tree-verified
+in commit `0ca80fe1772678b2f869eb839c2d6f2a437fed1b`.
 
 A post-run validation-only fix requires both frozen model digests for answered
 live rows; recorded answers were not changed. Current source passed **589**
@@ -44,8 +44,10 @@ The core package built, installed and served the fixture workflow again in
 receipt `0085d125bf1b4f64b2b04b2b17300708`. Fresh full-ML resolution,
 other platforms and OS peak memory remain unverified.
 
-Next: complete portfolio packaging and final scope audit, then push and verify
-GitHub. Keep AI proposals distinct from human judgments.
+Final local audit: `docs/evidence/milestone5-final-audit.json` passed
+portfolio-member hashes, report bindings and local links. GitHub main points to
+the verified delivery commit. An actual video remains a separately deferred
+presentation artifact. Keep AI proposals distinct from human judgments.
 
 ## Earlier checkpoints (preserved)
 
